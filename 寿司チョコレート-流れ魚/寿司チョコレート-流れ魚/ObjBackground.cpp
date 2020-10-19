@@ -17,6 +17,7 @@ void CObjBackground::Init()
 void CObjBackground::Action()
 {
 	//背景①の動作
+	//みず（白線）を流せばこの処理は不要
 	//m_y1 -= 10.0f;
 	if (m_y1 < -800.0f)
 		m_y1 = 800;

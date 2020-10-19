@@ -14,6 +14,8 @@ public:
 	void Action();//アクション
 	void Draw();//ドロー
 private:
-	int right;
+	int right; //右にどれだけずれてるか
+	int right_d;//rightの変数保存用
 	float m_y1; //背景①の描画情報
+	float flow_flag;//途中で線が変わらない用。
 };

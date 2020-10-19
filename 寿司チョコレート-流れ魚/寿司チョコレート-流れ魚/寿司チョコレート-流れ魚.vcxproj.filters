@@ -132,7 +132,7 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\逆ら魚\逆ら魚\ObjFishPlayer.h">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\逆ら魚\逆ら魚\Obj10enn.h">
       <Filter>ソース ファイル</Filter>
