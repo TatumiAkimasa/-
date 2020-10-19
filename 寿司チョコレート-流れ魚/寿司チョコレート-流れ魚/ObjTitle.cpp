@@ -25,10 +25,10 @@ void CObjTitle::Action()
 		Scene::SetScene(new CSceneMain());
 		m_key_flag=false;
 	}
+	}
 	else
 	{
 		m_key_flag = true;
-	}
 	}
 }
 //ƒhƒ[
