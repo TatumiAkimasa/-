@@ -69,10 +69,10 @@
     <ClCompile Include="SceneTitle.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\逆ら魚\逆ら魚\ObjFishPlayer.cpp">
+    <ClCompile Include="Obj10enn.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Obj10enn.cpp">
+    <ClCompile Include="ObjFishPlayer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -131,11 +131,11 @@
     <ClInclude Include="SceneTitle.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\逆ら魚\逆ら魚\ObjFishPlayer.h">
+    <ClInclude Include="Obj10enn.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Obj10enn.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="ObjFishPlayer.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

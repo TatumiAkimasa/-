@@ -139,7 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\逆ら魚\逆ら魚\ObjFishPlayer.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
     <ClCompile Include="GameL\Draw2DTex_Source.cpp" />
@@ -155,13 +154,13 @@
     <ClCompile Include="GameL\WinInputs.cpp" />
     <ClCompile Include="Obj10enn.cpp" />
     <ClCompile Include="ObjBackground.cpp" />
+    <ClCompile Include="ObjFishPlayer.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="Objwater_flow.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\逆ら魚\逆ら魚\ObjFishPlayer.h" />
     <ClInclude Include="GameHead.h" />
     <ClInclude Include="GameL\Audio.h" />
     <ClInclude Include="GameL\DirectXDevice.h" />
@@ -177,6 +176,7 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="Obj10enn.h" />
     <ClInclude Include="ObjBackground.h" />
+    <ClInclude Include="ObjFishPlayer.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="Objwater_flow.h" />
     <ClInclude Include="SceneMain.h" />
