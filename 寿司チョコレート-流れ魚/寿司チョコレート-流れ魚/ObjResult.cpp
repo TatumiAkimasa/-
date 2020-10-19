@@ -3,6 +3,7 @@
 #include "GameL\DrawFont.h"
 #include "GameL\SceneManager.h"
 #include "GameL\WinInputs.h"
+//ぼんてんです。
 
 //使用するゲームスペース
 using namespace GameL;
