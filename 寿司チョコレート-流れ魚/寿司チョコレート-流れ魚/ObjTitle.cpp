@@ -31,7 +31,7 @@ void CObjTitle::Action()
 		m_key_flag = true;
 	}
 }
-//ドロー
+//ドロー//タイトル
 void CObjTitle::Draw()
 {
 	float c[4] = { 0.0f,1.0f,1.0f,1.0f };

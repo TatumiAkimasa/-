@@ -1,3 +1,4 @@
+//10円！
 //使用するヘッダーファイル
 #include "GameL\DrawTexture.h"
 #include "GameL\HitBoxManager.h"
