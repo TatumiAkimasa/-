@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\逆ら魚\逆ら魚\Obj10enn.cpp" />
     <ClCompile Include="..\..\..\逆ら魚\逆ら魚\ObjFishPlayer.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\逆ら魚\逆ら魚\Obj10enn.h" />
     <ClInclude Include="..\..\..\逆ら魚\逆ら魚\ObjFishPlayer.h" />
     <ClInclude Include="GameHead.h" />
     <ClInclude Include="GameL\Audio.h" />
