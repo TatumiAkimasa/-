@@ -59,6 +59,9 @@ void CSceneMain::InitScene()
 //ゲーム実行中メソッド
 void CSceneMain::Scene()
 {
+	//乱数複雑化
+	rand(); rand(); rand(); rand();
+
 	//ランダム変数
 	int x = rand() % 3;
 
@@ -71,7 +74,7 @@ void CSceneMain::Scene()
 	}
 
 	//10円の出現
-	if (m_time % 90 == 0)
+	if (m_time % 60 == 0)
 	{
 		//ランダムに3レーンから降らす処理
 		if (x == 0)
