@@ -19,6 +19,7 @@ CObj10enn::CObj10enn(float x, float y)
 void CObj10enn::Init()
 {
 	m_vy = 0;
+	m_vy = 5.0;
 
 	//当たり判定用Hitboxを作成
 	Hits::SetHitBox(this, m_x, m_y, 64, 64, ELEMENT_ENEMY, OBJ_10ENN, 1);
@@ -27,14 +28,12 @@ void CObj10enn::Init()
 //アクション
 void CObj10enn::Action()
 {
-	m_vy = 0;
-	m_vy += 5.0f;
-
 	//画面外に出たら10円を削除し魚力を加算
 	if (m_y > 600.0f)
 	{
 		this->SetStatus(false);
 		//落下速度加速処理
+		m_vy += 10.0;
 		
 		//魚力加算処理
 	}

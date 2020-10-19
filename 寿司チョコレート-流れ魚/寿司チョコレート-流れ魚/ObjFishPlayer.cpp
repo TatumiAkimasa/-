@@ -85,7 +85,7 @@ void CObjFishPlayer::Action()
 
 
         //主人公消滅でシーンをゲームオーバーに移行する
-        Scene::SetScene(new CSceneTitle());
+        Scene::SetScene(new CSceneResult());
     }
 }
 
