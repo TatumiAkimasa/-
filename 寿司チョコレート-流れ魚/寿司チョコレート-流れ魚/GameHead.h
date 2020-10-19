@@ -66,7 +66,7 @@ struct UserData
 //ゲームシーンクラスヘッダ------------------------
 #include "SceneMain.h"
 #include "SceneTitle.h"
-#include "SceneTitle.h"
+#include "SceneResult.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
