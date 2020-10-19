@@ -36,6 +36,6 @@ void CObjTitle::Draw()
 {
 	float c[4] = { 0.0f,1.0f,1.0f,1.0f };
 	float d[4] = { 1.0f,1.0f,1.0f,1.0f };
-	Font::StrDraw(L"—¬‚ê‹›", 300, 250, 64, c);
+	Font::StrDraw(L"‹t‚ç‹›", 300, 250, 64, c);
 	Font::StrDraw(L"GameStart:EnterKey",200,400,48,d);
 }

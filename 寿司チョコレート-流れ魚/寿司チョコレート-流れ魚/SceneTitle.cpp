@@ -29,7 +29,7 @@ CSceneTitle::~CSceneTitle()
 void CSceneTitle::InitScene()
 {
 	//出力させる文字のグラフィックを作成
-	Font::SetStrTex(L"流れ魚");
+	Font::SetStrTex(L"逆ら魚");
 	Font::SetStrTex(L"GameStart:EnterKey");
 
 	//タイトルオブジェクト作成
