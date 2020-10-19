@@ -8,6 +8,7 @@ enum OBJ_NAME
 	//OBJ_○○と表記
 	OBJ_BACK_GROUND,
 	OBJ_WATER_FLOW,
+	OBJ_TITLE,
 };
 //------------------------------------------------
 
@@ -53,13 +54,15 @@ struct UserData
 //ゲームシーンオブジェクトヘッダ------------------
 #include "ObjBackground.h"
 #include "Objwater_flow.h"
+#include "ObjTitle.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
 #include "SceneMain.h"
+#include "SceneTitle.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START CSceneMain
+#define SET_GAME_START CSceneTitle
 //-----------------------------------------------
