@@ -17,7 +17,7 @@ void CObjFishPlayer::Init()
 {
     m_vx = 0.0f;     //移動ベクトル
     m_vy = 0.0f;
-    m_px = 485.0f;     //位置
+    m_px = 520.0f;     //位置
     m_py = 450.0f;
     m_f = true;      //移動制御
 
@@ -38,7 +38,7 @@ void CObjFishPlayer::Action()
     {
         if (m_f == true)
         {
-            m_vx += 64.0f;
+            m_vx += 120.0f;
             m_f = false;
             
         }
@@ -49,7 +49,7 @@ void CObjFishPlayer::Action()
     {
         if (m_f == true)
         {
-            m_vx -= 64.0f;
+            m_vx -= 120.0f;
             m_f = false;
 
         }
@@ -64,6 +64,15 @@ void CObjFishPlayer::Action()
     m_px += 1 * m_vx;
     m_py += 1 * m_vy;
 
+    if (m_px> 640.0f)
+    {
+        m_px = 640.0f;//はみ出ない位置に移動させる
+    }
+    if (m_px < 400.0f)
+    {
+        m_px = 400.0f;
+    }
+
     //HitBoxの内容を更新
     CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
     hit->SetPos(m_px, m_py);                 //入口から新しい位置(主人公機の位置)情報に置き換える
@@ -71,12 +80,12 @@ void CObjFishPlayer::Action()
     //障害物オブジェクトと接触したら削除
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
     {
-        //this->SetStatus(false);    //自身に削除命令を出す
-        //Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
+        this->SetStatus(false);    //自身に削除命令を出す
+        Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
 
 
         //主人公消滅でシーンをゲームオーバーに移行する
-        Scene::SetScene(new CSceneMain());
+        Scene::SetScene(new CSceneTitle());
     }
 }
 
