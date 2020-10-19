@@ -49,7 +49,7 @@ void CSceneMain::InitScene()
 	CObjBackground* back = new CObjBackground();
 	Objs::InsertObj(back, OBJ_BACK_GROUND, 1);
 
-	//主人公オブジェクト作成
+	//主人公オブジェクト作成(藁)
 	CObjFishPlayer* fp = new CObjFishPlayer();
 	Objs::InsertObj(fp, OBJ_FISH_PLAYER, 10);
 
