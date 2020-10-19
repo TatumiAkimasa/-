@@ -155,9 +155,11 @@
     <ClCompile Include="Obj10enn.cpp" />
     <ClCompile Include="ObjBackground.cpp" />
     <ClCompile Include="ObjFishPlayer.cpp" />
+    <ClCompile Include="ObjResult.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="Objwater_flow.cpp" />
     <ClCompile Include="SceneMain.cpp" />
+    <ClCompile Include="SceneResult.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -177,9 +179,11 @@
     <ClInclude Include="Obj10enn.h" />
     <ClInclude Include="ObjBackground.h" />
     <ClInclude Include="ObjFishPlayer.h" />
+    <ClInclude Include="ObjResult.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="Objwater_flow.h" />
     <ClInclude Include="SceneMain.h" />
+    <ClInclude Include="SceneResult.h" />
     <ClInclude Include="SceneTitle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

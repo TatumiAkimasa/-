@@ -9,6 +9,7 @@ enum OBJ_NAME
 	OBJ_BACK_GROUND,
 	OBJ_WATER_FLOW,
 	OBJ_TITLE,
+	OBJ_RESULT,
 	OBJ_10ENN,
 	OBJ_FISH_PLAYER,
 };
@@ -59,10 +60,12 @@ struct UserData
 #include "ObjTitle.h"
 #include "ObjFishPlayer.h"
 #include "Obj10enn.h"
+#include "ObjResult.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
 #include "SceneMain.h"
+#include "SceneTitle.h"
 #include "SceneTitle.h"
 //-----------------------------------------------
 
