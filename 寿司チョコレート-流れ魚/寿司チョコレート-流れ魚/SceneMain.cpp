@@ -79,17 +79,17 @@ void CSceneMain::Scene()
 		//ƒ‰ƒ“ƒ_ƒ€‚É3ƒŒ[ƒ“‚©‚ç~‚ç‚·ˆ—
 		if (x == 0)
 		{
-			CObj10enn* obj = new CObj10enn(400, 0);
+			CObj10enn* obj = new CObj10enn(385, 0);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 		}
 		else if (x == 1)
 		{
-			CObj10enn* obj = new CObj10enn(520, 0);
+			CObj10enn* obj = new CObj10enn(505, 0);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 		}
 		else if (x == 2)
 		{
-			CObj10enn* obj = new CObj10enn(640, 0);
+			CObj10enn* obj = new CObj10enn(625, 0);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 		}
 	}

@@ -22,7 +22,7 @@ void CObj10enn::Init()
 	m_vy = 5.0;
 
 	//当たり判定用Hitboxを作成
-	Hits::SetHitBox(this, m_x, m_y, 64, 64, ELEMENT_ENEMY, OBJ_10ENN, 1);
+	Hits::SetHitBox(this, m_x+10, m_y+10, 60, 60, ELEMENT_ENEMY, OBJ_10ENN, 1);
 }
 
 //アクション
@@ -42,7 +42,7 @@ void CObj10enn::Action()
 
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);	//作成したHitBox更新用の入り口を取り出す
-	hit->SetPos(m_x, m_y);					//入り口から新しい位置(主人公機の位置)情報に置き換える
+	hit->SetPos(m_x+10, m_y+10);					//入り口から新しい位置(主人公機の位置)情報に置き換える
 	
 	//画面外に出たらHitBoxを削除
 	if (m_y > 600.0f)
@@ -73,8 +73,8 @@ void CObj10enn::Draw()
 
 	dst.m_top = 0.0f + m_y;
 	dst.m_left = 0.0f + m_x;
-	dst.m_right = 64.0f + m_x;
-	dst.m_bottom = 64.0f + m_y;
+	dst.m_right = 64.0f + 15.0f +m_x;
+	dst.m_bottom = 64.0f + 15.0f + m_y;
 
 	Draw::Draw(3, &src, &dst, c, 0.0f);
 }
