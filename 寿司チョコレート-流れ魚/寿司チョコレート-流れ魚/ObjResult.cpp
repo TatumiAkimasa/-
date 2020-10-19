@@ -41,6 +41,6 @@ void CObjResult::Action()
 void CObjResult::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-	Font::StrDraw(L"終了！", 320, 250, 32, c);
-	Font::StrDraw(L"Puth Enter", 240, 500, 32, c);
+	Font::StrDraw(L"終了！", 300, 250, 64, c);
+	Font::StrDraw(L"Puth Enter", 230, 400, 64, c);
 }
