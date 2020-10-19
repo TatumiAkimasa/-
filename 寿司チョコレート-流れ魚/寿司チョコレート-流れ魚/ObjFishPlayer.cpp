@@ -100,7 +100,7 @@ void CObjFishPlayer::Draw()
     dst.m_right = 64.0f + dst.m_left;
     dst.m_bottom = 128.0f + dst.m_top;
 
-    Draw::Draw(0, &src, &dst, c, 0.0f);
+    Draw::Draw(2, &src, &dst, c, 0.0f);
 
 
 }
