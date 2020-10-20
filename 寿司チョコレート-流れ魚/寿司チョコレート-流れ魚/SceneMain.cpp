@@ -6,6 +6,7 @@
 #include "GameL\DrawTexture.h"
 #include "GameL\SceneObjManager.h"
 #include "GameL\Audio.h"
+#include "GameL/UserData.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -49,9 +50,12 @@ void CSceneMain::InitScene()
 	CObjBackground* back = new CObjBackground();
 	Objs::InsertObj(back, OBJ_BACK_GROUND, 1);
 
-	//主人公オブジェクト作成(藁)
+	//主人公オブジェクト作成
 	CObjFishPlayer* fp = new CObjFishPlayer();
 	Objs::InsertObj(fp, OBJ_FISH_PLAYER, 10);
+
+	CObjMain* m = new CObjMain();
+	Objs::InsertObj(m, OBJ_MAIN, 1);
 
 	m_time = 0;
 }
@@ -93,4 +97,6 @@ void CSceneMain::Scene()
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 		}
 	}
+
+	
 }

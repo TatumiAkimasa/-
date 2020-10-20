@@ -139,6 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\逆ら魚\逆ら魚\ObjMain.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
     <ClCompile Include="GameL\Draw2DTex_Source.cpp" />
@@ -179,6 +183,7 @@
     <ClInclude Include="Obj10enn.h" />
     <ClInclude Include="ObjBackground.h" />
     <ClInclude Include="ObjFishPlayer.h" />
+    <ClInclude Include="ObjMain.h" />
     <ClInclude Include="ObjResult.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="Objwater_flow.h" />
