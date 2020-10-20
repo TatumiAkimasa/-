@@ -17,6 +17,8 @@ void CObjMain::Init()
 	f = 0;
 	s_time = 0;
 	m_time = 0;
+	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
+	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
 }
 
 //アクション
@@ -28,12 +30,21 @@ void CObjMain::Action()
 	{
 		f = 0;
 		s_time++;
+		//s_time++の時点でセーブ用s_timeもインクリメント
+		((UserData*)Save::GetData())->save_s_time++;
+		//リザルト画面表示秒数が60を上回らないようにする
+		if (((UserData*)Save::GetData())->save_s_time == 60)
+		{
+			((UserData*)Save::GetData())->save_s_time = 0;
+		}
 	}
 	//s_timeが60で1分です
 	if (s_time == 60)
 	{
 		s_time = 0;
 		m_time++;
+		//m_time++の時点でセーブ用m_timeもインクリメント
+		((UserData*)Save::GetData())->save_m_time++;
 	}
 }
 

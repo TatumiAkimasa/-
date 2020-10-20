@@ -40,7 +40,8 @@ enum HIT_ELEMENTS
 struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
-	
+	int save_s_time;		//s_timeセーブ用変数
+	int save_m_time;		//m_timeセーブ用変数
 };
 //------------------------------------------------
 
