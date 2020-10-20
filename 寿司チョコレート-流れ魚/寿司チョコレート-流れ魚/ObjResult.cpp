@@ -1,6 +1,8 @@
 #include "GameHead.h"
 #include "ObjResult.h"
 #include "GameL\DrawFont.h"
+#include "GameL\DrawTexture.h"
+#include "GameL\UserData.h"
 #include "GameL\SceneManager.h"
 #include "GameL\WinInputs.h"
 //ぼんてんです。
@@ -41,7 +43,14 @@ void CObjResult::Action()
 //ドロー
 void CObjResult::Draw()
 {
+	wchar_t str[256];
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	//
 	Font::StrDraw(L"終了！", 300, 250, 64, c);
-	Font::StrDraw(L"Puth Enter", 230, 400, 64, c);
+	//
+	Font::StrDraw(L"終了！", 300, 250, 64, c);
+	//
+	Font::StrDraw(L"終了！", 300, 250, 64, c);
+	//
+	Font::StrDraw(L"Push Enter", 230, 400, 64, c);
 }

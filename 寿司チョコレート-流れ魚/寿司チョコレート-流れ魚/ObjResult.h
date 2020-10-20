@@ -15,4 +15,6 @@ public:
 	void Draw();	//ƒhƒ[
 private:
 	bool m_key_flag;
+	int m_time;
+	int m_score;
 };
