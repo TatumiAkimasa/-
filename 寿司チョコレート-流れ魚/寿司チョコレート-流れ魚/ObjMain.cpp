@@ -11,26 +11,6 @@
 //使用するネームスペース
 using namespace GameL;
 
-void CObjMain::SetS_time(int m_s_time)
-{
-	s_time = m_s_time;
-}
-
-void CObjMain::SetM_time(int m_m_time)
-{
-	m_time = m_m_time;
-}
-
-int CObjMain::GetS_time()
-{
-	return s_time;
-}
-
-int CObjMain::GetM_time()
-{
-	return m_time;
-}
-
 //イニシャライズ
 void CObjMain::Init()
 {

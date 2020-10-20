@@ -16,10 +16,6 @@ public:
 	void Init();  //イニシャライズ
 	void Action();//アクション
 	void Draw();  //ドロー
-	void SetS_time(int);
-	void SetM_time(int);
-	int GetS_time();
-	int GetM_time();
 private:
 	int f;
 	int s_time;

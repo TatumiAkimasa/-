@@ -16,5 +16,6 @@ public:
 private:
 	bool m_key_flag;
 	int m_time;
+	int s_time;
 	int m_score;
 };

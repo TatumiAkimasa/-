@@ -20,6 +20,8 @@ CObjResult::CObjResult()
 void CObjResult::Init()
 {
 	m_key_flag = false;
+	m_time = 0;
+	s_time = 0;
 }
 
 //アクション
@@ -48,9 +50,10 @@ void CObjResult::Draw()
 	//
 	Font::StrDraw(L"終了！", 300, 250, 64, c);
 	//
-	Font::StrDraw(L"終了！", 300, 250, 64, c);
+	swprintf_s(str, L"%d:%d", m_time, s_time);
+	Font::StrDraw(str, 300, 250, 64, c);
 	//
-	Font::StrDraw(L"終了！", 300, 250, 64, c);
+	//Font::StrDraw(L"終了！", 300, 250, 64, c);
 	//
 	Font::StrDraw(L"Push Enter", 230, 400, 64, c);
 }
