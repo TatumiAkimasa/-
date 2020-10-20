@@ -6,7 +6,7 @@
 #include <time.h>
 
 
-//使用するネームスペース//
+//使用するネームスペース//////
 using namespace GameL;
 
 //イニシャライズ

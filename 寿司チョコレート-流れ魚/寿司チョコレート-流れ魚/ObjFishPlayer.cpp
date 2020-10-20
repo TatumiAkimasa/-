@@ -96,7 +96,7 @@ void CObjFishPlayer::Draw()
     float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
     RECT_F src;//描写元の切り取り位置
-    RECT_F dst;//描画先の表示位置
+    RECT_F dst;//描画先の表示位置でーす
 
 
     src.m_top = 0.0f;
