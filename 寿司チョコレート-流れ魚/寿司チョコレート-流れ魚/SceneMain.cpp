@@ -54,6 +54,7 @@ void CSceneMain::InitScene()
 	CObjFishPlayer* fp = new CObjFishPlayer();
 	Objs::InsertObj(fp, OBJ_FISH_PLAYER, 10);
 
+	//ƒ^ƒCƒ€‚Ì•\Ž¦
 	CObjMain* m = new CObjMain();
 	Objs::InsertObj(m, OBJ_MAIN, 1);
 
