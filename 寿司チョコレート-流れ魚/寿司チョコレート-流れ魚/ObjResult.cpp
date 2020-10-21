@@ -6,7 +6,7 @@
 #include "GameL\SceneManager.h"
 #include "GameL\WinInputs.h"
 #include "GameL\UserData.h"
-//ぼんてんです。
+//ぼんてんですよおおおおおお
 
 //使用するゲームスペース
 using namespace GameL;
