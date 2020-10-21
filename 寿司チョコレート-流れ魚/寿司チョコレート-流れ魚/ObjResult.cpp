@@ -1,6 +1,8 @@
 #include "GameHead.h"
 #include "ObjResult.h"
 #include "GameL\DrawFont.h"
+#include "GameL\DrawTexture.h"
+#include "GameL\UserData.h"
 #include "GameL\SceneManager.h"
 #include "GameL\WinInputs.h"
 #include "GameL\UserData.h"
@@ -19,6 +21,8 @@ CObjResult::CObjResult()
 void CObjResult::Init()
 {
 	m_key_flag = false;
+	m_time = 0;
+	s_time = 0;
 }
 
 //アクション
@@ -44,8 +48,4 @@ void CObjResult::Draw()
 {
 	wchar_t str[256];
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-	Font::StrDraw(L"終了！", 300, 200, 64, c);
-	swprintf_s(str, L"%d:%d", ((UserData*)Save::GetData())->save_m_time, ((UserData*)Save::GetData())->save_s_time);
-	Font::StrDraw(str, 300, 300, 64, c);
-	Font::StrDraw(L"Push Enter", 230, 400, 64, c);
 }
