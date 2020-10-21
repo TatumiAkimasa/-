@@ -5,6 +5,7 @@
 #include "GameL\UserData.h"
 #include "GameL\SceneManager.h"
 #include "GameL\WinInputs.h"
+#include "GameL\UserData.h"
 //ぼんてんです。
 
 //使用するゲームスペース
@@ -47,13 +48,5 @@ void CObjResult::Draw()
 {
 	wchar_t str[256];
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-	//
-	Font::StrDraw(L"終了！", 300, 250, 64, c);
-	//
-	swprintf_s(str, L"%d:%d", m_time, s_time);
-	Font::StrDraw(str, 300, 250, 64, c);
-	//
-	//Font::StrDraw(L"終了！", 300, 250, 64, c);
-	//
-	Font::StrDraw(L"Push Enter", 230, 400, 64, c);
+
 }
