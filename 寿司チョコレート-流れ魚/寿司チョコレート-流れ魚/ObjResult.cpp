@@ -48,4 +48,6 @@ void CObjResult::Draw()
 {
 	wchar_t str[256];
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	Font::StrDraw(L"èIóπÅI", 300, 250, 64, c);
+	Font::StrDraw(L"Puth Enter", 230, 400, 64, c);
 }
