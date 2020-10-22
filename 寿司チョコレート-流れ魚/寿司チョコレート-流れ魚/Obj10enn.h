@@ -17,5 +17,5 @@ class CObj10enn : public CObj
 		float m_x;			//10‰~‚ÌˆÊ’u
 		float m_y;
 		float m_vy;			//10‰~‚Ì—Ž‰º
-		int s;
+		float s;
 };
