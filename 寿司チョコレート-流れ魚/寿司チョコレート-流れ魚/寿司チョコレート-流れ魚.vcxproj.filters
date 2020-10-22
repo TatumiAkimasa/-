@@ -158,7 +158,7 @@
     <ClInclude Include="ObjMain.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Discription.h">
+    <ClInclude Include="Description.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
