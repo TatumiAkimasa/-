@@ -53,9 +53,12 @@ void CObjMain::Draw()
 {
 	float c[4] = { 1,1,1,1 };
 
-	//仮マウス位置表示
+	//タイムの表示
 	wchar_t str[256];
 	swprintf_s(str, L"タイム　%d:%d", m_time, s_time);
 	Font::StrDraw(str, 20, 40, 40, c);
 
+	//スコアの表示
+	swprintf_s(str, L"スコア　%05d", ((UserData*)Save::GetData())->save_score);
+	Font::StrDraw(str, 20, 80, 40, c);
 }

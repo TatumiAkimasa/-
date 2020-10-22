@@ -1,6 +1,7 @@
 //使用するヘッダーファイル
 #include "GameL\DrawTexture.h"
 #include "GameL\HitBoxManager.h"
+#include "GameL/UserData.h"
 
 #include "GameHead.h"
 #include "Obj10enn.h"
@@ -37,6 +38,8 @@ void CObj10enn::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+
+		((UserData*)Save::GetData())->save_score += 100;
 	}
 
 	//主人公オブジェクトと接触したら10円を削除
