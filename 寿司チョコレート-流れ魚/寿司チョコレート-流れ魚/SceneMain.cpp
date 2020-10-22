@@ -83,12 +83,12 @@ void CSceneMain::Scene()
 	//—‰º‚Ì‰Šú‰»
 	if (t == 0)
 	{
-		int sp = 5;
+		float sp = 5.0f;
 		t++;
 	}
 
 	//10‰~‚ÌoŒ»
-	if (m_time % 60 == 0)
+	if (m_time % 55 == 0)
 	{
 		//ƒ‰ƒ“ƒ_ƒ€‚É3ƒŒ[ƒ“‚©‚ç~‚ç‚·ˆ—
 		if (x == 0)
@@ -109,7 +109,7 @@ void CSceneMain::Scene()
 		//—‰º‰Á‘¬
 		if (sp <= 15)
 		{
-			sp++;
+			sp += 0.3f;
 		}
 	}	
 }
