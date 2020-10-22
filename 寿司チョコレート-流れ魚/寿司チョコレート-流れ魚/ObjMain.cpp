@@ -14,7 +14,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjMain::Init()
 {
-	f = 0;
+	f = 0;//フレーム計算
 	s_time = 0;
 	m_time = 0;
 	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
