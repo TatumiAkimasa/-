@@ -1,4 +1,3 @@
-//10円！
 //使用するヘッダーファイル
 #include "GameL\DrawTexture.h"
 #include "GameL\HitBoxManager.h"
@@ -10,18 +9,16 @@
 using namespace GameL;
 
 //コンストラクタ
-CObj10enn::CObj10enn(float x, float y)
+CObj10enn::CObj10enn(float x, float y, float s)
 {
 	m_x = x;
 	m_y = y;
+	m_vy = s;
 }
 
 //イニシャライズ
 void CObj10enn::Init()
 {
-	m_vy = 0;
-	m_vy = 5.0;
-
 	//当たり判定用Hitboxを作成
 	Hits::SetHitBox(this, m_x+10, m_y+10, 60, 60, ELEMENT_ENEMY, OBJ_10ENN, 1);
 }
@@ -29,16 +26,6 @@ void CObj10enn::Init()
 //アクション
 void CObj10enn::Action()
 {
-	//画面外に出たら10円を削除し魚力を加算
-	if (m_y > 600.0f)
-	{
-		this->SetStatus(false);
-		//落下速度加速処理
-		m_vy += 10.0;
-		
-		//魚力加算処理
-	}
-
 	m_y += m_vy;
 
 	//HitBoxの内容を更新
