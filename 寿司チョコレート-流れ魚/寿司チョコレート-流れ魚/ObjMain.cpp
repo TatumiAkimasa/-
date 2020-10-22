@@ -52,7 +52,7 @@ void CObjMain::Draw()
 
 	//タイムの表示
 	wchar_t str[256];
-	swprintf_s(str, L"タイム　%d:%d", m_time, s_time);
+	swprintf_s(str, L"タイム　%02d:%02d", m_time, s_time);
 	Font::StrDraw(str, 20, 40, 40, c);
 
 	//スコアの表示
