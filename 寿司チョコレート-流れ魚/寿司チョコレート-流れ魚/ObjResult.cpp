@@ -49,15 +49,37 @@ void CObjResult::Draw()
 {
 	wchar_t str[256];
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-	Font::StrDraw(L"終了！", 300, 200, 64, c);
+	Font::StrDraw(L"終了！", 300, 100, 64, c);
 	//タイム表示
+	if (((UserData*)Save::GetData())->save_s_time <= 9)
+	{
+		swprintf_s
+		(
+			str,
+			L"タイム　%d:0%d",
+			((UserData*)Save::GetData())->save_m_time,
+			((UserData*)Save::GetData())->save_s_time
+		);
+	}
+	else
+	{
+		swprintf_s
+		(
+			str,
+			L"タイム　%d:%d",
+			((UserData*)Save::GetData())->save_m_time,
+			((UserData*)Save::GetData())->save_s_time
+		);
+	}
+	Font::StrDraw(str, 200, 200, 64, c);
+	//スコア表示
 	swprintf_s
 	(
 		str,
-		L"%d:%d", 
-		((UserData*)Save::GetData())->save_m_time,
-		((UserData*)Save::GetData())->save_s_time
+		L"魚力　%05d",
+		((UserData*)Save::GetData())->save_score
 	);
-	Font::StrDraw(str, 300, 300, 64, c);
+	Font::StrDraw(str, 230, 300, 64, c);
+	//エンターキーで移動
 	Font::StrDraw(L"Push Enter", 230, 400, 64, c);
 }
