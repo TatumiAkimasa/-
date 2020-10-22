@@ -32,11 +32,7 @@ void CObjMain::Action()
 		s_time++;
 		//s_time++の時点でセーブ用s_timeもインクリメント
 		((UserData*)Save::GetData())->save_s_time++;
-		//リザルト画面表示秒数が60を上回らないようにする
-		if (((UserData*)Save::GetData())->save_s_time == 60)
-		{
-			((UserData*)Save::GetData())->save_s_time = 0;
-		}
+	
 	}
 	//s_timeが60で1分です
 	if (s_time == 60)
@@ -45,6 +41,7 @@ void CObjMain::Action()
 		m_time++;
 		//m_time++の時点でセーブ用m_timeもインクリメント
 		((UserData*)Save::GetData())->save_m_time++;
+		((UserData*)Save::GetData())->save_s_time = 0;
 	}
 }
 
@@ -55,6 +52,14 @@ void CObjMain::Draw()
 
 	//タイムの表示
 	wchar_t str[256];
+	if (s_time <= 9)
+	{
+		swprintf_s(str, L"タイム　%d:0%d", m_time, s_time);
+	}
+	else
+	{
+		swprintf_s(str, L"タイム　%d:%d", m_time, s_time);
+	}
 	swprintf_s(str, L"タイム　%02d:%02d", m_time, s_time);
 	Font::StrDraw(str, 20, 40, 40, c);
 
