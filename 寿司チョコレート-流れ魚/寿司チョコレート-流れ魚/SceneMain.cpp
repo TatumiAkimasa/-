@@ -105,21 +105,21 @@ void CSceneMain::Scene()
 		//ƒ‰ƒ“ƒ_ƒ€‚É3ƒŒ[ƒ“‚©‚ç~‚ç‚·ˆ—
 		if (x == 0)
 		{
-			CObj10enn* obj = new CObj10enn(385, 0, sp);
+			CObj10enn* obj = new CObj10enn(385, -64, sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		else if (x == 1)
 		{
-			CObj10enn* obj = new CObj10enn(505, 0, sp);
+			CObj10enn* obj = new CObj10enn(505, -64, sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		else if (x == 2)
 		{
-			CObj10enn* obj = new CObj10enn(625, 0, sp);
+			CObj10enn* obj = new CObj10enn(625, -64, sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
