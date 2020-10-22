@@ -13,7 +13,7 @@ enum OBJ_NAME
 	OBJ_10ENN,
 	OBJ_FISH_PLAYER,
 	OBJ_MAIN,
-	OBJ_DESCRIPTTION,
+	OBJ_DESCRIPTION,
 };
 //------------------------------------------------
 
