@@ -87,6 +87,18 @@ void CSceneMain::Scene()
 		t++;
 	}
 
+	if (((UserData*)Save::GetData())->sp_lv == 0)
+	{
+		if (sp >= 8)
+		{
+			sp -= 3.0f;
+		}
+		else
+		{
+			sp = 5.0f;
+		}
+	}
+
 	//10‰~‚ÌoŒ»
 	if (m_time % 55 == 0)
 	{
@@ -95,16 +107,22 @@ void CSceneMain::Scene()
 		{
 			CObj10enn* obj = new CObj10enn(385, 0, sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
 		}
 		else if (x == 1)
 		{
 			CObj10enn* obj = new CObj10enn(505, 0, sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
 		}
 		else if (x == 2)
 		{
 			CObj10enn* obj = new CObj10enn(625, 0, sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//—Ž‰º‰Á‘¬
 		if (sp <= 15)

@@ -43,6 +43,7 @@ struct UserData
 	int save_s_time;		//s_timeセーブ用変数
 	int save_m_time;		//m_timeセーブ用変数
 	int save_score = 0;		    //scoreセーブ用変数
+	int sp_lv = 1;			//減速用変数
 };
 //------------------------------------------------
 
