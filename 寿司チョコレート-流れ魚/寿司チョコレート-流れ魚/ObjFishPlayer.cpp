@@ -22,7 +22,7 @@ void CObjFishPlayer::Init()
     m_f = true;      //移動制御
 
     //当たり判定用HitBoxを作成
-    Hits::SetHitBox(this, m_px+16, m_py+16, 32, 32, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
+    Hits::SetHitBox(this, m_px+22, m_py+16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
 
 }
 
@@ -75,7 +75,7 @@ void CObjFishPlayer::Action()
 
     //HitBoxの内容を更新
     CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
-    hit->SetPos(m_px+16, m_py+16);                 //入口から新しい位置(主人公機の位置)情報に置き換える
+    hit->SetPos(m_px+22, m_py+16);                 //入口から新しい位置(主人公機の位置)情報に置き換える
     
     //障害物オブジェクトと接触したら削除
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
