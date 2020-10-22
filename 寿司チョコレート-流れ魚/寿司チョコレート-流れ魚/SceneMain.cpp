@@ -59,6 +59,8 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(m, OBJ_MAIN, 1);
 
 	m_time = 0;
+
+	t = 0;
 }
 
 //ゲーム実行中メソッド
@@ -78,26 +80,36 @@ void CSceneMain::Scene()
 		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
 	}
 
+	//落下の初期化
+	if (t == 0)
+	{
+		int sp = 5;
+		t++;
+	}
+
 	//10円の出現
 	if (m_time % 60 == 0)
 	{
 		//ランダムに3レーンから降らす処理
 		if (x == 0)
 		{
-			CObj10enn* obj = new CObj10enn(385, 0);
+			CObj10enn* obj = new CObj10enn(385, 0, sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 		}
 		else if (x == 1)
 		{
-			CObj10enn* obj = new CObj10enn(505, 0);
+			CObj10enn* obj = new CObj10enn(505, 0, sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 		}
 		else if (x == 2)
 		{
-			CObj10enn* obj = new CObj10enn(625, 0);
+			CObj10enn* obj = new CObj10enn(625, 0, sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 		}
-	}
-
-	
+		//落下加速
+		if (sp <= 15)
+		{
+			sp++;
+		}
+	}	
 }

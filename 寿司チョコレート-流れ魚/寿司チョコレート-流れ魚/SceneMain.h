@@ -16,5 +16,6 @@ public:
 private:
 	int m_time;
 	int x;
-	
+	int t = 0;
+	int sp = 5;
 };
