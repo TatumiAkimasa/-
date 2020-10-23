@@ -7,6 +7,7 @@ enum OBJ_NAME
 	//ゲームで使うオブジェクトの名前
 	//OBJ_○○と表記
 	OBJ_BACK_GROUND,
+	OBJ_BACK_GROUND_2,
 	OBJ_WATER_FLOW,
 	OBJ_TITLE,
 	OBJ_RESULT,
@@ -61,6 +62,7 @@ struct UserData
 
 //ゲームシーンオブジェクトヘッダ------------------
 #include "ObjBackground.h"
+#include "ObjBackground_2.h"
 #include "Objwater_flow.h"
 #include "ObjTitle.h"
 #include "ObjFishPlayer.h"

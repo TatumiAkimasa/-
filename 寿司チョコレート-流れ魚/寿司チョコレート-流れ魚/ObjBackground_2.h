@@ -5,11 +5,11 @@
 using namespace GameL;
 
 //オブジェクト：ObjBackground
-class CObjBackground : public CObj
+class CObjBackground_2 : public CObj
 {
 public:
-	CObjBackground() {};
-	~CObjBackground() {};
+	CObjBackground_2() {};
+	~CObjBackground_2() {};
 	void Init();//イニシャライズ
 	void Action();//アクション
 	void Draw();//ドロー

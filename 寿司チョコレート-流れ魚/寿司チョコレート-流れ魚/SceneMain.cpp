@@ -35,7 +35,7 @@ CSceneMain::~CSceneMain()
 void CSceneMain::InitScene()
 {
 	//外部グラフィックファイルを読み込み0番に登録（386*564ピクセル）
-	Draw::LoadImageW(L"メイン背景_512.png", 0, TEX_SIZE_512);
+	Draw::LoadImageW(L"背景線無し-1_512.png", 0, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み1番に登録（386*564ピクセル）
 	Draw::LoadImageW(L"水の流れ.png", 1, TEX_SIZE_512);
@@ -46,9 +46,20 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み3番に登録
 	Draw::LoadImage(L"10enn.png", 3, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み4番に登録（512*512ピクセル）
+	Draw::LoadImageW(L"背景線無し-2_512.png", 4, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み5番に登録（512*512ピクセル）
+	Draw::LoadImageW(L"背景線無し-3_512.png", 5, TEX_SIZE_512);
+
 	//背景オブジェクト作成
 	CObjBackground* back = new CObjBackground();
 	Objs::InsertObj(back, OBJ_BACK_GROUND, 1);
+
+	
+	CObjBackground_2* back_2 = new CObjBackground_2();
+	Objs::InsertObj(back_2, OBJ_BACK_GROUND_2, 1);
+	
 
 	//主人公オブジェクト作成
 	CObjFishPlayer* fp = new CObjFishPlayer();
@@ -79,6 +90,7 @@ void CSceneMain::Scene()
 		CObjwater_flow* flow = new CObjwater_flow();
 		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
 	}
+	
 
 	//落下の初期化
 	if (t == 0)

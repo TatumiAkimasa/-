@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ObjBackground_2.cpp" />
     <ClCompile Include="ObjDescription.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="Obj10enn.h" />
     <ClInclude Include="ObjBackground.h" />
+    <ClInclude Include="ObjBackground_2.h" />
     <ClInclude Include="ObjFishPlayer.h" />
     <ClInclude Include="ObjMain.h" />
     <ClInclude Include="ObjResult.h" />
