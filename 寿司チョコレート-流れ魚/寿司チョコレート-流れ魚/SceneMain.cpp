@@ -67,10 +67,10 @@ void CSceneMain::InitScene()
 void CSceneMain::Scene()
 {
 	//—”•¡ŽG‰»
-	rand(); rand(); rand(); rand();
+	rand(); rand(); rand(); rand(); rand();
 
 	//ƒ‰ƒ“ƒ_ƒ€•Ï”
-	int x = rand() % 3;
+	int x = rand() % 6;
 
 	m_time++;
 
@@ -120,6 +120,36 @@ void CSceneMain::Scene()
 		else if (x == 2)
 		{
 			CObj10enn* obj = new CObj10enn(625, -64, sp);
+			Objs::InsertObj(obj, OBJ_10ENN, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+		else if (x == 3)
+		{
+			CObj10enn* obj = new CObj10enn(385, -64, sp);
+			Objs::InsertObj(obj, OBJ_10ENN, 50);
+
+			obj = new CObj10enn(505, -64, sp);
+			Objs::InsertObj(obj, OBJ_10ENN, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+		else if (x == 4)
+		{
+			CObj10enn* obj = new CObj10enn(505, -64, sp);
+			Objs::InsertObj(obj, OBJ_10ENN, 50);
+
+			obj = new CObj10enn(625, -64, sp);
+			Objs::InsertObj(obj, OBJ_10ENN, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+		else if (x == 5)
+		{
+			CObj10enn* obj = new CObj10enn(385, -64, sp);
+			Objs::InsertObj(obj, OBJ_10ENN, 50);
+
+			obj = new CObj10enn(625, -64, sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
