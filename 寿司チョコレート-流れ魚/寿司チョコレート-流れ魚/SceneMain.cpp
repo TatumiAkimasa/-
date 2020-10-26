@@ -71,6 +71,8 @@ void CSceneMain::InitScene()
 
 	m_time = 0;
 
+	((UserData*)Save::GetData())->save_score = 0;
+
 	t = 0;
 }
 

@@ -33,7 +33,7 @@ void CObjResult::Action()
 	{
 		if (m_key_flag == true)
 		{
-			((UserData*)Save::GetData())->save_score = 0;
+			
 			Scene::SetScene(new CSceneTitle());
 			m_key_flag = false;
 		}

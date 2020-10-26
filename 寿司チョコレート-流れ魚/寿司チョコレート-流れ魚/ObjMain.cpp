@@ -56,6 +56,6 @@ void CObjMain::Draw()
 	Font::StrDraw(str, 20, 40, 40, c);
 
 	//スコアの表示
-	swprintf_s(str, L"スコア　%05d", ((UserData*)Save::GetData())->save_score);
+	swprintf_s(str, L"魚力　　%05d", ((UserData*)Save::GetData())->save_score);
 	Font::StrDraw(str, 20, 100, 40, c);
 }
