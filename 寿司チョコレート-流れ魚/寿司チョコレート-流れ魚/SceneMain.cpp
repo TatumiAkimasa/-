@@ -52,6 +52,16 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み5番に登録（512*512ピクセル）
 	Draw::LoadImageW(L"背景線無し-3_512.png", 5, TEX_SIZE_512);
 
+
+	//音楽情報の読み込み
+	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
+
+	//バックミュージックスタート
+	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
+	Audio::Start(0);//音楽スタート
+
+
+
 	//背景オブジェクト作成
 	CObjBackground* back = new CObjBackground();
 	Objs::InsertObj(back, OBJ_BACK_GROUND, 1);
@@ -60,7 +70,6 @@ void CSceneMain::InitScene()
 	CObjBackground_2* back_2 = new CObjBackground_2();
 	Objs::InsertObj(back_2, OBJ_BACK_GROUND_2, 1);
 	
-
 	//主人公オブジェクト作成
 	CObjFishPlayer* fp = new CObjFishPlayer();
 	Objs::InsertObj(fp, OBJ_FISH_PLAYER, 10);
