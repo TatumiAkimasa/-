@@ -38,7 +38,7 @@ void CObjBackground_stats::Draw()
 	//îwåiá@ÇÃà íuê›íËÇµï`âÊ
 	dst.m_top = 0.0f ;
 	dst.m_left = 0.0f;
-	dst.m_right = 600.0f;
+	dst.m_right = 490.0f;
 	dst.m_bottom = 600.0f ;
 
 	Draw::Draw(6, &src, &dst, c, 0.0f);
