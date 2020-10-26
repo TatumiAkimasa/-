@@ -49,7 +49,7 @@ void CObjResult::Draw()
 {
 	wchar_t str[256];
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-	Font::StrDraw(L"終了！", 300, 100, 64, c);
+	Font::StrDraw(L"☆★☆さすが先生☆★☆", 50, 100, 64, c);
 	//タイム表示
 	if (((UserData*)Save::GetData())->save_s_time <= 9)
 	{
@@ -81,5 +81,5 @@ void CObjResult::Draw()
 	);
 	Font::StrDraw(str, 230, 300, 64, c);
 	//エンターキーで移動
-	Font::StrDraw(L"Push Enter", 230, 400, 64, c);
+	Font::StrDraw(L"エンターでタイトルへ", 170, 400, 48, c);
 }

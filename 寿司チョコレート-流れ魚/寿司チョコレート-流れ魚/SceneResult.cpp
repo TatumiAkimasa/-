@@ -35,8 +35,8 @@ void CSceneResult::InitScene()
 	//必要なければ消してください
 
 	//出力させる文字のグラフィックを作成
-	Font::SetStrTex(L"終了！");
-	Font::SetStrTex(L"Push Enter");
+	Font::SetStrTex(L"☆★☆さすが先生☆★☆");
+	Font::SetStrTex(L"エンターでタイトルへ");
 
 	//タイトルオブジェクト作成
 	//主人公オブジェクト作成
