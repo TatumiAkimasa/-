@@ -52,6 +52,9 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み5番に登録（512*512ピクセル）
 	Draw::LoadImageW(L"背景線無し-3_512.png", 5, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み5番に登録（512*512ピクセル）
+	Draw::LoadImageW(L"メイン_背景_ステータス側.png", 6, TEX_SIZE_512);
+
 	//背景オブジェクト作成
 	CObjBackground* back = new CObjBackground();
 	Objs::InsertObj(back, OBJ_BACK_GROUND, 1);
@@ -59,6 +62,9 @@ void CSceneMain::InitScene()
 	
 	CObjBackground_2* back_2 = new CObjBackground_2();
 	Objs::InsertObj(back_2, OBJ_BACK_GROUND_2, 1);
+
+	CObjBackground_stats* back_3 = new CObjBackground_stats();
+	Objs::InsertObj(back_3, OBJ_BACK_GROUND_STATS, 0);
 	
 
 	//主人公オブジェクト作成
