@@ -6,7 +6,7 @@
 #include "GameHead.h"
 #include "Obj10enn.h"
 
-//使用するネームスペース
+//使用するネームスペース//
 using namespace GameL;
 
 //コンストラクタ
