@@ -52,6 +52,11 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み5番に登録（512*512ピクセル）
 	Draw::LoadImageW(L"背景線無し-3_512.png", 5, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み7番に登録（512*512ピクセル）
+	Draw::LoadImage(L"sp_up.png", 7, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み8番に登録（512*512ピクセル）
+	Draw::LoadImage(L"sp_down.png", 8, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -62,7 +67,7 @@ void CSceneMain::InitScene()
 
 
 
-	//外部グラフィックファイルを読み込み5番に登録（512*512ピクセル）
+	//外部グラフィックファイルを読み込み6番に登録（512*512ピクセル）
 	Draw::LoadImageW(L"メイン_背景_ステータス側.png", 6, TEX_SIZE_512);
 
 	//背景オブジェクト作成
@@ -110,85 +115,101 @@ void CSceneMain::Scene()
 		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
 	}
 	
-
 	//落下の初期化
 	if (t == 0)
 	{
-		float sp = 5.0f;
+		((UserData*)Save::GetData())->sp = 5.0f;
 		t++;
 	}
 
 	if (((UserData*)Save::GetData())->sp_lv == 0)
 	{
-		if (sp >= 8)
+		if (((UserData*)Save::GetData())->sp >= 8)
 		{
-			sp -= 3.0f;
+			((UserData*)Save::GetData())->sp -= 3.0f;
 		}
 		else
 		{
-			sp = 5.0f;
+			((UserData*)Save::GetData())->sp = 5.0f;
 		}
 	}
 
-	//10円の出現
-	if (m_time % 55 == 0)
+	//障害物の出現
+	if (m_time % 60 == 0)
 	{
-		//ランダムに3レーンから降らす処理
+		//ランダムに3レーンから流す処理
+		//1レーン流す
 		if (x == 0)
 		{
-			CObj10enn* obj = new CObj10enn(385, -64, sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
+			//ランダム変数
+			int x = rand() % 2;
+			if (x == 0)
+			{
+				CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_10ENN, 50);
 
-			((UserData*)Save::GetData())->sp_lv++;
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			else if (x == 1)
+			{
+				CObjsp_up* obj = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_SP_UP, 50);
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			
 		}
 		else if (x == 1)
 		{
-			CObj10enn* obj = new CObj10enn(505, -64, sp);
+			CObj10enn* obj = new CObj10enn(505, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		else if (x == 2)
 		{
-			CObj10enn* obj = new CObj10enn(625, -64, sp);
+			CObj10enn* obj = new CObj10enn(625, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
+		//2レーン流す
 		else if (x == 3)
 		{
-			CObj10enn* obj = new CObj10enn(385, -64, sp);
+			CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
-			obj = new CObj10enn(505, -64, sp);
+			obj = new CObj10enn(505, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		else if (x == 4)
 		{
-			CObj10enn* obj = new CObj10enn(505, -64, sp);
+			CObj10enn* obj = new CObj10enn(505, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
-			obj = new CObj10enn(625, -64, sp);
+			obj = new CObj10enn(625, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		else if (x == 5)
 		{
-			CObj10enn* obj = new CObj10enn(385, -64, sp);
+			CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
-			obj = new CObj10enn(625, -64, sp);
+			obj = new CObj10enn(625, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
+		//3レーン流す
+
 		//落下加速
-		if (sp <= 15)
+		if (((UserData*)Save::GetData())->sp <= 20)
 		{
-			sp += 0.3f;
+			((UserData*)Save::GetData())->sp += 0.1f;
 		}
 	}	
 }

@@ -105,6 +105,12 @@
     <ClCompile Include="Obj10enn.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
+    <ClCompile Include="Objsp_up.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="Objsp_down.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -183,6 +189,12 @@
       <Filter>ソース ファイル\シーンメイン</Filter>
     </ClInclude>
     <ClInclude Include="Obj10enn.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Objsp_up.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Objsp_down.h">
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
   </ItemGroup>

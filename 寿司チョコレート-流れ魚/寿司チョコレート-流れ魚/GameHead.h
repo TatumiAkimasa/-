@@ -16,6 +16,8 @@ enum OBJ_NAME
 	OBJ_FISH_PLAYER,
 	OBJ_MAIN,
 	OBJ_DESCRIPTION,
+	OBJ_SP_UP,
+	OBJ_SP_DOWN,
 };
 //------------------------------------------------
 
@@ -45,7 +47,8 @@ struct UserData
 	int mSeveData;	//サンプルセーブデータ
 	int save_s_time;		//s_timeセーブ用変数
 	int save_m_time;		//m_timeセーブ用変数
-	int save_score = 0;		    //scoreセーブ用変数
+	int save_score = 0;		//scoreセーブ用変数
+	float sp;				//スピード用変数
 	int sp_lv = 1;			//減速用変数
 };
 //------------------------------------------------
@@ -72,6 +75,8 @@ struct UserData
 #include "ObjResult.h"
 #include "ObjMain.h"
 #include "Description.h"
+#include "Objsp_up.h"
+#include "Objsp_down.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
