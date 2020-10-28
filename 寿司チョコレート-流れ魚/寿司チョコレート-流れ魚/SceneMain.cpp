@@ -52,6 +52,12 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み5番に登録（512*512ピクセル）
 	Draw::LoadImageW(L"背景線無し-3_512.png", 5, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み6番に登録（512*512ピクセル）
+	Draw::LoadImageW(L"メイン_背景_ステータス側.png", 6, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み7番に登録(ライフアイテム）
+	Draw::LoadImage(L"LifeItem.png", 7, TEX_SIZE_512);
+
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -62,8 +68,7 @@ void CSceneMain::InitScene()
 
 
 
-	//外部グラフィックファイルを読み込み5番に登録（512*512ピクセル）
-	Draw::LoadImageW(L"メイン_背景_ステータス側.png", 6, TEX_SIZE_512);
+	
 
 	//背景オブジェクト作成
 	CObjBackground* back = new CObjBackground();
@@ -100,7 +105,7 @@ void CSceneMain::Scene()
 	rand(); rand(); rand(); rand(); rand();
 
 	//ランダム変数
-	int x = rand() % 6;
+	int x = rand() % 7;
 
 	m_time++;
 
@@ -185,6 +190,17 @@ void CSceneMain::Scene()
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
+
+		//ライフ回復
+		else if (x == 6)
+		{
+			CObjLifeItem* li = new CObjLifeItem(385, -64, sp);
+			Objs::InsertObj(li, OBJ_LIFE_ITEM, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+
+
 		//落下加速
 		if (sp <= 15)
 		{

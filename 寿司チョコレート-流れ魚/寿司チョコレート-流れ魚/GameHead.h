@@ -16,6 +16,7 @@ enum OBJ_NAME
 	OBJ_FISH_PLAYER,
 	OBJ_MAIN,
 	OBJ_DESCRIPTION,
+	OBJ_LIFE_ITEM,
 };
 //------------------------------------------------
 
@@ -72,6 +73,7 @@ struct UserData
 #include "ObjResult.h"
 #include "ObjMain.h"
 #include "Description.h"
+#include "ObjLifeItem.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
