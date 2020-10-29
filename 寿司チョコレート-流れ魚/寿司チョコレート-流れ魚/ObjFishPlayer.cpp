@@ -90,8 +90,6 @@ void CObjFishPlayer::Action()
         {
             this->SetStatus(false);    //自身に削除命令を出す
             Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
-        this->SetStatus(false);    //自身に削除命令を出す
-        Hits::DeleteHitBox(this);  //主人公が所有するHitBoxに削除する
 
             ((UserData*)Save::GetData())->sp_lv = 0;
 
