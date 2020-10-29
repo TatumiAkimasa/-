@@ -18,7 +18,6 @@ using namespace GameL;
 #include "SceneMain.h"
 #include "GameHead.h"
 
-
 //コンストラクタ
 CSceneMain::CSceneMain()
 {
@@ -145,12 +144,11 @@ void CSceneMain::Scene()
 			int x = rand() % 2;
 			if (x == 0)
 			{
-				CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
-				Objs::InsertObj(obj, OBJ_10ENN, 50);
+				flow(385, -64);
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
-			else if (x == 1)
+			else if (x == 1 && ((UserData*)Save::GetData())->sp_lv == 3)
 			{
 				CObjsp_up* obj = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(obj, OBJ_SP_UP, 50);
@@ -212,4 +210,11 @@ void CSceneMain::Scene()
 			((UserData*)Save::GetData())->sp += 0.1f;
 		}
 	}	
+}
+
+//障害物を流す関数
+void flow(int x, int y)
+{
+	CObj10enn* obj = new CObj10enn(x, y, ((UserData*)Save::GetData())->sp);
+	Objs::InsertObj(obj, OBJ_10ENN, 50);
 }
