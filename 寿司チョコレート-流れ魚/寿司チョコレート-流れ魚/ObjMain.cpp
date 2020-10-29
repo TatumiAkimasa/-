@@ -65,39 +65,48 @@ void CObjMain::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 1000.0f;
-	src.m_bottom = 1000.0f;
+	if (((UserData*)Save::GetData())->life_point >= 1)
+	{
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 1000.0f;
+		src.m_bottom = 1000.0f;
 
-	dst.m_top = 200.0f;
-	dst.m_left = 20.0f;
-	dst.m_right = 64.0f + dst.m_left;
-	dst.m_bottom = 64.0f + dst.m_top;
+		dst.m_top = 200.0f;
+		dst.m_left = 20.0f;
+		dst.m_right = 64.0f + dst.m_left;
+		dst.m_bottom = 64.0f + dst.m_top;
 
-	Draw::Draw(7, &src, &dst, d, 0.0f);
+		Draw::Draw(7, &src, &dst, d, 0.0f);
+	}
 
-	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 1000.0f;
-	src.m_bottom = 1000.0f;
+	if (((UserData*)Save::GetData())->life_point >= 2)
+	{
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 1000.0f;
+		src.m_bottom = 1000.0f;
 
-	dst.m_top = 200.0f;
-	dst.m_left = 100.0f;
-	dst.m_right = 64.0f + dst.m_left;
-	dst.m_bottom = 64.0f + dst.m_top;
+		dst.m_top = 200.0f;
+		dst.m_left = 100.0f;
+		dst.m_right = 64.0f + dst.m_left;
+		dst.m_bottom = 64.0f + dst.m_top;
 
-	Draw::Draw(7, &src, &dst, d, 0.0f);
+		Draw::Draw(7, &src, &dst, d, 0.0f);
+	}
 
-	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 1000.0f;
-	src.m_bottom = 1000.0f;
+	if (((UserData*)Save::GetData())->life_point >= 3)
+	{
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 1000.0f;
+		src.m_bottom = 1000.0f;
 
-	dst.m_top = 200.0f;
-	dst.m_left = 180.0f;
-	dst.m_right = 64.0f + dst.m_left;
-	dst.m_bottom = 64.0f + dst.m_top;
+		dst.m_top = 200.0f;
+		dst.m_left = 180.0f;
+		dst.m_right = 64.0f + dst.m_left;
+		dst.m_bottom = 64.0f + dst.m_top;
 
-	Draw::Draw(7, &src, &dst, d, 0.0f);
+		Draw::Draw(7, &src, &dst, d, 0.0f);
+	}
 }

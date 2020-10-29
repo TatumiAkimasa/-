@@ -20,7 +20,6 @@ void CObjFishPlayer::Init()
     m_px = 520.0f;     //位置
     m_py = 450.0f;
     m_f = true;      //移動制御
-    m_hp = 3;    //主人公のＨＰ
 
     //当たり判定用HitBoxを作成
     Hits::SetHitBox(this, m_px+22, m_py+16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
@@ -81,17 +80,17 @@ void CObjFishPlayer::Action()
      //障害物オブジェクトと接触したら削除
     if (hit->CheckElementHit(ELEMENT_ITEM) == true)
     {
-        if (m_hp < 3)
+        if (((UserData*)Save::GetData())->life_point < 3)
         {
-            m_hp++;
+            ((UserData*)Save::GetData())->life_point++;
         }
     }
 
     //障害物オブジェクトと接触したら削除
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
     {
-        m_hp--;
-        if (m_hp == 0)
+        ((UserData*)Save::GetData())->life_point--;
+        if (((UserData*)Save::GetData())->life_point == 0)
         {
             this->SetStatus(false);    //自身に削除命令を出す
             Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する

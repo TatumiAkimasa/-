@@ -48,6 +48,7 @@ struct UserData
 	int save_m_time;		//m_timeセーブ用変数
 	int save_score = 0;		    //scoreセーブ用変数
 	int sp_lv = 1;			//減速用変数
+	int life_point = 3;  //主人公のライフ
 };
 //------------------------------------------------
 
