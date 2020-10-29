@@ -141,7 +141,7 @@ void CSceneMain::Scene()
 		//1ƒŒ[ƒ“—¬‚·
 		if (x == 0)
 		{
-			//ƒ‰ƒ“ƒ_ƒ€•Ï”
+			//ƒ‰ƒ“ƒ_ƒ€‚Å—¬‚·
 			int x = rand() % 2;
 			if (x == 0)
 			{
@@ -149,7 +149,7 @@ void CSceneMain::Scene()
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
-			else if (x == 1 && ((UserData*)Save::GetData())->sp_lv == 3)
+			else if (x == 1)
 			{
 				CObjsp_up* obj = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(obj, OBJ_SP_UP, 50);

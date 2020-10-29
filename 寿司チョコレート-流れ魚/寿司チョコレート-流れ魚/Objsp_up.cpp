@@ -46,7 +46,10 @@ void CObjsp_up::Action()
 		this->SetStatus(false);    //自身に削除命令を出す
 		Hits::DeleteHitBox(this);  //アイテムオブジェクトが所有するHitBoxに削除する
 	
-		((UserData*)Save::GetData())->sp += 1.0f;
+		if (((UserData*)Save::GetData())->sp < 20.0f)
+		{
+			((UserData*)Save::GetData())->sp += 1.0f;
+		}
 	}
 }
 

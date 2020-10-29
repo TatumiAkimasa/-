@@ -19,4 +19,5 @@ private:
 	int t = 0;
 };
 
+//ŠÖ”‚Ì’è‹`
 void flow(int x, int y);
