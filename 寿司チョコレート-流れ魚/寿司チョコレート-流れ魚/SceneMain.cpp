@@ -56,13 +56,16 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"メイン_背景_ステータス側.png", 6, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み7番に登録(ライフアイテム）
-	Draw::LoadImage(L"LifeItem.png", 7, TEX_SIZE_512);
+	Draw::LoadImage(L"LifeItem2.png", 7, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み8番に登録（加速アイテム）
 	Draw::LoadImage(L"sp_up.png", 8, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み9番に登録（減速アイテム）
 	Draw::LoadImage(L"sp_down.png", 9, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み7番に登録(ライフ表示）
+	Draw::LoadImage(L"LifeItem.png", 10, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);

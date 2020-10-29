@@ -78,7 +78,7 @@ void CObjMain::Draw()
 		dst.m_right = 64.0f + dst.m_left;
 		dst.m_bottom = 64.0f + dst.m_top;
 
-		Draw::Draw(7, &src, &dst, d, 0.0f);
+		Draw::Draw(10, &src, &dst, d, 0.0f);
 	}
 
 	if (((UserData*)Save::GetData())->life_point >= 2)
@@ -93,7 +93,7 @@ void CObjMain::Draw()
 		dst.m_right = 64.0f + dst.m_left;
 		dst.m_bottom = 64.0f + dst.m_top;
 
-		Draw::Draw(7, &src, &dst, d, 0.0f);
+		Draw::Draw(10, &src, &dst, d, 0.0f);
 	}
 
 	if (((UserData*)Save::GetData())->life_point >= 3)
@@ -108,6 +108,6 @@ void CObjMain::Draw()
 		dst.m_right = 64.0f + dst.m_left;
 		dst.m_bottom = 64.0f + dst.m_top;
 
-		Draw::Draw(7, &src, &dst, d, 0.0f);
+		Draw::Draw(10, &src, &dst, d, 0.0f);
 	}
 }

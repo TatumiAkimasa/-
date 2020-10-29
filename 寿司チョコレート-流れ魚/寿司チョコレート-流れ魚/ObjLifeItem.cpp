@@ -55,15 +55,15 @@ void CObjLifeItem::Draw()
 	RECT_F src;
 	RECT_F dst;
 
-	src.m_top = 0.0f;
+	src.m_top =0.0f;
 	src.m_left = 0.0f;
-	src.m_right = 1000.0f;
-	src.m_bottom = 1000.0f;
+	src.m_right = 800.0f;
+	src.m_bottom = 600.0f;
 
 	dst.m_top = 0.0f + m_y;
 	dst.m_left = 0.0f + m_x;
-	dst.m_right = 64.0f + 15.0f + m_x;
-	dst.m_bottom = 64.0f + 15.0f + m_y;
+	dst.m_right = 70.0f + 15.0f + m_x;
+	dst.m_bottom = 75.0f + 15.0f + m_y;
 
 	Draw::Draw(7, &src, &dst, c, 0.0f);
 }
