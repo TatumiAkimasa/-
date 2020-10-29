@@ -73,8 +73,8 @@ void CObjFishPlayer::Action()
     CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
     hit->SetPos(m_px+22, m_py+16);         //入口から新しい位置(主人公の位置)情報に置き換える
     
-     //障害物オブジェクトと接触したら削除
-    if (hit->CheckElementHit(ELEMENT_ITEM) == true)
+     //回復アイテムと接触したら回復＆削除
+    if (hit->CheckElementHit(ELEMENT_HEAL) == true)
     {
         if (((UserData*)Save::GetData())->life_point < 3)
         {

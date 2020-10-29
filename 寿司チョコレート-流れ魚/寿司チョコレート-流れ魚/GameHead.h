@@ -17,6 +17,9 @@ enum OBJ_NAME
 	OBJ_MAIN,
 	OBJ_DESCRIPTION,
 	OBJ_LIFE_ITEM,
+	OBJ_SP_UP,
+	OBJ_SP_DOWN,
+
 };
 //------------------------------------------------
 
@@ -36,6 +39,7 @@ enum HIT_ELEMENTS
 	ELEMENT_BLUE,
 	ELEMENT_BLACK,
 	ELEMENT_WHITE,
+	ELEMENT_HEAL,
 };
 //------------------------------------------------
 

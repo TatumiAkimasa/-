@@ -67,5 +67,5 @@ void CObjsp_down::Draw()
 	dst.m_right = 170.0f + m_x;
 	dst.m_bottom = 130.0f + m_y;
 
-	Draw::Draw(8, &src, &dst, c, 0.0f);
+	Draw::Draw(9, &src, &dst, c, 0.0f);
 }

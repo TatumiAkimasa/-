@@ -21,7 +21,7 @@ CObjLifeItem::CObjLifeItem(float x, float y, float s)
 void CObjLifeItem::Init()
 {
 	//当たり判定用Hitboxを作成
-	Hits::SetHitBox(this, m_x + 16, m_y + 16, 48, 48, ELEMENT_ITEM, OBJ_LIFE_ITEM, 1);
+	Hits::SetHitBox(this, m_x + 16, m_y + 16, 48, 48, ELEMENT_HEAL, OBJ_LIFE_ITEM, 1);
 }
 
 //アクション
