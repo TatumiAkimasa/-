@@ -19,6 +19,7 @@ void CObjMain::Init()
 	m_time = 0;
 	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
 	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
+	((UserData*)Save::GetData())->life_point = 3;//セーブ用life_point初期化
 }
 
 //アクション

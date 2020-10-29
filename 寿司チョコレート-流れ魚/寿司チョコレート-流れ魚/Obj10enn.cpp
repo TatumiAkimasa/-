@@ -40,8 +40,6 @@ void CObj10enn::Action()
 		Hits::DeleteHitBox(this);
 
 		//ƒXƒRƒA‚Ì‰ÁŽZ
-		((UserData*)Save::GetData())->save_score += 100;
-
 		((UserData*)Save::GetData())->save_score += 10;
 	}
 
