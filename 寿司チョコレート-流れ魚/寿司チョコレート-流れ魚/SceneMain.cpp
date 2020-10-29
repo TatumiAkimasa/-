@@ -151,8 +151,8 @@ void CSceneMain::Scene()
 			}
 			else if (x == 1)
 			{
-				CObjsp_up* obj = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
-				Objs::InsertObj(obj, OBJ_SP_UP, 50);
+				CObjsp_up* fp = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(fp, OBJ_SP_UP, 10);
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
@@ -160,46 +160,38 @@ void CSceneMain::Scene()
 		}
 		else if (x == 1)
 		{
-			CObj10enn* obj = new CObj10enn(505, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
+			flow(505, -64);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		else if (x == 2)
 		{
-			CObj10enn* obj = new CObj10enn(625, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
+			flow(625, -64);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//2ƒŒ[ƒ“—¬‚·
 		else if (x == 3)
 		{
-			CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
+			flow(385, -64);
 
-			obj = new CObj10enn(505, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
+			flow(505, -64);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		else if (x == 4)
 		{
-			CObj10enn* obj = new CObj10enn(505, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
+			flow(505, -64);
 
-			obj = new CObj10enn(625, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
+			flow(625, -64);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		else if (x == 5)
 		{
-			CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
+			flow(385, -64);
 
-			obj = new CObj10enn(625, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
+			flow(625, -64);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
