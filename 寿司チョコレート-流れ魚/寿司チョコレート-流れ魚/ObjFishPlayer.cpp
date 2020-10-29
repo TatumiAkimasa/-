@@ -73,16 +73,31 @@ void CObjFishPlayer::Action()
     CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
     hit->SetPos(m_px+22, m_py+16);         //入口から新しい位置(主人公の位置)情報に置き換える
     
+     //障害物オブジェクトと接触したら削除
+    if (hit->CheckElementHit(ELEMENT_ITEM) == true)
+    {
+        if (((UserData*)Save::GetData())->life_point < 3)
+        {
+            ((UserData*)Save::GetData())->life_point++;
+        }
+    }
+
     //障害物オブジェクトと接触したら削除
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
     {
+        ((UserData*)Save::GetData())->life_point--;
+        if (((UserData*)Save::GetData())->life_point == 0)
+        {
+            this->SetStatus(false);    //自身に削除命令を出す
+            Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
         this->SetStatus(false);    //自身に削除命令を出す
         Hits::DeleteHitBox(this);  //主人公が所有するHitBoxに削除する
 
-        ((UserData*)Save::GetData())->sp_lv = 0;
+            ((UserData*)Save::GetData())->sp_lv = 0;
 
-        //主人公消滅でシーンをゲームオーバーに移行する
-        Scene::SetScene(new CSceneResult());
+            //主人公消滅でシーンをゲームオーバーに移行する
+            Scene::SetScene(new CSceneResult());
+        }
     }
 }
 
