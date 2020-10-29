@@ -21,7 +21,7 @@ CObjLifeItem::CObjLifeItem(float x, float y, float s)
 void CObjLifeItem::Init()
 {
 	//当たり判定用Hitboxを作成
-	Hits::SetHitBox(this, m_x + 16, m_y + 16, 48, 48, ELEMENT_HEAL, OBJ_LIFE_ITEM, 1);
+	Hits::SetHitBox(this, m_x + 16, m_y + 16, 40, 40, ELEMENT_HEAL, OBJ_LIFE_ITEM, 1);
 }
 
 //アクション
@@ -62,8 +62,8 @@ void CObjLifeItem::Draw()
 
 	dst.m_top = 0.0f + m_y;
 	dst.m_left = 0.0f + m_x;
-	dst.m_right = 64.0f + 15.0f + m_x;
-	dst.m_bottom = 64.0f + 15.0f + m_y;
+	dst.m_right = 55.0f + 15.0f + m_x;
+	dst.m_bottom = 50.0f + 15.0f + m_y;
 
 	Draw::Draw(7, &src, &dst, c, 0.0f);
 }
