@@ -18,3 +18,6 @@ private:
 	int x;
 	int t = 0;
 };
+
+//ŠÖ”‚Ì’è‹`
+void flow(int x, int y);

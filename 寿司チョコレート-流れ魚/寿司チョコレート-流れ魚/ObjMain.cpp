@@ -60,6 +60,9 @@ void CObjMain::Draw()
 	swprintf_s(str, L"魚力　　%05d", ((UserData*)Save::GetData())->save_score);
 	Font::StrDraw(str, 20, 100, 40, c);
 
+	//スピードの表示
+	swprintf_s(str, L"速度　　%f", ((UserData*)Save::GetData())->sp);
+	Font::StrDraw(str, 20, 350, 40, c);
 
 	//ライフの表示
 	float d[4] = { 1.0f,1.0f,1.0f,1.0f };
