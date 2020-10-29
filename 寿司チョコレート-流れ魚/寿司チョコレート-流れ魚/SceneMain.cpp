@@ -67,6 +67,9 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み7番に登録(ライフ表示）
 	Draw::LoadImage(L"LifeItem.png", 10, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み7番に登録(障害物一覧）
+	Draw::LoadImage(L"syougaibutu.png", 11, TEX_SIZE_512);
+
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
@@ -212,8 +215,8 @@ void CSceneMain::Scene()
 		//ライフ回復
 		else if (x == 6)
 		{
-			CObjLifeItem* li = new CObjLifeItem(385, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(li, OBJ_LIFE_ITEM, 50);
+			CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(f, OBJ_FLOW, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}

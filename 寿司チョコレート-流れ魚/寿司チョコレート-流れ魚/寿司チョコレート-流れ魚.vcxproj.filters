@@ -114,6 +114,9 @@
     <ClCompile Include="Objsp_down.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
+    <ClCompile Include="ObjFlow.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -201,6 +204,9 @@
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
     <ClInclude Include="Objsp_down.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjFlow.h">
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
   </ItemGroup>
