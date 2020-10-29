@@ -59,6 +59,8 @@ void CObjMain::Draw()
 	swprintf_s(str, L"魚力　　%05d", ((UserData*)Save::GetData())->save_score);
 	Font::StrDraw(str, 20, 100, 40, c);
 
+
+	//ライフの表示
 	float d[4] = { 1.0f,1.0f,1.0f,1.0f };
 	RECT_F src;
 	RECT_F dst;
