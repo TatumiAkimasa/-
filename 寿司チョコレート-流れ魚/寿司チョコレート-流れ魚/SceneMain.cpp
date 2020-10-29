@@ -33,29 +33,35 @@ CSceneMain::~CSceneMain()
 //ゲームメイン初期化メソッド
 void CSceneMain::InitScene()
 {
-	//外部グラフィックファイルを読み込み0番に登録（386*564ピクセル）
+	//外部グラフィックファイルを読み込み0番に登録（線なし背景）
 	Draw::LoadImageW(L"背景線無し-1_512.png", 0, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み1番に登録（386*564ピクセル）
+	//外部グラフィックファイルを読み込み1番に登録（水の流れ）
 	Draw::LoadImageW(L"水の流れ.png", 1, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み(魚)
+	//外部グラフィックファイルを読み込み(主人公)
 	Draw::LoadImage(L"fishplayer.png", 2, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み3番に登録
+	//外部グラフィックファイルを読み込み3番に登録（10円）
 	Draw::LoadImage(L"10enn.png", 3, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み4番に登録（512*512ピクセル）
+	//外部グラフィックファイルを読み込み4番に登録（線なし背景2）
 	Draw::LoadImageW(L"背景線無し-2_512.png", 4, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み5番に登録（512*512ピクセル）
+	//外部グラフィックファイルを読み込み5番に登録（線なし背景3）
 	Draw::LoadImageW(L"背景線無し-3_512.png", 5, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み7番に登録（512*512ピクセル）
-	Draw::LoadImage(L"sp_up.png", 7, TEX_SIZE_512);
+	//外部グラフィックファイルを読み込み6番に登録（ステータス側の背景）
+	Draw::LoadImageW(L"メイン_背景_ステータス側.png", 6, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み8番に登録（512*512ピクセル）
-	Draw::LoadImage(L"sp_down.png", 8, TEX_SIZE_512);
+	//外部グラフィックファイルを読み込み7番に登録(ライフアイテム）
+	Draw::LoadImage(L"LifeItem.png", 7, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み8番に登録（加速アイテム）
+	Draw::LoadImage(L"sp_up.png", 8, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み9番に登録（減速アイテム）
+	Draw::LoadImage(L"sp_down.png", 9, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -63,11 +69,6 @@ void CSceneMain::InitScene()
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
 	Audio::Start(0);//音楽スタート
-
-
-
-	//外部グラフィックファイルを読み込み6番に登録（512*512ピクセル）
-	Draw::LoadImageW(L"メイン_背景_ステータス側.png", 6, TEX_SIZE_512);
 
 	//背景オブジェクト作成
 	CObjBackground* back = new CObjBackground();
@@ -104,7 +105,7 @@ void CSceneMain::Scene()
 	rand(); rand(); rand(); rand(); rand();
 
 	//ランダム変数
-	int x = rand() % 6;
+	int x = rand() % 7;
 
 	m_time++;
 
@@ -202,6 +203,17 @@ void CSceneMain::Scene()
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
+
+		//ライフ回復
+		else if (x == 6)
+		{
+			CObjLifeItem* li = new CObjLifeItem(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(li, OBJ_LIFE_ITEM, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+
+
 		//3レーン流す
 
 		//落下加速

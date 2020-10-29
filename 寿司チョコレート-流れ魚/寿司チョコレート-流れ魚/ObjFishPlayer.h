@@ -22,4 +22,5 @@ private:
 	float m_vx;     //主人公のｘ方向移動ベクトル用変数
 	float m_vy;
 	bool m_f;       //移動キーを押したとき連続で動かない為の変数
+	
 };
