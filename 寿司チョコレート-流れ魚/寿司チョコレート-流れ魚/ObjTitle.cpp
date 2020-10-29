@@ -5,6 +5,7 @@
 #include "GameHead.h"
 #include "ObjTitle.h"
 #include "GameL/DrawTexture.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -30,6 +31,9 @@ void CObjTitle::Action()
 	//エンターキーを押してシーン：ゲームメインに移行する。
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
+		//開始時ＳＥ
+		Audio::Start(1);
+	
 		if (m_key_flag == true)
 		{
 			Scene::SetScene(new CSceneMain());
@@ -44,8 +48,10 @@ void CObjTitle::Action()
 	//スペースキーを押してシーン：ゲーム説明に移行する。/
 	if (Input::GetVKey(VK_RIGHT) == true)
 	{
+
 		if (m_key_flag == true)
 		{
+
 			//+=2でタイトル戻るときたまに2回タップしかダメ
 			num += 2;
 			//説明オブジェクト作成
