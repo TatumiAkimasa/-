@@ -77,6 +77,14 @@ void CSceneMain::InitScene()
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
+	Audio::LoadAudio(3, L"シーンBGM2(仮).wav", SOUND_TYPE::BACK_MUSIC);
+
+	Audio::LoadAudio(4, L"シーンBGM(仮)スピードup.wav", SOUND_TYPE::BACK_MUSIC);
+
+	Audio::LoadAudio(1, L"上昇.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(2, L"ダメージ音テスト.wav", SOUND_TYPE::EFFECT);
+
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
 	Audio::Start(0);//音楽スタート
@@ -108,6 +116,8 @@ void CSceneMain::InitScene()
 	((UserData*)Save::GetData())->save_score = 0;
 
 	t = 0;
+
+	bgm_flag = false;
 }
 
 //ゲーム実行中メソッド
@@ -127,6 +137,20 @@ void CSceneMain::Scene()
 		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
 	}
 
+	//BGM変更
+	if (((UserData*)Save::GetData())->sp >= 6.0f && bgm_flag == false)
+	{
+		Audio::Stop(0);
+		Audio::Start(4);
+		bgm_flag = true;
+	}
+	else if (((UserData*)Save::GetData())->sp < 6.0f && bgm_flag == true)
+	{
+		Audio::Stop(4);
+		Audio::Start(0);
+		bgm_flag = false;
+	}
+	
 	//落下の初期化
 	if (t == 0)
 	{

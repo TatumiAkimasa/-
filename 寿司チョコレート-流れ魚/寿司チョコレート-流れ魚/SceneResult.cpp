@@ -28,7 +28,7 @@ void CSceneResult::InitScene()
 	Audio::LoadAudio(0, L"リザルトBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
 	//バックミュージックスタート
-	float volume = Audio::VolumeMaster(0.5f);//マスターボリュームを0.8下げる
+	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
 	Audio::Start(0);//音楽スタート
 	//↑後々BGM入ると思ったので適当に書いときました。
 	//必要なければ消してください
