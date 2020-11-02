@@ -80,12 +80,6 @@ void CSceneMain::InitScene()
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
 	Audio::Start(0);//音楽スタート
 
-     if (((UserData*)Save::GetData())->sp >=6.0f )
-	{
-		Audio::Stop(0);
-		Audio::Start(3);
-	}
-
 	//背景オブジェクト作成
 	CObjBackground* back = new CObjBackground();
 	Objs::InsertObj(back, OBJ_BACK_GROUND, 1);
@@ -112,6 +106,8 @@ void CSceneMain::InitScene()
 	((UserData*)Save::GetData())->save_score = 0;
 
 	t = 0;
+
+	bgm_flag = false;
 }
 
 //ゲーム実行中メソッド
@@ -130,9 +126,21 @@ void CSceneMain::Scene()
 		CObjwater_flow* flow = new CObjwater_flow();
 		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
 	}
-	
-	
 
+	//BGM変更
+	if (((UserData*)Save::GetData())->sp >= 6.0f && bgm_flag == false)
+	{
+		Audio::Stop(0);
+		Audio::Start(3);
+		bgm_flag = true;
+	}
+	else if (((UserData*)Save::GetData())->sp < 6.0f && bgm_flag == true)
+	{
+		Audio::Stop(3);
+		Audio::Start(0);
+		bgm_flag = false;
+	}
+	
 	//落下の初期化
 	if (t == 0)
 	{

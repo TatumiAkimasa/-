@@ -17,7 +17,9 @@ private:
 	int m_time;
 	int x;
 	int t = 0;
+	bool bgm_flag;//BGMØ‚è‘Ö‚¦ƒtƒ‰ƒO
 };
 
 //ŠÖ”‚Ì’è‹`
 void flow(int x, int y);
+
