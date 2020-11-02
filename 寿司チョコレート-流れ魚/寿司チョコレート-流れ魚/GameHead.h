@@ -19,6 +19,7 @@ enum OBJ_NAME
 	OBJ_LIFE_ITEM,
 	OBJ_SP_UP,
 	OBJ_SP_DOWN,
+	OBJ_MIRROR,
 
 };
 //------------------------------------------------
@@ -40,6 +41,7 @@ enum HIT_ELEMENTS
 	ELEMENT_BLACK,
 	ELEMENT_WHITE,
 	ELEMENT_HEAL,
+	ELEMENT_MIRROR,
 };
 //------------------------------------------------
 
@@ -54,6 +56,7 @@ struct UserData
 	float sp;				//スピード用変数
 	int sp_lv = 1;			//減速用変数
 	int life_point = 3;  //主人公のライフ
+	bool key_flag;		 //操作反転用フラグ
 };
 //------------------------------------------------
 
@@ -82,6 +85,7 @@ struct UserData
 #include "ObjLifeItem.h"
 #include "Objsp_up.h"
 #include "Objsp_down.h"
+#include "Objmirror.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

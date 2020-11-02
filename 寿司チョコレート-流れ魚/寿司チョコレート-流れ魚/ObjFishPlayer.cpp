@@ -20,6 +20,7 @@ void CObjFishPlayer::Init()
     m_px = 520.0f;     //位置
     m_py = 450.0f;
     m_f = true;      //移動制御
+    m_time = 0;
     m_ani_time = 0;
     m_ani_frame = 1;
 
@@ -46,29 +47,55 @@ void CObjFishPlayer::Action()
     //主人公の移動ベクトルの初期化
     m_vx = 0.0f;
     
+    //HitBoxの内容を更新
+    CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
+    hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
+
     //キーの入力方向にベクトルの速度を入れる
     if (Input::GetVKey(VK_RIGHT) == true)
     {
         if (m_f == true)
         {
-            m_vx += 120.0f;
-            m_f = false;
-            
+            //trueの時操作反転
+            if (((UserData*)Save::GetData())->key_flag == true)
+            {
+                if (m_f == true)
+                {
+                    m_vx -= 120.0f;
+                    m_f = false;
+
+                }
+            }
+            else
+            {
+                m_vx += 120.0f;
+                m_f = false;
+            }
         }
     }
     else if (Input::GetVKey(VK_LEFT) == true)
     {
         if (m_f == true)
         {
-            m_vx -= 120.0f;
-            m_f = false;
-
+            //trueの時操作反転
+            if (((UserData*)Save::GetData())->key_flag == true)
+            {
+                if (m_f == true)
+                {
+                    m_vx += 120.0f;
+                    m_f = false;
+                }
+            }
+            else
+            {
+                m_vx -= 120.0f;
+                m_f = false;
+            }
         }
     }
     else
     {
         m_f = true;
-
     }
 
     //移動ベクトルを座標に加算する
@@ -83,10 +110,6 @@ void CObjFishPlayer::Action()
     {
         m_px = 400.0f;
     }
-
-    //HitBoxの内容を更新
-    CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
-    hit->SetPos(m_px+22, m_py+16);         //入口から新しい位置(主人公の位置)情報に置き換える
     
      //回復アイテムと接触したら回復＆削除
     if (hit->CheckElementHit(ELEMENT_HEAL) == true)

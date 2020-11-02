@@ -160,6 +160,7 @@
     <ClCompile Include="ObjFishPlayer.cpp" />
     <ClCompile Include="ObjLifeItem.cpp" />
     <ClCompile Include="ObjMain.cpp" />
+    <ClCompile Include="Objmirror.cpp" />
     <ClCompile Include="ObjResult.cpp" />
     <ClCompile Include="Objsp_down.cpp" />
     <ClCompile Include="Objsp_up.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="ObjFishPlayer.h" />
     <ClInclude Include="ObjLifeItem.h" />
     <ClInclude Include="ObjMain.h" />
+    <ClInclude Include="Objmirror.h" />
     <ClInclude Include="ObjResult.h" />
     <ClInclude Include="Objsp_down.h" />
     <ClInclude Include="Objsp_up.h" />
