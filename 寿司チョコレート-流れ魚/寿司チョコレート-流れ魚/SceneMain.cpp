@@ -62,6 +62,10 @@ void CSceneMain::InitScene()
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
+	Audio::LoadAudio(1, L"上昇.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(2, L"ダメージ音テスト.wav", SOUND_TYPE::EFFECT);
+
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
 	Audio::Start(0);//音楽スタート
