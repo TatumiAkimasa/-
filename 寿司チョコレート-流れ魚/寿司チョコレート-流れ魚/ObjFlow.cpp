@@ -72,5 +72,5 @@ void CObjFlow::Draw()
 	dst.m_right = 64.0f + 15.0f + m_x;
 	dst.m_bottom = 64.0f + 15.0f + m_y;
 
-	Draw::Draw(11, &src, &dst, c, 0.0f);
+	Draw::Draw(12, &src, &dst, c, 0.0f);
 }
