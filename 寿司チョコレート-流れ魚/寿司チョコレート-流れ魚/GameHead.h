@@ -17,6 +17,9 @@ enum OBJ_NAME
 	OBJ_MAIN,
 	OBJ_DESCRIPTION,
 	OBJ_LIFE_ITEM,
+	OBJ_SP_UP,
+	OBJ_SP_DOWN,
+
 };
 //------------------------------------------------
 
@@ -36,6 +39,7 @@ enum HIT_ELEMENTS
 	ELEMENT_BLUE,
 	ELEMENT_BLACK,
 	ELEMENT_WHITE,
+	ELEMENT_HEAL,
 };
 //------------------------------------------------
 
@@ -46,7 +50,8 @@ struct UserData
 	int mSeveData;	//サンプルセーブデータ
 	int save_s_time;		//s_timeセーブ用変数
 	int save_m_time;		//m_timeセーブ用変数
-	int save_score = 0;		    //scoreセーブ用変数
+	int save_score = 0;		//scoreセーブ用変数
+	float sp;				//スピード用変数
 	int sp_lv = 1;			//減速用変数
 	int life_point = 3;  //主人公のライフ
 };
@@ -75,6 +80,8 @@ struct UserData
 #include "ObjMain.h"
 #include "Description.h"
 #include "ObjLifeItem.h"
+#include "Objsp_up.h"
+#include "Objsp_down.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

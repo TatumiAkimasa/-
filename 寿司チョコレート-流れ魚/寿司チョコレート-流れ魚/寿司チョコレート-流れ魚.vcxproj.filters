@@ -108,6 +108,12 @@
     <ClCompile Include="ObjLifeItem.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
+    <ClCompile Include="Objsp_up.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="Objsp_down.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -189,6 +195,12 @@
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
     <ClInclude Include="ObjLifeItem.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Objsp_up.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Objsp_down.h">
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
   </ItemGroup>

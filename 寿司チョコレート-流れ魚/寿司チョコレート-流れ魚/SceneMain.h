@@ -17,5 +17,7 @@ private:
 	int m_time;
 	int x;
 	int t = 0;
-	float sp = 5.0f;
 };
+
+//ŠÖ”‚Ì’è‹`
+void flow(int x, int y);
