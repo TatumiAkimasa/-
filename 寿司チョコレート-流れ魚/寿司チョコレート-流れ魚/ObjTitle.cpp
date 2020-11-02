@@ -33,10 +33,11 @@ void CObjTitle::Action()
 	{
 		//ŠJŽnŽž‚r‚d
 		Audio::Start(1);
-	
+
 		if (m_key_flag == true)
 		{
 			Scene::SetScene(new CSceneMain());
+			
 			m_key_flag = false;
 		}
 	}
