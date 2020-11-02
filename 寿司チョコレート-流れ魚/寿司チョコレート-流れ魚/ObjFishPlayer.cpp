@@ -20,9 +20,9 @@ void CObjFishPlayer::Init()
     m_px = 520.0f;     //à íu
     m_py = 450.0f;
     m_f = true;      //à⁄ìÆêßå‰
-    m_time = 0;
     m_ani_time = 0;
     m_ani_frame = 1;
+    m_time = 0;
 
     //ìñÇΩÇËîªíËópHitBoxÇçÏê¨
     Hits::SetHitBox(this, m_px+22, m_py+16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
@@ -162,6 +162,6 @@ void CObjFishPlayer::Draw()
     dst.m_right = 64.0f + dst.m_left;
     dst.m_bottom = 128.0f + dst.m_top;
 
-    Draw::Draw(11, &src, &dst, c, 0.0f);
+    Draw::Draw(2, &src, &dst, c, 0.0f);
 
 }
