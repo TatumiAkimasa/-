@@ -86,8 +86,6 @@ void CSceneMain::InitScene()
 		Audio::Start(3);
 	}
 
-
-
 	//背景オブジェクト作成
 	CObjBackground* back = new CObjBackground();
 	Objs::InsertObj(back, OBJ_BACK_GROUND, 1);
