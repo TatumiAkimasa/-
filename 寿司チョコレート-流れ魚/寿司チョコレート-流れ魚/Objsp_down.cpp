@@ -5,6 +5,7 @@
 
 #include "GameHead.h"
 #include "Objsp_down.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -43,6 +44,8 @@ void CObjsp_down::Action()
 	//主人公オブジェクトと接触したらオブジェクトしスピードを下げる
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
+		Audio::Start(1);
+
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//オブジェクトが所有するHitBoxを削除する
 	
