@@ -4,7 +4,7 @@
 //使用するネームスペース
 using namespace GameL;
 
-//オブジェクト：10円
+//オブジェクト：sp_down
 class CObjsp_down : public CObj
 {
 	public:
