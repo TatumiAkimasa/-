@@ -6,8 +6,7 @@
 using namespace GameL;
 
 
-
-//シーン：メイン
+//オブジェクト：魚
 class CObjFishPlayer :public CObj
 {
 public:
@@ -22,5 +21,6 @@ private:
 	float m_vx;     //主人公のｘ方向移動ベクトル用変数
 	float m_vy;
 	bool m_f;       //移動キーを押したとき連続で動かない為の変数
-	
+	int m_time;		//操作反転用
+
 };
