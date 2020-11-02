@@ -17,6 +17,8 @@ private:
 	int m_time;
 	int x;
 	int t = 0;
+	int m_ani_time; //主人公アニメーションタイム用変数
+	int m_ani_frame; //主人公アニメーションフレーム用変数
 };
 
 //関数の定義

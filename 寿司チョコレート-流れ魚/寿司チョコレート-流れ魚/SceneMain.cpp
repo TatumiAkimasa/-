@@ -40,8 +40,8 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み1番に登録（水の流れ）
 	Draw::LoadImageW(L"水の流れ.png", 1, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み(主人公)
-	Draw::LoadImage(L"fishplayer.png", 2, TEX_SIZE_512);
+	//外部グラフィックファイルを読み込み(主人公)アニメーション１
+	Draw::LoadImage(L"ani金魚.png", 11, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み3番に登録（10円）
 	Draw::LoadImage(L"10enn.png", 3, TEX_SIZE_512);
@@ -96,6 +96,7 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(m, OBJ_MAIN, 1);
 
 	m_time = 0;
+	m_ani_time = 0;
 
 	((UserData*)Save::GetData())->save_score = 0;
 
