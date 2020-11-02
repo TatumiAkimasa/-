@@ -77,7 +77,7 @@ void CSceneMain::InitScene()
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
-	Audio::LoadAudio(3, L"シーンBGM2(仮).wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(3, L"シーンBGM2(仮)修正.wav", SOUND_TYPE::BACK_MUSIC);
 
 	Audio::LoadAudio(4, L"シーンBGM(仮)スピードup.wav", SOUND_TYPE::BACK_MUSIC);
 
@@ -141,7 +141,7 @@ void CSceneMain::Scene()
 	if (((UserData*)Save::GetData())->sp >= 6.0f && bgm_flag == false)
 	{
 		Audio::Stop(0);
-		Audio::Start(4);
+		Audio::Start(3);
 		bgm_flag = true;
 	}
 	else if (((UserData*)Save::GetData())->sp < 6.0f && bgm_flag == true)
@@ -150,7 +150,21 @@ void CSceneMain::Scene()
 		Audio::Start(0);
 		bgm_flag = false;
 	}
-	
+
+	if (((UserData*)Save::GetData())->sp >= 7.0f && bgm_flag == true)
+	{
+		Audio::Stop(3);
+		Audio::Start(4);
+		bgm_flag = false;
+	}
+	/*else if (((UserData*)Save::GetData())->sp < 7.0f && bgm_flag == false)
+	{
+		Audio::Stop(3);
+		Audio::Start(4);
+		bgm_flag = true;
+	}*/
+
+
 	//落下の初期化
 	if (t == 0)
 	{
