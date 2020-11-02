@@ -21,7 +21,7 @@ CObj10enn::CObj10enn(float x, float y, float s)
 void CObj10enn::Init()
 {
 	//当たり判定用Hitboxを作成
-	Hits::SetHitBox(this, m_x+16, m_y+16, 48, 48, ELEMENT_ENEMY, OBJ_10ENN, 1);
+	Hits::SetHitBox(this, m_x+16, m_y+16, 48, 48, ELEMENT_COIN, OBJ_10ENN, 1);
 }
 
 //アクション
@@ -39,8 +39,7 @@ void CObj10enn::Action()
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
 
-		//スコアの加算
-		((UserData*)Save::GetData())->save_score += 10;
+
 	}
 
 	//主人公オブジェクトと接触したら10円を削除
@@ -48,6 +47,9 @@ void CObj10enn::Action()
 	{
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//10円が所有するHitBoxを削除する
+
+		//スコアの加算
+		((UserData*)Save::GetData())->save_score += 10;
 	}
 }
 

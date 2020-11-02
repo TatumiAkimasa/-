@@ -112,7 +112,7 @@ void CSceneMain::Scene()
 	rand(); rand(); rand(); rand(); rand();
 
 	//ランダム変数
-	int x = rand() % 7;
+	int x = rand() % 50;
 
 	m_time++;
 
@@ -129,6 +129,7 @@ void CSceneMain::Scene()
 		t++;
 	}
 
+	//障害物に当たった時、スピードが初期に戻る処理
 	if (((UserData*)Save::GetData())->sp_lv == 0)
 	{
 		if (((UserData*)Save::GetData())->sp >= 8)
@@ -144,82 +145,96 @@ void CSceneMain::Scene()
 	//障害物の出現
 	if (m_time % 60 == 0)
 	{
+		//乱数複雑化
+		rand(); rand(); rand(); rand(); rand();
+
 		//ランダムに3レーンから流す処理
 		//1レーン流す
-		if (x == 0)
+		if (x <= 46)
 		{
 			//ランダム変数
-			int x = rand() % 2;
+			x = rand() % 6;
 			if (x == 0)
 			{
-				CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
-				Objs::InsertObj(obj, OBJ_10ENN, 50);
+				CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			else if (x == 1)
 			{
-				CObjsp_up* obj = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
-				Objs::InsertObj(obj, OBJ_SP_UP, 50);
+				CObjFlow* f = new CObjFlow(505, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			else if (x == 2)
+			{
+				CObjFlow* f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			
+			else if (x == 3)
+			{
+				CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				f = new CObjFlow(505, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			else if (x == 4)
+			{
+				CObjFlow* f = new CObjFlow(505, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			else if (x == 5)
+			{
+				CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			
 		}
-		else if (x == 1)
-		{
-			CObj10enn* obj = new CObj10enn(505, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
-
-			((UserData*)Save::GetData())->sp_lv++;
-		}
-		else if (x == 2)
-		{
-			CObj10enn* obj = new CObj10enn(625, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
-
-			((UserData*)Save::GetData())->sp_lv++;
-		}
-		//2レーン流す
-		else if (x == 3)
-		{
-			CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
-
-			obj = new CObj10enn(505, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
-
-			((UserData*)Save::GetData())->sp_lv++;
-		}
-		else if (x == 4)
-		{
-			CObj10enn* obj = new CObj10enn(505, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
-
-			obj = new CObj10enn(625, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
-
-			((UserData*)Save::GetData())->sp_lv++;
-		}
-		else if (x == 5)
-		{
-			CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
-
-			obj = new CObj10enn(625, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
-
-			((UserData*)Save::GetData())->sp_lv++;
-		}
+		
 
 		//ライフ回復
-		else if (x == 6)
+		else if (x == 47)
 		{
 			CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(f, OBJ_FLOW, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
+
+		else if (x == 48)
+		{
+			CObjsp_up* obj = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(obj, OBJ_SP_UP, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+
+		else if (x == 49)
+		{
+			CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(obj, OBJ_10ENN, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+		
 
 
 		//3レーン流す

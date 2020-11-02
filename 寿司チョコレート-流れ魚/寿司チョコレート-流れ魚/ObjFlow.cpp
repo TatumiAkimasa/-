@@ -18,7 +18,7 @@ CObjFlow::CObjFlow(float x, float y, float s)
 	m_x = x;
 	m_y = y;
 	m_vy = s;
-	m_id = FLOW_TAKO + rand() % FLOW_SUIKA;
+	m_id = FLOW_TAKO + rand() % 5;
 }
 
 //イニシャライズ
@@ -63,7 +63,7 @@ void CObjFlow::Draw()
 	RECT_F dst;
 
 	src.m_top = 0.0f;
-	src.m_left = 96 * (m_id - FLOW_TAKO);
+	src.m_left = 95 * (m_id - FLOW_TAKO);
 	src.m_right = src.m_left + 96;
 	src.m_bottom = src.m_top + 96;
 

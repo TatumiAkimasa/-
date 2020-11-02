@@ -41,6 +41,7 @@ enum HIT_ELEMENTS
 	ELEMENT_BLACK,
 	ELEMENT_WHITE,
 	ELEMENT_HEAL,
+	ELEMENT_COIN,
 };
 //------------------------------------------------
 
