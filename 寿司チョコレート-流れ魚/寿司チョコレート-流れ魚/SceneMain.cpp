@@ -72,6 +72,8 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(3, L"シーンBGM2(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
+	Audio::LoadAudio(4, L"シーンBGM(仮)スピードup.wav", SOUND_TYPE::BACK_MUSIC);
+
 	Audio::LoadAudio(1, L"上昇.wav", SOUND_TYPE::EFFECT);
 
 	Audio::LoadAudio(2, L"ダメージ音テスト.wav", SOUND_TYPE::EFFECT);
@@ -131,12 +133,12 @@ void CSceneMain::Scene()
 	if (((UserData*)Save::GetData())->sp >= 6.0f && bgm_flag == false)
 	{
 		Audio::Stop(0);
-		Audio::Start(3);
+		Audio::Start(4);
 		bgm_flag = true;
 	}
 	else if (((UserData*)Save::GetData())->sp < 6.0f && bgm_flag == true)
 	{
-		Audio::Stop(3);
+		Audio::Stop(4);
 		Audio::Start(0);
 		bgm_flag = false;
 	}
