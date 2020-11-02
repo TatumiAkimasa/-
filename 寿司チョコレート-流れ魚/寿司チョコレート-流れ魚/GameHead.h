@@ -19,6 +19,7 @@ enum OBJ_NAME
 	OBJ_LIFE_ITEM,
 	OBJ_SP_UP,
 	OBJ_SP_DOWN,
+	OBJ_FLOW,
 	OBJ_MIRROR,
 
 };
@@ -41,6 +42,7 @@ enum HIT_ELEMENTS
 	ELEMENT_BLACK,
 	ELEMENT_WHITE,
 	ELEMENT_HEAL,
+	ELEMENT_COIN,
 	ELEMENT_MIRROR,
 };
 //------------------------------------------------
@@ -62,9 +64,16 @@ struct UserData
 
 
 //ゲーム内で使用されるグローバル変数・定数・列挙--
+//特殊効果なしの障害物
+enum FLOW_OBJ_ID
+{
+	FLOW_TAKO,//タコオブジェクト
+	FLOW_RAKKO,//ラッコオブジェクト
+	FLOW_KIRIMI,//切り身オブジェクト
+	FLOW_AKIKAN,//空き缶オブジェクト
+	FLOW_SUIKA,//スイカオブジェクト
 
-
-
+};
 //------------------------------------------------
 //ゲーム内で使用するクラスヘッダ------------------
 
@@ -85,6 +94,7 @@ struct UserData
 #include "ObjLifeItem.h"
 #include "Objsp_up.h"
 #include "Objsp_down.h"
+#include "ObjFlow.h"
 #include "Objmirror.h"
 //------------------------------------------------
 

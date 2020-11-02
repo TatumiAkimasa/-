@@ -66,6 +66,9 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み10番に登録(ライフ表示）
 	Draw::LoadImage(L"LifeItem.png", 10, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み7番に登録(障害物一覧）
+	Draw::LoadImage(L"syougaibutu.png", 11, TEX_SIZE_512);
+
 	//外部グラフィックファイルを読み込み11番に登録(操作反転アイテム）
 	Draw::LoadImage(L"反転アイコン.png", 11, TEX_SIZE_512);
 
@@ -112,7 +115,7 @@ void CSceneMain::Scene()
 	rand(); rand(); rand(); rand(); rand();
 
 	//ランダム変数
-	int x = rand() % 7;
+	int x = rand() % 50;
 
 	m_time++;
 
@@ -129,6 +132,7 @@ void CSceneMain::Scene()
 		t++;
 	}
 
+	//障害物に当たった時、スピードが初期に戻る処理
 	if (((UserData*)Save::GetData())->sp_lv == 0)
 	{
 		if (((UserData*)Save::GetData())->sp >= 8)
@@ -144,73 +148,96 @@ void CSceneMain::Scene()
 	//障害物の出現
 	if (m_time % 60 == 0)
 	{
+		//乱数複雑化
+		rand(); rand(); rand(); rand(); rand();
+
 		//ランダムに3レーンから流す処理
 		//1レーン流す
-		if (x == 0)
+		if (x <= 46)
 		{
-			//ランダムで流す
-			int x = rand() % 2;
+			//ランダム変数
+			x = rand() % 6;
 			if (x == 0)
 			{
-				flow(385, -64);
+				CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			else if (x == 1)
 			{
-				CObjsp_up* fp = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
-				Objs::InsertObj(fp, OBJ_SP_UP, 10);
+				CObjFlow* f = new CObjFlow(505, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			else if (x == 2)
+			{
+				CObjFlow* f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			
+			else if (x == 3)
+			{
+				CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				f = new CObjFlow(505, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			else if (x == 4)
+			{
+				CObjFlow* f = new CObjFlow(505, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			else if (x == 5)
+			{
+				CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			
 		}
-		else if (x == 1)
-		{
-			flow(505, -64);
-
-			((UserData*)Save::GetData())->sp_lv++;
-		}
-		else if (x == 2)
-		{
-			flow(625, -64);
-
-			((UserData*)Save::GetData())->sp_lv++;
-		}
-		//2レーン流す
-		else if (x == 3)
-		{
-			flow(385, -64);
-
-			flow(505, -64);
-
-			((UserData*)Save::GetData())->sp_lv++;
-		}
-		else if (x == 4)
-		{
-			flow(505, -64);
-
-			flow(625, -64);
-
-			((UserData*)Save::GetData())->sp_lv++;
-		}
-		else if (x == 5)
-		{
-			flow(385, -64);
-
-			flow(625, -64);
-
-			((UserData*)Save::GetData())->sp_lv++;
-		}
+		
 
 		//ライフ回復
-		else if (x == 6)
+		else if (x == 47)
 		{
-			CObjLifeItem* li = new CObjLifeItem(385, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(li, OBJ_LIFE_ITEM, 50);
+			CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(f, OBJ_FLOW, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
+
+		else if (x == 48)
+		{
+			CObjsp_up* obj = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(obj, OBJ_SP_UP, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+
+		else if (x == 49)
+		{
+			CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(obj, OBJ_10ENN, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+		
 
 
 		//3レーン流す
