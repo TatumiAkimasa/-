@@ -61,7 +61,7 @@ void CObjMain::Draw()
 	Font::StrDraw(str, 20, 100, 40, c);
 
 	//スピードの表示
-	swprintf_s(str, L"速度　　%f", ((UserData*)Save::GetData())->sp);
+	swprintf_s(str, L"速度　　%3.1f", ((UserData*)Save::GetData())->sp);
 	Font::StrDraw(str, 20, 350, 40, c);
 
 	//ライフの表示
@@ -69,6 +69,7 @@ void CObjMain::Draw()
 	RECT_F src;
 	RECT_F dst;
 
+	//ライフ1
 	if (((UserData*)Save::GetData())->life_point >= 1)
 	{
 		src.m_top = 0.0f;
@@ -84,6 +85,7 @@ void CObjMain::Draw()
 		Draw::Draw(10, &src, &dst, d, 0.0f);
 	}
 
+	//ライフ2
 	if (((UserData*)Save::GetData())->life_point >= 2)
 	{
 		src.m_top = 0.0f;
@@ -99,6 +101,7 @@ void CObjMain::Draw()
 		Draw::Draw(10, &src, &dst, d, 0.0f);
 	}
 
+	//ライフ3
 	if (((UserData*)Save::GetData())->life_point >= 3)
 	{
 		src.m_top = 0.0f;

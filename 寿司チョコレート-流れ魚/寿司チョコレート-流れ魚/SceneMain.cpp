@@ -66,12 +66,14 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み10番に登録(ライフ表示）
 	Draw::LoadImage(L"LifeItem.png", 10, TEX_SIZE_512);
 
-
 	//外部グラフィックファイルを読み込み11番に登録(操作反転アイテム）
 	Draw::LoadImage(L"反転アイコン.png", 11, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み7番に登録(障害物一覧）
+	//外部グラフィックファイルを読み込み12番に登録(障害物一覧）
 	Draw::LoadImage(L"syougaibutu.png", 12, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み13番に登録(100円）
+	Draw::LoadImage(L"100enn.png", 13, TEX_SIZE_512);
 
 
 	//音楽情報の読み込み
@@ -126,11 +128,14 @@ void CSceneMain::Scene()
 	//乱数複雑化
 	rand(); rand(); rand(); rand(); rand();
 
-	//ランダム変数
-	int x = rand() % 51;
+	//障害物が落ちてくる確率
+	//通常障害物 50/全体　ギミック 1/全体
+	int x = rand() % 56;
 
+	//フレーム数の計算
 	m_time++;
 
+	//水の流れ
 	if (m_time % 50 == 0)
 	{
 		CObjwater_flow* flow = new CObjwater_flow();
@@ -179,10 +184,10 @@ void CSceneMain::Scene()
 
 		//ランダムに3レーンから流す処理
 		//1レーン流す
-		if (x <= 46)
+		if (x <= 50)
 		{
 
-			//ランダム変数
+			//通常障害物の表示
 			x = rand() % 6;
 			if (x == 0)
 			{
@@ -246,15 +251,15 @@ void CSceneMain::Scene()
 
 
 		//ライフ回復
-		else if (x == 47)
+		else if (x == 51)
 		{
 			CObjLifeItem* lt = new CObjLifeItem(385, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(lt, OBJ_LIFE_ITEM, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
-
-		else if (x == 48)
+		//スピードアップ
+		else if (x == 52)
 		{
 			CObjsp_up* obj = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_SP_UP, 50);
@@ -262,25 +267,30 @@ void CSceneMain::Scene()
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
-
-		else if (x == 49)
+		//スコアアップ(10)
+		else if (x == 53)
 		{
 			CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
-		else if (x == 51)
+		//操作反転
+		else if (x == 54)
 		{
 			CObjmirror* m = new CObjmirror(385, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(m, OBJ_10ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
+		//スコアアップ(100)
+		else if (x >= 55)
+		{
+			CObj100enn* obj = new CObj100enn(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(obj, OBJ_100ENN, 50);
 
-
-
-		//3レーン流す
+			((UserData*)Save::GetData())->sp_lv++;
+		}
 
 		//落下加速
 		if (((UserData*)Save::GetData())->sp <= 20)

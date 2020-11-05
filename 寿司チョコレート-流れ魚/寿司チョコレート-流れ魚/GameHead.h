@@ -21,6 +21,7 @@ enum OBJ_NAME
 	OBJ_SP_DOWN,
 	OBJ_FLOW,
 	OBJ_MIRROR,
+	OBJ_100ENN,
 
 };
 //------------------------------------------------
@@ -96,6 +97,7 @@ enum FLOW_OBJ_ID
 #include "Objsp_down.h"
 #include "ObjFlow.h"
 #include "Objmirror.h"
+#include "Obj100enn.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
