@@ -8,7 +8,7 @@ using namespace GameL;
 class CObjwater_flow : public CObj
 {
 public:
-	CObjwater_flow() {};
+	CObjwater_flow(float a) ;
 	~CObjwater_flow() {};
 	void Init();//イニシャライズ
 	void Action();//アクション
@@ -18,4 +18,5 @@ private:
 	int right_d;//rightの変数保存用
 	float m_y1; //背景①の描画情報
 	float flow_flag;//途中で線が変わらない用。
+	float speed;//速さ
 };

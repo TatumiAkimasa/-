@@ -8,7 +8,7 @@ using namespace GameL;
 class CObj10enn : public CObj
 {
 	public:
-		CObj10enn(float x, float y) ;
+		CObj10enn(float x, float y, float s) ;
 		~CObj10enn() {};
 		void Init();		//イニシャライズ
 		void Action();		//アクション
@@ -16,5 +16,6 @@ class CObj10enn : public CObj
 	private:
 		float m_x;			//10円の位置
 		float m_y;
-		float m_vy;			//10円の落下
+		float m_vy;			//10円の落下です
+		float s;
 };

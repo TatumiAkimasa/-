@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\シーンタイトル">
+      <UniqueIdentifier>{e8927663-ed5c-47f0-ad85-f0b3084c9b8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\シーンメイン">
+      <UniqueIdentifier>{40ffa3cb-251a-4367-8f4e-6510e80e4a1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\シーンリザルト">
+      <UniqueIdentifier>{3e2ca62a-ebd4-4186-b0d2-5b89c1c5643a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\障害物">
+      <UniqueIdentifier>{691c90b9-9552-4ed6-82c0-8f20396dbae4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -54,32 +66,68 @@
     <ClCompile Include="GameL\WinInputs.cpp">
       <Filter>リソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ObjBackground.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Objwater_flow.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneMain.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjTitle.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneTitle.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Obj10enn.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="ObjFishPlayer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="SceneResult.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="ObjTitle.cpp">
+      <Filter>ソース ファイル\シーンタイトル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>ソース ファイル\シーンタイトル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMain.cpp">
+      <Filter>ソース ファイル\シーンメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMain.cpp">
+      <Filter>ソース ファイル\シーンメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjDescription.cpp">
+      <Filter>ソース ファイル\シーンタイトル</Filter>
     </ClCompile>
     <ClCompile Include="ObjResult.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\シーンリザルト</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneResult.cpp">
+      <Filter>ソース ファイル\シーンリザルト</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjBackground.cpp">
+      <Filter>ソース ファイル\シーンメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjBackground_2.cpp">
+      <Filter>ソース ファイル\シーンメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjBackground_stats.cpp">
+      <Filter>ソース ファイル\シーンメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="Objwater_flow.cpp">
+      <Filter>ソース ファイル\シーンメイン</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj10enn.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLifeItem.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="Objsp_up.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="Objsp_down.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjFlow.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="Objmirror.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj100enn.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj1000enn.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj10000enn.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
     <ClCompile Include="ObjMain.cpp">
       <Filter>ソース ファイル</Filter>
@@ -125,32 +173,68 @@
     <ClInclude Include="main.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ObjBackground.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Objwater_flow.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneMain.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjTitle.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneTitle.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Obj10enn.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="ObjFishPlayer.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="SceneResult.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="ObjTitle.h">
+      <Filter>ソース ファイル\シーンタイトル</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>ソース ファイル\シーンタイトル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMain.h">
+      <Filter>ソース ファイル\シーンメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMain.h">
+      <Filter>ソース ファイル\シーンメイン</Filter>
     </ClInclude>
     <ClInclude Include="ObjResult.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ソース ファイル\シーンリザルト</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneResult.h">
+      <Filter>ソース ファイル\シーンリザルト</Filter>
+    </ClInclude>
+    <ClInclude Include="Description.h">
+      <Filter>ソース ファイル\シーンタイトル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjBackground.h">
+      <Filter>ソース ファイル\シーンメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjBackground_2.h">
+      <Filter>ソース ファイル\シーンメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjBackground_stats.h">
+      <Filter>ソース ファイル\シーンメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="Objwater_flow.h">
+      <Filter>ソース ファイル\シーンメイン</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj10enn.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLifeItem.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Objsp_up.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Objsp_down.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjFlow.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Objmirror.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj100enn.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj1000enn.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj10000enn.h">
+      <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

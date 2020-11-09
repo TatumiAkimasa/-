@@ -6,8 +6,13 @@
 #include <time.h>
 
 
-//使用するネームスペース//
+//使用するネームスペース////////
 using namespace GameL;
+
+CObjwater_flow::CObjwater_flow(float a)
+{
+	speed = a;
+}
 
 //イニシャライズ
 void CObjwater_flow::Init()
@@ -16,26 +21,29 @@ void CObjwater_flow::Init()
 	right = 0;
 	right_d = 0;
 	flow_flag = true;
+	speed = 0;
+	srand(time(NULL)); // ランダム情報を初期化
 }
 
 //アクション
 void CObjwater_flow::Action()
 {
-	srand(time(NULL)); // ランダム情報を初期化
-
+	
 	//乱数複雑化
 	rand(); rand(); rand(); rand();
 
-	right = rand() % 320;// このように記述するとnpc_handには0～2までの値が入ります
+	right = rand() % 320;//右へ行く値（ランダム）
+	
+	speed += 0.5;
 
-	if (m_y1 < 3.0f)
+	if (m_y1 < 1.0f)
 	{
 		right_d = right;
 		flow_flag = false;
 	}
 
 	//背景①の動作
-	m_y1 += 10.0f;
+	m_y1 += speed;
 	if (m_y1 > 650.0f)
 	{
 		this->SetStatus(false);//自身に削除命令

@@ -14,6 +14,8 @@ public:
 	void Init();
 	void Action();
 	void Draw();
+	int key_num_T();
 private:
 	bool m_key_flag;//キーフラグ
+	int num;//描画優先度
 };

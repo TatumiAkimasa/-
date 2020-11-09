@@ -8,7 +8,7 @@
 
 #include "GameHead.h"
 #include "ObjFishPlayer.h"
-
+#include "GameL\Audio.h"
 //使用するネームスペース
 using namespace GameL;
 
@@ -20,44 +20,83 @@ void CObjFishPlayer::Init()
     m_px = 520.0f;     //位置
     m_py = 450.0f;
     m_f = true;      //移動制御
+    m_ani_time = 0;
+    m_ani_frame = 1;
+    m_time = 0;
 
     //当たり判定用HitBoxを作成
-    Hits::SetHitBox(this, m_px+16, m_py+16, 32, 32, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
+    Hits::SetHitBox(this, m_px+22, m_py+16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
 
 }
 
 //アクション
 void CObjFishPlayer::Action()
 {
-    //主人公機の移動ベクトルの初期化
+    m_ani_time++;
+
+    if (m_ani_time > 10)
+    {
+        m_ani_time = 0;
+        m_ani_frame += 1;
+    }
+
+    if (m_ani_frame == 3)
+    {
+        m_ani_frame = 0;
+    }
+
+    //主人公の移動ベクトルの初期化
     m_vx = 0.0f;
     
+    //HitBoxの内容を更新
+    CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
+    hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
 
     //キーの入力方向にベクトルの速度を入れる
     if (Input::GetVKey(VK_RIGHT) == true)
     {
         if (m_f == true)
         {
-            m_vx += 120.0f;
-            m_f = false;
-            
+            //trueの時操作反転
+            if (((UserData*)Save::GetData())->key_flag_mirror == true)
+            {
+                if (m_f == true)
+                {
+                    m_vx -= 120.0f;
+                    m_f = false;
+
+                }
+            }
+            else
+            {
+                m_vx += 120.0f;
+                m_f = false;
+            }
         }
     }
-    
-
     else if (Input::GetVKey(VK_LEFT) == true)
     {
         if (m_f == true)
         {
-            m_vx -= 120.0f;
-            m_f = false;
-
+            //trueの時操作反転
+            if (((UserData*)Save::GetData())->key_flag_mirror == true)
+            {
+                if (m_f == true)
+                {
+                    m_vx += 120.0f;
+                    m_f = false;
+                }
+            }
+            else
+            {
+                m_vx -= 120.0f;
+                m_f = false;
+            }
         }
     }
     else
     {
         m_f = true;
-
     }
 
     //移動ベクトルを座標に加算する
@@ -72,20 +111,36 @@ void CObjFishPlayer::Action()
     {
         m_px = 400.0f;
     }
+    
+     //回復アイテムと接触したら回復＆削除
+    if (hit->CheckElementHit(ELEMENT_HEAL) == true)
+    {
+        Audio::Start(1);
 
-    //HitBoxの内容を更新
-    CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
-    hit->SetPos(m_px+16, m_py+16);                 //入口から新しい位置(主人公機の位置)情報に置き換える
+        if (((UserData*)Save::GetData())->life_point < 3)
+        {
+            ((UserData*)Save::GetData())->life_point++;
+        }
+    }
+
     
     //障害物オブジェクトと接触したら削除
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
     {
-        this->SetStatus(false);    //自身に削除命令を出す
-        Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
+        ((UserData*)Save::GetData())->life_point--;
 
+        Audio::Start(2);
+        if (((UserData*)Save::GetData())->life_point == 0)
+        {
+            this->SetStatus(false);    //自身に削除命令を出す
+            Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
 
-        //主人公消滅でシーンをゲームオーバーに移行する
-        Scene::SetScene(new CSceneResult());
+            ((UserData*)Save::GetData())->sp_lv = 0;
+
+            //主人公消滅でシーンをゲームオーバーに移行する
+            Scene::SetScene(new CSceneResult());
+           
+        }
     }
 }
 
@@ -95,13 +150,18 @@ void CObjFishPlayer::Draw()
     //描写カラー情報
     float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
+    int AniData[3]
+    {
+        1,2,3
+    };
+
     RECT_F src;//描写元の切り取り位置
-    RECT_F dst;//描画先の表示位置
+    RECT_F dst;//描画先の表示位置でーす
 
 
     src.m_top = 0.0f;
-    src.m_left = 0.0f;
-    src.m_right = 828.0f;
+    src.m_left = 0.0f +( AniData[m_ani_frame]-1)*828;
+    src.m_right = 828.0f * AniData[m_ani_frame];
     src.m_bottom = 1792.0f;
 
     dst.m_top = 0.0f + m_py;
@@ -110,6 +170,5 @@ void CObjFishPlayer::Draw()
     dst.m_bottom = 128.0f + dst.m_top;
 
     Draw::Draw(2, &src, &dst, c, 0.0f);
-
 
 }
