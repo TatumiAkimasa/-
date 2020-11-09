@@ -66,11 +66,24 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み10番に登録(ライフ表示）
 	Draw::LoadImage(L"LifeItem.png", 10, TEX_SIZE_512);
 
+
 	//外部グラフィックファイルを読み込み11番に登録(操作反転アイテム）
 	Draw::LoadImage(L"反転アイコン.png", 11, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み7番に登録(障害物一覧）
+	Draw::LoadImage(L"syougaibutu.png", 12, TEX_SIZE_512);
+
+
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
+
+	Audio::LoadAudio(3, L"シーンBGM2(仮).wav", SOUND_TYPE::BACK_MUSIC);
+
+	Audio::LoadAudio(4, L"シーンBGM(仮)スピードup.wav", SOUND_TYPE::BACK_MUSIC);
+
+	Audio::LoadAudio(1, L"上昇.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(2, L"ダメージ音テスト.wav", SOUND_TYPE::EFFECT);
 
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
@@ -103,6 +116,8 @@ void CSceneMain::InitScene()
 	((UserData*)Save::GetData())->save_score = 0;
 
 	t = 0;
+
+	bgm_flag = false;
 }
 
 //ゲーム実行中メソッド
@@ -112,7 +127,7 @@ void CSceneMain::Scene()
 	rand(); rand(); rand(); rand(); rand();
 
 	//ランダム変数
-	int x = rand() % 7;
+	int x = rand() % 51;
 
 	m_time++;
 
@@ -120,6 +135,20 @@ void CSceneMain::Scene()
 	{
 		CObjwater_flow* flow = new CObjwater_flow();
 		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
+	}
+
+	//BGM変更
+	if (((UserData*)Save::GetData())->sp >= 6.0f && bgm_flag == false)
+	{
+		Audio::Stop(0);
+		Audio::Start(4);
+		bgm_flag = true;
+	}
+	else if (((UserData*)Save::GetData())->sp < 6.0f && bgm_flag == true)
+	{
+		Audio::Stop(4);
+		Audio::Start(0);
+		bgm_flag = false;
 	}
 	
 	//落下の初期化
@@ -129,6 +158,7 @@ void CSceneMain::Scene()
 		t++;
 	}
 
+	//障害物に当たった時、スピードが初期に戻る処理
 	if (((UserData*)Save::GetData())->sp_lv == 0)
 	{
 		if (((UserData*)Save::GetData())->sp >= 7)
@@ -144,73 +174,110 @@ void CSceneMain::Scene()
 	//障害物の出現
 	if (m_time % 60 == 0)
 	{
+		//乱数複雑化
+		rand(); rand(); rand(); rand(); rand();
+
 		//ランダムに3レーンから流す処理
 		//1レーン流す
-		if (x == 0)
+		if (x <= 46)
 		{
-			//ランダムで流す
-			int x = rand() % 2;
+
+			//ランダム変数
+			x = rand() % 6;
 			if (x == 0)
 			{
-				flow(385, -64);
+				CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			else if (x == 1)
 			{
-				CObjsp_up* fp = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
-				Objs::InsertObj(fp, OBJ_SP_UP, 10);
+
+				CObjFlow* f = new CObjFlow(505, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
-			
+			else if (x == 2)
+			{
+				CObjFlow* f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			else if (x == 3)
+			{
+				CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				f = new CObjFlow(505, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			else if (x == 4)
+			{
+				CObjFlow* f = new CObjFlow(505, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			else if (x == 5)
+			{
+				CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(f, OBJ_FLOW, 50);
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+
 		}
-		else if (x == 1)
-		{
-			flow(505, -64);
 
-			((UserData*)Save::GetData())->sp_lv++;
-		}
-		else if (x == 2)
-		{
-			flow(625, -64);
 
-			((UserData*)Save::GetData())->sp_lv++;
-		}
-		//2レーン流す
-		else if (x == 3)
-		{
-			flow(385, -64);
 
-			flow(505, -64);
-
-			((UserData*)Save::GetData())->sp_lv++;
-		}
-		else if (x == 4)
-		{
-			flow(505, -64);
-
-			flow(625, -64);
-
-			((UserData*)Save::GetData())->sp_lv++;
-		}
-		else if (x == 5)
-		{
-			flow(385, -64);
-
-			flow(625, -64);
-
-			((UserData*)Save::GetData())->sp_lv++;
-		}
 
 		//ライフ回復
-		else if (x == 6)
+		else if (x == 47)
 		{
-			CObjLifeItem* li = new CObjLifeItem(385, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(li, OBJ_LIFE_ITEM, 50);
+			CObjLifeItem* lt = new CObjLifeItem(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(lt, OBJ_LIFE_ITEM, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
+
+		else if (x == 48)
+		{
+			CObjsp_up* obj = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(obj, OBJ_SP_UP, 50);
+
+
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+
+		else if (x == 49)
+		{
+			CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(obj, OBJ_10ENN, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+		else if (x == 51)
+		{
+			CObjmirror* m = new CObjmirror(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(m, OBJ_10ENN, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+
 
 
 		//3レーン流す
@@ -220,12 +287,7 @@ void CSceneMain::Scene()
 		{
 			((UserData*)Save::GetData())->sp += 0.1f;
 		}
-	}	
+		
+	}
 }
 
-//障害物を流す関数
-void flow(int x, int y)
-{
-	CObj10enn* obj = new CObj10enn(x, y, ((UserData*)Save::GetData())->sp);
-	Objs::InsertObj(obj, OBJ_10ENN, 50);
-}

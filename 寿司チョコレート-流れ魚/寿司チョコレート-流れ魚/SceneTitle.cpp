@@ -40,6 +40,7 @@ void CSceneTitle::InitScene()
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"タイトルBGM.wav", SOUND_TYPE::BACK_MUSIC);
 
+	Audio::LoadAudio(1, L"開始SE.wav", SOUND_TYPE::EFFECT);
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
 	Audio::Start(0);//音楽スタート

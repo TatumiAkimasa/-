@@ -5,6 +5,7 @@
 
 #include "GameHead.h"
 #include "Objsp_up.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -43,6 +44,8 @@ void CObjsp_up::Action()
 	//主人公オブジェクトと接触したらオブジェクトを削除しスピードを上げる
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
+		Audio::Start(1);
+
 		this->SetStatus(false);    //自身に削除命令を出す
 		Hits::DeleteHitBox(this);  //アイテムオブジェクトが所有するHitBoxに削除する
 	

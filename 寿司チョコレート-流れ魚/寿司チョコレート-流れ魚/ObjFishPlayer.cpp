@@ -8,7 +8,7 @@
 
 #include "GameHead.h"
 #include "ObjFishPlayer.h"
-
+#include "GameL\Audio.h"
 //使用するネームスペース
 using namespace GameL;
 
@@ -114,12 +114,15 @@ void CObjFishPlayer::Action()
      //回復アイテムと接触したら回復＆削除
     if (hit->CheckElementHit(ELEMENT_HEAL) == true)
     {
+        Audio::Start(1);
+
         if (((UserData*)Save::GetData())->life_point < 3)
         {
             ((UserData*)Save::GetData())->life_point++;
         }
     }
 
+    
     //障害物オブジェクトと接触したら削除
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
     {
@@ -135,8 +138,11 @@ void CObjFishPlayer::Action()
             this->SetStatus(false);    //自身に削除命令を出す
             Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
 
+            ((UserData*)Save::GetData())->sp_lv = 0;
+
             //主人公消滅でシーンをゲームオーバーに移行する
             Scene::SetScene(new CSceneResult());
+           
         }
     }
 }
