@@ -21,6 +21,9 @@ enum OBJ_NAME
 	OBJ_SP_DOWN,
 	OBJ_FLOW,
 	OBJ_MIRROR,
+	OBJ_100ENN,
+	OBJ_1000ENN,
+	OBJ_10000ENN,
 
 };
 //------------------------------------------------
@@ -58,7 +61,7 @@ struct UserData
 	float sp;				//スピード用変数
 	int sp_lv = 1;			//減速用変数
 	int life_point = 3;  //主人公のライフ
-	bool key_flag;		 //操作反転用フラグ
+	bool key_flag_mirror;		 //操作反転用フラグ
 };
 //------------------------------------------------
 
@@ -96,6 +99,9 @@ enum FLOW_OBJ_ID
 #include "Objsp_down.h"
 #include "ObjFlow.h"
 #include "Objmirror.h"
+#include "Obj100enn.h"
+#include "Obj1000enn.h"
+#include "Obj10000enn.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

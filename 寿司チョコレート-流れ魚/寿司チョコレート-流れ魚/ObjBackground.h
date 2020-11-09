@@ -17,4 +17,5 @@ private:
 
 	float m_y1; //”wŒi‡@‚Ì•`‰æî•ñ
 	int count;//‰æ–ÊØ‚è‘Ö‚¦—p
+	
 };
