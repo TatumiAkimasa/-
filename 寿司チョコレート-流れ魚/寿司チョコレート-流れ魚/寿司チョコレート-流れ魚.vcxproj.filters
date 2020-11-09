@@ -120,6 +120,15 @@
     <ClCompile Include="Objmirror.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
+    <ClCompile Include="Obj100enn.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj1000enn.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj10000enn.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -213,6 +222,15 @@
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
     <ClInclude Include="Objmirror.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj100enn.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj1000enn.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj10000enn.h">
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
   </ItemGroup>

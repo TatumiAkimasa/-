@@ -4,13 +4,13 @@
 #include "GameL/UserData.h"
 
 #include "GameHead.h"
-#include "Objmirror.h"
+#include "Obj1000enn.h"
 
 //使用するネームスペース
 using namespace GameL;
 
 //コンストラクタ
-CObjmirror::CObjmirror(float x, float y, float s)
+CObj1000enn::CObj1000enn(float x, float y, float s)
 {
 	m_x = x;
 	m_y = y;
@@ -18,14 +18,14 @@ CObjmirror::CObjmirror(float x, float y, float s)
 }
 
 //イニシャライズ
-void CObjmirror::Init()
+void CObj1000enn::Init()
 {
 	//当たり判定用Hitboxを作成
-	Hits::SetHitBox(this, m_x + 16, m_y + 16, 48, 48, ELEMENT_MIRROR, OBJ_MIRROR, 1);
+	Hits::SetHitBox(this, m_x + 16, m_y + 16, 48, 48, ELEMENT_COIN, OBJ_10ENN, 1);
 }
 
 //アクション
-void CObjmirror::Action()
+void CObj1000enn::Action()
 {
 	m_y += m_vy;
 
@@ -38,29 +38,23 @@ void CObjmirror::Action()
 	{
 		this->SetStatus(false);
 		Hits::DeleteHitBox(this);
+
+
 	}
 
-	//主人公オブジェクトと接触したら操作反転アイテムを削除
+	//主人公オブジェクトと接触したら10円を削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
 		this->SetStatus(false);		//自身に削除命令を出す。
-		Hits::DeleteHitBox(this);	//操作反転アイテムが所有するHitBoxを削除する
+		Hits::DeleteHitBox(this);	//10円が所有するHitBoxを削除する
 
-		//既にtrueの場合falseにする
-		if (((UserData*)Save::GetData())->key_flag_mirror == true)
-		{
-			((UserData*)Save::GetData())->key_flag_mirror = false;
-		}
-		//主人公オブジェクトと接触したらフラグをtrueにする
-		else
-		{
-			((UserData*)Save::GetData())->key_flag_mirror = true;
-		}
+		//スコアの加算
+		((UserData*)Save::GetData())->save_score += 1000;
 	}
 }
 
 //ドロー
-void CObjmirror::Draw()
+void CObj1000enn::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	RECT_F src;
@@ -76,5 +70,5 @@ void CObjmirror::Draw()
 	dst.m_right = 64.0f + 15.0f + m_x;
 	dst.m_bottom = 64.0f + 15.0f + m_y;
 
-	Draw::Draw(11, &src, &dst, c, 0.0f);
+	Draw::Draw(14, &src, &dst, c, 0.0f);
 }

@@ -26,6 +26,7 @@ void CObjFishPlayer::Init()
 
     //“–‚½‚è”»’è—pHitBox‚ðì¬
     Hits::SetHitBox(this, m_px+22, m_py+16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
+
 }
 
 //ƒAƒNƒVƒ‡ƒ“
@@ -57,7 +58,7 @@ void CObjFishPlayer::Action()
         if (m_f == true)
         {
             //true‚ÌŽž‘€ì”½“]
-            if (((UserData*)Save::GetData())->key_flag == true)
+            if (((UserData*)Save::GetData())->key_flag_mirror == true)
             {
                 if (m_f == true)
                 {
@@ -78,7 +79,7 @@ void CObjFishPlayer::Action()
         if (m_f == true)
         {
             //true‚ÌŽž‘€ì”½“]
-            if (((UserData*)Save::GetData())->key_flag == true)
+            if (((UserData*)Save::GetData())->key_flag_mirror == true)
             {
                 if (m_f == true)
                 {
