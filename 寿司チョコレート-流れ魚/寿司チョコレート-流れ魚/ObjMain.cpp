@@ -66,6 +66,8 @@ void CObjMain::Draw()
 
 	//ライフの表示
 	float d[4] = { 1.0f,1.0f,1.0f,1.0f };
+	swprintf_s(str, L"ライフ");
+	Font::StrDraw(str, 20, 160, 40, c);
 	RECT_F src;
 	RECT_F dst;
 
