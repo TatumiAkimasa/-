@@ -139,6 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ObjBackground_2.cpp" />
+    <ClCompile Include="ObjBackground_stats.cpp" />
+    <ClCompile Include="ObjDescription.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
     <ClCompile Include="GameL\Draw2DTex_Source.cpp" />
@@ -155,8 +158,13 @@
     <ClCompile Include="Obj10enn.cpp" />
     <ClCompile Include="ObjBackground.cpp" />
     <ClCompile Include="ObjFishPlayer.cpp" />
+    <ClCompile Include="ObjFlow.cpp" />
+    <ClCompile Include="ObjLifeItem.cpp" />
     <ClCompile Include="ObjMain.cpp" />
+    <ClCompile Include="Objmirror.cpp" />
     <ClCompile Include="ObjResult.cpp" />
+    <ClCompile Include="Objsp_down.cpp" />
+    <ClCompile Include="Objsp_up.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="Objwater_flow.cpp" />
     <ClCompile Include="SceneMain.cpp" />
@@ -164,6 +172,7 @@
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Description.h" />
     <ClInclude Include="GameHead.h" />
     <ClInclude Include="GameL\Audio.h" />
     <ClInclude Include="GameL\DirectXDevice.h" />
@@ -179,9 +188,16 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="Obj10enn.h" />
     <ClInclude Include="ObjBackground.h" />
+    <ClInclude Include="ObjBackground_2.h" />
+    <ClInclude Include="ObjBackground_stats.h" />
     <ClInclude Include="ObjFishPlayer.h" />
+    <ClInclude Include="ObjFlow.h" />
+    <ClInclude Include="ObjLifeItem.h" />
     <ClInclude Include="ObjMain.h" />
+    <ClInclude Include="Objmirror.h" />
     <ClInclude Include="ObjResult.h" />
+    <ClInclude Include="Objsp_down.h" />
+    <ClInclude Include="Objsp_up.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="Objwater_flow.h" />
     <ClInclude Include="SceneMain.h" />

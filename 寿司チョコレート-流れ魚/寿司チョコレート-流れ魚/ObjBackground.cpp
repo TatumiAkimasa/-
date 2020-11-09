@@ -11,6 +11,7 @@ using namespace GameL;
 void CObjBackground::Init()
 {
 	m_y1 = 0.0f;
+	count = 10;
 }
 
 //ƒAƒNƒVƒ‡ƒ“
@@ -18,9 +19,28 @@ void CObjBackground::Action()
 {
 	//”wŒi‡@‚Ì“®ì
 	//‚İ‚¸i”’üj‚ğ—¬‚¹‚Î‚±‚Ìˆ—‚Í•s—v
-	//m_y1 -= 10.0f;
-	if (m_y1 < -800.0f)
-		m_y1 = 800;
+	m_y1 -= 5.0f;
+
+	if (m_y1 < -600.0f&&count==1)
+	{
+		m_y1 = 600;
+		count = 3;
+	}
+	else if (m_y1 < -600.0f && count == 2)
+	{
+		m_y1 = 600;
+		count = 1;
+	}
+	else if (m_y1 < -600.0f && count == 3)
+	{
+		m_y1 = 600;
+		count = 2;
+	}
+	else if (m_y1 < -600.0f && count == 10)
+	{
+		m_y1 = 600;
+		count = 3;
+	}
 
 }
 
@@ -35,19 +55,50 @@ void CObjBackground::Draw()
 
 	//Ø‚èæ‚èˆÊ’u‚Ìİ’è
 	src.m_top = 0.0f;
-	src.m_left = 60.0f;
-	src.m_right = 500.0f;
+	src.m_left = 0.0f;
+	src.m_right = 512.0f;
 	src.m_bottom = 512.0f;
 
-	//”wŒi‡@‚ÌˆÊ’uİ’è‚µ•`‰æ
-	dst.m_top = 0.0f;
-	dst.m_left = 280.0f ;
-	dst.m_right = 850.0f ;
-	dst.m_bottom = 600.0f;
-
 	//1”Ô–Ú‚É“o˜^‚µ‚½ƒOƒ‰ƒtƒBƒbƒN‚ğsrcEdstEc‚Ìî•ñ‚ğ‚à‚Æ‚É•`‰æ
-	Draw::Draw(0, &src, &dst, c, 0.0f);
+	if (count == 10)
+	{
+		//”wŒi‡@‚ÌˆÊ’uİ’è‚µ•`‰æ
+		dst.m_top = 0.0f - m_y1;
+		dst.m_left = 250.0f;
+		dst.m_right = 820.0f;
+		dst.m_bottom = 600.0f - m_y1;
 
-	
+		Draw::Draw(0, &src, &dst, c, 0.0f);
+	}
+	else if (count == 1)
+	{
+		//”wŒi‡@‚ÌˆÊ’uİ’è‚µ•`‰æ
+		dst.m_top = 0.0f - m_y1;
+		dst.m_left = 250.0f;
+		dst.m_right = 820.0f;
+		dst.m_bottom = 610.0f - m_y1;
+
+		Draw::Draw(0, &src, &dst, c, 0.0f);
+	}
+	else if (count == 2)
+	{
+		//”wŒi‡@‚ÌˆÊ’uİ’è‚µ•`‰æ
+		dst.m_top = 0.0f - m_y1;
+		dst.m_left = 238.0f;
+		dst.m_right = 808.0f;
+		dst.m_bottom = 611.0f - m_y1;
+
+		Draw::Draw(4, &src, &dst, c, 0.0f);
+	}
+	else if (count == 3)
+	{
+		//”wŒi‡@‚ÌˆÊ’uİ’è‚µ•`‰æ
+		dst.m_top = 0.0f - m_y1;
+		dst.m_left = 233.2f;
+		dst.m_right = 803.2f;
+		dst.m_bottom = 610.0f - m_y1;
+
+		Draw::Draw(5, &src, &dst, c, 0.0f);
+	}
 
 }

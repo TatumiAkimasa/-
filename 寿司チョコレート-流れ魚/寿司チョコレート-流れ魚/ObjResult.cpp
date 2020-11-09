@@ -6,7 +6,7 @@
 #include "GameL\SceneManager.h"
 #include "GameL\WinInputs.h"
 #include "GameL\UserData.h"
-//ぼんてんです。
+//ぼんてんですよおおおおおお
 
 //使用するゲームスペース
 using namespace GameL;
@@ -33,7 +33,7 @@ void CObjResult::Action()
 	{
 		if (m_key_flag == true)
 		{
-			((UserData*)Save::GetData())->save_score = 0;
+			
 			Scene::SetScene(new CSceneTitle());
 			m_key_flag = false;
 		}
@@ -49,7 +49,7 @@ void CObjResult::Draw()
 {
 	wchar_t str[256];
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-	Font::StrDraw(L"終了！", 300, 100, 64, c);
+	Font::StrDraw(L"☆★☆さすが先生☆★☆", 45, 400, 64, c);
 	//タイム表示
 	if (((UserData*)Save::GetData())->save_s_time <= 9)
 	{
@@ -71,7 +71,7 @@ void CObjResult::Draw()
 			((UserData*)Save::GetData())->save_s_time
 		);
 	}
-	Font::StrDraw(str, 200, 200, 64, c);
+	Font::StrDraw(str, 200, 100, 64, c);
 	//スコア表示
 	swprintf_s
 	(
@@ -79,7 +79,7 @@ void CObjResult::Draw()
 		L"魚力　%05d",
 		((UserData*)Save::GetData())->save_score
 	);
-	Font::StrDraw(str, 230, 300, 64, c);
+	Font::StrDraw(str, 230, 250, 64, c);
 	//エンターキーで移動
-	Font::StrDraw(L"Push Enter", 230, 400, 64, c);
+	Font::StrDraw(L"エンターでタイトル", 510, 565, 32, c);
 }
