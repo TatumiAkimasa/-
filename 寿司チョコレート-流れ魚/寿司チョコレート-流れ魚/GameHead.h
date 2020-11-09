@@ -21,6 +21,8 @@ enum OBJ_NAME
 	OBJ_SP_DOWN,
 	OBJ_FLOW,
 	OBJ_MIRROR,
+	OBJ_TREEITEM,
+	OBJ_TREE,
 
 };
 //------------------------------------------------
@@ -44,6 +46,8 @@ enum HIT_ELEMENTS
 	ELEMENT_HEAL,
 	ELEMENT_COIN,
 	ELEMENT_MIRROR,
+	ELEMENT_TREEITEM,
+	ELEMENT_TREE,
 };
 //------------------------------------------------
 
@@ -51,14 +55,16 @@ enum HIT_ELEMENTS
 //セーブ＆ロードとシーン間のやり取りするデータ
 struct UserData
 {
-	int mSeveData;	//サンプルセーブデータ
+	int mSeveData;			//サンプルセーブデータ
 	int save_s_time;		//s_timeセーブ用変数
 	int save_m_time;		//m_timeセーブ用変数
 	int save_score = 0;		//scoreセーブ用変数
 	float sp;				//スピード用変数
 	int sp_lv = 1;			//減速用変数
-	int life_point = 3;  //主人公のライフ
-	bool key_flag;		 //操作反転用フラグ
+	int life_point = 3;		//主人公のライフ
+	bool key_flag;			//操作反転用フラグ
+	bool Tree_flag;			//木フラグ
+	int Tree_num = 0;			//木の数管理用
 };
 //------------------------------------------------
 
@@ -96,6 +102,8 @@ enum FLOW_OBJ_ID
 #include "Objsp_down.h"
 #include "ObjFlow.h"
 #include "Objmirror.h"
+#include "ObjTreeItem.h"
+#include "ObjTree.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

@@ -66,13 +66,17 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み10番に登録(ライフ表示）
 	Draw::LoadImage(L"LifeItem.png", 10, TEX_SIZE_512);
 
-
 	//外部グラフィックファイルを読み込み11番に登録(操作反転アイテム）
 	Draw::LoadImage(L"反転アイコン.png", 11, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み7番に登録(障害物一覧）
+	//外部グラフィックファイルを読み込み12番に登録(障害物一覧）
 	Draw::LoadImage(L"syougaibutu.png", 12, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み13番に登録(木アイテム)
+	Draw::LoadImage(L"木 アイテム.png", 13, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み14番に登録(木)
+	Draw::LoadImage(L"木.png", 14, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -127,7 +131,10 @@ void CSceneMain::Scene()
 	rand(); rand(); rand(); rand(); rand();
 
 	//ランダム変数
-	int x = rand() % 51;
+	//int x = rand() % 53;
+
+	//テスト
+	int x = 52;
 
 	m_time++;
 
@@ -242,9 +249,6 @@ void CSceneMain::Scene()
 
 		}
 
-
-
-
 		//ライフ回復
 		else if (x == 47)
 		{
@@ -253,7 +257,7 @@ void CSceneMain::Scene()
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
-
+		//スピードアップ
 		else if (x == 48)
 		{
 			CObjsp_up* obj = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
@@ -262,7 +266,8 @@ void CSceneMain::Scene()
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
-
+		//スピードダウン
+		//10円
 		else if (x == 49)
 		{
 			CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
@@ -270,17 +275,30 @@ void CSceneMain::Scene()
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
+		//操作反転
 		else if (x == 51)
 		{
 			CObjmirror* m = new CObjmirror(385, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(m, OBJ_10ENN, 50);
+			Objs::InsertObj(m, OBJ_MIRROR, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
+		//木アイテム
+		else if (x == 52)
+		{
+			CObjTreeItem* t = new CObjTreeItem(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(t, OBJ_TREEITEM, 50);
 
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+		//木
+		if (((UserData*)Save::GetData())->Tree_flag == true)
+		{
+			CObjTree* t = new CObjTree(380, -120);
+			Objs::InsertObj(t, OBJ_TREE, 50);
 
-
-		//3レーン流す
+			((UserData*)Save::GetData())->Tree_flag = false;
+		}
 
 		//落下加速
 		if (((UserData*)Save::GetData())->sp <= 20)

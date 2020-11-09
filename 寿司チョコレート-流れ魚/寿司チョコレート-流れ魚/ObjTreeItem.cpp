@@ -4,13 +4,13 @@
 #include "GameL/UserData.h"
 
 #include "GameHead.h"
-#include "Objmirror.h"
+#include "ObjTreeItem.h"
 
 //使用するネームスペース
 using namespace GameL;
 
 //コンストラクタ
-CObjmirror::CObjmirror(float x, float y, float s)
+CObjTreeItem::CObjTreeItem(float x, float y, float s)
 {
 	m_x = x;
 	m_y = y;
@@ -18,14 +18,14 @@ CObjmirror::CObjmirror(float x, float y, float s)
 }
 
 //イニシャライズ
-void CObjmirror::Init()
+void CObjTreeItem::Init()
 {
 	//当たり判定用Hitboxを作成
-	Hits::SetHitBox(this, m_x + 16, m_y + 16, 48, 48, ELEMENT_MIRROR, OBJ_MIRROR, 1);
+	Hits::SetHitBox(this, m_x + 16, m_y + 16, 48, 48, ELEMENT_TREEITEM, OBJ_TREEITEM, 1);
 }
 
 //アクション
-void CObjmirror::Action()
+void CObjTreeItem::Action()
 {
 	m_y += m_vy;
 
@@ -40,27 +40,18 @@ void CObjmirror::Action()
 		Hits::DeleteHitBox(this);
 	}
 
-	//主人公オブジェクトと接触したら操作反転アイテムを削除
+	//主人公オブジェクトと接触したら木アイテムを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
 		this->SetStatus(false);		//自身に削除命令を出す。
-		Hits::DeleteHitBox(this);	//操作反転アイテムが所有するHitBoxを削除する
-
-		//既にtrueの場合falseにする
-		if (((UserData*)Save::GetData())->key_flag == true)
-		{
-			((UserData*)Save::GetData())->key_flag = false;
-		}
-		//主人公オブジェクトと接触したらフラグをtrueにする
-		else
-		{
-			((UserData*)Save::GetData())->key_flag = true;
-		}
+		Hits::DeleteHitBox(this);	//木アイテムが所有するHitBoxを削除する
+	
+		((UserData*)Save::GetData())->Tree_flag = true;
 	}
 }
 
 //ドロー
-void CObjmirror::Draw()
+void CObjTreeItem::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	RECT_F src;
@@ -68,13 +59,13 @@ void CObjmirror::Draw()
 
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
-	src.m_right = 768.0f;
-	src.m_bottom = 768.0f;
+	src.m_right = 335.0f;
+	src.m_bottom = 335.0f;
 
 	dst.m_top = 0.0f + m_y;
 	dst.m_left = 0.0f + m_x;
 	dst.m_right = 64.0f + 15.0f + m_x;
 	dst.m_bottom = 64.0f + 15.0f + m_y;
 
-	Draw::Draw(11, &src, &dst, c, 0.0f);
+	Draw::Draw(13, &src, &dst, c, 0.0f);
 }
