@@ -124,6 +124,11 @@ void CObjFishPlayer::Action()
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
     {
         ((UserData*)Save::GetData())->life_point--;
+
+        //障害物の当たった時、スピードを下げる処理
+        ((UserData*)Save::GetData())->sp_lv = 0;
+
+        Audio::Start(2);
         if (((UserData*)Save::GetData())->life_point == 0)
         {
             this->SetStatus(false);    //自身に削除命令を出す
