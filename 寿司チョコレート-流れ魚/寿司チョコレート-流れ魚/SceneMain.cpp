@@ -131,12 +131,6 @@ void CSceneMain::Scene()
 
 	m_time++;
 
-	if (m_time % 50 == 0)
-	{
-		CObjwater_flow* flow = new CObjwater_flow();
-		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
-	}
-
 	//BGMïœçX
 	if (((UserData*)Save::GetData())->sp >= 6.0f && bgm_flag == false)
 	{
@@ -170,6 +164,24 @@ void CSceneMain::Scene()
 			((UserData*)Save::GetData())->sp = 5.0f;
 		}
 	}
+
+	if (m_time%29 == 0)
+	{
+		CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
+		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
+	}
+	else if (m_time % 73 == 0)
+	{
+		CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
+		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
+	}
+	else if (m_time % 127 == 0)
+	{
+		CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
+		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
+	}
+
+
 
 	//è·äQï®ÇÃèoåª
 	if (m_time % 60 == 0)
