@@ -62,12 +62,12 @@ void CObjMain::Draw()
 
 	//スピードの表示
 	swprintf_s(str, L"速度　　%f", ((UserData*)Save::GetData())->sp);
-	Font::StrDraw(str, 20, 350, 40, c);
+	Font::StrDraw(str, 20, 160, 40, c);
 
 	//ライフの表示
 	float d[4] = { 1.0f,1.0f,1.0f,1.0f };
 	swprintf_s(str, L"ライフ");
-	Font::StrDraw(str, 20, 160, 40, c);
+	Font::StrDraw(str, 20, 280, 40, c);
 	RECT_F src;
 	RECT_F dst;
 
@@ -78,7 +78,7 @@ void CObjMain::Draw()
 		src.m_right = 1000.0f;
 		src.m_bottom = 1000.0f;
 
-		dst.m_top = 200.0f;
+		dst.m_top = 320.0f;
 		dst.m_left = 20.0f;
 		dst.m_right = 64.0f + dst.m_left;
 		dst.m_bottom = 64.0f + dst.m_top;
@@ -93,7 +93,7 @@ void CObjMain::Draw()
 		src.m_right = 1000.0f;
 		src.m_bottom = 1000.0f;
 
-		dst.m_top = 200.0f;
+		dst.m_top = 320.0f;
 		dst.m_left = 100.0f;
 		dst.m_right = 64.0f + dst.m_left;
 		dst.m_bottom = 64.0f + dst.m_top;
@@ -108,7 +108,7 @@ void CObjMain::Draw()
 		src.m_right = 1000.0f;
 		src.m_bottom = 1000.0f;
 
-		dst.m_top = 200.0f;
+		dst.m_top = 320.0f;
 		dst.m_left = 180.0f;
 		dst.m_right = 64.0f + dst.m_left;
 		dst.m_bottom = 64.0f + dst.m_top;
