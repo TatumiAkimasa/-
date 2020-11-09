@@ -155,6 +155,7 @@
     <ClCompile Include="Obj10enn.cpp" />
     <ClCompile Include="ObjBackground.cpp" />
     <ClCompile Include="ObjFishPlayer.cpp" />
+    <ClCompile Include="ObjMain.cpp" />
     <ClCompile Include="ObjResult.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="Objwater_flow.cpp" />
