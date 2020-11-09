@@ -75,6 +75,12 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み13番に登録(100円）
 	Draw::LoadImage(L"100enn.png", 13, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み14番に登録(1000円）
+	Draw::LoadImage(L"1000enn.png", 14, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み14番に登録(10000円）
+	Draw::LoadImage(L"10000enn.png", 15, TEX_SIZE_512);
+
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -130,7 +136,7 @@ void CSceneMain::Scene()
 
 	//障害物が落ちてくる確率
 	//通常障害物 50/全体　ギミック 1/全体
-	int x = rand() % 56;
+	int x = rand() % 100;
 
 	//フレーム数の計算
 	m_time++;
@@ -284,12 +290,28 @@ void CSceneMain::Scene()
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//スコアアップ(100)
-		else if (x >= 55)
+		else if (x == 55)
 		{
 			CObj100enn* obj = new CObj100enn(385, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_100ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
+		}
+		//スコアアップ(1000)
+		else if (x == 56)
+		{
+		CObj1000enn* obj = new CObj1000enn(385, -64, ((UserData*)Save::GetData())->sp);
+		Objs::InsertObj(obj, OBJ_1000ENN, 50);
+
+		((UserData*)Save::GetData())->sp_lv++;
+		}
+		//スコアアップ(10000)
+		else if (x >= 57)
+		{
+		CObj10000enn* obj = new CObj10000enn(385, -64, ((UserData*)Save::GetData())->sp);
+		Objs::InsertObj(obj, OBJ_10000ENN, 50);
+
+		((UserData*)Save::GetData())->sp_lv++;
 		}
 
 		//落下加速

@@ -58,7 +58,7 @@ void CObjFishPlayer::Action()
         if (m_f == true)
         {
             //true‚ÌŽž‘€ì”½“]
-            if (((UserData*)Save::GetData())->key_flag == true)
+            if (((UserData*)Save::GetData())->key_flag_mirror == true)
             {
                 if (m_f == true)
                 {
@@ -79,7 +79,7 @@ void CObjFishPlayer::Action()
         if (m_f == true)
         {
             //true‚ÌŽž‘€ì”½“]
-            if (((UserData*)Save::GetData())->key_flag == true)
+            if (((UserData*)Save::GetData())->key_flag_mirror == true)
             {
                 if (m_f == true)
                 {
