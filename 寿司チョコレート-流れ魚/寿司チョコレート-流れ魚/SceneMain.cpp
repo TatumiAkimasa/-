@@ -141,12 +141,9 @@ void CSceneMain::Scene()
 	//フレーム数の計算
 	m_time++;
 
-	//水の流れ
-	if (m_time % 50 == 0)
-	{
-		CObjwater_flow* flow = new CObjwater_flow();
-		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
-	}
+
+	
+
 
 	//BGM変更
 	if (((UserData*)Save::GetData())->sp >= 6.0f && bgm_flag == false)
