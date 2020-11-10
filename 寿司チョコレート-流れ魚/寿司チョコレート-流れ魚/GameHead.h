@@ -21,7 +21,6 @@ enum OBJ_NAME
 	OBJ_SP_DOWN,
 	OBJ_MIRROR,
 	OBJ_FLOW,
-	OBJ_MIRROR,
 	OBJ_100ENN,
 	OBJ_1000ENN,
 	OBJ_10000ENN,
@@ -46,6 +45,7 @@ enum HIT_ELEMENTS
 	ELEMENT_BLACK,
 	ELEMENT_WHITE,
 	ELEMENT_HEAL,
+	ELEMENT_COIN,
 	ELEMENT_MIRROR,
 };
 //------------------------------------------------

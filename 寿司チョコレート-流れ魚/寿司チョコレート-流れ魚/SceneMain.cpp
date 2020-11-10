@@ -241,6 +241,7 @@ void CSceneMain::Scene()
 		else if (x == 1)
 		{
 			flow(505, -64);
+			((UserData*)Save::GetData())->sp_lv++;
 			else if (x == 2)
 			{
 				CObjFlow* f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
@@ -294,10 +295,6 @@ void CSceneMain::Scene()
 
 		}
 
-
-
-
-			flow(505, -64);
 		//ƒ‰ƒCƒt‰ñ•œ
 		else if (x == 51)
 		{
@@ -374,6 +371,6 @@ void flow(int x, int y)
 	Objs::InsertObj(obj, OBJ_10ENN, 50);
 }
 		
-	}
-}
+	
+
 

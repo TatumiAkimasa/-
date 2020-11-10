@@ -9,7 +9,7 @@ class CObjmirror : public CObj
 {
 public:
 	CObjmirror(float x, float y, float s);
-	~CObjmirror() {};
+	~CObjmirror() ;
 	void Init();		//イニシャライズ
 	void Action();		//アクション
 	void Draw();		//ドロー
