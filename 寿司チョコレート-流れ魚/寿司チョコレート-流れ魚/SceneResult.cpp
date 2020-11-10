@@ -6,6 +6,7 @@
 #include "GameL\SceneObjManager.h"
 #include "GameL\DrawFont.h"
 #include "GameL\Audio.h"
+#include"GameL/DrawTexture.h"
 
 //使用するゲームスペース
 using namespace GameL;
@@ -32,6 +33,9 @@ void CSceneResult::InitScene()
 	Audio::Start(0);//音楽スタート
 	//↑後々BGM入ると思ったので適当に書いときました。
 	//必要なければ消してください
+
+	//外部グラフィックファイルを読み込み16番に登録(ロゴ）
+	Draw::LoadImage(L"合成 黄色丸_256.png", 16, TEX_SIZE_256);
 
 	//出力させる文字のグラフィックを作成
 	Font::SetStrTex(L"☆★☆さすが先生☆★☆");
