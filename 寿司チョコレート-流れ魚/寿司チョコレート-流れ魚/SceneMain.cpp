@@ -40,7 +40,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"水の流れ.png", 1, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み2番に登録(主人公)アニメーション１
-	Draw::LoadImage(L"ani金魚.png", 2, TEX_SIZE_512);
+	Draw::LoadImage(L"ani金魚2.png", 2, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み3番に登録（10円）
 	Draw::LoadImage(L"10enn.png", 3, TEX_SIZE_512);
