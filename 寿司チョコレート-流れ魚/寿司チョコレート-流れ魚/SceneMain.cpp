@@ -69,6 +69,9 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み11番に登録(操作反転アイテム）
 	Draw::LoadImage(L"反転アイコン.png", 11, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み11番に登録(操作反転アイテム）
+	Draw::LoadImage(L"反転アイコン.png", 11, TEX_SIZE_512);
+
 	//外部グラフィックファイルを読み込み12番に登録(障害物一覧）
 	Draw::LoadImage(L"syougaibutu.png", 12, TEX_SIZE_512);
 
@@ -207,11 +210,14 @@ void CSceneMain::Scene()
 		//1レーン流す
 		if (x <= 50)
 		{
+			//ランダムで流す
+			int x = rand() % 2;
 
 			//通常障害物の表示
 			x = rand() % 6;
 			if (x == 0)
 			{
+				flow(385, -64);
 				CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
@@ -226,6 +232,11 @@ void CSceneMain::Scene()
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
+			
+		}
+		else if (x == 1)
+		{
+			flow(505, -64);
 			else if (x == 2)
 			{
 				CObjFlow* f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
@@ -242,6 +253,11 @@ void CSceneMain::Scene()
 				f = new CObjFlow(505, -64, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+		else if (x == 2)
+		{
+			flow(625, -64);
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			else if (x == 4)
@@ -253,6 +269,12 @@ void CSceneMain::Scene()
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
 
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+		//2レーン流す
+		else if (x == 3)
+		{
+			flow(385, -64);
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			else if (x == 5)
@@ -271,6 +293,7 @@ void CSceneMain::Scene()
 
 
 
+			flow(505, -64);
 		//ライフ回復
 		else if (x == 51)
 		{
@@ -282,17 +305,20 @@ void CSceneMain::Scene()
 		//スピードアップ
 		else if (x == 52)
 		{
+			flow(505, -64);
 			CObjsp_up* obj = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_SP_UP, 50);
 
+			flow(625, -64);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//スコアアップ(10)
 		else if (x == 53)
 		{
-			CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
+			flow(385, -64);
+
+			flow(625, -64);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
@@ -334,6 +360,15 @@ void CSceneMain::Scene()
 		{
 			((UserData*)Save::GetData())->sp += 0.1f;
 		}
+	}	
+}
+
+//障害物を流す関数
+void flow(int x, int y)
+{
+	CObj10enn* obj = new CObj10enn(x, y, ((UserData*)Save::GetData())->sp);
+	Objs::InsertObj(obj, OBJ_10ENN, 50);
+}
 		
 	}
 }
