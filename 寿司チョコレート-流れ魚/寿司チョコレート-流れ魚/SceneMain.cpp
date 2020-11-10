@@ -131,10 +131,7 @@ void CSceneMain::Scene()
 	rand(); rand(); rand(); rand(); rand();
 
 	//ランダム変数
-	//int x = rand() % 53;
-
-	//テスト
-	int x = 52;
+	int x = rand() % 53;
 
 	m_time++;
 
