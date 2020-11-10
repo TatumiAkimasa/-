@@ -89,5 +89,5 @@ void CObjTitle::Draw()
 	dst.m_bottom = 600.0f;
 
 	//0番目に登録したグラフィックをsrc・dst・cの情報を元に描画
-	Draw::Draw(1, &src, &dst, c, 0.0f);
+	Draw::Draw(0, &src, &dst, c, 0.0f);
 }

@@ -18,5 +18,6 @@ public:
 private:
 	bool m_key_flag;//キーフラグ
 	int numd;//描画優先度（説明用）
+	int i;
 };
 
