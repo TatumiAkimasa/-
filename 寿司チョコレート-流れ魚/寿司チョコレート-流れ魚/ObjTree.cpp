@@ -81,5 +81,5 @@ void CObjTree::Draw()
 	dst.m_right = 500.0f + m_x + m_vx;
 	dst.m_bottom = 500.0f + m_y;
 
-	Draw::Draw(14, &src, &dst, c, 0.0f);
+	Draw::Draw(18, &src, &dst, c, 0.0f);
 }

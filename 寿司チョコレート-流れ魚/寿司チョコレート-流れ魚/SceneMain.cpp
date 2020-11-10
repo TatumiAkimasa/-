@@ -72,8 +72,6 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み12番に登録(障害物一覧）
 	Draw::LoadImage(L"syougaibutu.png", 12, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み13番に登録(木アイテム)
-	Draw::LoadImage(L"木 アイテム.png", 13, TEX_SIZE_512);
 	//外部グラフィックファイルを読み込み13番に登録(100円）
 	Draw::LoadImage(L"100enn.png", 13, TEX_SIZE_512);
 
@@ -86,9 +84,11 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み16番に登録(偽ライフ）
 	Draw::LoadImage(L"badlife.png", 16, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み17番に登録(木アイテム)
+	Draw::LoadImage(L"木 アイテム.png", 17, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み14番に登録(木)
-	Draw::LoadImage(L"木.png", 14, TEX_SIZE_512);
+	//外部グラフィックファイルを読み込み18番に登録(木)
+	Draw::LoadImage(L"木.png", 18, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -144,7 +144,7 @@ void CSceneMain::Scene()
 
 	//障害物が落ちてくる確率
 	//通常障害物 50/全体　ギミック 1/全体
-	int x = rand() % 57;
+	int x = rand() % 58;
 
 	//フレーム数の計算
 	m_time++;
@@ -299,6 +299,7 @@ void CSceneMain::Scene()
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
+
 		//スコアアップ(10)
 		else if (x == 53)
 		{
@@ -315,11 +316,6 @@ void CSceneMain::Scene()
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
-		//木アイテム
-		else if (x == 52)
-		{
-			CObjTreeItem* t = new CObjTreeItem(385, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(t, OBJ_TREEITEM, 50);
 		//スコアアップ(100)
 		else if (x == 55)
 		{
@@ -352,6 +348,12 @@ void CSceneMain::Scene()
 
 		((UserData*)Save::GetData())->sp_lv++;
 		}
+		//木アイテム
+		else if (x == 59)
+		{
+			CObjTreeItem* t = new CObjTreeItem(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(t, OBJ_TREEITEM, 50);
+
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//木
@@ -368,7 +370,6 @@ void CSceneMain::Scene()
 		{
 			((UserData*)Save::GetData())->sp += 0.1f;
 		}
-		
 	}
 }
 
