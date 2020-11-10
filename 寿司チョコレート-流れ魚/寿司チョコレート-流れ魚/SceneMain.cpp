@@ -69,9 +69,6 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み11番に登録(操作反転アイテム）
 	Draw::LoadImage(L"反転アイコン.png", 11, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み11番に登録(操作反転アイテム）
-	Draw::LoadImage(L"反転アイコン.png", 11, TEX_SIZE_512);
-
 	//外部グラフィックファイルを読み込み12番に登録(障害物一覧）
 	Draw::LoadImage(L"syougaibutu.png", 12, TEX_SIZE_512);
 
@@ -103,14 +100,14 @@ void CSceneMain::InitScene()
 	CObjBackground* back = new CObjBackground();
 	Objs::InsertObj(back, OBJ_BACK_GROUND, 1);
 
-	
+
 	CObjBackground_2* back_2 = new CObjBackground_2();
 	Objs::InsertObj(back_2, OBJ_BACK_GROUND_2, 1);
-	
+
 
 	CObjBackground_stats* back_3 = new CObjBackground_stats();
 	Objs::InsertObj(back_3, OBJ_BACK_GROUND_STATS, 0);
-	
+
 
 	//主人公オブジェクト作成
 	CObjFishPlayer* fp = new CObjFishPlayer();
@@ -143,7 +140,7 @@ void CSceneMain::Scene()
 	//フレーム数の計算
 	m_time++;
 
-	
+
 
 	//BGM変更
 	if (((UserData*)Save::GetData())->sp >= 6.0f && bgm_flag == false)
@@ -165,7 +162,7 @@ void CSceneMain::Scene()
 		Audio::Start(4);
 		bgm_flag = false;
 	}
-	
+
 	//落下の初期化
 	if (t == 0)
 	{
@@ -186,7 +183,7 @@ void CSceneMain::Scene()
 		}
 	}
 
-	if (m_time%29 == 0)
+	if (m_time % 29 == 0)
 	{
 		CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
 		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
@@ -214,14 +211,11 @@ void CSceneMain::Scene()
 		//1レーン流す
 		if (x <= 50)
 		{
-			//ランダムで流す
-			int x = rand() % 2;
 
 			//通常障害物の表示
 			x = rand() % 6;
 			if (x == 0)
 			{
-				flow(385, -64);
 				CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
@@ -236,12 +230,6 @@ void CSceneMain::Scene()
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
-			
-		}
-		else if (x == 1)
-		{
-			flow(505, -64);
-			((UserData*)Save::GetData())->sp_lv++;
 			else if (x == 2)
 			{
 				CObjFlow* f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
@@ -258,11 +246,6 @@ void CSceneMain::Scene()
 				f = new CObjFlow(505, -64, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
-			((UserData*)Save::GetData())->sp_lv++;
-		}
-		else if (x == 2)
-		{
-			flow(625, -64);
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			else if (x == 4)
@@ -274,12 +257,6 @@ void CSceneMain::Scene()
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
 
-			((UserData*)Save::GetData())->sp_lv++;
-		}
-		//2レーン流す
-		else if (x == 3)
-		{
-			flow(385, -64);
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			else if (x == 5)
@@ -295,6 +272,9 @@ void CSceneMain::Scene()
 
 		}
 
+
+
+
 		//ライフ回復
 		else if (x == 51)
 		{
@@ -306,20 +286,17 @@ void CSceneMain::Scene()
 		//スピードアップ
 		else if (x == 52)
 		{
-			flow(505, -64);
 			CObjsp_up* obj = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_SP_UP, 50);
 
-			flow(625, -64);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//スコアアップ(10)
 		else if (x == 53)
 		{
-			flow(385, -64);
-
-			flow(625, -64);
+			CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
@@ -342,18 +319,18 @@ void CSceneMain::Scene()
 		//スコアアップ(1000)
 		else if (x == 56)
 		{
-		CObj1000enn* obj = new CObj1000enn(385, -64, ((UserData*)Save::GetData())->sp);
-		Objs::InsertObj(obj, OBJ_1000ENN, 50);
+			CObj1000enn* obj = new CObj1000enn(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(obj, OBJ_1000ENN, 50);
 
-		((UserData*)Save::GetData())->sp_lv++;
+			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//スコアアップ(10000)
 		else if (x >= 57)
 		{
-		CObj10000enn* obj = new CObj10000enn(385, -64, ((UserData*)Save::GetData())->sp);
-		Objs::InsertObj(obj, OBJ_10000ENN, 50);
+			CObj10000enn* obj = new CObj10000enn(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(obj, OBJ_10000ENN, 50);
 
-		((UserData*)Save::GetData())->sp_lv++;
+			((UserData*)Save::GetData())->sp_lv++;
 		}
 
 		//落下加速
@@ -361,16 +338,7 @@ void CSceneMain::Scene()
 		{
 			((UserData*)Save::GetData())->sp += 0.1f;
 		}
-	}	
-}
 
-//障害物を流す関数
-void flow(int x, int y)
-{
-	CObj10enn* obj = new CObj10enn(x, y, ((UserData*)Save::GetData())->sp);
-	Objs::InsertObj(obj, OBJ_10ENN, 50);
+	}
 }
-		
-	
-
 
