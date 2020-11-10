@@ -72,6 +72,8 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み12番に登録(障害物一覧）
 	Draw::LoadImage(L"syougaibutu.png", 12, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み13番に登録(木アイテム)
+	Draw::LoadImage(L"木 アイテム.png", 13, TEX_SIZE_512);
 	//外部グラフィックファイルを読み込み13番に登録(100円）
 	Draw::LoadImage(L"100enn.png", 13, TEX_SIZE_512);
 
@@ -84,6 +86,9 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み16番に登録(偽ライフ）
 	Draw::LoadImage(L"badlife.png", 16, TEX_SIZE_512);
 
+
+	//外部グラフィックファイルを読み込み14番に登録(木)
+	Draw::LoadImage(L"木.png", 14, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -177,9 +182,9 @@ void CSceneMain::Scene()
 	//障害物に当たった時、スピードが初期に戻る処理
 	if (((UserData*)Save::GetData())->sp_lv == 0)
 	{
-		if (((UserData*)Save::GetData())->sp >= 8)
+		if (((UserData*)Save::GetData())->sp >= 7)
 		{
-			((UserData*)Save::GetData())->sp -= 3.0f;
+			((UserData*)Save::GetData())->sp -= 2.0f;
 		}
 		else
 		{
@@ -277,9 +282,6 @@ void CSceneMain::Scene()
 
 		}
 
-
-
-
 		//ライフ回復
 		else if (x == 51)
 		{
@@ -313,6 +315,11 @@ void CSceneMain::Scene()
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
+		//木アイテム
+		else if (x == 52)
+		{
+			CObjTreeItem* t = new CObjTreeItem(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(t, OBJ_TREEITEM, 50);
 		//スコアアップ(100)
 		else if (x == 55)
 		{
@@ -345,7 +352,16 @@ void CSceneMain::Scene()
 
 		((UserData*)Save::GetData())->sp_lv++;
 		}
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+		//木
+		if (((UserData*)Save::GetData())->Tree_flag == true)
+		{
+			CObjTree* t = new CObjTree(380, -120);
+			Objs::InsertObj(t, OBJ_TREE, 50);
 
+			((UserData*)Save::GetData())->Tree_flag = false;
+		}
 
 		//落下加速
 		if (((UserData*)Save::GetData())->sp <= 20)
