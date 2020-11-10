@@ -85,7 +85,7 @@ void CSceneMain::InitScene()
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
-	Audio::LoadAudio(3, L"シーンBGM2(仮).wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(3, L"シーンBGM2(仮)修正.wav", SOUND_TYPE::BACK_MUSIC);
 
 	Audio::LoadAudio(4, L"シーンBGM(仮)スピードup.wav", SOUND_TYPE::BACK_MUSIC);
 
@@ -141,24 +141,26 @@ void CSceneMain::Scene()
 	//フレーム数の計算
 	m_time++;
 
-	//水の流れ
-	if (m_time % 50 == 0)
-	{
-		CObjwater_flow* flow = new CObjwater_flow(50);
-		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
-	}
+	
 
 	//BGM変更
 	if (((UserData*)Save::GetData())->sp >= 6.0f && bgm_flag == false)
 	{
 		Audio::Stop(0);
-		Audio::Start(4);
+		Audio::Start(3);
 		bgm_flag = true;
 	}
 	else if (((UserData*)Save::GetData())->sp < 6.0f && bgm_flag == true)
 	{
 		Audio::Stop(4);
 		Audio::Start(0);
+		bgm_flag = false;
+	}
+
+	if (((UserData*)Save::GetData())->sp >= 7.0f && bgm_flag == true)
+	{
+		Audio::Stop(3);
+		Audio::Start(4);
 		bgm_flag = false;
 	}
 	
