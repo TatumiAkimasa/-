@@ -81,9 +81,8 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み14番に登録(1000円）
 	Draw::LoadImage(L"1000enn.png", 14, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み14番に登録(10000円）
+	//外部グラフィックファイルを読み込み15番に登録(10000円）
 	Draw::LoadImage(L"10000enn.png", 15, TEX_SIZE_512);
-
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);

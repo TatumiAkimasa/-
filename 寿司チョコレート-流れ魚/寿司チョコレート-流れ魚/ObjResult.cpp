@@ -82,4 +82,20 @@ void CObjResult::Draw()
 	Font::StrDraw(str, 230, 250, 64, c);
 	//エンターキーで移動
 	Font::StrDraw(L"エンターでタイトル", 510, 565, 32, c);
+
+	RECT_F src;//描画元切り取り位置
+	RECT_F dst;//描画先表示位置
+
+	//ロゴ
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 256.0f;
+	src.m_bottom = 256.0f;
+
+	dst.m_top = 150.0f;//kuro 420
+	dst.m_left = 0.0f;//40
+	dst.m_right = 150.0f;//280
+	dst.m_bottom = 300.0f;//620
+
+	Draw::Draw(16, &src, &dst, c, -0.0f);
 }
