@@ -162,12 +162,12 @@ void CObjFishPlayer::Draw()
     src.m_top = 0.0f;
     src.m_left = 0.0f;// +(AniData[m_ani_frame] - 1) * 414;
     src.m_right = 414.0f;// *AniData[m_ani_frame];
-    src.m_bottom = 2684.0f;
+    src.m_bottom = 894.666667f;
 
-    dst.m_top = 0.0f + m_py;
-    dst.m_left = 0.0f + m_px;
-    dst.m_right = 64.0f + dst.m_left;
-    dst.m_bottom = 128.0f + dst.m_top;
+    dst.m_top = -64.0f + m_py;
+    dst.m_left = -64.0f + m_px;
+    dst.m_right = 192.0f + dst.m_left;
+    dst.m_bottom = 384.0f + dst.m_top;
 
     Draw::Draw(2, &src, &dst, c, 0.0f);
 
