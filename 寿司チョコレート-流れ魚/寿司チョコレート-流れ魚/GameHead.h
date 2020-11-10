@@ -24,6 +24,7 @@ enum OBJ_NAME
 	OBJ_100ENN,
 	OBJ_1000ENN,
 	OBJ_10000ENN,
+	OBJ_BAD_LIFE,
 
 };
 //------------------------------------------------
@@ -102,6 +103,7 @@ enum FLOW_OBJ_ID
 #include "Obj100enn.h"
 #include "Obj1000enn.h"
 #include "Obj10000enn.h"
+#include "Objbadlife.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
