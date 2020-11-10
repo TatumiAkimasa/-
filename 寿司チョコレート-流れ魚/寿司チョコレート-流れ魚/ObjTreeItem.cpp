@@ -47,6 +47,8 @@ void CObjTreeItem::Action()
 		Hits::DeleteHitBox(this);	//木アイテムが所有するHitBoxを削除する
 	
 		((UserData*)Save::GetData())->Tree_flag = true;
+		((UserData*)Save::GetData())->Tree_said = true;
+		((UserData*)Save::GetData())->Tree_time += 600;
 	}
 }
 

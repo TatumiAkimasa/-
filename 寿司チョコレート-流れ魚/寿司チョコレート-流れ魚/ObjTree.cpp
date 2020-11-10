@@ -26,14 +26,41 @@ void CObjTree::Init()
 //アクション
 void CObjTree::Action()
 {
-	if (m_vx >= -450.0f)
+	//木用タイム
+	((UserData*)Save::GetData())->Tree_time--;
+
+	//木の出現処理
+	if (((UserData*)Save::GetData())->Tree_said == true)
 	{
-		m_vx -= 3.0f;
+		//木を動かす処理
+		if (m_vx >= -450.0f)
+		{
+			m_vx -= 3.0f;
+		}
+		//木を止める処理
+		if (m_vx == -450.0f)
+		{
+			m_vx = -450.0f;
+		}
 	}
 
-	if (m_vx == -450.0f)
+	//木の削除処理
+	if (((UserData*)Save::GetData())->Tree_time <= 0)
 	{
-		m_vx = -450.0f;
+		//出現処理のif文に入らないようにする為のフラグ
+		((UserData*)Save::GetData())->Tree_said = false;
+
+		//木を動かす処理
+		if (m_vx <= 0.0f)
+		{
+			m_vx += 3.0f;
+		}
+		//木を画面外に出た時に
+		if (m_vx >= 0.0f)
+		{
+			this->SetStatus(false);
+			((UserData*)Save::GetData())->Tree_time = 0;
+		}
 	}
 }
 
