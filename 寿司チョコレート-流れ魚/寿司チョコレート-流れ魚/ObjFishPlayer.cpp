@@ -150,24 +150,24 @@ void CObjFishPlayer::Draw()
     //描写カラー情報
     float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
-    int AniData[3]
+    /*int AniData[3]
     {
         1,2,3
-    };
+    };*/
 
     RECT_F src;//描写元の切り取り位置
     RECT_F dst;//描画先の表示位置でーす
 
 
     src.m_top = 0.0f;
-    src.m_left = 0.0f +( AniData[m_ani_frame]-1)*828;
-    src.m_right = 828.0f * AniData[m_ani_frame];
-    src.m_bottom = 1792.0f;
+    src.m_left = 0.0f;// +(AniData[m_ani_frame] - 1) * 414;
+    src.m_right = 414.0f;// *AniData[m_ani_frame];
+    src.m_bottom = 2684.0f;
 
-    dst.m_top = -16.0f + m_py;
-    dst.m_left = -16.0f + m_px;
-    dst.m_right = 96.0f + dst.m_left;
-    dst.m_bottom = 192.0f + dst.m_top;
+    dst.m_top = 0.0f + m_py;
+    dst.m_left = 0.0f + m_px;
+    dst.m_right = 64.0f + dst.m_left;
+    dst.m_bottom = 128.0f + dst.m_top;
 
     Draw::Draw(2, &src, &dst, c, 0.0f);
 
