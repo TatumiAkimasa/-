@@ -165,14 +165,7 @@ void CSceneMain::Scene()
 		Audio::Start(4);
 		bgm_flag = false;
 	}
-	/*else if (((UserData*)Save::GetData())->sp < 7.0f && bgm_flag == false)
-	{
-		Audio::Stop(3);
-		Audio::Start(4);
-		bgm_flag = true;
-	}*/
-
-
+	
 	//—‰º‚Ì‰Šú‰»
 	if (t == 0)
 	{
