@@ -187,6 +187,7 @@ void CSceneMain::Scene()
 		}
 	}
 
+	//…‚Ì—¬‚ê‚Ìˆ—
 	if (m_time%29 == 0)
 	{
 		CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
