@@ -130,8 +130,9 @@ void CSceneMain::Scene()
 	//乱数複雑化
 	rand(); rand(); rand(); rand(); rand();
 
-	//ランダム変数
-	int x = rand() % 53;
+	//障害物が落ちてくる確率
+	//通常障害物 50/全体　ギミック 1/全体
+	int x = rand() % 60;
 
 	m_time++;
 
