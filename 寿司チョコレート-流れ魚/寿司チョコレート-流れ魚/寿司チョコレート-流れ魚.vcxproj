@@ -170,6 +170,8 @@
     <ClCompile Include="Objsp_down.cpp" />
     <ClCompile Include="Objsp_up.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
+    <ClCompile Include="ObjTree.cpp" />
+    <ClCompile Include="ObjTreeItem.cpp" />
     <ClCompile Include="Objwater_flow.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneResult.cpp" />
@@ -207,6 +209,8 @@
     <ClInclude Include="Objsp_down.h" />
     <ClInclude Include="Objsp_up.h" />
     <ClInclude Include="ObjTitle.h" />
+    <ClInclude Include="ObjTree.h" />
+    <ClInclude Include="ObjTreeItem.h" />
     <ClInclude Include="Objwater_flow.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneResult.h" />

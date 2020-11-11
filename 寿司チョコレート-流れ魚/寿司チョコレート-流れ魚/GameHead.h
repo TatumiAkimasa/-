@@ -21,6 +21,8 @@ enum OBJ_NAME
 	OBJ_SP_DOWN,
 	OBJ_FLOW,
 	OBJ_MIRROR,
+	OBJ_TREEITEM,
+	OBJ_TREE,
 	OBJ_100ENN,
 	OBJ_1000ENN,
 	OBJ_10000ENN,
@@ -48,6 +50,8 @@ enum HIT_ELEMENTS
 	ELEMENT_HEAL,
 	ELEMENT_COIN,
 	ELEMENT_MIRROR,
+	ELEMENT_TREEITEM,
+	ELEMENT_TREE,
 };
 //------------------------------------------------
 
@@ -55,14 +59,17 @@ enum HIT_ELEMENTS
 //セーブ＆ロードとシーン間のやり取りするデータ
 struct UserData
 {
-	int mSeveData;	//サンプルセーブデータ
+	int mSeveData;			//サンプルセーブデータ
 	int save_s_time;		//s_timeセーブ用変数
 	int save_m_time;		//m_timeセーブ用変数
 	int save_score = 0;		//scoreセーブ用変数
 	float sp;				//スピード用変数
-	int sp_lv = 1;			//減速用変数
-	int life_point = 3;  //主人公のライフ
-	bool key_flag_mirror;		 //操作反転用フラグ
+	int sp_lv = 1;			//スピード管理用変数
+	int life_point = 3;		//主人公のライフ
+	bool Tree_flag;			//木用フラグ
+	int Tree_time = 0;		//木の表示時間用変数
+	bool Tree_said;			//木の表示用フラグ
+	bool key_flag_mirror;	//操作反転用フラグ
 };
 //------------------------------------------------
 
@@ -100,6 +107,8 @@ enum FLOW_OBJ_ID
 #include "Objsp_down.h"
 #include "ObjFlow.h"
 #include "Objmirror.h"
+#include "ObjTreeItem.h"
+#include "ObjTree.h"
 #include "Obj100enn.h"
 #include "Obj1000enn.h"
 #include "Obj10000enn.h"

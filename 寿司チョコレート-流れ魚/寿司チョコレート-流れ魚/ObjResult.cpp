@@ -49,7 +49,7 @@ void CObjResult::Draw()
 {
 	wchar_t str[256];
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-	Font::StrDraw(L"™š™‚³‚·‚ªæ¶™š™", 45, 400, 64, c);
+	Font::StrDraw(L"™š‚³‚·‚ªæ¶š™", 185, 400, 48, c);
 	//ƒ^ƒCƒ€•\¦
 	if (((UserData*)Save::GetData())->save_s_time <= 9)
 	{
