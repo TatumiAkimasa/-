@@ -132,7 +132,9 @@ void CSceneMain::Scene()
 
 	//障害物が落ちてくる確率
 	//通常障害物 50/全体　ギミック 1/全体
-	int x = rand() % 60;
+	//int x = rand() % 60;
+
+	int x = 52;
 
 	m_time++;
 
