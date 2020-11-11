@@ -203,8 +203,6 @@ void CSceneMain::Scene()
 		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
 	}
 
-
-
 	//è·äQï®ÇÃèoåª
 	if (m_time % 60 == 0)
 	{
