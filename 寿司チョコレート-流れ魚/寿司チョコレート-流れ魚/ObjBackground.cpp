@@ -20,6 +20,7 @@ void CObjBackground::Action()
 	//背景①の動作
 	//みず（白線）を流せばこの処理は不要
 	m_y1 -= 5.0f;
+
 	if (m_y1 < -600.0f&&count==1)
 	{
 		m_y1 = 600;

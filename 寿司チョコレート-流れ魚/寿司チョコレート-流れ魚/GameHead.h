@@ -23,6 +23,10 @@ enum OBJ_NAME
 	OBJ_MIRROR,
 	OBJ_TREEITEM,
 	OBJ_TREE,
+	OBJ_100ENN,
+	OBJ_1000ENN,
+	OBJ_10000ENN,
+	OBJ_BAD_LIFE,
 
 };
 //------------------------------------------------
@@ -62,10 +66,10 @@ struct UserData
 	float sp;				//スピード用変数
 	int sp_lv = 1;			//スピード管理用変数
 	int life_point = 3;		//主人公のライフ
-	bool key_flag;			//操作反転用フラグ
 	bool Tree_flag;			//木用フラグ
 	int Tree_time = 0;		//木の表示時間用変数
 	bool Tree_said;			//木の表示用フラグ
+	bool key_flag_mirror;	//操作反転用フラグ
 };
 //------------------------------------------------
 
@@ -105,6 +109,10 @@ enum FLOW_OBJ_ID
 #include "Objmirror.h"
 #include "ObjTreeItem.h"
 #include "ObjTree.h"
+#include "Obj100enn.h"
+#include "Obj1000enn.h"
+#include "Obj10000enn.h"
+#include "Objbadlife.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

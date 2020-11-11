@@ -44,7 +44,7 @@ void CObjFlow::Action()
 		Hits::DeleteHitBox(this);
 
 		//スコアの加算
-		((UserData*)Save::GetData())->save_score += 10;
+		((UserData*)Save::GetData())->save_score += 100;
 	}
 
 	//主人公オブジェクトと接触したら10円を削除

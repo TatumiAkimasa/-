@@ -139,8 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Obj10000enn.cpp" />
+    <ClCompile Include="Obj1000enn.cpp" />
+    <ClCompile Include="Obj100enn.cpp" />
     <ClCompile Include="ObjBackground_2.cpp" />
     <ClCompile Include="ObjBackground_stats.cpp" />
+    <ClCompile Include="Objbadlife.cpp" />
     <ClCompile Include="ObjDescription.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
@@ -188,10 +192,14 @@
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WinInputs.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="Obj10000enn.h" />
+    <ClInclude Include="Obj1000enn.h" />
+    <ClInclude Include="Obj100enn.h" />
     <ClInclude Include="Obj10enn.h" />
     <ClInclude Include="ObjBackground.h" />
     <ClInclude Include="ObjBackground_2.h" />
     <ClInclude Include="ObjBackground_stats.h" />
+    <ClInclude Include="Objbadlife.h" />
     <ClInclude Include="ObjFishPlayer.h" />
     <ClInclude Include="ObjFlow.h" />
     <ClInclude Include="ObjLifeItem.h" />
