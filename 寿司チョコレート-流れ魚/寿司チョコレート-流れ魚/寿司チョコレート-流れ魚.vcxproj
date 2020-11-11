@@ -165,9 +165,7 @@
     <ClCompile Include="ObjFlow.cpp" />
     <ClCompile Include="ObjLifeItem.cpp" />
     <ClCompile Include="ObjMain.cpp" />
-    <ClCompile Include="Objmirror.cpp" />
-    <ClCompile Include="Objmirror.cpp" />
-    <ClCompile Include="ObjMain.cpp" />
+    <ClCompile Include="Objmirorr.cpp" />
     <ClCompile Include="ObjResult.cpp" />
     <ClCompile Include="Objsp_down.cpp" />
     <ClCompile Include="Objsp_up.cpp" />

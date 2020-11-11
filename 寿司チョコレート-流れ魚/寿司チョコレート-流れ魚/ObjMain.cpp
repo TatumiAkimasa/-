@@ -34,7 +34,7 @@ void CObjMain::Action()
 		s_time++;
 		//s_time++の時点でセーブ用s_timeもインクリメント
 		((UserData*)Save::GetData())->save_s_time++;
-	
+
 	}
 	//s_timeが60で1分です
 	if (s_time == 60)
