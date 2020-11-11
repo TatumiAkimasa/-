@@ -49,7 +49,7 @@ void CObjResult::Draw()
 {
 	wchar_t str[256];
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-	Font::StrDraw(L"☆★☆さすが先生☆★☆", 45, 400, 64, c);
+	
 	//タイム表示
 	if (((UserData*)Save::GetData())->save_s_time <= 9)
 	{
@@ -79,6 +79,15 @@ void CObjResult::Draw()
 		L"魚力　%05d",
 		((UserData*)Save::GetData())->save_score
 	);
+
+	if(((UserData*)Save::GetData())->save_score>10000)
+	Font::StrDraw(L"☆★☆さすが先生☆★☆", 45, 400, 64, c);
+	else if (((UserData*)Save::GetData())->save_score == 0)
+	Font::StrDraw(L"わざとでしょ？", 195, 400, 64, c);
+	else
+	Font::StrDraw(L"えっ...", 230, 400, 64, c);
+	
+
 	Font::StrDraw(str, 230, 250, 64, c);
 	//エンターキーで移動
 	Font::StrDraw(L"エンターでタイトル", 510, 565, 32, c);
