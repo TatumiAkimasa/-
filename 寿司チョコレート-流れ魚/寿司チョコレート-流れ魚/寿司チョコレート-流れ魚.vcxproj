@@ -144,7 +144,6 @@
     <ClCompile Include="Obj100enn.cpp" />
     <ClCompile Include="ObjBackground_2.cpp" />
     <ClCompile Include="ObjBackground_stats.cpp" />
-    <ClCompile Include="Objbadlife.cpp" />
     <ClCompile Include="ObjDescription.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
