@@ -70,6 +70,7 @@ struct UserData
 	int Tree_time = 0;		//木の表示時間用変数
 	bool Tree_said;			//木の表示用フラグ
 	bool key_flag_mirror;	//操作反転用フラグ
+	bool key_flag;
 };
 //------------------------------------------------
 
