@@ -128,14 +128,13 @@ void CObjFishPlayer::Action()
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
     {
         ((UserData*)Save::GetData())->life_point--;
+        ((UserData*)Save::GetData())->sp_lv = 0;
 
         Audio::Start(2);
         if (((UserData*)Save::GetData())->life_point == 0)
         {
             this->SetStatus(false);    //自身に削除命令を出す
             Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
-
-            ((UserData*)Save::GetData())->sp_lv = 0;
 
             //主人公消滅でシーンをゲームオーバーに移行する
             Scene::SetScene(new CSceneResult());
@@ -161,8 +160,8 @@ void CObjFishPlayer::Draw()
     src.m_right = 828.0f * AniData[m_ani_frame];
     src.m_bottom = 1792.0f;
 
-    dst.m_top = -80.0f + m_py;
-    dst.m_left = -64.875f + m_px;
+    dst.m_top = -75.0f + m_py;
+    dst.m_left = -64.9f + m_px;
     dst.m_right = 192.0f + dst.m_left;
     dst.m_bottom = 384.0f + dst.m_top;
 
