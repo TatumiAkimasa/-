@@ -73,5 +73,5 @@ void CObjTree::Draw()
 		}
 	}
 	
-	Draw::Draw(14, &src, &dst, c, r);
+	Draw::Draw(18, &src, &dst, c, r);
 }
