@@ -81,6 +81,15 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み15番に登録(10000円）
 	Draw::LoadImage(L"10000enn.png", 15, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み16番に登録(偽ライフ）
+	Draw::LoadImage(L"badlife.png", 16, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み17番に登録(木アイテム)
+	Draw::LoadImage(L"木 アイテム.png", 17, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み18番に登録(木)
+	Draw::LoadImage(L"木.png", 18, TEX_SIZE_512);
+
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
@@ -135,7 +144,7 @@ void CSceneMain::Scene()
 
 	//障害物が落ちてくる確率
 	//通常障害物 50/全体　ギミック 1/全体
-	int x = rand() % 56;
+	int x = rand() % 58;
 
 	//フレーム数の計算
 	m_time++;
@@ -151,7 +160,7 @@ void CSceneMain::Scene()
 	}
 	else if (((UserData*)Save::GetData())->sp < 6.0f && bgm_flag == true)
 	{
-		Audio::Stop(4);
+		Audio::Stop(3);
 		Audio::Start(0);
 		bgm_flag = false;
 	}
@@ -173,9 +182,9 @@ void CSceneMain::Scene()
 	//障害物に当たった時、スピードが初期に戻る処理
 	if (((UserData*)Save::GetData())->sp_lv == 0)
 	{
-		if (((UserData*)Save::GetData())->sp >= 8)
+		if (((UserData*)Save::GetData())->sp >= 7)
 		{
-			((UserData*)Save::GetData())->sp -= 3.0f;
+			((UserData*)Save::GetData())->sp -= 2.0f;
 		}
 		else
 		{
@@ -183,7 +192,8 @@ void CSceneMain::Scene()
 		}
 	}
 
-	if (m_time % 29 == 0)
+	//水の流れの処理
+	if (m_time%29 == 0)
 	{
 		CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
 		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
@@ -216,7 +226,7 @@ void CSceneMain::Scene()
 			x = rand() % 6;
 			if (x == 0)
 			{
-				CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
+				CObjFlow* f = new CObjFlow(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
 
@@ -225,14 +235,14 @@ void CSceneMain::Scene()
 			else if (x == 1)
 			{
 
-				CObjFlow* f = new CObjFlow(505, -64, ((UserData*)Save::GetData())->sp);
+				CObjFlow* f = new CObjFlow(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			else if (x == 2)
 			{
-				CObjFlow* f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
+				CObjFlow* f = new CObjFlow(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
 
@@ -240,20 +250,20 @@ void CSceneMain::Scene()
 			}
 			else if (x == 3)
 			{
-				CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
+				CObjFlow* f = new CObjFlow(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
-				f = new CObjFlow(505, -64, ((UserData*)Save::GetData())->sp);
+				f = new CObjFlow(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			else if (x == 4)
 			{
-				CObjFlow* f = new CObjFlow(505, -64, ((UserData*)Save::GetData())->sp);
+				CObjFlow* f = new CObjFlow(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
-				f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
+				f = new CObjFlow(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
 
@@ -261,10 +271,10 @@ void CSceneMain::Scene()
 			}
 			else if (x == 5)
 			{
-				CObjFlow* f = new CObjFlow(385, -64, ((UserData*)Save::GetData())->sp);
+				CObjFlow* f = new CObjFlow(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
-				f = new CObjFlow(625, -64, ((UserData*)Save::GetData())->sp);
+				f = new CObjFlow(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 				Objs::InsertObj(f, OBJ_FLOW, 50);
 
 				((UserData*)Save::GetData())->sp_lv++;
@@ -272,13 +282,10 @@ void CSceneMain::Scene()
 
 		}
 
-
-
-
 		//ライフ回復
 		else if (x == 51)
 		{
-			CObjLifeItem* lt = new CObjLifeItem(385, -64, ((UserData*)Save::GetData())->sp);
+			CObjLifeItem* lt = new CObjLifeItem(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(lt, OBJ_LIFE_ITEM, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
@@ -286,16 +293,17 @@ void CSceneMain::Scene()
 		//スピードアップ
 		else if (x == 52)
 		{
-			CObjsp_up* obj = new CObjsp_up(345, -64, ((UserData*)Save::GetData())->sp);
+			CObjsp_up* obj = new CObjsp_up(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_SP_UP, 50);
 
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
+
 		//スコアアップ(10)
 		else if (x == 53)
 		{
-			CObj10enn* obj = new CObj10enn(385, -64, ((UserData*)Save::GetData())->sp);
+			CObj10enn* obj = new CObj10enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
@@ -303,7 +311,7 @@ void CSceneMain::Scene()
 		//操作反転
 		else if (x == 54)
 		{
-			CObjmirror* m = new CObjmirror(385, -64, ((UserData*)Save::GetData())->sp);
+			CObjmirror* m = new CObjmirror(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(m, OBJ_10ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
@@ -311,7 +319,7 @@ void CSceneMain::Scene()
 		//スコアアップ(100)
 		else if (x == 55)
 		{
-			CObj100enn* obj = new CObj100enn(385, -64, ((UserData*)Save::GetData())->sp);
+			CObj100enn* obj = new CObj100enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_100ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
@@ -319,18 +327,42 @@ void CSceneMain::Scene()
 		//スコアアップ(1000)
 		else if (x == 56)
 		{
-			CObj1000enn* obj = new CObj1000enn(385, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_1000ENN, 50);
+		CObj1000enn* obj = new CObj1000enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+		Objs::InsertObj(obj, OBJ_1000ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//スコアアップ(10000)
-		else if (x >= 57)
+		else if (x == 57)
 		{
-			CObj10000enn* obj = new CObj10000enn(385, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10000ENN, 50);
+		CObj10000enn* obj = new CObj10000enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+		Objs::InsertObj(obj, OBJ_10000ENN, 50);
 
 			((UserData*)Save::GetData())->sp_lv++;
+		}
+		//偽ライフ
+		else if (x == 58)
+		{
+		CObjbadlife* bl = new CObjbadlife(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+		Objs::InsertObj(bl, OBJ_BAD_LIFE, 50);
+
+		((UserData*)Save::GetData())->sp_lv++;
+		}
+		//木アイテム
+		else if (x == 59)
+		{
+			CObjTreeItem* t = new CObjTreeItem(385, -64, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(t, OBJ_TREEITEM, 50);
+
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+		//木
+		if (((UserData*)Save::GetData())->Tree_flag == true)
+		{
+			CObjTree* t = new CObjTree(380, -120);
+			Objs::InsertObj(t, OBJ_TREE, 50);
+
+			((UserData*)Save::GetData())->Tree_flag = false;
 		}
 
 		//落下加速
@@ -338,7 +370,7 @@ void CSceneMain::Scene()
 		{
 			((UserData*)Save::GetData())->sp += 0.1f;
 		}
-
+		
 	}
 }
 

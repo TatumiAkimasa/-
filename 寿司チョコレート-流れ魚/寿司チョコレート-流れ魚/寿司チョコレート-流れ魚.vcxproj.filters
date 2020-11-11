@@ -123,6 +123,12 @@
     <ClCompile Include="Objmirror.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
+    <ClCompile Include="ObjTreeItem.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTree.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
     <ClCompile Include="Obj100enn.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
@@ -130,6 +136,9 @@
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
     <ClCompile Include="Obj10000enn.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="Objbadlife.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
     <ClCompile Include="ObjMain.cpp">
@@ -233,6 +242,12 @@
     <ClInclude Include="Objmirror.h">
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
+    <ClInclude Include="ObjTreeItem.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTree.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
     <ClInclude Include="Obj100enn.h">
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
@@ -240,6 +255,9 @@
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
     <ClInclude Include="Obj10000enn.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Objbadlife.h">
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
   </ItemGroup>

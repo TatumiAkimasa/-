@@ -36,10 +36,12 @@ void CSceneResult::InitScene()
 
 	//外部グラフィックファイルを読み込み16番に登録(ロゴ）
 	Draw::LoadImage(L"合成 黄色丸_256.png", 16, TEX_SIZE_256);
+	//外部グラフィックファイルを読み込み16番に登録(ロゴ）
+	Draw::LoadImage(L"リザルト枠組み_512.png", 15, TEX_SIZE_512);
 
 	//出力させる文字のグラフィックを作成
-	Font::SetStrTex(L"☆★☆さすが先生☆★☆");
-	Font::SetStrTex(L"エンターでタイトルへ");
+	//Font::SetStrTex(L"☆★☆さすが先生☆★☆");
+	//Font::SetStrTex(L"エンターでタイトルへ");
 
 	//タイトルオブジェクト作成
 	//主人公オブジェクト作成

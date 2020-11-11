@@ -49,7 +49,7 @@ void CObjResult::Draw()
 {
 	wchar_t str[256];
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-	Font::StrDraw(L"☆★☆さすが先生☆★☆", 45, 400, 64, c);
+	Font::StrDraw(L"☆★さすが先生★☆", 185, 400, 48, c);
 	//タイム表示
 	if (((UserData*)Save::GetData())->save_s_time <= 9)
 	{
@@ -81,21 +81,22 @@ void CObjResult::Draw()
 	);
 	Font::StrDraw(str, 230, 250, 64, c);
 	//エンターキーで移動
-	Font::StrDraw(L"エンターでタイトル", 510, 565, 32, c);
+	Font::StrDraw(L"エンターでタイトル", 410, 495, 32, c);
 
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
-	//ロゴ
+
+
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
-	src.m_right = 256.0f;
-	src.m_bottom = 256.0f;
+	src.m_right = 512.0f;
+	src.m_bottom = 512.0f;
 
-	dst.m_top = 150.0f;//kuro 420
-	dst.m_left = 0.0f;//40
-	dst.m_right = 150.0f;//280
-	dst.m_bottom = 300.0f;//620
+	dst.m_top = 0.0f;
+	dst.m_left = 75.0f;
+	dst.m_right = 775.0f;
+	dst.m_bottom = 565.0f;
 
-	Draw::Draw(16, &src, &dst, c, -0.0f);
+	Draw::Draw(15, &src, &dst, c, -0.0f);
 }
