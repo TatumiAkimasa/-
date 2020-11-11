@@ -21,7 +21,8 @@ void CObjFishPlayer::Init()
     m_py = 450.0f;
     m_f = true;      //移動制御
     m_ani_time = 0;
-    m_ani_frame = 1;
+    m_ani_frame = 0;
+    m_ani_frame2 = 0;
     m_time = 0;
 
     //当たり判定用HitBoxを作成
@@ -34,15 +35,21 @@ void CObjFishPlayer::Action()
 {
     m_ani_time++;
 
-    if (m_ani_time > 10)
+    if (m_ani_time > 10)//アニメーションフレーム→1/6秒で変更
     {
         m_ani_time = 0;
         m_ani_frame += 1;
     }
 
-    if (m_ani_frame == 3)
+    if (m_ani_frame == 4)
     {
         m_ani_frame = 0;
+        m_ani_frame2 += 1;
+    }
+
+    if (m_ani_frame2 == 3)
+    {
+        m_ani_frame2 = 0;
     }
 
     //主人公の移動ベクトルの初期化
@@ -150,21 +157,19 @@ void CObjFishPlayer::Draw()
     //描写カラー情報
     float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
-    /*int AniData[3]
-    {
-        1,2,3
-    };*/
+    int AniData[4]{ 1,2,3,4 };
+    int AniData2[3]{1, 2, 3};
 
     RECT_F src;//描写元の切り取り位置
-    RECT_F dst;//描画先の表示位置でーす
+    RECT_F dst;//描画先の表示位置
 
 
-    src.m_top = 0.0f;
-    src.m_left = 0.0f;// +(AniData[m_ani_frame] - 1) * 414;
-    src.m_right = 414.0f;// *AniData[m_ani_frame];
-    src.m_bottom = 894.666667f;
+    src.m_top = 0.0f + ((double)AniData2[m_ani_frame2]-1) * 894.666667;
+    src.m_left = 0.0f + (AniData[m_ani_frame] - 1) * 414;
+    src.m_right = 414.0f *AniData[m_ani_frame];
+    src.m_bottom = 894.666667f *AniData2[m_ani_frame2];
 
-    dst.m_top = -64.0f + m_py;
+    dst.m_top = -80.0f + m_py;
     dst.m_left = -64.0f + m_px;
     dst.m_right = 192.0f + dst.m_left;
     dst.m_bottom = 384.0f + dst.m_top;
