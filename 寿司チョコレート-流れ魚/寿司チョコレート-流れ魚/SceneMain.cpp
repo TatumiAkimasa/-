@@ -144,7 +144,7 @@ void CSceneMain::Scene()
 
 	//障害物が落ちてくる確率
 	//通常障害物 50/全体　ギミック 1/全体
-	int x = rand() % 58;
+	int x = rand() % 60;
 
 	//フレーム数の計算
 	m_time++;
@@ -203,8 +203,6 @@ void CSceneMain::Scene()
 		CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
 		Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
 	}
-
-
 
 	//障害物の出現
 	if (m_time % 60 == 0)
