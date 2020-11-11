@@ -119,4 +119,5 @@ void CObjMain::Draw()
 
 		Draw::Draw(10, &src, &dst, d, 0.0f);
 	}
+
 }
