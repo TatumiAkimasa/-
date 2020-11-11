@@ -53,6 +53,7 @@ void CObjTree::Draw()
 	//木を出現させる処理
 	if (((UserData*)Save::GetData())->Tree_said == true)
 	{
+		//木を回転させる処理
 		r += 1.5f;
 		if (r >= 6.0f)
 			r = 6.0f;
@@ -64,6 +65,7 @@ void CObjTree::Draw()
 		//出現処理のif文に入らないようにする為のフラグ
 		((UserData*)Save::GetData())->Tree_said = false;
 
+		//木を回転させる処理
 		r -= 1.5f;
 		if (r <= -80.0f)
 		{
