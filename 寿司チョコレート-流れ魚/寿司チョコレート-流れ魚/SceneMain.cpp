@@ -179,6 +179,7 @@ void CSceneMain::Scene()
 		if (((UserData*)Save::GetData())->sp >= 5.5f)
 		{
 			((UserData*)Save::GetData())->sp -= 0.5f;
+			((UserData*)Save::GetData())->sp_lv += 1;
 		}
 		else
 		{
