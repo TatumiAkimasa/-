@@ -1,6 +1,8 @@
 //使用するヘッダーファイル
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
+#include "GameL/DrawFont.h"
+#include "GameL/UserData.h"
 
 #include "GameHead.h"
 #include "ObjTitle.h"
@@ -73,6 +75,8 @@ void CObjTitle::Draw()
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
+
+
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
@@ -90,4 +94,14 @@ void CObjTitle::Draw()
 
 	//0番目に登録したグラフィックをsrc・dst・cの情報を元に描画
 	Draw::Draw(1, &src, &dst, c, 0.0f);
+
+
+	//ランキング
+	Font::StrDraw(L"ランキング", 600, 0, 40, c);
+	for (int i = 0; i < 15; i++)
+	{
+		wchar_t str[256];
+		swprintf_s(str, L"%2d位%12d点", i + 1, ((UserData*)Save::GetData())->save_score);
+		Font::StrDraw(str, 670, 24 + 24 * i, 12, c);
+	}
 }
