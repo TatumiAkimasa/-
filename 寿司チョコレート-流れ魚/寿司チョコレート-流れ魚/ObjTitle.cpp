@@ -48,7 +48,14 @@ void CObjTitle::Action()
 		m_key_flag = true;
 	}
 
-	//スペースキーを押してシーン：ゲーム説明に移行する。/
+	//上下キーを押してシーン：ランキングに移行する。/
+	if (Input::GetVKey(VK_DOWN) == true)
+	{
+		Scene::SetScene(new CSceneRanking());
+	}
+	
+
+	//左右キーを押してシーン：ゲーム説明に移行する。/
 	if (Input::GetVKey(VK_RIGHT) == true)
 	{
 
@@ -95,13 +102,4 @@ void CObjTitle::Draw()
 	//0番目に登録したグラフィックをsrc・dst・cの情報を元に描画
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 
-
-	//ランキング
-	Font::StrDraw(L"ランキング", 600, 0, 40, c);
-	for (int i = 0; i < 15; i++)
-	{
-		wchar_t str[256];
-		swprintf_s(str, L"%2d位%12d点", i + 1, ((UserData*)Save::GetData())->save_score);
-		Font::StrDraw(str, 670, 24 + 24 * i, 12, c);
-	}
 }

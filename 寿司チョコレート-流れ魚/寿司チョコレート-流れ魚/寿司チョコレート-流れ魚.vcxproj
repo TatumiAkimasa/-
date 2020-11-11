@@ -166,6 +166,7 @@
     <ClCompile Include="ObjLifeItem.cpp" />
     <ClCompile Include="ObjMain.cpp" />
     <ClCompile Include="Objmirror.cpp" />
+    <ClCompile Include="ObjRanking.cpp" />
     <ClCompile Include="ObjResult.cpp" />
     <ClCompile Include="Objsp_down.cpp" />
     <ClCompile Include="Objsp_up.cpp" />
@@ -174,6 +175,7 @@
     <ClCompile Include="ObjTreeItem.cpp" />
     <ClCompile Include="Objwater_flow.cpp" />
     <ClCompile Include="SceneMain.cpp" />
+    <ClCompile Include="SceneRanking.cpp" />
     <ClCompile Include="SceneResult.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
@@ -205,6 +207,7 @@
     <ClInclude Include="ObjLifeItem.h" />
     <ClInclude Include="ObjMain.h" />
     <ClInclude Include="Objmirror.h" />
+    <ClInclude Include="ObjRanking.h" />
     <ClInclude Include="ObjResult.h" />
     <ClInclude Include="Objsp_down.h" />
     <ClInclude Include="Objsp_up.h" />
@@ -213,6 +216,7 @@
     <ClInclude Include="ObjTreeItem.h" />
     <ClInclude Include="Objwater_flow.h" />
     <ClInclude Include="SceneMain.h" />
+    <ClInclude Include="SceneRanking.h" />
     <ClInclude Include="SceneResult.h" />
     <ClInclude Include="SceneTitle.h" />
   </ItemGroup>
