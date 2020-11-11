@@ -81,9 +81,6 @@
     <ClCompile Include="ObjMain.cpp">
       <Filter>ソース ファイル\シーンメイン</Filter>
     </ClCompile>
-    <ClCompile Include="ObjDescription.cpp">
-      <Filter>ソース ファイル\シーンタイトル</Filter>
-    </ClCompile>
     <ClCompile Include="ObjResult.cpp">
       <Filter>ソース ファイル\シーンリザルト</Filter>
     </ClCompile>
@@ -190,9 +187,6 @@
     </ClInclude>
     <ClInclude Include="SceneResult.h">
       <Filter>ソース ファイル\シーンリザルト</Filter>
-    </ClInclude>
-    <ClInclude Include="Description.h">
-      <Filter>ソース ファイル\シーンタイトル</Filter>
     </ClInclude>
     <ClInclude Include="ObjBackground.h">
       <Filter>ソース ファイル\シーンメイン</Filter>
