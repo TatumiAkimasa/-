@@ -117,7 +117,7 @@ void CObjFishPlayer::Action()
      //回復アイテムと接触したら回復＆削除
     if (hit->CheckElementHit(ELEMENT_HEAL) == true)
     {
-        Audio::Start(1);
+        Audio::Start(3);
 
         if (((UserData*)Save::GetData())->life_point < 3)
         {
@@ -131,12 +131,12 @@ void CObjFishPlayer::Action()
     {
         ((UserData*)Save::GetData())->life_point--;
 
-        Audio::Start(2);
+        Audio::Start(4);
 
         if (((UserData*)Save::GetData())->life_point == 0)
         {
-            Audio::Stop(2);
-            Audio::Start(3);//やられ時SE
+            Audio::Stop(4);
+            Audio::Start(5);//やられ時SE
             std::this_thread::sleep_for(std::chrono::seconds(3));//処理を3秒止める
 
             this->SetStatus(false);    //自身に削除命令を出す
