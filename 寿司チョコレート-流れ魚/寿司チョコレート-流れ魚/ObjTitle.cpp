@@ -80,7 +80,7 @@ void CObjTitle::Action()
 	{
 		//開始時ＳＥ
 		Audio::Start(1);
-		std::this_thread::sleep_for(std::chrono::seconds(2)); 
+		std::this_thread::sleep_for(std::chrono::seconds(2)); //開始時処理を2秒止める(開始SEを鳴らすため）
 			Scene::SetScene(new CSceneMain());
 
 	}

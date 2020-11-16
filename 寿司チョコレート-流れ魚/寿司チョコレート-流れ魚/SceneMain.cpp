@@ -101,6 +101,8 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(2, L"ダメージ音テスト.wav", SOUND_TYPE::EFFECT);
 
+	Audio::LoadAudio(3, L"やられ時（仮）.wav", SOUND_TYPE::EFFECT);
+
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
 	Audio::Start(0);//音楽スタート

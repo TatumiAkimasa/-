@@ -9,6 +9,8 @@
 #include "GameHead.h"
 #include "ObjFishPlayer.h"
 #include "GameL\Audio.h"
+#include <thread>
+#include <chrono>
 //使用するネームスペース
 using namespace GameL;
 
@@ -130,8 +132,13 @@ void CObjFishPlayer::Action()
         ((UserData*)Save::GetData())->life_point--;
 
         Audio::Start(2);
+
         if (((UserData*)Save::GetData())->life_point == 0)
         {
+            Audio::Stop(2);
+            Audio::Start(3);//やられ時SE
+            std::this_thread::sleep_for(std::chrono::seconds(3));//処理を3秒止める
+
             this->SetStatus(false);    //自身に削除命令を出す
             Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
 
