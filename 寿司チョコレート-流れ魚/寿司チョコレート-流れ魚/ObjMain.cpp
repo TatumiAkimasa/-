@@ -12,6 +12,7 @@
 
 
 
+
 //使用するネームスペース
 using namespace GameL;
 
@@ -124,22 +125,31 @@ void CObjMain::Draw()
 		Draw::Draw(10, &src, &dst, d, 0.0f);
 	}
 
-	if (((UserData*)Save::GetData())->life_point <= 2)
+	if (((UserData*)Save::GetData())->life_point == 2)
 	{
 		swprintf_s(str, L"痛ーい");
 		Font::StrDraw(str, 20, 500, 40, c);
 	}
 
-	if (((UserData*)Save::GetData())->life_point <= 1)
+	else if (((UserData*)Save::GetData())->life_point == 1)
 	{
 		swprintf_s(str,L"やばい死ぬ");
 		Font::StrDraw(str, 20, 500, 40, c);
 	}
+	
 
-	if (((UserData*)Save::GetData())->save_score>=1000)
+	else if (((UserData*)Save::GetData())->save_score>=1000)
 	{
 		swprintf_s(str, L"やるねェ");
 		Font::StrDraw(str, 20, 500, 40, c);
 	}
+
+	else if (((UserData*)Save::GetData())->save_score > 2000)
+	{
+		swprintf_s(str, L"最高！");
+		Font::StrDraw(str, 20, 500, 40, c);
+	}
+
+	
 	
 }

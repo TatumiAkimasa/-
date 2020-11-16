@@ -117,7 +117,7 @@ void CObjFishPlayer::Action()
      //‰ñ•œƒAƒCƒeƒ€‚ÆÚG‚µ‚½‚ç‰ñ•œ•íœ
     if (hit->CheckElementHit(ELEMENT_HEAL) == true)
     {
-        Audio::Start(3);
+        Audio::Start(7);
 
         if (((UserData*)Save::GetData())->life_point < 3)
         {

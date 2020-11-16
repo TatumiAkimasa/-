@@ -44,7 +44,7 @@ void CObjsp_down::Action()
 	//主人公オブジェクトと接触したらオブジェクトを削除しスピードを下げる
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
-		Audio::Start(1);
+		Audio::Start(8);
 
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//オブジェクトが所有するHitBoxを削除する

@@ -105,6 +105,10 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(6, L"コイン取得.wav", SOUND_TYPE::EFFECT);
 
+	Audio::LoadAudio(7, L"回復.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(8, L"スピードダウン.wav", SOUND_TYPE::EFFECT);
+
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
 	Audio::Start(0);//音楽スタート
