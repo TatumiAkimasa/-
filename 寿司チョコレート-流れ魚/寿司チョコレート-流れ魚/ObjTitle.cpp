@@ -1,11 +1,13 @@
 //使用するヘッダーファイル
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
-
 #include "GameHead.h"
 #include "ObjTitle.h"
 #include "GameL/DrawTexture.h"
 #include "GameL\Audio.h"
+#include <thread>
+#include <chrono>
+
 
 //使用するネームスペース
 using namespace GameL;
@@ -78,7 +80,7 @@ void CObjTitle::Action()
 	{
 		//開始時ＳＥ
 		Audio::Start(1);
-
+		std::this_thread::sleep_for(std::chrono::seconds(2)); 
 			Scene::SetScene(new CSceneMain());
 
 	}
