@@ -148,7 +148,7 @@ void CSceneMain::Scene()
 
 	//障害物が落ちてくる確率
 	//通常障害物 50/全体　ギミック 1/全体
-	int x = rand() % 60;
+	int x = rand() % 61;
 
 	//フレーム数の計算
 	m_time++;
@@ -180,9 +180,10 @@ void CSceneMain::Scene()
 	//障害物に当たった時、スピードが初期に戻る処理
 	if (((UserData*)Save::GetData())->sp_lv == 0)
 	{
-		if (((UserData*)Save::GetData())->sp >= 7)
+		if (((UserData*)Save::GetData())->sp >= 5.5f)
 		{
-			((UserData*)Save::GetData())->sp -= 2.0f;
+			((UserData*)Save::GetData())->sp -= 0.5f;
+			((UserData*)Save::GetData())->sp_lv += 1;
 		}
 		else
 		{
@@ -214,7 +215,6 @@ void CSceneMain::Scene()
 		rand(); rand(); rand(); rand(); rand();
 
 		//ランダムに3レーンから流す処理
-		//1レーン流す
 		if (x <= 50)
 		{
 
@@ -295,9 +295,17 @@ void CSceneMain::Scene()
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
-
-		//スコアアップ(10)
+		//スピードダウン
 		else if (x == 53)
+		{
+			CObjsp_down* obj = new CObjsp_down(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(obj, OBJ_SP_DOWN, 50);
+
+
+			((UserData*)Save::GetData())->sp_lv++;
+		}
+		//スコアアップ(10)
+		else if (x == 54)
 		{
 			CObj10enn* obj = new CObj10enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_10ENN, 50);
@@ -305,7 +313,7 @@ void CSceneMain::Scene()
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//操作反転
-		else if (x == 54)
+		else if (x == 55)
 		{
 			CObjmirror* m = new CObjmirror(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(m, OBJ_10ENN, 50);
@@ -313,7 +321,7 @@ void CSceneMain::Scene()
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//スコアアップ(100)
-		else if (x == 55)
+		else if (x == 56)
 		{
 			CObj100enn* obj = new CObj100enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(obj, OBJ_100ENN, 50);
@@ -321,7 +329,7 @@ void CSceneMain::Scene()
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//スコアアップ(1000)
-		else if (x == 56)
+		else if (x == 57)
 		{
 		CObj1000enn* obj = new CObj1000enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 		Objs::InsertObj(obj, OBJ_1000ENN, 50);
@@ -329,7 +337,7 @@ void CSceneMain::Scene()
 		((UserData*)Save::GetData())->sp_lv++;
 		}
 		//スコアアップ(10000)
-		else if (x == 57)
+		else if (x == 58)
 		{
 		CObj10000enn* obj = new CObj10000enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 		Objs::InsertObj(obj, OBJ_10000ENN, 50);
@@ -337,7 +345,7 @@ void CSceneMain::Scene()
 		((UserData*)Save::GetData())->sp_lv++;
 		}
 		//偽ライフ
-		else if (x == 58)
+		else if (x == 59)
 		{
 		CObjbadlife* bl = new CObjbadlife(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 		Objs::InsertObj(bl, OBJ_BAD_LIFE, 50);
@@ -345,7 +353,7 @@ void CSceneMain::Scene()
 		((UserData*)Save::GetData())->sp_lv++;
 		}
 		//木アイテム
-		else if (x == 59)
+		else if (x == 60)
 		{
 			CObjTreeItem* t = new CObjTreeItem(385, -64, ((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(t, OBJ_TREEITEM, 50);

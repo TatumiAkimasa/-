@@ -130,6 +130,7 @@ void CObjFishPlayer::Action()
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
     {
         ((UserData*)Save::GetData())->life_point--;
+        ((UserData*)Save::GetData())->sp_lv = 0;
 
         Audio::Start(4);
 
@@ -141,8 +142,6 @@ void CObjFishPlayer::Action()
 
             this->SetStatus(false);    //自身に削除命令を出す
             Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
-
-            ((UserData*)Save::GetData())->sp_lv = 0;
 
             //主人公消滅でシーンをゲームオーバーに移行する
             Scene::SetScene(new CSceneResult());
