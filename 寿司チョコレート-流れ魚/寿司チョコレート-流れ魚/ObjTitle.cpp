@@ -26,14 +26,16 @@ void CObjTitle::Init()
 	static bool init_point = false;
 	if (init_point == false)
 	{
-		//点数を0にする
-		((UserData*)Save::GetData())->save_score = 0;//点数を0にする
-
 		//ランキング初期化
 		for (int i = 0; i < 11; i++)
 		{
 			((UserData*)Save::GetData())->Ranking[i] = 0;
 		}
+
+		Save::Open();//同フォルダ「UserData」からデータ取得
+
+		//点数を0にする
+		((UserData*)Save::GetData())->save_score = 0;
 		init_point = true;
 	}
 
@@ -42,7 +44,14 @@ void CObjTitle::Init()
 
 	//得点が高い順に並び替えをする
 	RankingSort(((UserData*)Save::GetData())->Ranking);
+
+	//ゲーム実行して一回のみ以外、ランキングを自動セーブする
+	if (init_point == true)
+	{
+		Save::Seve();//UserDataの情報を同じフォルダ「UserData」を作成する
+	}
 }
+
 //アクション
 void CObjTitle::Action()
 {
