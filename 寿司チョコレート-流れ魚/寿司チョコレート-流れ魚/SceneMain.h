@@ -5,6 +5,11 @@
 //使用するネームスペース
 using namespace GameL;
 
+#define FLOW_HIGHT -64
+#define FLOW_SPACE_LEFT 385
+#define FLOW_SPACE_CENTER 505
+#define FLOW_SPACE_RIGHT 625
+
 //シーン：ゲームメイン
 class CSceneMain :public CScene
 {
@@ -22,6 +27,4 @@ private:
 	int m_ani_frame; //主人公アニメーションフレーム用変数
 };
 
-//関数の定義
-void flow(int x, int y);
 

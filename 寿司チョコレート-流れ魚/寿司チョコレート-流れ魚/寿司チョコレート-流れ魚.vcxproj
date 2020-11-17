@@ -139,9 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Obj10000enn.cpp" />
+    <ClCompile Include="Obj1000enn.cpp" />
+    <ClCompile Include="Obj100enn.cpp" />
     <ClCompile Include="ObjBackground_2.cpp" />
     <ClCompile Include="ObjBackground_stats.cpp" />
-    <ClCompile Include="ObjDescription.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
     <ClCompile Include="GameL\Draw2DTex_Source.cpp" />
@@ -157,6 +159,7 @@
     <ClCompile Include="GameL\WinInputs.cpp" />
     <ClCompile Include="Obj10enn.cpp" />
     <ClCompile Include="ObjBackground.cpp" />
+    <ClCompile Include="Objbadlife.cpp" />
     <ClCompile Include="ObjFishPlayer.cpp" />
     <ClCompile Include="ObjFlow.cpp" />
     <ClCompile Include="ObjLifeItem.cpp" />
@@ -166,13 +169,14 @@
     <ClCompile Include="Objsp_down.cpp" />
     <ClCompile Include="Objsp_up.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
+    <ClCompile Include="ObjTree.cpp" />
+    <ClCompile Include="ObjTreeItem.cpp" />
     <ClCompile Include="Objwater_flow.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneResult.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Description.h" />
     <ClInclude Include="GameHead.h" />
     <ClInclude Include="GameL\Audio.h" />
     <ClInclude Include="GameL\DirectXDevice.h" />
@@ -186,10 +190,14 @@
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WinInputs.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="Obj10000enn.h" />
+    <ClInclude Include="Obj1000enn.h" />
+    <ClInclude Include="Obj100enn.h" />
     <ClInclude Include="Obj10enn.h" />
     <ClInclude Include="ObjBackground.h" />
     <ClInclude Include="ObjBackground_2.h" />
     <ClInclude Include="ObjBackground_stats.h" />
+    <ClInclude Include="Objbadlife.h" />
     <ClInclude Include="ObjFishPlayer.h" />
     <ClInclude Include="ObjFlow.h" />
     <ClInclude Include="ObjLifeItem.h" />
@@ -199,6 +207,8 @@
     <ClInclude Include="Objsp_down.h" />
     <ClInclude Include="Objsp_up.h" />
     <ClInclude Include="ObjTitle.h" />
+    <ClInclude Include="ObjTree.h" />
+    <ClInclude Include="ObjTreeItem.h" />
     <ClInclude Include="Objwater_flow.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneResult.h" />

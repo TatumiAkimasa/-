@@ -21,11 +21,12 @@ void CObjFishPlayer::Init()
     m_py = 450.0f;
     m_f = true;      //移動制御
     m_ani_time = 0;
-    m_ani_frame = 1;
+    m_ani_frame = 0;
     m_time = 0;
 
     //当たり判定用HitBoxを作成
     Hits::SetHitBox(this, m_px+22, m_py+16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
+
 }
 
 //アクション
@@ -39,7 +40,7 @@ void CObjFishPlayer::Action()
         m_ani_frame += 1;
     }
 
-    if (m_ani_frame == 3)
+    if (m_ani_frame == 4)
     {
         m_ani_frame = 0;
     }
@@ -57,7 +58,7 @@ void CObjFishPlayer::Action()
         if (m_f == true)
         {
             //trueの時操作反転
-            if (((UserData*)Save::GetData())->key_flag == true)
+            if (((UserData*)Save::GetData())->key_flag_mirror == true)
             {
                 if (m_f == true)
                 {
@@ -78,7 +79,7 @@ void CObjFishPlayer::Action()
         if (m_f == true)
         {
             //trueの時操作反転
-            if (((UserData*)Save::GetData())->key_flag == true)
+            if (((UserData*)Save::GetData())->key_flag_mirror == true)
             {
                 if (m_f == true)
                 {
@@ -127,14 +128,13 @@ void CObjFishPlayer::Action()
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
     {
         ((UserData*)Save::GetData())->life_point--;
+        ((UserData*)Save::GetData())->sp_lv = 0;
 
         Audio::Start(2);
         if (((UserData*)Save::GetData())->life_point == 0)
         {
             this->SetStatus(false);    //自身に削除命令を出す
             Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
-
-            ((UserData*)Save::GetData())->sp_lv = 0;
 
             //主人公消滅でシーンをゲームオーバーに移行する
             Scene::SetScene(new CSceneResult());
@@ -149,24 +149,21 @@ void CObjFishPlayer::Draw()
     //描写カラー情報
     float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
-    int AniData[3]
-    {
-        1,2,3
-    };
+    int AniData[4]{ 1,2,3,4 };
 
     RECT_F src;//描写元の切り取り位置
-    RECT_F dst;//描画先の表示位置でーす
+    RECT_F dst;//描画先の表示位置
 
 
     src.m_top = 0.0f;
-    src.m_left = 0.0f +( AniData[m_ani_frame]-1)*828;
+    src.m_left = 0.0f + (AniData[m_ani_frame] - 1) * 828;
     src.m_right = 828.0f * AniData[m_ani_frame];
     src.m_bottom = 1792.0f;
 
-    dst.m_top = 0.0f + m_py;
-    dst.m_left = 0.0f + m_px;
-    dst.m_right = 64.0f + dst.m_left;
-    dst.m_bottom = 128.0f + dst.m_top;
+    dst.m_top = -75.0f + m_py;
+    dst.m_left = -64.9f + m_px;
+    dst.m_right = 192.0f + dst.m_left;
+    dst.m_bottom = 384.0f + dst.m_top;
 
     Draw::Draw(2, &src, &dst, c, 0.0f);
 
