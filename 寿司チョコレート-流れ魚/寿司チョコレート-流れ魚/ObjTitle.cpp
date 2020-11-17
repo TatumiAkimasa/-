@@ -22,6 +22,26 @@ void CObjTitle::Init()
 {
 	m_key_flag = false;
 	num = 10;//描画優先度
+
+	static bool init_point = false;
+	if (init_point == false)
+	{
+		//点数を0にする
+		((UserData*)Save::GetData())->save_score = 0;//点数を0にする
+
+		//ランキング初期化
+		for (int i = 0; i < 11; i++)
+		{
+			((UserData*)Save::GetData())->Ranking[i] = 0;
+		}
+		init_point = true;
+	}
+
+	//得点ランキング最下位(描写圏外)に登録
+	((UserData*)Save::GetData())->Ranking[10] = ((UserData*)Save::GetData())->save_score;
+
+	//得点が高い順に並び替えをする
+	RankingSort(((UserData*)Save::GetData())->Ranking);
 }
 //アクション
 void CObjTitle::Action()
@@ -102,4 +122,28 @@ void CObjTitle::Draw()
 	//0番目に登録したグラフィックをsrc・dst・cの情報を元に描画
 	Draw::Draw(1, &src, &dst, c, 0.0f);
 
+}
+
+//ランキングソートメソッド
+//引数1　int[11] :ランキング用配列
+//高順でバブルソートを行う
+void CObjTitle::RankingSort(int rank[11])
+{
+	//値交換用変数
+	int w;
+
+	//バブルソート
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = i + 1; j < 11; j++)
+		{
+			if (rank[i] < rank[j])
+			{
+				//値の交換
+				w = rank[i];
+				rank[i] = rank[j];
+				rank[j] = w;
+			}
+		}
+	}
 }

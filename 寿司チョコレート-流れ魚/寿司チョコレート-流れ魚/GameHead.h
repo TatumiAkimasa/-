@@ -63,7 +63,7 @@ struct UserData
 	int mSeveData;			//サンプルセーブデータ
 	int save_s_time;		//s_timeセーブ用変数
 	int save_m_time;		//m_timeセーブ用変数
-	int save_score = 0;		//scoreセーブ用変数
+	int save_score;		    //scoreセーブ用変数
 	float sp;				//スピード用変数
 	int sp_lv = 1;			//スピード管理用変数
 	int life_point = 3;		//主人公のライフ
@@ -71,6 +71,8 @@ struct UserData
 	int Tree_time = 0;		//木の表示時間用変数
 	bool Tree_said;			//木の表示用フラグ
 	bool key_flag_mirror;	//操作反転用フラグ
+	int Ranking[11];        //ランキングの表示用変数
+
 };
 //------------------------------------------------
 

@@ -15,5 +15,7 @@ public:
 	void Action();
 	void Draw();
 private:
-	
+	//ランキングソートメソッド
+	void RankingSort(int rank[11]);
+
 };
