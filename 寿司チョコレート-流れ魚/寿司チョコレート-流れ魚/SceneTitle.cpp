@@ -46,6 +46,9 @@ void CSceneTitle::InitScene()
 	//外部グラフィックファイルを読み込み0番に登録（386*564ピクセル）
 	Draw::LoadImageW(L"新説明画面4.png", 4, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み0番に登録（386*564ピクセル）
+	Draw::LoadImageW(L"新説明画面5.png", 5, TEX_SIZE_512);
+
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"タイトルBGM.wav", SOUND_TYPE::BACK_MUSIC);
 

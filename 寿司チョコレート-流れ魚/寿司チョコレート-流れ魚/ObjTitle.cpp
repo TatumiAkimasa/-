@@ -66,9 +66,9 @@ void CObjTitle::Action()
 		L_flag = true;
 	}
 
-	if (num > 4)
+	if (num > 5)
 	{
-		num = 4;
+		num = 5;
 	}
 	else if (num < 0)
 	{
