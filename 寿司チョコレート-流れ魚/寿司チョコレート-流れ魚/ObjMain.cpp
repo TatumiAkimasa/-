@@ -65,10 +65,18 @@ void CObjMain::Draw()
 	swprintf_s(str, L"速度　　%3.1f", ((UserData*)Save::GetData())->sp);
 	Font::StrDraw(str, 20, 160, 40, c);
 
+	//コメントの表示
+	float k[4] = { 0.1f,0.1f,0.1f,1.0f };
+	swprintf_s(str, L"さぁ、魚力を"); 
+	Font::StrDraw(str, 60, 430, 30, k);
+	swprintf_s(str, L"上げよう！");
+	Font::StrDraw(str, 60, 460, 30, k);
+
 	//ライフの表示
 	float d[4] = { 1.0f,1.0f,1.0f,1.0f };
 	swprintf_s(str, L"ライフ");
 	Font::StrDraw(str, 20, 280, 40, c);
+
 	RECT_F src;
 	RECT_F dst;
 
