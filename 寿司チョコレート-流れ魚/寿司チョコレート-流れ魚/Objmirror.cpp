@@ -48,6 +48,9 @@ void CObjmirror::Action()
 
 		//主人公オブジェクトと接触したらtrueにする
 		((UserData*)Save::GetData())->key_flag_mirror = true;
+
+		//スコアの加算
+		((UserData*)Save::GetData())->save_score += 500;
 	}
 }
 
