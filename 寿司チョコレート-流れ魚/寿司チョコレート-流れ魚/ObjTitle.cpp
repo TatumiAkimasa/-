@@ -24,8 +24,10 @@ bool CObjTitle::key_num2_T()
 //イニシャライズ
 void CObjTitle::Init()
 {
-	m_key_flag = false;
-	num = 10;//描画優先度
+	R_flag = false;
+	L_flag = false;
+	num = 0;//描画優先度
+
 
 	static bool init_point = false;
 	if (init_point == false)
@@ -56,10 +58,6 @@ void CObjTitle::Init()
 	}
 }
 
-	R_flag = false;
-	L_flag = false;
-	num = 0;//描画優先度
-}
 //アクション
 void CObjTitle::Action()
 {
@@ -81,15 +79,8 @@ void CObjTitle::Action()
 		R_flag = true;
 	}
 
-	//上下キーを押してシーン：ランキングに移行する。/
-	if (Input::GetVKey(VK_DOWN) == true)
-	{
-		Scene::SetScene(new CSceneRanking());
-	}
-	
-
-	//左右キーを押してシーン：ゲーム説明に移行する。/
-	if (Input::GetVKey(VK_RIGHT) == true)
+	//スペースキーを押してシーン：ゲーム説明に移行する。/
+	if (Input::GetVKey(VK_LEFT) == true)
 	{
 
 		if (L_flag == true)
@@ -104,6 +95,13 @@ void CObjTitle::Action()
 	{
 		L_flag = true;
 	}
+	//上下キーを押してシーン：ランキングに移行する。/
+	if (Input::GetVKey(VK_DOWN) == true)
+	{
+		Scene::SetScene(new CSceneRanking());
+	}
+
+	
 
 	if (num > 4)
 	{
@@ -165,8 +163,10 @@ void CObjTitle::Draw()
 	}
 	
 
-	//0番目に登録したグラフィックをsrc・dst・cの情報を元に描画
-	Draw::Draw(1, &src, &dst, c, 0.0f);
+	//0番目に登録したグラフィックをsrc・dst・cの情報を元に描画です
+
+	Draw::Draw(num, &src, &dst, c, 0.0f);
+
 
 }
 
@@ -192,4 +192,5 @@ void CObjTitle::RankingSort(int rank[11])
 			}
 		}
 	}
+
 }
