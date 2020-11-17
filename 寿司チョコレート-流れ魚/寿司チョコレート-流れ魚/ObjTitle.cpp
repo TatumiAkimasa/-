@@ -1,6 +1,8 @@
 //使用するヘッダーファイル/
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
+#include "GameL/DrawFont.h"
+#include "GameL/UserData.h"
 
 #include "GameHead.h"
 #include "ObjTitle.h"
@@ -22,6 +24,38 @@ bool CObjTitle::key_num2_T()
 //イニシャライズ
 void CObjTitle::Init()
 {
+	m_key_flag = false;
+	num = 10;//描画優先度
+
+	static bool init_point = false;
+	if (init_point == false)
+	{
+		//ランキング初期化
+		for (int i = 0; i < 11; i++)
+		{
+			((UserData*)Save::GetData())->Ranking[i] = 0;
+		}
+
+		Save::Open();//同フォルダ「UserData」からデータ取得
+
+		//点数を0にする
+		((UserData*)Save::GetData())->save_score = 0;
+		init_point = true;
+	}
+
+	//得点ランキング最下位(描写圏外)に登録
+	((UserData*)Save::GetData())->Ranking[10] = ((UserData*)Save::GetData())->save_score;
+
+	//得点が高い順に並び替えをする
+	RankingSort(((UserData*)Save::GetData())->Ranking);
+
+	//ゲーム実行して一回のみ以外、ランキングを自動セーブする
+	if (init_point == true)
+	{
+		Save::Seve();//UserDataの情報を同じフォルダ「UserData」を作成する
+	}
+}
+
 	R_flag = false;
 	L_flag = false;
 	num = 0;//描画優先度
@@ -47,8 +81,15 @@ void CObjTitle::Action()
 		R_flag = true;
 	}
 
-	//スペースキーを押してシーン：ゲーム説明に移行する。/
-	if (Input::GetVKey(VK_LEFT) == true)
+	//上下キーを押してシーン：ランキングに移行する。/
+	if (Input::GetVKey(VK_DOWN) == true)
+	{
+		Scene::SetScene(new CSceneRanking());
+	}
+	
+
+	//左右キーを押してシーン：ゲーム説明に移行する。/
+	if (Input::GetVKey(VK_RIGHT) == true)
 	{
 
 		if (L_flag == true)
@@ -90,6 +131,8 @@ void CObjTitle::Draw()
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
+
+
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 	if (num == 0)
@@ -123,5 +166,30 @@ void CObjTitle::Draw()
 	
 
 	//0番目に登録したグラフィックをsrc・dst・cの情報を元に描画
-	Draw::Draw(num, &src, &dst, c, 0.0f);
+	Draw::Draw(1, &src, &dst, c, 0.0f);
+
+}
+
+//ランキングソートメソッド
+//引数1　int[11] :ランキング用配列
+//高順でバブルソートを行う
+void CObjTitle::RankingSort(int rank[11])
+{
+	//値交換用変数
+	int w;
+
+	//バブルソート
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = i + 1; j < 11; j++)
+		{
+			if (rank[i] < rank[j])
+			{
+				//値の交換
+				w = rank[i];
+				rank[i] = rank[j];
+				rank[j] = w;
+			}
+		}
+	}
 }

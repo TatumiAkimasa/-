@@ -25,6 +25,9 @@
     <Filter Include="ソース ファイル\障害物">
       <UniqueIdentifier>{691c90b9-9552-4ed6-82c0-8f20396dbae4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\シーンランキング">
+      <UniqueIdentifier>{d4a8bea9-728a-45a4-8631-e777290ee498}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -135,6 +138,12 @@
     <ClCompile Include="Objbadlife.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
+    <ClCompile Include="ObjRanking.cpp">
+      <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneRanking.cpp">
+      <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -244,6 +253,12 @@
     </ClInclude>
     <ClInclude Include="Objbadlife.h">
       <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjRanking.h">
+      <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneRanking.h">
+      <Filter>ソース ファイル\シーンランキング</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

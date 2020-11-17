@@ -65,6 +65,8 @@ void CObjMain::Draw()
 	swprintf_s(str, L"速度　　%3.1f", ((UserData*)Save::GetData())->sp);
 	Font::StrDraw(str, 20, 160, 40, c);
 
+	
+
 	//ライフの表示
 	float d[4] = { 1.0f,1.0f,1.0f,1.0f };
 	swprintf_s(str, L"ライフ");
