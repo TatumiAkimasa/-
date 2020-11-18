@@ -28,6 +28,7 @@ void CObjResult::Init()
 //アクション
 void CObjResult::Action()
 {
+
 	//エンターキーを押してシーン：ゲームタイトルに移行する
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
@@ -82,10 +83,7 @@ void CObjResult::Draw()
 
 	if(((UserData*)Save::GetData())->save_score>10000)
 	Font::StrDraw(L"☆★☆さすが先生☆★☆", 45, 400, 64, c);
-	else if (((UserData*)Save::GetData())->save_score == 0)
-	Font::StrDraw(L"わざとでしょ？", 195, 400, 64, c);
-	else
-	Font::StrDraw(L"えっ...", 230, 400, 64, c);
+	
 	
 
 	Font::StrDraw(str, 230, 250, 64, c);

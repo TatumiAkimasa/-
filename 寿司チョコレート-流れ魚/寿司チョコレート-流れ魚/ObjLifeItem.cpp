@@ -17,9 +17,11 @@ CObjLifeItem::CObjLifeItem(float x, float y, float s)
 	m_vy = s;
 }
 
+
 //イニシャライズ
 void CObjLifeItem::Init()
 {
+	
 	//当たり判定用Hitboxを作成
 	Hits::SetHitBox(this, m_x + 16, m_y + 16, 40, 40, ELEMENT_HEAL, OBJ_LIFE_ITEM, 1);
 }
@@ -46,6 +48,7 @@ void CObjLifeItem::Action()
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//10円が所有するHitBoxを削除する
 	}
+	
 }
 
 //ドロー
