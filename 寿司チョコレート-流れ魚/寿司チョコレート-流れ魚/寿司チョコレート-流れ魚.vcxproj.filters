@@ -144,6 +144,9 @@
     <ClCompile Include="SceneRanking.cpp">
       <Filter>ソース ファイル\シーンランキング</Filter>
     </ClCompile>
+    <ClCompile Include="ObjTatami.cpp">
+      <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -258,6 +261,9 @@
       <Filter>ソース ファイル\シーンランキング</Filter>
     </ClInclude>
     <ClInclude Include="SceneRanking.h">
+      <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTatami.h">
       <Filter>ソース ファイル\シーンランキング</Filter>
     </ClInclude>
   </ItemGroup>
