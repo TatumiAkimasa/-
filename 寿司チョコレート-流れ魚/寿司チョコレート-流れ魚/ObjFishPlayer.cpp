@@ -23,9 +23,6 @@ void CObjFishPlayer::Init()
     m_ani_time = 0;
     m_ani_frame = 0;
     m_time = 0;
-    m_right_move = false;
-    m_left_move = false;
-    m_move = 0;
 
     //当たり判定用HitBoxを作成
     Hits::SetHitBox(this, m_px+22, m_py+16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
@@ -56,36 +53,24 @@ void CObjFishPlayer::Action()
     CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
     hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
 
-    //key_flag_mirrorがtrueの時
-    if (((UserData*)Save::GetData())->key_flag_mirror == true)
-    {
-        m_key_time++;
-
-        if (m_key_time == 600)
-        {
-            ((UserData*)Save::GetData())->key_flag_mirror = false;
-            m_key_time = 0;
-        }
-    }
-
     //キーの入力方向にベクトルの速度を入れる
     if (Input::GetVKey(VK_RIGHT) == true)
     {
         if (m_f == true)
         {
             //trueの時操作反転
-            if (((UserData*)Save::GetData())->key_flag == true)
+            if (((UserData*)Save::GetData())->key_flag_mirror == true)
             {
                 if (m_f == true)
                 {
-                    m_left_move = true;
+                    m_vx -= 120.0f;
                     m_f = false;
 
                 }
             }
             else
             {
-                m_right_move = true;
+                m_vx += 120.0f;
                 m_f = false;
             }
         }
@@ -95,17 +80,17 @@ void CObjFishPlayer::Action()
         if (m_f == true)
         {
             //trueの時操作反転
-            if (((UserData*)Save::GetData())->key_flag == true)
+            if (((UserData*)Save::GetData())->key_flag_mirror == true)
             {
                 if (m_f == true)
                 {
-                    m_right_move = true;
+                    m_vx += 120.0f;
                     m_f = false;
                 }
             }
             else
             {
-                m_left_move = true;
+                m_vx -= 120.0f;
                 m_f = false;
             }
         }
@@ -113,28 +98,6 @@ void CObjFishPlayer::Action()
     else
     {
         m_f = true;
-    }
-
-    if (m_right_move == true)
-    {
-        m_vx += 40;
-        m_move++;
-        if (m_move == 3)
-        {
-            m_move = 0;
-            m_right_move = false;
-        }
-    }
-
-    if (m_left_move == true)
-    {
-        m_vx -= 40;
-        m_move++;
-        if (m_move == 3)
-        {
-            m_move = 0;
-            m_left_move = false;
-        }
     }
 
     //移動ベクトルを座標に加算する
