@@ -138,11 +138,8 @@
     <ClCompile Include="SceneRanking.cpp">
       <Filter>ソース ファイル\シーンランキング</Filter>
     </ClCompile>
-    <ClCompile Include="ObjTreeItem.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Objmirror.cpp">
-      <Filter>ソース ファイル\障害物</Filter>
+    <ClCompile Include="ObjTatami.cpp">
+      <Filter>ソース ファイル\シーンランキング</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +258,9 @@
       <Filter>ソース ファイル\シーンランキング</Filter>
     </ClInclude>
     <ClInclude Include="SceneRanking.h">
+      <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTatami.h">
       <Filter>ソース ファイル\シーンランキング</Filter>
     </ClInclude>
   </ItemGroup>

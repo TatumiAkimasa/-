@@ -207,7 +207,7 @@ void CObjFishPlayer::Draw()
     {
         Draw::Draw(2, &src, &dst, c, 0.0f);
     }
-    else 
+    else
     {
         m_time++;
 
