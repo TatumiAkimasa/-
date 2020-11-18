@@ -124,32 +124,4 @@ void CObjMain::Draw()
 
 		Draw::Draw(10, &src, &dst, d, 0.0f);
 	}
-
-	if (((UserData*)Save::GetData())->life_point == 2)
-	{
-		swprintf_s(str, L"í…Å[Ç¢");
-		Font::StrDraw(str, 20, 500, 40, c);
-	}
-
-	else if (((UserData*)Save::GetData())->life_point == 1)
-	{
-		swprintf_s(str,L"Ç‚ÇŒÇ¢éÄÇ ");
-		Font::StrDraw(str, 20, 500, 40, c);
-	}
-	
-
-	else if (((UserData*)Save::GetData())->save_score>=1000)
-	{
-		swprintf_s(str, L"Ç‚ÇÈÇÀÉF");
-		Font::StrDraw(str, 20, 500, 40, c);
-	}
-
-	else if (((UserData*)Save::GetData())->save_score > 2000)
-	{
-		swprintf_s(str, L"ç≈çÇÅI");
-		Font::StrDraw(str, 20, 500, 40, c);
-	}
-
-	
-	
 }
