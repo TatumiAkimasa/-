@@ -23,6 +23,9 @@ void CObjFishPlayer::Init()
     m_ani_time = 0;
     m_ani_frame = 0;
     m_time = 0;
+    m_right_move = false;
+    m_left_move = false;
+    m_move = 0;
 
     //当たり判定用HitBoxを作成
     Hits::SetHitBox(this, m_px+22, m_py+16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
@@ -74,14 +77,14 @@ void CObjFishPlayer::Action()
             {
                 if (m_f == true)
                 {
-                    m_vx -= 120.0f;
+                    m_left_move = true;
                     m_f = false;
 
                 }
             }
             else
             {
-                m_vx += 120.0f;
+                m_right_move = true;
                 m_f = false;
             }
         }
@@ -95,13 +98,13 @@ void CObjFishPlayer::Action()
             {
                 if (m_f == true)
                 {
-                    m_vx += 120.0f;
+                    m_right_move = true;
                     m_f = false;
                 }
             }
             else
             {
-                m_vx -= 120.0f;
+                m_left_move = true;
                 m_f = false;
             }
         }
@@ -109,6 +112,28 @@ void CObjFishPlayer::Action()
     else
     {
         m_f = true;
+    }
+
+    if (m_right_move == true)
+    {
+        m_vx += 40;
+        m_move++;
+        if (m_move == 3)
+        {
+            m_move = 0;
+            m_right_move = false;
+        }
+    }
+
+    if (m_left_move == true)
+    {
+        m_vx -= 40;
+        m_move++;
+        if (m_move == 3)
+        {
+            m_move = 0;
+            m_left_move = false;
+        }
     }
 
     //移動ベクトルを座標に加算する
