@@ -26,7 +26,7 @@ void CObjFishPlayer::Init()
     m_right_move = false;
     m_left_move = false;
     m_move = 0;
-    i = false;
+    m_damage = false;
 
     //当たり判定用HitBoxを作成
     Hits::SetHitBox(this, m_px + 22, m_py + 16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
@@ -37,7 +37,6 @@ void CObjFishPlayer::Init()
 void CObjFishPlayer::Action()
 {
     m_ani_time++;
-    m_time++;
 
     if (m_ani_time > 10)
     {
@@ -164,11 +163,11 @@ void CObjFishPlayer::Action()
 
 
     //障害物オブジェクトと接触したら削除
-    if (hit->CheckElementHit(ELEMENT_ENEMY) == true)
+    if (hit->CheckElementHit(ELEMENT_ENEMY) == true && m_damage == false)
     {
         ((UserData*)Save::GetData())->life_point--;
         ((UserData*)Save::GetData())->sp_lv = 0;
-        i = true;
+        m_damage = true;
 
         Audio::Start(2);
         if (((UserData*)Save::GetData())->life_point == 0)
@@ -194,27 +193,41 @@ void CObjFishPlayer::Draw()
     RECT_F src;//描写元の切り取り位置
     RECT_F dst;//描画先の表示位置
 
+    dst.m_top = -75.0f + m_py;
+    dst.m_left = -64.9f + m_px;
+    dst.m_right = 192.0f + dst.m_left;
+    dst.m_bottom = 384.0f + dst.m_top;
 
     src.m_top = 0.0f;
     src.m_left = 0.0f + (AniData[m_ani_frame] - 1) * 828;
     src.m_right = 828.0f * AniData[m_ani_frame];
     src.m_bottom = 1792.0f;
 
-    if (i == false)
+    if (m_damage == false)
     {
-        dst.m_top = -75.0f + m_py;
-        dst.m_left = -64.9f + m_px;
-        dst.m_right = 192.0f + dst.m_left;
-        dst.m_bottom = 384.0f + dst.m_top;
+        Draw::Draw(2, &src, &dst, c, 0.0f);
     }
-    else
+    else 
     {
-        if (m_time % 2 == 0)
-        {
+        m_time++;
 
+        if (m_time % 5 == 0)
+        {
+            Draw::Draw(2, &src, &dst, c, 0.0f);
+        }
+        else
+        {
+            c[0] = 1.0f;
+            c[1] = 0.5f;
+            c[2] = 0.0f;
+            Draw::Draw(2, &src, &dst, c, 0.0f);
+        }
+
+        if (m_time == 30)
+        {
+            m_time = 0;
+            m_damage = false;
         }
     }
-
-    Draw::Draw(2, &src, &dst, c, 0.0f);
 
 }

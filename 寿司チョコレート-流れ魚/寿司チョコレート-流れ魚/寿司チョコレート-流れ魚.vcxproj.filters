@@ -117,9 +117,6 @@
     <ClCompile Include="ObjFlow.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
-    <ClCompile Include="Objmirror.cpp">
-      <Filter>ソース ファイル\障害物</Filter>
-    </ClCompile>
     <ClCompile Include="ObjTree.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
@@ -140,6 +137,12 @@
     </ClCompile>
     <ClCompile Include="SceneRanking.cpp">
       <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTreeItem.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Objmirror.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
