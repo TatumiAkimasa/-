@@ -23,6 +23,7 @@ private:
 	bool m_f;       //移動キーを押したとき連続で動かない為の変数
 	bool m_right_move;//右移動操作審議
 	bool m_left_move;//左移動操作審議
+	bool i;
 	int m_time;		//操作反転用
 	int m_move;		//移動量制御用変数
 

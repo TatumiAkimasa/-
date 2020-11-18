@@ -26,6 +26,7 @@ void CObjFishPlayer::Init()
     m_right_move = false;
     m_left_move = false;
     m_move = 0;
+    i = false;
 
     //“–‚½‚è”»’è—pHitBox‚ðì¬
     Hits::SetHitBox(this, m_px + 22, m_py + 16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
@@ -36,6 +37,7 @@ void CObjFishPlayer::Init()
 void CObjFishPlayer::Action()
 {
     m_ani_time++;
+    m_time++;
 
     if (m_ani_time > 10)
     {
@@ -166,6 +168,7 @@ void CObjFishPlayer::Action()
     {
         ((UserData*)Save::GetData())->life_point--;
         ((UserData*)Save::GetData())->sp_lv = 0;
+        i = true;
 
         Audio::Start(2);
         if (((UserData*)Save::GetData())->life_point == 0)
@@ -197,10 +200,20 @@ void CObjFishPlayer::Draw()
     src.m_right = 828.0f * AniData[m_ani_frame];
     src.m_bottom = 1792.0f;
 
-    dst.m_top = -75.0f + m_py;
-    dst.m_left = -64.9f + m_px;
-    dst.m_right = 192.0f + dst.m_left;
-    dst.m_bottom = 384.0f + dst.m_top;
+    if (i == false)
+    {
+        dst.m_top = -75.0f + m_py;
+        dst.m_left = -64.9f + m_px;
+        dst.m_right = 192.0f + dst.m_left;
+        dst.m_bottom = 384.0f + dst.m_top;
+    }
+    else
+    {
+        if (m_time % 2 == 0)
+        {
+
+        }
+    }
 
     Draw::Draw(2, &src, &dst, c, 0.0f);
 
