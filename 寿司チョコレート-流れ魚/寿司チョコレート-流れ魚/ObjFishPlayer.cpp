@@ -14,6 +14,11 @@
 //使用するネームスペース
 using namespace GameL;
 
+bool CObjFishPlayer::heel_flag()
+{
+    return come_heel_flag;
+}
+
 //イニシャライズ
 void CObjFishPlayer::Init()
 {
@@ -29,6 +34,7 @@ void CObjFishPlayer::Init()
     m_left_move = false;
     m_move = 0;
     m_damage = false;
+    come_heel_flag = false;
 
     //当たり判定用HitBoxを作成
     Hits::SetHitBox(this, m_px + 22, m_py + 16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
@@ -157,11 +163,15 @@ void CObjFishPlayer::Action()
     {
         Audio::Start(7);
 
+        
+        come_heel_flag = true;
         if (((UserData*)Save::GetData())->life_point < 3)
         {
             ((UserData*)Save::GetData())->life_point++;
         }
     }
+    else
+        come_heel_flag = false;
 
 
     //障害物オブジェクトと接触したら削除

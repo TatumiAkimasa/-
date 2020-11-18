@@ -15,6 +15,7 @@ public:
 	void Init();  //イニシャライズ
 	void Action();//アクション
 	void Draw();  //ドロー
+	bool heel_flag();
 private:
 	float m_px;     //位置
 	float m_py;
@@ -26,6 +27,7 @@ private:
 	bool m_damage;
 	int m_time;		//操作反転用
 	int m_move;		//移動量制御用変数
+	bool come_heel_flag;//コメント回復用フラグ
 
 	int m_ani_time; //主人公アニメーションタイム用変数
 	int m_ani_frame; //主人公アニメーションフレーム用変数
