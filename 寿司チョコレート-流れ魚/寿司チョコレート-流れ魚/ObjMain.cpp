@@ -10,12 +10,6 @@
 #include "GameHead.h"
 #include "ObjMain.h"
 
-
-
-
-
-
-//使用するネームスペース
 using namespace GameL;
 
 //イニシャライズ
