@@ -4,14 +4,13 @@
 #include "GameL/UserData.h"
 
 #include "GameHead.h"
-#include "Objsp_up.h"
-#include "GameL\Audio.h"
+#include "Objmirror.h"
 
 //使用するネームスペース
 using namespace GameL;
 
 //コンストラクタ
-CObjsp_up::CObjsp_up(float x, float y, float s)
+CObjmirror::CObjmirror(float x, float y, float s)
 {
 	m_x = x;
 	m_y = y;
@@ -19,20 +18,20 @@ CObjsp_up::CObjsp_up(float x, float y, float s)
 }
 
 //イニシャライズ
-void CObjsp_up::Init()
+void CObjmirror::Init()
 {
 	//当たり判定用Hitboxを作成
-	Hits::SetHitBox(this, m_x + 16, m_y + 16, 42, 42, ELEMENT_ITEM, OBJ_SP_UP, 1);
+	Hits::SetHitBox(this, m_x + 16, m_y + 16, 48, 48, ELEMENT_MIRROR, OBJ_MIRROR, 1);
 }
 
 //アクション
-void CObjsp_up::Action()
+void CObjmirror::Action()
 {
 	m_y += m_vy;
 
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);	//作成したHitBox更新用の入り口を取り出す
-	hit->SetPos(m_x + 42, m_y + 42);					//入り口から新しい位置(sp_upの位置)情報に置き換える
+	hit->SetPos(m_x + 16, m_y + 16);					//入り口から新しい位置(主人公の位置)情報に置き換える
 
 	//画面外に出たらHitBoxを削除
 	if (m_y > 600.0f)
@@ -41,18 +40,14 @@ void CObjsp_up::Action()
 		Hits::DeleteHitBox(this);
 	}
 
-	//主人公オブジェクトと接触したらオブジェクトを削除しスピードを上げる
+	//主人公オブジェクトと接触したら操作反転アイテムを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
-		Audio::Start(1);
+		this->SetStatus(false);		//自身に削除命令を出す。
+		Hits::DeleteHitBox(this);	//操作反転アイテムが所有するHitBoxを削除する
 
-		this->SetStatus(false);    //自身に削除命令を出す
-		Hits::DeleteHitBox(this);  //アイテムオブジェクトが所有するHitBoxに削除する
-	
-		if (((UserData*)Save::GetData())->sp < 20.0f)
-		{
-			((UserData*)Save::GetData())->sp += 1.0f;
-		}
+		//主人公オブジェクトと接触したらtrueにする
+		((UserData*)Save::GetData())->key_flag_mirror = true;
 
 		//スコアの加算
 		((UserData*)Save::GetData())->save_score += 500;
@@ -60,7 +55,7 @@ void CObjsp_up::Action()
 }
 
 //ドロー
-void CObjsp_up::Draw()
+void CObjmirror::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	RECT_F src;
@@ -68,13 +63,13 @@ void CObjsp_up::Draw()
 
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
-	src.m_right = 360.0f;
-	src.m_bottom = 360.0f;
+	src.m_right = 616.0f;
+	src.m_bottom = 616.0f;
 
 	dst.m_top = 0.0f + m_y;
 	dst.m_left = 0.0f + m_x;
-	dst.m_right = 64.0f + m_x;
-	dst.m_bottom = 64.0f + m_y;
+	dst.m_right = 64.0f + 15.0f + m_x;
+	dst.m_bottom = 64.0f + 15.0f + m_y;
 
-	Draw::Draw(8, &src, &dst, c, 0.0f);
+	Draw::Draw(11, &src, &dst, c, 0.0f);
 }

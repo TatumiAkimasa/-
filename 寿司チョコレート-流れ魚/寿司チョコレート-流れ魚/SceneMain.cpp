@@ -149,8 +149,6 @@ void CSceneMain::Scene()
 	//フレーム数の計算
 	m_time++;
 
-
-
 	//BGM変更
 	if (((UserData*)Save::GetData())->sp >= 6.0f && bgm_flag == false)
 	{
@@ -278,82 +276,230 @@ void CSceneMain::Scene()
 		//ライフ回復
 		else if (x == 51)
 		{
-			CObjLifeItem* lt = new CObjLifeItem(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(lt, OBJ_LIFE_ITEM, 50);
+			x = rand() % 3;
+
+			if(x == 0)
+			{
+				CObjLifeItem* lt = new CObjLifeItem(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(lt, OBJ_LIFE_ITEM, 50);
+			}
+			else if (x == 1)
+			{
+				CObjLifeItem* lt = new CObjLifeItem(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(lt, OBJ_LIFE_ITEM, 50);
+			}
+			else if (x == 2)
+			{
+				CObjLifeItem* lt = new CObjLifeItem(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(lt, OBJ_LIFE_ITEM, 50);
+			}
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//スピードアップ
 		else if (x == 52)
 		{
-			CObjsp_up* obj = new CObjsp_up(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_SP_UP, 50);
+			x = rand() % 3;
 
+			if (x == 0)
+			{
+				CObjsp_up* obj = new CObjsp_up(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_SP_UP, 50);
+			}
+			else if (x == 1)
+			{
+				CObjsp_up* obj = new CObjsp_up(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_SP_UP, 50);
+			}
+			else if (x == 2)
+			{
+				CObjsp_up* obj = new CObjsp_up(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_SP_UP, 50);
+			}
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//スピードダウン
 		else if (x == 53)
 		{
-			CObjsp_down* obj = new CObjsp_down(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_SP_DOWN, 50);
+			x = rand() % 3;
 
+			if (x == 0)
+			{
+				CObjsp_down* obj = new CObjsp_down(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_SP_DOWN, 50);
+			}
+			else if (x == 1)
+			{
+				CObjsp_down* obj = new CObjsp_down(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_SP_DOWN, 50);
+			}
+			else if (x == 2)
+			{
+				CObjsp_down* obj = new CObjsp_down(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_SP_DOWN, 50);
+			}
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//スコアアップ(10)
 		else if (x == 54)
 		{
-			CObj10enn* obj = new CObj10enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_10ENN, 50);
+			x = rand() % 3;
+
+			if (x == 0)
+			{
+				CObj10enn* obj = new CObj10enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_10ENN, 50);
+			}
+			else if (x == 1)
+			{
+				CObj10enn* obj = new CObj10enn(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_10ENN, 50);
+			}
+			else if (x == 2)
+			{
+				CObj10enn* obj = new CObj10enn(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_10ENN, 50);
+			}
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//操作反転
 		else if (x == 55)
 		{
-			CObjmirror* m = new CObjmirror(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(m, OBJ_10ENN, 50);
+			x = rand() % 3;
+
+			if (x == 0)
+			{
+				CObjmirror* m = new CObjmirror(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(m, OBJ_10ENN, 50);
+			}
+			else if (x == 1)
+			{
+				CObjmirror* m = new CObjmirror(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(m, OBJ_10ENN, 50);
+			}
+			else if (x == 2)
+			{
+				CObjmirror* m = new CObjmirror(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(m, OBJ_10ENN, 50);
+			}
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//スコアアップ(100)
 		else if (x == 56)
 		{
-			CObj100enn* obj = new CObj100enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(obj, OBJ_100ENN, 50);
+			x = rand() % 3;
+
+			if (x == 0)
+			{
+				CObj100enn* obj = new CObj100enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_100ENN, 50);
+			}
+			else if (x == 1)
+			{
+				CObj100enn* obj = new CObj100enn(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_100ENN, 50);
+			}
+			else if (x == 2)
+			{
+				CObj100enn* obj = new CObj100enn(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_100ENN, 50);
+			}
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//スコアアップ(1000)
 		else if (x == 57)
 		{
-		CObj1000enn* obj = new CObj1000enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-		Objs::InsertObj(obj, OBJ_1000ENN, 50);
+			x = rand() % 3;
+
+			if (x == 0)
+			{
+				CObj1000enn* obj = new CObj1000enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_1000ENN, 50);
+			}
+			else if (x == 1)
+			{
+				CObj1000enn* obj = new CObj1000enn(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_1000ENN, 50);
+			}
+			else if (x == 2)
+			{
+				CObj1000enn* obj = new CObj1000enn(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_1000ENN, 50);
+			}
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//スコアアップ(10000)
 		else if (x == 58)
 		{
-		CObj10000enn* obj = new CObj10000enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-		Objs::InsertObj(obj, OBJ_10000ENN, 50);
+			x = rand() % 3;
+
+			if (x == 0)
+			{
+				CObj10000enn* obj = new CObj10000enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_10000ENN, 50);
+			}
+			else if (x == 1)
+			{
+				CObj10000enn* obj = new CObj10000enn(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_10000ENN, 50);
+			}
+			else if (x == 2)
+			{
+				CObj10000enn* obj = new CObj10000enn(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(obj, OBJ_10000ENN, 50);
+			}
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//偽ライフ
 		else if (x == 59)
 		{
-		CObjbadlife* bl = new CObjbadlife(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-		Objs::InsertObj(bl, OBJ_BAD_LIFE, 50);
+			x = rand() % 3;
 
-		((UserData*)Save::GetData())->sp_lv++;
+			if (x == 0)
+			{
+				CObjbadlife* bl = new CObjbadlife(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(bl, OBJ_BAD_LIFE, 50);
+			}
+			else if (x == 1)
+			{
+				CObjbadlife* bl = new CObjbadlife(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(bl, OBJ_BAD_LIFE, 50);
+			}
+			else if (x == 2)
+			{
+				CObjbadlife* bl = new CObjbadlife(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(bl, OBJ_BAD_LIFE, 50);
+			}
+
+			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//木アイテム
 		else if (x == 60)
 		{
-			CObjTreeItem* t = new CObjTreeItem(385, -64, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(t, OBJ_TREEITEM, 50);
+			x = rand() % 3;
+
+			if (x == 0)
+			{
+				CObjTreeItem* t = new CObjTreeItem(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(t, OBJ_TREEITEM, 50);
+			}
+			else if (x == 1)
+			{
+				CObjTreeItem* t = new CObjTreeItem(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(t, OBJ_TREEITEM, 50);
+			}
+			else if (x == 2)
+			{
+				CObjTreeItem* t = new CObjTreeItem(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+				Objs::InsertObj(t, OBJ_TREEITEM, 50);
+			}
 
 			((UserData*)Save::GetData())->sp_lv++;
 		}

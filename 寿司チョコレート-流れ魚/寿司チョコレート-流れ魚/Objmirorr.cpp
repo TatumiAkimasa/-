@@ -46,16 +46,11 @@ void CObjmirror::Action()
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//操作反転アイテムが所有するHitBoxを削除する
 
-		//既にtrueの場合falseにする
-		if (((UserData*)Save::GetData())->key_flag == true)
-		{
-			((UserData*)Save::GetData())->key_flag = false;
-		}
-		//主人公オブジェクトと接触したらフラグをtrueにする
-		else
-		{
-			((UserData*)Save::GetData())->key_flag = true;
-		}
+		//主人公オブジェクトと接触したらtrueにする
+		((UserData*)Save::GetData())->key_flag_mirror = true;
+
+		//スコアの加算
+		((UserData*)Save::GetData())->save_score += 500;
 	}
 }
 
@@ -68,8 +63,8 @@ void CObjmirror::Draw()
 
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
-	src.m_right = 768.0f;
-	src.m_bottom = 768.0f;
+	src.m_right = 616.0f;
+	src.m_bottom = 616.0f;
 
 	dst.m_top = 0.0f + m_y;
 	dst.m_left = 0.0f + m_x;
