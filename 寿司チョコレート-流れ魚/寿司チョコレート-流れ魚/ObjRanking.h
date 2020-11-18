@@ -6,22 +6,16 @@
 using namespace GameL;
 
 //オブジェクト：タイトル
-class CObjTitle :public CObj
+class CObjRanking :public CObj
 {
 public:
-	CObjTitle() {};
-	~CObjTitle() {};
+	CObjRanking() {};
+	~CObjRanking() {};
 	void Init();
 	void Action();
 	void Draw();
-	int key_num_T();
-	bool key_num2_T();
 private:
-	bool R_flag;//キーフラグ(右）
-	bool L_flag;//キーフラグ（左）
-	int num;//描画優先度
-	
-
 	//ランキングソートメソッド
 	void RankingSort(int rank[11]);
+
 };
