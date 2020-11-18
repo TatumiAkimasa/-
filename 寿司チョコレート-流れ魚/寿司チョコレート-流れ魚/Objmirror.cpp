@@ -5,6 +5,7 @@
 
 #include "GameHead.h"
 #include "Objmirror.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -43,6 +44,7 @@ void CObjmirror::Action()
 	//主人公オブジェクトと接触したら操作反転アイテムを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
+		Audio::Start(10);
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//操作反転アイテムが所有するHitBoxを削除する
 

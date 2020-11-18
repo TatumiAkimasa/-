@@ -109,6 +109,14 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(8, L"スピードダウン.wav", SOUND_TYPE::EFFECT);
 
+	Audio::LoadAudio(9, L"コイン取得2.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(10, L"操作反転.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(11, L"隠し.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(12, L"隠し2.wav", SOUND_TYPE::EFFECT);
+
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
 	Audio::Start(0);//音楽スタート

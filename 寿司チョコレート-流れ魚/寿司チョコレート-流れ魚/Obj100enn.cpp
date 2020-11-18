@@ -46,7 +46,7 @@ void CObj100enn::Action()
 	//主人公オブジェクトと接触したら10円を削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
-		Audio::Start(6);
+		Audio::Start(9);
 
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//10円が所有するHitBoxを削除する
