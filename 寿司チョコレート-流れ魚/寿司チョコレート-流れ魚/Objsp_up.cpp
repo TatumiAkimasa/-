@@ -53,6 +53,9 @@ void CObjsp_up::Action()
 		{
 			((UserData*)Save::GetData())->sp += 1.0f;
 		}
+
+		//ƒXƒRƒA‚Ì‰ÁŽZ
+		((UserData*)Save::GetData())->save_score += 500;
 	}
 }
 

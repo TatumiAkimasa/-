@@ -49,9 +49,16 @@ void CObjsp_down::Action()
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//オブジェクトが所有するHitBoxを削除する
 		
-		if (((UserData*)Save::GetData())->sp <= 5)
+		//スコアの加算
+		((UserData*)Save::GetData())->save_score += 500;
+
+		if (((UserData*)Save::GetData())->sp >= 6)
 		{
 			((UserData*)Save::GetData())->sp -= 1.0f;
+		}
+		else
+		{
+			;
 		}
 	}
 }

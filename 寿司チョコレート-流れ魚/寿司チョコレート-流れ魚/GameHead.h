@@ -15,7 +15,6 @@ enum OBJ_NAME
 	OBJ_10ENN,
 	OBJ_FISH_PLAYER,
 	OBJ_MAIN,
-	OBJ_DESCRIPTION,
 	OBJ_LIFE_ITEM,
 	OBJ_SP_UP,
 	OBJ_SP_DOWN,
@@ -104,7 +103,6 @@ enum FLOW_OBJ_ID
 #include "Obj10enn.h"
 #include "ObjResult.h"
 #include "ObjMain.h"
-#include "Description.h"
 #include "ObjLifeItem.h"
 #include "Objsp_up.h"
 #include "Objsp_down.h"

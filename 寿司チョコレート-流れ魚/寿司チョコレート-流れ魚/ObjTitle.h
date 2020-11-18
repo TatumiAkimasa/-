@@ -15,9 +15,12 @@ public:
 	void Action();
 	void Draw();
 	int key_num_T();
+	bool key_num2_T();
 private:
-	bool m_key_flag;//キーフラグ
+	bool R_flag;//キーフラグ(右）
+	bool L_flag;//キーフラグ（左）
 	int num;//描画優先度
+	
 
 	//ランキングソートメソッド
 	void RankingSort(int rank[11]);

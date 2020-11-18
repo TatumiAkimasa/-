@@ -52,6 +52,18 @@ void CObjFishPlayer::Action()
     CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
     hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
 
+    //key_flag_mirrorがtrueの時
+    if (((UserData*)Save::GetData())->key_flag_mirror == true)
+    {
+        m_key_time++;
+
+        if (m_key_time == 600)
+        {
+            ((UserData*)Save::GetData())->key_flag_mirror = false;
+            m_key_time = 0;
+        }
+    }
+
     //キーの入力方向にベクトルの速度を入れる
     if (Input::GetVKey(VK_RIGHT) == true)
     {
