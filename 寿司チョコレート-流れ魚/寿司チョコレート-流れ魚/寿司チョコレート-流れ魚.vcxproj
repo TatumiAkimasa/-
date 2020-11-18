@@ -169,6 +169,7 @@
     <ClCompile Include="ObjResult.cpp" />
     <ClCompile Include="Objsp_down.cpp" />
     <ClCompile Include="Objsp_up.cpp" />
+    <ClCompile Include="ObjTatami.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="ObjTree.cpp" />
     <ClCompile Include="ObjTreeItem.cpp" />
@@ -209,6 +210,7 @@
     <ClInclude Include="ObjResult.h" />
     <ClInclude Include="Objsp_down.h" />
     <ClInclude Include="Objsp_up.h" />
+    <ClInclude Include="ObjTatami.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="ObjTree.h" />
     <ClInclude Include="ObjTreeItem.h" />
