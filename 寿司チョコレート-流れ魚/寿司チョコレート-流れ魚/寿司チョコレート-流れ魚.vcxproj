@@ -144,8 +144,6 @@
     <ClCompile Include="Obj100enn.cpp" />
     <ClCompile Include="ObjBackground_2.cpp" />
     <ClCompile Include="ObjBackground_stats.cpp" />
-    <ClCompile Include="Objbadlife.cpp" />
-    <ClCompile Include="ObjDescription.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
     <ClCompile Include="GameL\DirectXDevice.cpp" />
     <ClCompile Include="GameL\Draw2DTex_Source.cpp" />
@@ -161,11 +159,13 @@
     <ClCompile Include="GameL\WinInputs.cpp" />
     <ClCompile Include="Obj10enn.cpp" />
     <ClCompile Include="ObjBackground.cpp" />
+    <ClCompile Include="Objbadlife.cpp" />
     <ClCompile Include="ObjFishPlayer.cpp" />
     <ClCompile Include="ObjFlow.cpp" />
     <ClCompile Include="ObjLifeItem.cpp" />
     <ClCompile Include="ObjMain.cpp" />
-    <ClCompile Include="Objmirorr.cpp" />
+    <ClCompile Include="Objmirror.cpp" />
+    <ClCompile Include="ObjRanking.cpp" />
     <ClCompile Include="ObjResult.cpp" />
     <ClCompile Include="Objsp_down.cpp" />
     <ClCompile Include="Objsp_up.cpp" />
@@ -174,11 +174,11 @@
     <ClCompile Include="ObjTreeItem.cpp" />
     <ClCompile Include="Objwater_flow.cpp" />
     <ClCompile Include="SceneMain.cpp" />
+    <ClCompile Include="SceneRanking.cpp" />
     <ClCompile Include="SceneResult.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Description.h" />
     <ClInclude Include="GameHead.h" />
     <ClInclude Include="GameL\Audio.h" />
     <ClInclude Include="GameL\DirectXDevice.h" />
@@ -205,6 +205,7 @@
     <ClInclude Include="ObjLifeItem.h" />
     <ClInclude Include="ObjMain.h" />
     <ClInclude Include="Objmirror.h" />
+    <ClInclude Include="ObjRanking.h" />
     <ClInclude Include="ObjResult.h" />
     <ClInclude Include="Objsp_down.h" />
     <ClInclude Include="Objsp_up.h" />
@@ -213,6 +214,7 @@
     <ClInclude Include="ObjTreeItem.h" />
     <ClInclude Include="Objwater_flow.h" />
     <ClInclude Include="SceneMain.h" />
+    <ClInclude Include="SceneRanking.h" />
     <ClInclude Include="SceneResult.h" />
     <ClInclude Include="SceneTitle.h" />
   </ItemGroup>
