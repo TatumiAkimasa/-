@@ -8,7 +8,7 @@ using namespace GameL;
 class CObjResult :public CObj
 {
 public:
-	CObjResult();
+	CObjResult() {};
 	~CObjResult() {};
 	void Init();	//イニシャライズ
 	void Action();  //アクション
