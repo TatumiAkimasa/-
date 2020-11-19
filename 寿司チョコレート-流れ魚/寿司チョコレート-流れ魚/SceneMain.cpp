@@ -190,7 +190,7 @@ void CSceneMain::Scene()
 	//障害物に当たった時、スピードが初期に戻る処理
 	if (((UserData*)Save::GetData())->sp_lv == 0)
 	{
-		if (((UserData*)Save::GetData())->sp >= 5.5f)
+		if (((UserData*)Save::GetData())->sp >= 6.0f)
 		{
 			((UserData*)Save::GetData())->sp -= 1.0f;
 			((UserData*)Save::GetData())->sp_lv += 1;
