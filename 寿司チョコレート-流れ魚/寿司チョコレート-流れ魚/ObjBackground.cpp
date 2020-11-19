@@ -14,6 +14,7 @@ void CObjBackground::Init()
 	m_y1 = 0.0f;
 	count = 10;
 	add = 0;
+	n = 0;
 }
 
 //アクション
@@ -21,7 +22,7 @@ void CObjBackground::Action()
 {
 	//背景①の動作
 	//みず（白線）を流せばこの処理は不要
-	int n = ((UserData*)Save::GetData())->sp;
+    n = ((UserData*)Save::GetData())->sp;
 
 
 	if (n == 20)
@@ -105,7 +106,10 @@ void CObjBackground::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 250.0f;
 		dst.m_right = 820.0f;
-		dst.m_bottom = 600.0f+add - m_y1;
+		if(n>=11&&n<=15)
+		dst.m_bottom = 620.0f+add - m_y1;
+		else
+		dst.m_bottom = 620.0f + add - m_y1;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 	}
@@ -115,7 +119,10 @@ void CObjBackground::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 250.0f;
 		dst.m_right = 820.0f;
-		dst.m_bottom = 610.0f+add - m_y1;
+		if (n >= 11 && n <= 15)
+			dst.m_bottom = 630.0f + add - m_y1;
+		else
+			dst.m_bottom = 630.0f + add - m_y1;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 	}
@@ -125,7 +132,10 @@ void CObjBackground::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 238.0f;
 		dst.m_right = 808.0f;
-		dst.m_bottom = 611.0f+add - m_y1;
+		if (n >= 11 && n <= 15)
+			dst.m_bottom = 631.0f + add - m_y1;
+		else
+			dst.m_bottom = 631.0f + add - m_y1;
 
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
@@ -135,7 +145,10 @@ void CObjBackground::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 233.2f;
 		dst.m_right = 803.2f;
-		dst.m_bottom = 610.0f+add - m_y1;
+		if (n >= 11 && n <= 15)
+			dst.m_bottom = 631.0f + add - m_y1;
+		else
+			dst.m_bottom = 631.0f + add - m_y1;
 
 		Draw::Draw(5, &src, &dst, c, 0.0f);
 	}

@@ -14,6 +14,7 @@ void CObjBackground_2::Init()
 	m_y1 = 600.0f;
 	count = 2;
 	add = 0;
+	n = 0;
 }
 
 //ƒAƒNƒVƒ‡ƒ“
@@ -103,7 +104,10 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 250.0f;
 		dst.m_right = 820.0f;
-		dst.m_bottom = 610.0f+add - m_y1;
+		if (n >= 11 && n <= 15)
+			dst.m_bottom = 630.0f + add - m_y1;
+		else
+			dst.m_bottom = 630.0f + add - m_y1;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 	}
@@ -113,7 +117,10 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 238.0f;
 		dst.m_right = 808.0f;
-		dst.m_bottom = 601.0f+add - m_y1;
+		if (n >= 11 && n <= 15)
+			dst.m_bottom = 621.0f + add - m_y1;
+		else
+			dst.m_bottom = 621.0f + add - m_y1;
 
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
@@ -123,7 +130,10 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 233.2f;
 		dst.m_right = 803.2f;
-		dst.m_bottom = 600.0f+add - m_y1;
+		if (n >= 11 && n <= 15)
+			dst.m_bottom = 620.0f + add - m_y1;
+		else
+			dst.m_bottom = 620.0f + add - m_y1;
 
 		Draw::Draw(5, &src, &dst, c, 0.0f);
 	}
