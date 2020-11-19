@@ -52,7 +52,7 @@ void CObjmirror::Action()
 		((UserData*)Save::GetData())->key_flag_mirror = true;
 
 		//ƒXƒRƒA‚Ì‰ÁŽZ
-		((UserData*)Save::GetData())->save_score += 500;
+		((UserData*)Save::GetData())->save_score += 1000;
 	}
 }
 
