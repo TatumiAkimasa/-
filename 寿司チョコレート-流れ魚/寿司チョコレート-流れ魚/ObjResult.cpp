@@ -21,6 +21,7 @@ void CObjResult::Init()
 //アクション
 void CObjResult::Action()
 {
+
 	//エンターキーを押してシーン：ゲームタイトルに移行する
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
@@ -175,6 +176,7 @@ void CObjResult::Draw()
 		L"魚力　%05d",
 		((UserData*)Save::GetData())->save_score
 	);
+
 	Font::StrDraw(str, 230, 250, 64, c);
 	
 	//エンターキーで移動
