@@ -117,6 +117,7 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(12, L"隠し2.wav", SOUND_TYPE::EFFECT);
 
+	Audio::LoadAudio(13, L"シーンBGM第二段階.wav", SOUND_TYPE::BACK_MUSIC);
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
 	Audio::Start(0);//音楽スタート
@@ -150,6 +151,7 @@ void CSceneMain::InitScene()
 	t = 0;
 
 	bgm_flag = false;
+	bgm_flag2 = false;
 }
 
 //ゲーム実行中メソッド
@@ -177,7 +179,21 @@ void CSceneMain::Scene()
 		Audio::Stop(1);
 		Audio::Start(0);
 		bgm_flag = false;
+		bgm_flag2 = true;
 	}
+	if (((UserData*)Save::GetData())->sp >= 7.0f && bgm_flag2 == true)
+	{
+		Audio::Stop(1);
+		Audio::Start(13);
+		bgm_flag2 = false;;
+	}
+	if (((UserData*)Save::GetData())->sp < 7.0f && bgm_flag2 == false)
+	{
+		Audio::Stop(13);
+		Audio::Start(1);
+		bgm_flag2 = true;
+	}
+	
 
 	
 	//落下の初期化
