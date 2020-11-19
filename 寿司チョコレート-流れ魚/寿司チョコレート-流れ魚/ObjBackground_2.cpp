@@ -2,6 +2,7 @@
 #include "ObjBackground_2.h"
 #include "GameHead.h"
 #include "GameL\DrawTexture.h"
+#include "GameL/UserData.h"
 
 
 //使用するネームスペース
@@ -12,6 +13,7 @@ void CObjBackground_2::Init()
 {
 	m_y1 = 600.0f;
 	count = 2;
+	add = 0;
 }
 
 //アクション
@@ -19,21 +21,62 @@ void CObjBackground_2::Action()
 {
 	//背景①の動作
 	//みず（白線）を流せばこの処理は不要
-	m_y1 -= 5.0f;
-	if (m_y1 < -600.0f && count == 1)
+	int n = ((UserData*)Save::GetData())->sp;
+
+	if (n == 20)
+		m_y1 -= n;
+	else if (n > 14)
+		m_y1 -= 15;
+	else
+		m_y1 -= n;
+
+	add = n;
+	
+	if (n >= 9 && n < 14)
 	{
-		m_y1 = 600;
-		count = 3;
+		if (m_y1 < -597.0f && count == 1)
+		{
+			m_y1 = 600;
+			count = 3;
+		}
+		else if (m_y1 < -597.0f && count == 2)
+		{
+			m_y1 = 600;
+			count = 1;
+		}
+		else if (m_y1 < -597.0f && count == 3)
+		{
+			m_y1 = 600;
+			count = 2;
+		}
+		else if (m_y1 < -597.0f && count == 10)
+		{
+			m_y1 = 600;
+			count = 3;
+		}
 	}
-	else if (m_y1 < -600.0f && count == 2)
+	else
 	{
-		m_y1 = 600;
-		count = 1;
-	}
-	else if (m_y1 < -600.0f && count == 3)
-	{
-		m_y1 = 600;
-		count = 2;
+		if (m_y1 < -600.0f && count == 1)
+		{
+			m_y1 = 600;
+			count = 3;
+		}
+		else if (m_y1 < -600.0f && count == 2)
+		{
+			m_y1 = 600;
+			count = 1;
+		}
+		else if (m_y1 < -600.0f && count == 3)
+		{
+			m_y1 = 600;
+			count = 2;
+		}
+		else if (m_y1 < -600.0f && count == 10)
+		{
+			m_y1 = 600;
+			count = 3;
+		}
 	}
 
 }
@@ -60,7 +103,7 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 250.0f;
 		dst.m_right = 820.0f;
-		dst.m_bottom = 610.0f - m_y1;
+		dst.m_bottom = 610.0f+add - m_y1;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 	}
@@ -70,7 +113,7 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 238.0f;
 		dst.m_right = 808.0f;
-		dst.m_bottom = 601.0f - m_y1;
+		dst.m_bottom = 601.0f+add - m_y1;
 
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
@@ -80,7 +123,7 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 233.2f;
 		dst.m_right = 803.2f;
-		dst.m_bottom = 600.0f - m_y1;
+		dst.m_bottom = 600.0f+add - m_y1;
 
 		Draw::Draw(5, &src, &dst, c, 0.0f);
 	}
