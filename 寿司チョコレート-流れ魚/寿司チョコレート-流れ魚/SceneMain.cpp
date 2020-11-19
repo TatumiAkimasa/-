@@ -160,7 +160,7 @@ void CSceneMain::Scene()
 
 	//障害物が落ちてくる確率
 	//通常障害物 50/全体　ギミック 1/全体
-	int x = rand() % 1+60;
+	int x = rand() % 61;
 
 	//フレーム数の計算
 	m_time++;
