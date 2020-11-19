@@ -58,7 +58,7 @@ void CObjsp_down::Action()
 		}
 		else
 		{
-			;
+			((UserData*)Save::GetData())->sp = 5.0f;
 		}
 	}
 }

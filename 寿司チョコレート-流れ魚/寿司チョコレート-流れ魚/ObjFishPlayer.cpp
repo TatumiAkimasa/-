@@ -38,7 +38,6 @@ void CObjFishPlayer::Init()
 
     //当たり判定用HitBoxを作成
     Hits::SetHitBox(this, m_px + 22, m_py + 16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
-
 }
 
 //アクション
@@ -46,7 +45,7 @@ void CObjFishPlayer::Action()
 {
     m_ani_time++;
 
-    if (m_ani_time > 10)
+    if (m_ani_time > 25 - ((UserData*)Save::GetData())->sp)
     {
         m_ani_time = 0;
         m_ani_frame += 1;
@@ -69,7 +68,7 @@ void CObjFishPlayer::Action()
     {
         m_key_time++;
 
-        if (m_key_time == 600)
+        if (m_key_time == 540)
         {
             ((UserData*)Save::GetData())->key_flag_mirror = false;
             m_key_time = 0;
@@ -246,5 +245,4 @@ void CObjFishPlayer::Draw()
             m_damage = false;
         }
     }
-
 }
