@@ -115,7 +115,7 @@ void CObjResult::Draw()
 	{
 		Font::StrDraw(L"‚à‚Í‚âíŠÍ", 290, 400, 48, c);
 	}
-	//‹›—Í 70000`80000
+	//‹›—Í 80000`90000
 	else if (((UserData*)Save::GetData())->save_score >= 80000 && ((UserData*)Save::GetData())->save_score < 90000)
 	{
 		Font::StrDraw(L"‹›‚Ì‰¤", 320, 400, 48, c);
