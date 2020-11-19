@@ -18,14 +18,18 @@ void CObjMain::Init()
 	f = 0;//フレーム計算
 	s_time = 0;
 	m_time = 0;
+
+	fps = 0;//���씽�]�̎��g��
+	i = 1;//���씽�]�̎��g��
+	second = 10;//���씽�]�̎��g��
+	((UserData*)Save::GetData())->save_s_time = 0;//�Z�[�u�pm_time������
+	((UserData*)Save::GetData())->save_m_time = 0;//�Z�[�u�ps_time������
+	((UserData*)Save::GetData())->life_point = 3;//�Z�[�u�plife_point������
 	random = 0;
 	life = 3;
 	come_flag = false;
 	life_flag = false;
 	heel_flag = false;
-	fps = 0;//操作反転の時使う
-	i = 1;//操作反転の時使う
-	second = 10;//操作反転の時使う
 	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
 	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
 	((UserData*)Save::GetData())->life_point = 3;//セーブ用life_point初期化
@@ -160,8 +164,35 @@ void CObjMain::Draw()
 	swprintf_s(str, L"魚力　　%05d", ((UserData*)Save::GetData())->save_score);
 	Font::StrDraw(str, 20, 100, 40, c);
 
+	//速度の表示
+	swprintf_s(str, L"速度  　%3.1f", ((UserData*)Save::GetData())->sp);
+	Font::StrDraw(str, 20, 160, 40, c);
+
+	//反転時間の表示
+	if (((UserData*)Save::GetData())->key_flag_mirror == true)
+	{
+		fps++;
+		if (fps % 6 == 0)
+		{
+			i--;
+			if (i == 0)
+			{
+				second--;
+				i = 9;
+			}
+		}
+		swprintf_s(str, L"反転時間　%d.%d",second,i);
+		Font::StrDraw(str, 20, 220, 40, c);
+	}
+	else
+	{
+		fps = 0;
+		i = 1;
+		second = 10;
+	}
+
 	//スピードの表示
-	swprintf_s(str, L"速度　　  %3.1f", ((UserData*)Save::GetData())->sp);
+	swprintf_s(str, L"速度　　%3.1f", ((UserData*)Save::GetData())->sp);
 	Font::StrDraw(str, 20, 160, 40, c);
 
 	//コメントの表示
@@ -258,28 +289,6 @@ void CObjMain::Draw()
 		Font::StrDraw(str, 25, 510, 30, k);
 	}
 	
-	//反転時間の表示
-	if (((UserData*)Save::GetData())->key_flag_mirror == true)
-	{
-		fps++;
-		if (fps % 6 == 0)
-		{
-			i--;
-			if (i == 0)
-			{
-				second--;
-				i = 9;
-			}
-		}
-		swprintf_s(str, L"反転時間　%d.%d",second,i);
-		Font::StrDraw(str, 20, 220, 40, c);
-	}
-	else
-	{
-		fps = 0;//操作反転の時使う
-		i = 1;//操作反転の時使う
-		second = 10;//操作反転の時使う
-	}
 
 	//ライフの表示
 	float d[4] = { 1.0f,1.0f,1.0f,1.0f };
