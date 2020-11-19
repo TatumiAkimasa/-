@@ -190,9 +190,9 @@ void CSceneMain::Scene()
 	//障害物に当たった時、スピードが初期に戻る処理
 	if (((UserData*)Save::GetData())->sp_lv == 0)
 	{
-		if (((UserData*)Save::GetData())->sp >= 5.5f)
+		if (((UserData*)Save::GetData())->sp >= 6.0f)
 		{
-			((UserData*)Save::GetData())->sp -= 0.5f;
+			((UserData*)Save::GetData())->sp -= 1.0f;
 			((UserData*)Save::GetData())->sp_lv += 1;
 		}
 		else
@@ -381,7 +381,7 @@ void CSceneMain::Scene()
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//操作反転
-		else if (x == 55)
+		else if (x == 55 )
 		{
 			x = rand() % 3;
 
