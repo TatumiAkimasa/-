@@ -56,7 +56,7 @@ void CObjsp_down::Action()
 		{
 			((UserData*)Save::GetData())->sp -= 1.0f;
 		}
-		else if(((UserData*)Save::GetData())->sp < 6 && ((UserData*)Save::GetData())->sp >= 5)
+		else if(((UserData*)Save::GetData())->sp < 6)
 		{
 			((UserData*)Save::GetData())->sp = 5.0f;;
 		}
