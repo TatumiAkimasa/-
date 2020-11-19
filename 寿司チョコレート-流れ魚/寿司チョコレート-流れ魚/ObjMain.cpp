@@ -19,12 +19,12 @@ void CObjMain::Init()
 	s_time = 0;
 	m_time = 0;
 
-	fps = 0;//���씽�]�̎��g��
-	i = 1;//���씽�]�̎��g��
-	second = 10;//���씽�]�̎��g��
-	((UserData*)Save::GetData())->save_s_time = 0;//�Z�[�u�pm_time������
-	((UserData*)Save::GetData())->save_m_time = 0;//�Z�[�u�ps_time������
-	((UserData*)Save::GetData())->life_point = 3;//�Z�[�u�plife_point������
+	fps = 0;//操作反転時間の表示
+	i = 1;//操作反転時間の表示
+	second = 10;//操作反転時間の表示
+	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
+	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
+	((UserData*)Save::GetData())->life_point = 3;//セーブ用life_point初期化
 	random = 0;
 	life = 3;
 	come_flag = false;
