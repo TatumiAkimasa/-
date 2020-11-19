@@ -13,9 +13,11 @@ public:
 	void Init();		//イニシャライズ
 	void Action();		//アクション
 	void Draw();		//ドロー
+	
 private:
 	float m_x;			//10円の位置
 	float m_y;
 	float m_vy;			//10円の落下
 	float s;
+	
 };

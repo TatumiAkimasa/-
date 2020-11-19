@@ -5,6 +5,7 @@
 
 #include "GameHead.h"
 #include "ObjTreeItem.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -43,6 +44,7 @@ void CObjTreeItem::Action()
 	//主人公オブジェクトと接触したら木アイテムを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
+		Audio::Start(11);
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//木アイテムが所有するHitBoxを削除する
 	
