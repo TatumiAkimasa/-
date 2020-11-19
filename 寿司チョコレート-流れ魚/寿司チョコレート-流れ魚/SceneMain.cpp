@@ -381,7 +381,7 @@ void CSceneMain::Scene()
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//‘€ì”½“]
-		else if (x == 55)
+		else if (x == 55 )
 		{
 			x = rand() % 3;
 

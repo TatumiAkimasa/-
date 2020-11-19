@@ -25,5 +25,9 @@ private:
 	bool come_flag;//コメント用フラグ
 	bool life_flag;//コメント用ライフ管理フラグ
 	bool heel_flag;//コメント用回復フラグ
+	int fps = 0;//操作反転の時使う
+	int i = 9;//操作反転の時使う
+	int second = 10;//操作反転の時使う
+	
 	bool mirrior_flag;//コメント用反転終了基準フラグ
 };
