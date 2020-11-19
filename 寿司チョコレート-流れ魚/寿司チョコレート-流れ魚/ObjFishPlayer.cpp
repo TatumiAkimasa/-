@@ -61,7 +61,7 @@ void CObjFishPlayer::Action()
     {
         m_key_time++;
 
-        if (m_key_time == 600)
+        if (m_key_time == 540)
         {
             ((UserData*)Save::GetData())->key_flag_mirror = false;
             m_key_time = 0;

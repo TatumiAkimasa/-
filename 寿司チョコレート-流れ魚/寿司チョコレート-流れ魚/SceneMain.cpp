@@ -144,7 +144,7 @@ void CSceneMain::Scene()
 
 	//áŠQ•¨‚ª—‚¿‚Ä‚­‚éŠm—¦
 	//’ÊíáŠQ•¨ 50/‘S‘Ì@ƒMƒ~ƒbƒN 1/‘S‘Ì
-	int x = rand() % 61;
+	int x = rand() % 100;
 
 	//ƒtƒŒ[ƒ€”‚ÌŒvZ
 	m_time++;
@@ -365,7 +365,7 @@ void CSceneMain::Scene()
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//‘€ì”½“]
-		else if (x == 55)
+		else if (x == 55 || x >= 61)
 		{
 			x = rand() % 3;
 

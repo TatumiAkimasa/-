@@ -20,5 +20,8 @@ private:
 	int f;
 	int s_time;
 	int m_time;
+	int fps = 0;//‘€ì”½“]‚Ìg‚¤
+	int i = 9;//‘€ì”½“]‚Ìg‚¤
+	int second = 10;//‘€ì”½“]‚Ìg‚¤
 	
 };
