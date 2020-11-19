@@ -38,7 +38,7 @@ void CObjFishPlayer::Action()
 {
     m_ani_time++;
 
-    if (m_ani_time > 10)
+    if (m_ani_time > 25-((UserData*)Save::GetData())->sp)
     {
         m_ani_time = 0;
         m_ani_frame += 1;
