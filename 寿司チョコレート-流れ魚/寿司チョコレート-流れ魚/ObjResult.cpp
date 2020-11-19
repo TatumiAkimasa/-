@@ -45,58 +45,102 @@ void CObjResult::Draw()
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 	//ƒRƒƒ“ƒg•\¦
+	//‹›—Í 0
 	if (((UserData*)Save::GetData())->save_score == 0)
 	{
 		Font::StrDraw(L"‹›‚Ì•—ã‚É‚à’u‚¯‚È‚¢c", 150, 400, 48, c);
 	}
-	else if (((UserData*)Save::GetData())->save_score > 0 && ((UserData*)Save::GetData())->save_score <= 500)
+	//‹›—Í 0`500
+	else if (((UserData*)Save::GetData())->save_score > 0 && ((UserData*)Save::GetData())->save_score < 500)
 	{
 		Font::StrDraw(L"’t‹›", 370, 400, 48, c);
 	}
-	else if (((UserData*)Save::GetData())->save_score > 500 && ((UserData*)Save::GetData())->save_score <= 1000)
+	//‹›—Í 500`1000
+	else if (((UserData*)Save::GetData())->save_score >= 500 && ((UserData*)Save::GetData())->save_score < 1000)
 	{
 		Font::StrDraw(L"‚à‚Á‚Æ‚ª‚ñ‚Î‚ë‚¤I", 200, 400, 48, c);
 	}
-	else if (((UserData*)Save::GetData())->save_score > 1000 && ((UserData*)Save::GetData())->save_score <= 2500)
+	//‹›—Í 1000`2500
+	else if (((UserData*)Save::GetData())->save_score >= 1000 && ((UserData*)Save::GetData())->save_score < 2500)
 	{
 		Font::StrDraw(L"–½‚Æ‚Í™R‚¢‚à‚Ì‚¾‚Ë", 190, 400, 48, c);
 	}
-	else if (((UserData*)Save::GetData())->save_score > 2500 && ((UserData*)Save::GetData())->save_score <= 5000)
+	//‹›—Í 2500`5000
+	else if (((UserData*)Save::GetData())->save_score >= 2500 && ((UserData*)Save::GetData())->save_score < 5000)
 	{
 		Font::StrDraw(L"¬‹›", 370, 400, 48, c);
 	}
-	else if (((UserData*)Save::GetData())->save_score > 5000 && ((UserData*)Save::GetData())->save_score <= 10000)
+	//‹›—Í 5000`7500
+	else if (((UserData*)Save::GetData())->save_score >= 5000 && ((UserData*)Save::GetData())->save_score < 7500)
+	{
+		Font::StrDraw(L"‚Ü‚é‚Å‹›", 300, 400, 48, c);
+	}
+	//‹›—Í 7500`10000
+	else if (((UserData*)Save::GetData())->save_score >= 7500 && ((UserData*)Save::GetData())->save_score < 10000)
 	{
 		Font::StrDraw(L"‚¬‚å‚¬‚å‚¬‚å", 270, 400, 48, c);
 	}
-	else if (((UserData*)Save::GetData())->save_score > 10000 && ((UserData*)Save::GetData())->save_score <= 25000)
+	//‹›—Í 10000`20000
+	else if (((UserData*)Save::GetData())->save_score >= 10000 && ((UserData*)Save::GetData())->save_score < 20000)
 	{
-		Font::StrDraw(L"ƒZƒ“ƒX‚Ì‰ò", 280, 400, 48, c);
+		Font::StrDraw(L"‚à‚Í‚â‹›", 300, 400, 48, c);
 	}
-	else if (((UserData*)Save::GetData())->save_score > 25000 && ((UserData*)Save::GetData())->save_score <= 50000)
+	//‹›—Í 20000`30000
+	else if (((UserData*)Save::GetData())->save_score >= 20000 && ((UserData*)Save::GetData())->save_score < 30000)
 	{
-		Font::StrDraw(L"‚à‚Í‚âƒTƒ", 280, 400, 48, c);
+		Font::StrDraw(L"‹›‹›‹›`ô", 290, 400, 48, c);
 	}
-	else if (((UserData*)Save::GetData())->save_score > 50000 && ((UserData*)Save::GetData())->save_score <= 75000)
+	//‹›—Í 30000`40000
+	else if (((UserData*)Save::GetData())->save_score >= 30000 && ((UserData*)Save::GetData())->save_score < 40000)
 	{
-		Font::StrDraw(L"‚à‚Í‚âíŠÍ", 280, 400, 48, c);
+		Font::StrDraw(L"ƒZƒ“ƒX‚Ì‰ò", 290, 400, 48, c);
 	}
-	else if (((UserData*)Save::GetData())->save_score > 75000 && ((UserData*)Save::GetData())->save_score <= 100000)
+	//‹›—Í 40000`50000
+	else if (((UserData*)Save::GetData())->save_score >= 40000 && ((UserData*)Save::GetData())->save_score < 50000)
 	{
-		Font::StrDraw(L"‹›‚Ì‰¤", 340, 400, 48, c);
+		Font::StrDraw(L"‹¶‹C“I‚É‚·‚²‚¢I", 220, 400, 48, c);
 	}
-	else if (((UserData*)Save::GetData())->save_score > 100000 && ((UserData*)Save::GetData())->save_score <= 250000)
+	//‹›—Í 50000`60000
+	else if (((UserData*)Save::GetData())->save_score >= 50000 && ((UserData*)Save::GetData())->save_score < 60000)
+	{
+		Font::StrDraw(L"‹›‚Æ‚Í", 320, 400, 48, c);
+	}
+	//‹›—Í 60000`70000
+	else if (((UserData*)Save::GetData())->save_score >= 60000 && ((UserData*)Save::GetData())->save_score < 70000)
+	{
+		Font::StrDraw(L"‚à‚Í‚âƒTƒ", 290, 400, 48, c);
+	}
+	//‹›—Í 70000`80000
+	else if (((UserData*)Save::GetData())->save_score >= 70000 && ((UserData*)Save::GetData())->save_score < 80000)
+	{
+		Font::StrDraw(L"‚à‚Í‚âíŠÍ", 290, 400, 48, c);
+	}
+	//‹›—Í 80000`90000
+	else if (((UserData*)Save::GetData())->save_score >= 80000 && ((UserData*)Save::GetData())->save_score < 90000)
+	{
+		Font::StrDraw(L"‹›‚Ì‰¤", 320, 400, 48, c);
+	}
+	//‹›—Í 90000`100000
+	else if (((UserData*)Save::GetData())->save_score >= 90000 && ((UserData*)Save::GetData())->save_score < 100000)
+	{
+		Font::StrDraw(L"§ìÒ‚Ìl‚Å‚·‚©H", 190, 400, 48, c);
+	}
+	//‹›—Í 100000`250000
+	else if (((UserData*)Save::GetData())->save_score >= 100000 && ((UserData*)Save::GetData())->save_score < 250000)
 	{
 		Font::StrDraw(L"§ìÒ‚æ‚èãè‚¢I", 190, 400, 48, c);
 	}
-	else if (((UserData*)Save::GetData())->save_score > 250000 && ((UserData*)Save::GetData())->save_score < 530000)
+	//‹›—Í 250000`530000
+	else if (((UserData*)Save::GetData())->save_score >= 250000 && ((UserData*)Save::GetData())->save_score < 530000)
 	{
 		Font::StrDraw(L"ƒMƒƒƒ‰ƒNƒeƒBƒbƒNƒtƒBƒbƒVƒ…", 90, 400, 48, c);
 	}
+	//‹›—Í 530000`1000000
 	else if (((UserData*)Save::GetData())->save_score >= 530000 && ((UserData*)Save::GetData())->save_score < 1000000)
 	{
 		Font::StrDraw(L"‹›—Í53–œ‰z‚¦‚¾‚Æ", 210, 400, 48, c);
 	}
+	//‹›—Í 1000000`
 	else if (((UserData*)Save::GetData())->save_score >= 1000000)
 	{
 		Font::StrDraw(L"ƒ`[ƒg‚ªŒŸo‚³‚ê‚Ü‚µ‚½", 140, 400, 48, c);

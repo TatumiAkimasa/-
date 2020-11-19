@@ -32,7 +32,7 @@ void CSceneTitle::InitScene()
 {
 	
 	//外部グラフィックファイルを読み込み0番に登録（386*564ピクセル）
-	Draw::LoadImageW(L"仮タイトルver2.5.png", 0, TEX_SIZE_512);
+	Draw::LoadImageW(L"タイトル.png", 0, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み0番に登録（386*564ピクセル）
 	Draw::LoadImageW(L"新説明画面.png", 1, TEX_SIZE_512);
