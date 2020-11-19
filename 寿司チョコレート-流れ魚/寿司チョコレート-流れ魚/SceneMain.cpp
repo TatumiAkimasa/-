@@ -174,24 +174,24 @@ void CSceneMain::Scene()
 		Audio::Start(1);
 		bgm_flag = true;
 	}
-	else if (((UserData*)Save::GetData())->sp < 6.0f && bgm_flag == true)
+	 if (((UserData*)Save::GetData())->sp < 6.0f && bgm_flag == true)
 	{
 		Audio::Stop(1);
 		Audio::Start(0);
 		bgm_flag = false;
-		bgm_flag2 = true;
+		
 	}
-	if (((UserData*)Save::GetData())->sp >= 7.0f && bgm_flag2 == true)
+	if (((UserData*)Save::GetData())->sp >= 7.0f && bgm_flag2 == false)
 	{
 		Audio::Stop(1);
 		Audio::Start(13);
-		bgm_flag2 = false;;
+		bgm_flag2 = true;
 	}
-	if (((UserData*)Save::GetData())->sp < 7.0f && bgm_flag2 == false)
+	if (((UserData*)Save::GetData())->sp < 7.0f && bgm_flag2 == true)
 	{
 		Audio::Stop(13);
 		Audio::Start(1);
-		bgm_flag2 = true;
+		bgm_flag2 = false;
 	}
 	
 
