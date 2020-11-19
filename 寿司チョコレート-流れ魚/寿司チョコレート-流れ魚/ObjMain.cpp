@@ -23,6 +23,7 @@ void CObjMain::Init()
 	come_flag = false;
 	life_flag = false;
 	heel_flag = false;
+	mirrior_flag = false;
 	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
 	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
 	((UserData*)Save::GetData())->life_point = 3;//セーブ用life_point初期化
@@ -54,8 +55,9 @@ void CObjMain::Action()
 		//反転（最優先）
 		random = 10;
 		come_flag = false;
+		mirrior_flag = true;
 	}
-	else if (((UserData*)Save::GetData())->Tree_said==true)
+	else if (((UserData*)Save::GetData())->Tree_flag==true)
 	{
 		//目隠し（2番目）
 		random = 11;
@@ -107,8 +109,14 @@ void CObjMain::Action()
 		random = 3;
 		come_flag = false;
 	}
+	//反転終了宣言
+	else if (mirrior_flag == true && come_flag == false)
+	{
+		random = 12;
+		mirrior_flag = false;
+	}
 	//日常会話
-	else if (((UserData*)Save::GetData())->save_s_time % 20 == 0)
+	else if (((UserData*)Save::GetData())->save_s_time % 20 == 0 )
 	{
 		//基本、すべて上が反映もし、何もなければ20秒ごとにセリフが変わる。
 		if (come_flag == true)
@@ -120,7 +128,9 @@ void CObjMain::Action()
 	}
 	//消さないでね💛
 	else
+	{
 		come_flag = true;
+	}
 
 	f++;
 	//fが60回回ると1秒カウント
@@ -238,10 +248,11 @@ void CObjMain::Draw()
 	}
 	else if (random == 10)
 	{
+		float k[4] = { 0.9f,0.1f,0.1f,1.0f };
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"操作反転中！");
-		Font::StrDraw(str, 85, 470, 30, k);
+		Font::StrDraw(str, 80, 470, 30, k);
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 25, 510, 30, k);
 	}
@@ -251,6 +262,16 @@ void CObjMain::Draw()
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"前が見えない！？");
 		Font::StrDraw(str, 30, 470, 30, k);
+		swprintf_s(str, L"");
+		Font::StrDraw(str, 25, 510, 30, k);
+	}
+	else if (random == 12)
+	{
+		float k[4] = { 0.1f,0.9f,0.1f,1.0f };
+		swprintf_s(str, L"");
+		Font::StrDraw(str, 60, 430, 30, k);
+		swprintf_s(str, L"操作反転終了！");
+		Font::StrDraw(str, 85, 470, 30, k);
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 25, 510, 30, k);
 	}

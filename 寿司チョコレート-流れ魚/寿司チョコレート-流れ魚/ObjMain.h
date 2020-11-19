@@ -25,4 +25,5 @@ private:
 	bool come_flag;//コメント用フラグ
 	bool life_flag;//コメント用ライフ管理フラグ
 	bool heel_flag;//コメント用回復フラグ
+	bool mirrior_flag;//コメント用反転終了基準フラグ
 };
