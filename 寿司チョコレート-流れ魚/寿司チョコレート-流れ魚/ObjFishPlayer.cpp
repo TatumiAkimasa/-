@@ -38,7 +38,6 @@ void CObjFishPlayer::Init()
 
     //当たり判定用HitBoxを作成
     Hits::SetHitBox(this, m_px + 22, m_py + 16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
-
 }
 
 //アクション
@@ -246,5 +245,4 @@ void CObjFishPlayer::Draw()
             m_damage = false;
         }
     }
-
 }
