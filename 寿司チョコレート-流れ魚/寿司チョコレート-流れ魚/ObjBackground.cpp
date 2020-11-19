@@ -33,24 +33,24 @@ void CObjBackground::Action()
 
 	add = n;
 
-	if (n >= 9 && n < 14)
+	if (n >= 9 && n <= 15)
 	{
-		if (m_y1 < -597.0f && count == 1)
+		if (m_y1 < -595.0f && count == 1)
 		{
 			m_y1 = 600;
 			count = 3;
 		}
-		else if (m_y1 < -597.0f && count == 2)
+		else if (m_y1 < -595.0f && count == 2)
 		{
 			m_y1 = 600;
 			count = 1;
 		}
-		else if (m_y1 < -597.0f && count == 3)
+		else if (m_y1 < -595.0f && count == 3)
 		{
 			m_y1 = 600;
 			count = 2;
 		}
-		else if (m_y1 < -597.0f && count == 10)
+		else if (m_y1 < -595.0f && count == 10)
 		{
 			m_y1 = 600;
 			count = 3;
