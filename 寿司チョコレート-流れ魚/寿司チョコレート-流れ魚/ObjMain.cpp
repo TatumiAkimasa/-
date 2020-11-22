@@ -110,7 +110,7 @@ void CObjMain::Action()
 		come_flag = false;
 	}
 	//spが20の時
-	else if (((UserData*)Save::GetData())->sp == 19.9)
+	else if (((UserData*)Save::GetData())->sp >= 20)
 	{
 		//限界みたいです（優先七番目）
 		random = 3;
