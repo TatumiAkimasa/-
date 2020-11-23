@@ -168,26 +168,26 @@ void CSceneMain::Scene()
 	m_time++;
 
 	//BGM•ÏX
-	if (((UserData*)Save::GetData())->sp >= 6.0f && bgm_flag == false)
+	if (((UserData*)Save::GetData())->sp >= 10.0f && bgm_flag == false)
 	{
 		Audio::Stop(0);
 		Audio::Start(1);
 		bgm_flag = true;
 	}
-	 if (((UserData*)Save::GetData())->sp < 6.0f && bgm_flag == true)
+	 if (((UserData*)Save::GetData())->sp < 10.0f && bgm_flag == true)
 	{
 		Audio::Stop(1);
 		Audio::Start(0);
 		bgm_flag = false;
 		
 	}
-	if (((UserData*)Save::GetData())->sp >= 7.0f && bgm_flag2 == false)
+	if (((UserData*)Save::GetData())->sp >= 18.0f && bgm_flag2 == false)
 	{
 		Audio::Stop(1);
 		Audio::Start(13);
 		bgm_flag2 = true;
 	}
-	if (((UserData*)Save::GetData())->sp < 7.0f && bgm_flag2 == true)
+	if (((UserData*)Save::GetData())->sp < 18.0f && bgm_flag2 == true)
 	{
 		Audio::Stop(13);
 		Audio::Start(1);
