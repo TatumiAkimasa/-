@@ -93,14 +93,31 @@ void CSceneMain::InitScene()
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
-	Audio::LoadAudio(3, L"シーンBGM2(仮)修正.wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(1, L"シーンBGM2(仮)修正.wav", SOUND_TYPE::BACK_MUSIC);
 
-	Audio::LoadAudio(4, L"シーンBGM(仮)スピードup.wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(2, L"シーンBGM(仮)スピードup.wav", SOUND_TYPE::BACK_MUSIC);
 
-	Audio::LoadAudio(1, L"上昇.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(3, L"上昇.wav", SOUND_TYPE::EFFECT);
 
-	Audio::LoadAudio(2, L"ダメージ音テスト.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(4, L"ダメージ音テスト.wav", SOUND_TYPE::EFFECT);
 
+	Audio::LoadAudio(5, L"やられ時（仮）.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(6, L"コイン取得.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(7, L"回復.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(8, L"スピードダウン.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(9, L"コイン取得2.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(10, L"操作反転.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(11, L"隠し.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(12, L"隠し2.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(13, L"シーンBGM第二段階.wav", SOUND_TYPE::BACK_MUSIC);
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
 	Audio::Start(0);//音楽スタート
@@ -134,6 +151,7 @@ void CSceneMain::InitScene()
 	t = 0;
 
 	bgm_flag = false;
+	bgm_flag2 = false;
 }
 
 //ゲーム実行中メソッド
@@ -150,18 +168,33 @@ void CSceneMain::Scene()
 	m_time++;
 
 	//BGM変更
-	if (((UserData*)Save::GetData())->sp >= 6.0f && bgm_flag == false)
+	if (((UserData*)Save::GetData())->sp >= 10.0f && bgm_flag == false)
 	{
 		Audio::Stop(0);
-		Audio::Start(3);
+		Audio::Start(1);
 		bgm_flag = true;
 	}
-	else if (((UserData*)Save::GetData())->sp < 6.0f && bgm_flag == true)
+	 if (((UserData*)Save::GetData())->sp < 10.0f && bgm_flag == true)
 	{
-		Audio::Stop(3);
+		Audio::Stop(1);
 		Audio::Start(0);
 		bgm_flag = false;
+		
 	}
+	 //BGM変更（第二段階）
+	if (((UserData*)Save::GetData())->sp >= 18.0f && bgm_flag2 == false)
+	{
+		Audio::Stop(1);
+		Audio::Start(13);
+		bgm_flag2 = true;
+	}
+	if (((UserData*)Save::GetData())->sp < 18.0f && bgm_flag2 == true)
+	{
+		Audio::Stop(13);
+		Audio::Start(1);
+		bgm_flag2 = false;
+	}
+	
 
 	
 
@@ -175,9 +208,9 @@ void CSceneMain::Scene()
 	//障害物に当たった時、スピードが初期に戻る処理
 	if (((UserData*)Save::GetData())->sp_lv == 0)
 	{
-		if (((UserData*)Save::GetData())->sp >= 5.5f)
+		if (((UserData*)Save::GetData())->sp >= 6.0f)
 		{
-			((UserData*)Save::GetData())->sp -= 0.5f;
+			((UserData*)Save::GetData())->sp -= 1.0f;
 			((UserData*)Save::GetData())->sp_lv += 1;
 		}
 		else
@@ -366,7 +399,7 @@ void CSceneMain::Scene()
 			((UserData*)Save::GetData())->sp_lv++;
 		}
 		//操作反転
-		else if (x == 55)
+		else if (x == 55 )
 		{
 			x = rand() % 3;
 

@@ -40,11 +40,14 @@ void CObjRanking::Draw()
 
 	//ランキング
 	Font::StrDraw(L"ランキング", 280, 25, 50, c);
+	Font::StrDraw(L"上ボタンでタイトルに戻る", 570, 555, 17, c);
+
 	for (int i = 0; i < 10; i++)
 	{
 		wchar_t str[256];
 		swprintf_s(str, L"%2d位       %12d魚力", i + 1, ((UserData*)Save::GetData())->Ranking[i]);
 		Font::StrDraw(str, 230, 100 + 48 * i, 24, d);
 	}
+
 }
 

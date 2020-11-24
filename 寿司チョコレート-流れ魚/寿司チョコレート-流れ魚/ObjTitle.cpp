@@ -8,6 +8,9 @@
 #include "ObjTitle.h"
 #include "GameL/DrawTexture.h"
 #include "GameL\Audio.h"
+#include <thread>
+#include <chrono>
+
 
 //使用するネームスペース
 using namespace GameL;
@@ -101,11 +104,9 @@ void CObjTitle::Action()
 		Scene::SetScene(new CSceneRanking());
 	}
 
-	
-
-	if (num > 4)
+	if (num > 5)
 	{
-		num = 4;
+		num = 5;
 	}
 	else if (num < 0)
 	{
@@ -117,7 +118,7 @@ void CObjTitle::Action()
 	{
 		//開始時ＳＥ
 		Audio::Start(1);
-
+		std::this_thread::sleep_for(std::chrono::seconds(2)); //開始時処理を2秒止める(開始SEを鳴らすため）
 			Scene::SetScene(new CSceneMain());
 
 	}
@@ -152,14 +153,14 @@ void CObjTitle::Draw()
 		//切り取り位置の表示
 		src.m_top = 0.0f;
 		src.m_left = 0.0f;
-		src.m_right = 776.0f;
-		src.m_bottom = 616.0f;
+		src.m_right = 765.0f;
+		src.m_bottom = 640.0f;
 
 		//表示位置の設定
 		dst.m_top = 0.0f;
 		dst.m_left = 0.0f;
 		dst.m_right = 800.0f;
-		dst.m_bottom = 616.0f;
+		dst.m_bottom = 600.0f;
 	}
 	
 

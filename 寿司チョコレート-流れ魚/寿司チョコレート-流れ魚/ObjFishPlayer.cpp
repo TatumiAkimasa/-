@@ -9,8 +9,15 @@
 #include "GameHead.h"
 #include "ObjFishPlayer.h"
 #include "GameL\Audio.h"
+#include <thread>
+#include <chrono>
 //使用するネームスペース
 using namespace GameL;
+
+bool CObjFishPlayer::heel_flag()
+{
+    return come_heel_flag;
+}
 
 //イニシャライズ
 void CObjFishPlayer::Init()
@@ -27,10 +34,10 @@ void CObjFishPlayer::Init()
     m_left_move = false;
     m_move = 0;
     m_damage = false;
+    come_heel_flag = false;
 
     //当たり判定用HitBoxを作成
     Hits::SetHitBox(this, m_px + 22, m_py + 16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
-
 }
 
 //アクション
@@ -38,7 +45,7 @@ void CObjFishPlayer::Action()
 {
     m_ani_time++;
 
-    if (m_ani_time > 25-((UserData*)Save::GetData())->sp)
+    if (m_ani_time > 25 - ((UserData*)Save::GetData())->sp)
     {
         m_ani_time = 0;
         m_ani_frame += 1;
@@ -61,7 +68,7 @@ void CObjFishPlayer::Action()
     {
         m_key_time++;
 
-        if (m_key_time == 600)
+        if (m_key_time == 540)
         {
             ((UserData*)Save::GetData())->key_flag_mirror = false;
             m_key_time = 0;
@@ -153,25 +160,34 @@ void CObjFishPlayer::Action()
     //回復アイテムと接触したら回復＆削除
     if (hit->CheckElementHit(ELEMENT_HEAL) == true)
     {
-        Audio::Start(1);
+        Audio::Start(7);
 
+        
+        come_heel_flag = true;
         if (((UserData*)Save::GetData())->life_point < 3)
         {
             ((UserData*)Save::GetData())->life_point++;
         }
     }
+    else
+        come_heel_flag = false;
 
 
     //障害物オブジェクトと接触したら削除
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true && m_damage == false)
     {
-        ((UserData*)Save::GetData())->life_point--;
+      ((UserData*)Save::GetData())->life_point--;
         ((UserData*)Save::GetData())->sp_lv = 0;
         m_damage = true;
 
-        Audio::Start(2);
+        Audio::Start(4);
+
         if (((UserData*)Save::GetData())->life_point == 0)
         {
+            Audio::Stop(4);
+            Audio::Start(5);//やられ時SE
+            std::this_thread::sleep_for(std::chrono::seconds(3));//処理を3秒止める
+
             this->SetStatus(false);    //自身に削除命令を出す
             Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
 
@@ -229,5 +245,4 @@ void CObjFishPlayer::Draw()
             m_damage = false;
         }
     }
-
 }

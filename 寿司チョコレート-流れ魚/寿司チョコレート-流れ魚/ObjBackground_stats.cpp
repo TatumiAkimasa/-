@@ -1,7 +1,13 @@
 //使用するヘッダーファイル
+#include "GameL/DrawTexture.h"
+#include "GameL/WinInputs.h"
+#include "GameL/SceneManager.h"
+#include "GameL/DrawFont.h"
+#include "GameL/UserData.h"
+
 #include "ObjBackground_stats.h"
 #include "GameHead.h"
-#include "GameL\DrawTexture.h"
+
 
 
 //使用するネームスペース
@@ -32,10 +38,9 @@ void CObjBackground_stats::Draw()
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
 	src.m_right = 512.0f;
-	src.m_bottom = 512.0f;
+	src.m_bottom = 560.0f;
 
-	//1番目に登録したグラフィックをsrc・dst・cの情報をもとに描画
-	//背景①の位置設定し描画
+	//6番目に登録したグラフィックをsrc・dst・cの情報をもとに描画
 	dst.m_top = 0.0f ;
 	dst.m_left = 0.0f;
 	dst.m_right = 490.0f;
