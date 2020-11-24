@@ -117,12 +117,6 @@
     <ClCompile Include="ObjFlow.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
-    <ClCompile Include="Objmirror.cpp">
-      <Filter>ソース ファイル\障害物</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjTreeItem.cpp">
-      <Filter>ソース ファイル\障害物</Filter>
-    </ClCompile>
     <ClCompile Include="ObjTree.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
@@ -231,6 +225,9 @@
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
     <ClInclude Include="Objsp_down.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="Objmirror.h">
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
     <ClInclude Include="ObjFlow.h">
