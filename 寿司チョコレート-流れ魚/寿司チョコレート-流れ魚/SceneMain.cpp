@@ -182,13 +182,13 @@ void CSceneMain::Scene()
 		
 	}
 	 //BGM変更（第二段階）
-	if (((UserData*)Save::GetData())->sp >= 18.0f && bgm_flag2 == false)
+	if (((UserData*)Save::GetData())->sp >= 15.0f && bgm_flag2 == false)
 	{
 		Audio::Stop(1);
 		Audio::Start(13);
 		bgm_flag2 = true;
 	}
-	if (((UserData*)Save::GetData())->sp < 18.0f && bgm_flag2 == true)
+	if (((UserData*)Save::GetData())->sp < 15.0f && bgm_flag2 == true)
 	{
 		Audio::Stop(13);
 		Audio::Start(1);
