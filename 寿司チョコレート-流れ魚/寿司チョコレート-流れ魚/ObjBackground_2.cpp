@@ -13,7 +13,6 @@ void CObjBackground_2::Init()
 {
 	m_y1 = 600.0f;
 	count = 2;
-	//add = ((UserData*)Save::GetData())->sp;
 	n = 0;
 	end_P=0;
 }
