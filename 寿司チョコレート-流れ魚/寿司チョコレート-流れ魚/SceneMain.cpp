@@ -126,14 +126,14 @@ void CSceneMain::InitScene()
 	CObjBackground* back = new CObjBackground();
 	Objs::InsertObj(back, OBJ_BACK_GROUND, 1);
 
-	
+
 	CObjBackground_2* back_2 = new CObjBackground_2();
 	Objs::InsertObj(back_2, OBJ_BACK_GROUND_2, 1);
-	
+
 
 	CObjBackground_stats* back_3 = new CObjBackground_stats();
 	Objs::InsertObj(back_3, OBJ_BACK_GROUND_STATS, 0);
-	
+
 
 	//主人公オブジェクト作成
 	CObjFishPlayer* fp = new CObjFishPlayer();
@@ -182,13 +182,13 @@ void CSceneMain::Scene()
 		
 	}
 	 //BGM変更（第二段階）
-	if (((UserData*)Save::GetData())->sp >= 18.0f && bgm_flag2 == false)
+	if (((UserData*)Save::GetData())->sp >= 15.0f && bgm_flag2 == false)
 	{
 		Audio::Stop(1);
 		Audio::Start(13);
 		bgm_flag2 = true;
 	}
-	if (((UserData*)Save::GetData())->sp < 18.0f && bgm_flag2 == true)
+	if (((UserData*)Save::GetData())->sp < 15.0f && bgm_flag2 == true)
 	{
 		Audio::Stop(13);
 		Audio::Start(1);
@@ -197,6 +197,7 @@ void CSceneMain::Scene()
 	
 
 	
+
 	//落下の初期化
 	if (t == 0)
 	{
@@ -549,6 +550,7 @@ void CSceneMain::Scene()
 		{
 			((UserData*)Save::GetData())->sp += 0.1f;
 		}
+		
 	}
 }
 

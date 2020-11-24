@@ -44,7 +44,51 @@ void CObjFlow::Action()
 		Hits::DeleteHitBox(this);
 
 		//スコアの加算
-		((UserData*)Save::GetData())->save_score += 100;
+		if (((UserData*)Save::GetData())->sp >= 5.0f && ((UserData*)Save::GetData())->sp < 10.0f)
+		{
+			//mirrorの時スコア2倍の処理
+			if (((UserData*)Save::GetData())->key_flag_mirror == true)
+			{
+				((UserData*)Save::GetData())->save_score += 200;
+			}
+			else
+			{
+				((UserData*)Save::GetData())->save_score += 100;
+			}
+		}
+		else if (((UserData*)Save::GetData())->sp >= 10.0f && ((UserData*)Save::GetData())->sp < 15.0f)
+		{
+			if (((UserData*)Save::GetData())->key_flag_mirror == true)
+			{
+				((UserData*)Save::GetData())->save_score += 400;
+			}
+			else
+			{
+				((UserData*)Save::GetData())->save_score += 200;
+			}
+		}
+		else if (((UserData*)Save::GetData())->sp >= 15.0f && ((UserData*)Save::GetData())->sp < 20.0f)
+		{
+			if (((UserData*)Save::GetData())->key_flag_mirror == true)
+			{
+				((UserData*)Save::GetData())->save_score += 600;
+			}
+			else
+			{
+				((UserData*)Save::GetData())->save_score += 300;
+			}
+		}
+		else if (((UserData*)Save::GetData())->sp >= 20.0f)
+		{
+			if (((UserData*)Save::GetData())->key_flag_mirror == true)
+			{
+				((UserData*)Save::GetData())->save_score += 1000;
+			}
+			else
+			{
+				((UserData*)Save::GetData())->save_score += 500;
+			}
+		}
 	}
 
 	//主人公オブジェクトと接触したら10円を削除
