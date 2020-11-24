@@ -59,9 +59,9 @@ void CObjFishPlayer::Action()
     //主人公の移動ベクトルの初期化
     m_vx = 0.0f;
 
-    //HitBoxの内容を更新
-    CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
-    hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
+    ////HitBoxの内容を更新
+    //CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
+    //hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
 
     //key_flag_mirrorがtrueの時
     if (((UserData*)Save::GetData())->key_flag_mirror == true)
@@ -147,6 +147,10 @@ void CObjFishPlayer::Action()
     //移動ベクトルを座標に加算する
     m_px += 1 * m_vx;
     m_py += 1 * m_vy;
+
+    //HitBoxの内容を更新
+   CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
+   hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
 
     if (m_px > 640.0f)
     {
