@@ -17,5 +17,7 @@ private:
 
 	float m_y1; //背景①の描画情報
 	int count;//画面切り替え用
-	int add;
+	int add;//途中変更対応用保存変数
+	int n;//基本速度変数
+	float end_P;//Background1の終端受け取り用
 };

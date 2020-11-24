@@ -13,43 +13,55 @@ void CObjBackground_2::Init()
 {
 	m_y1 = 600.0f;
 	count = 2;
-	add = 0;
+	add = ((UserData*)Save::GetData())->sp;
+	n = 0;
+	end_P=0;
 }
 
 //アクション
 void CObjBackground_2::Action()
 {
 	//背景①の動作
-	//みず（白線）を流せばこの処理は不要
-	int n = ((UserData*)Save::GetData())->sp;
+	
+	//Bcakgroundから速度と現在位置取得
+	CObjBackground* obj = (CObjBackground*)Objs::GetObj(OBJ_BACK_GROUND);
+	if (obj != nullptr)
+	{
+		n = obj->speed_back();
+		end_P = obj->end_point();
+	}
 
-	if (n == 20)
-		m_y1 -= n;
-	else if (n > 14)
+	//もし、下に行ったら上に表示（修正用）
+	if (end_P  == 0.0f)
+	{
+		m_y1 = 590;
+	}
+
+	//速度の変化用
+	if (n > 14 && n < 20)
 		m_y1 -= 15;
 	else
 		m_y1 -= n;
-
-	add = n;
 	
-	if (n >= 9 && n < 14)
+
+	if (n >= 9 && n <=20)
 	{
-		if (m_y1 < -597.0f && count == 1)
+		if (m_y1 < -595.0f && count == 1)
 		{
 			m_y1 = 600;
 			count = 3;
 		}
-		else if (m_y1 < -597.0f && count == 2)
+		else if (m_y1 < -595.0f && count == 2)
 		{
 			m_y1 = 600;
 			count = 1;
 		}
-		else if (m_y1 < -597.0f && count == 3)
+		else if (m_y1 < -595.0f && count == 3)
 		{
 			m_y1 = 600;
 			count = 2;
 		}
-		else if (m_y1 < -597.0f && count == 10)
+		else if (m_y1 < -595.0f && count == 10)
 		{
 			m_y1 = 600;
 			count = 3;
@@ -103,7 +115,7 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 250.0f;
 		dst.m_right = 820.0f;
-		dst.m_bottom = 610.0f+add - m_y1;
+		dst.m_bottom = 620.0f  - m_y1;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 	}
@@ -113,7 +125,7 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 238.0f;
 		dst.m_right = 808.0f;
-		dst.m_bottom = 601.0f+add - m_y1;
+		dst.m_bottom = 620.0f - m_y1;
 
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
@@ -123,7 +135,7 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 233.2f;
 		dst.m_right = 803.2f;
-		dst.m_bottom = 600.0f+add - m_y1;
+		dst.m_bottom = 620.0f  - m_y1;
 
 		Draw::Draw(5, &src, &dst, c, 0.0f);
 	}

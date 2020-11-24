@@ -8,22 +8,42 @@
 //使用するネームスペース
 using namespace GameL;
 
+float CObjBackground::speed_back()
+{
+	return n;
+}
+
+float CObjBackground::end_point()
+{
+	return m_y1;
+}
+
 //イニシャライズ
 void CObjBackground::Init()
 {
 	m_y1 = 0.0f;
 	count = 10;
-	add = 0;
+	add = ((UserData*)Save::GetData())->sp;;
+	n = 0;
 }
 
 //アクション
 void CObjBackground::Action()
 {
 	//背景①の動作
-	//みず（白線）を流せばこの処理は不要
-	int n = ((UserData*)Save::GetData())->sp;
+	
+	//速度をspから受け取る
+	n = ((UserData*)Save::GetData())->sp;
 
+	//速度を最初のほうの物を固定化
+	if (m_y1 >= 580)
+		add = n;
 
+	//もし、途中で1異常の変化があった場合無視する
+	if (n != add)
+		n = add;
+
+	//速度の差別化(15→20)
 	if (n == 20)
 		m_y1 -= n;
 	else if (n > 14)
@@ -31,26 +51,24 @@ void CObjBackground::Action()
 	else
 		m_y1 -= n;
 
-	add = n;
-
-	if (n >= 9 && n < 14)
+	if (n >= 9 && n <= 20)
 	{
-		if (m_y1 < -597.0f && count == 1)
+		if (m_y1 < -595.0f && count == 1)
 		{
 			m_y1 = 600;
 			count = 3;
 		}
-		else if (m_y1 < -597.0f && count == 2)
+		else if (m_y1 < -595.0f && count == 2)
 		{
 			m_y1 = 600;
 			count = 1;
 		}
-		else if (m_y1 < -597.0f && count == 3)
+		else if (m_y1 < -595.0f && count == 3)
 		{
 			m_y1 = 600;
 			count = 2;
 		}
-		else if (m_y1 < -597.0f && count == 10)
+		else if (m_y1 < -595.0f && count == 10)
 		{
 			m_y1 = 600;
 			count = 3;
@@ -105,7 +123,7 @@ void CObjBackground::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 250.0f;
 		dst.m_right = 820.0f;
-		dst.m_bottom = 600.0f+add - m_y1;
+		dst.m_bottom = 600.0f  - m_y1;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 	}
@@ -115,7 +133,7 @@ void CObjBackground::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 250.0f;
 		dst.m_right = 820.0f;
-		dst.m_bottom = 610.0f+add - m_y1;
+		dst.m_bottom = 620.0f  - m_y1;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 	}
@@ -125,7 +143,7 @@ void CObjBackground::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 238.0f;
 		dst.m_right = 808.0f;
-		dst.m_bottom = 611.0f+add - m_y1;
+		dst.m_bottom = 620.0f  - m_y1;
 
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
@@ -135,7 +153,7 @@ void CObjBackground::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 233.2f;
 		dst.m_right = 803.2f;
-		dst.m_bottom = 610.0f+add - m_y1;
+		dst.m_bottom = 620.0f  - m_y1;
 
 		Draw::Draw(5, &src, &dst, c, 0.0f);
 	}
