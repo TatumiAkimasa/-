@@ -13,7 +13,6 @@ void CObjBackground_2::Init()
 {
 	m_y1 = 600.0f;
 	count = 2;
-	add = ((UserData*)Save::GetData())->sp;
 	n = 0;
 	end_P=0;
 }
@@ -24,6 +23,7 @@ void CObjBackground_2::Action()
 	//背景①の動作
 	
 	//Bcakgroundから速度と現在位置取得
+
 	CObjBackground* obj = (CObjBackground*)Objs::GetObj(OBJ_BACK_GROUND);
 	if (obj != nullptr)
 	{
@@ -32,9 +32,19 @@ void CObjBackground_2::Action()
 	}
 
 	//もし、下に行ったら上に表示（修正用）
-	if (end_P  == 0.0f)
+	if (n < 10)
 	{
-		m_y1 = 590;
+		if (end_P == 0.0f)
+		{
+			m_y1 = 600;
+		}
+	}
+	else
+	{
+		if (end_P == 0.0f)
+		{
+			m_y1 = 590;
+		}
 	}
 
 	//速度の変化用
