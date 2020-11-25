@@ -18,15 +18,38 @@ void CObjRanking::Init()
 {
 	//点数を0にする
 	((UserData*)Save::GetData())->save_score = 0;
-
+	D_flag = false;
+	U_flag = false;
 }
 //アクション
 void CObjRanking::Action()
 {
-	//上下キーを押してシーン：タイトルに移行する。/
+	//上下キーを押してシーン：ランキングに移行する。/
 	if (Input::GetVKey(VK_UP) == true)
 	{
-		Scene::SetScene(new CSceneTitle());
+		if (U_flag == true)
+		{
+			Scene::SetScene(new CSceneTitle());
+			U_flag = false;
+		}
+	}
+	else
+	{
+		U_flag = true;
+	}
+
+	//上下キーを押してシーン：ランキングに移行する。/
+	if (Input::GetVKey(VK_DOWN) == true)
+	{
+		if (D_flag == true)
+		{
+			Scene::SetScene(new CSceneAchievement());
+			D_flag = false;
+		}
+	}
+	else
+	{
+		D_flag = true;
 	}
 }
 //ドロー//タイトル
@@ -41,6 +64,7 @@ void CObjRanking::Draw()
 	//ランキング
 	Font::StrDraw(L"ランキング", 280, 25, 50, c);
 	Font::StrDraw(L"上ボタンでタイトルに戻る", 570, 555, 17, c);
+
 
 	for (int i = 0; i < 10; i++)
 	{

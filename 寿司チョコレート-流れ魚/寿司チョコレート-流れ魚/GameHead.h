@@ -28,6 +28,7 @@ enum OBJ_NAME
 	OBJ_BAD_LIFE,
 	OBJ_RANKING,
 	OBJ_TATAMI,
+	OBJ_ACHIEVEMENT,
 
 };
 //------------------------------------------------
@@ -117,6 +118,8 @@ enum FLOW_OBJ_ID
 #include "Objbadlife.h"
 #include "ObjRanking.h"
 #include "ObjTatami.h"
+#include "ObjAchievement.h"
+
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
@@ -124,6 +127,7 @@ enum FLOW_OBJ_ID
 #include "SceneTitle.h"
 #include "SceneResult.h"
 #include "SceneRanking.h"
+#include "SceneAchievement.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------

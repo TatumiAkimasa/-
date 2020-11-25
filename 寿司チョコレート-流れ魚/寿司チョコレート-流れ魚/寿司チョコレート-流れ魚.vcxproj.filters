@@ -28,6 +28,9 @@
     <Filter Include="ソース ファイル\シーンランキング">
       <UniqueIdentifier>{d4a8bea9-728a-45a4-8631-e777290ee498}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\シーンアチーブメント">
+      <UniqueIdentifier>{b52fb2b7-a560-4ed4-8acd-9d82ecdca0bc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -147,6 +150,12 @@
     <ClCompile Include="ObjTatami.cpp">
       <Filter>ソース ファイル\シーンランキング</Filter>
     </ClCompile>
+    <ClCompile Include="SceneAchievement.cpp">
+      <Filter>ソース ファイル\シーンアチーブメント</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjAchievement.cpp">
+      <Filter>ソース ファイル\シーンアチーブメント</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -265,6 +274,12 @@
     </ClInclude>
     <ClInclude Include="ObjTatami.h">
       <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneAchievement.h">
+      <Filter>ソース ファイル\シーンアチーブメント</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjAchievement.h">
+      <Filter>ソース ファイル\シーンアチーブメント</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
