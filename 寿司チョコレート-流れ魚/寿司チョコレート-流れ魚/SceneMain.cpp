@@ -126,14 +126,14 @@ void CSceneMain::InitScene()
 	CObjBackground* back = new CObjBackground();
 	Objs::InsertObj(back, OBJ_BACK_GROUND, 1);
 
-	
+
 	CObjBackground_2* back_2 = new CObjBackground_2();
 	Objs::InsertObj(back_2, OBJ_BACK_GROUND_2, 1);
-	
+
 
 	CObjBackground_stats* back_3 = new CObjBackground_stats();
 	Objs::InsertObj(back_3, OBJ_BACK_GROUND_STATS, 0);
-	
+
 
 	//主人公オブジェクト作成
 	CObjFishPlayer* fp = new CObjFishPlayer();
@@ -167,23 +167,32 @@ void CSceneMain::Scene()
 	//フレーム数の計算
 	m_time++;
 
+	//落下の初期化
+	if (t == 0)
+	{
+		((UserData*)Save::GetData())->sp = 5.0f;
+		t++;
+	}
+
 	//BGM変更
 	if (((UserData*)Save::GetData())->sp >= 10.0f && bgm_flag == false)
 	{
+		Audio::Start(3);
 		Audio::Stop(0);
 		Audio::Start(1);
 		bgm_flag = true;
 	}
-	 if (((UserData*)Save::GetData())->sp < 10.0f && bgm_flag == true)
+	if (((UserData*)Save::GetData())->sp < 10.0f && bgm_flag == true)
 	{
 		Audio::Stop(1);
 		Audio::Start(0);
 		bgm_flag = false;
-		
+
 	}
-	 //BGM変更（第二段階）
+	//BGM変更（第二段階）
 	if (((UserData*)Save::GetData())->sp >= 15.0f && bgm_flag2 == false)
 	{
+		Audio::Start(3);
 		Audio::Stop(1);
 		Audio::Start(13);
 		bgm_flag2 = true;
@@ -193,15 +202,6 @@ void CSceneMain::Scene()
 		Audio::Stop(13);
 		Audio::Start(1);
 		bgm_flag2 = false;
-	}
-	
-
-	
-	//落下の初期化
-	if (t == 0)
-	{
-		((UserData*)Save::GetData())->sp = 5.0f;
-		t++;
 	}
 
 	//障害物に当たった時、スピードが初期に戻る処理
@@ -549,6 +549,7 @@ void CSceneMain::Scene()
 		{
 			((UserData*)Save::GetData())->sp += 0.1f;
 		}
+		
 	}
 }
 
