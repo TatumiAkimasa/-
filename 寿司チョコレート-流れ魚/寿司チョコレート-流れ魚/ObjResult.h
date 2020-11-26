@@ -4,6 +4,9 @@
 //使用するネームスペース
 using namespace GameL;
 
+#define COMMENT_POS 400
+#define COMMENT_SIZE 48
+
 //オブジェクト：敵機
 class CObjResult :public CObj
 {

@@ -16,6 +16,6 @@ public:
 private:
 	float m_x;			//木アイテムの位置
 	float m_y;
-	float m_vy;			//木アイテムの落下です
+	float m_vy;			//木アイテムの落下
 	float s;
 };
