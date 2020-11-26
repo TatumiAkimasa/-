@@ -18,10 +18,10 @@ enum OBJ_NAME
 	OBJ_LIFE_ITEM,
 	OBJ_SP_UP,
 	OBJ_SP_DOWN,
+	OBJ_FLOW,
 	OBJ_MIRROR,
 	OBJ_TREEITEM,
 	OBJ_TREE,
-	OBJ_FLOW,
 	OBJ_100ENN,
 	OBJ_1000ENN,
 	OBJ_10000ENN,
@@ -108,7 +108,6 @@ enum FLOW_OBJ_ID
 #include "ObjLifeItem.h"
 #include "Objsp_up.h"
 #include "Objsp_down.h"
-#include "Objmirror.h"
 #include "ObjFlow.h"
 #include "Objmirror.h"
 #include "ObjTreeItem.h"
