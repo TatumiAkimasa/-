@@ -8,9 +8,9 @@ using namespace GameL;
 class CSceneResult :public CScene
 {
 public:
-	CSceneResult();
+	CSceneResult() {};
 	~CSceneResult() {};
-	void InitScene();	//イニシャライズ
-	void Scene();  //アクション
+	void InitScene();
+	void Scene();
 private:
 };

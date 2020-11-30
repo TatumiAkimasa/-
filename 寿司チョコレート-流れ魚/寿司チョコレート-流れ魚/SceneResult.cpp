@@ -15,13 +15,6 @@ using namespace GameL;
 #include "SceneResult.h"
 #include "GameHead.h"
 
-
-//コンストラクタ
-CSceneResult::CSceneResult()
-{
-
-}
-
 //ゲームメイン初期化メソッド
 void CSceneResult::InitScene()
 {
@@ -45,7 +38,7 @@ void CSceneResult::InitScene()
 }
 
 //ゲームメイン実行中メソッド
-void CSceneResult::Scene()
+void  CSceneResult::Scene()
 {
 
 }

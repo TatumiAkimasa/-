@@ -15,7 +15,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjMain::Init()
 {
-	f = 0;//フレーム計算
+	f = 0;//フレーム計算!
 	s_time = 0;
 	m_time = 0;
 
@@ -305,7 +305,7 @@ void CObjMain::Draw()
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"操作反転終了！");
-		Font::StrDraw(str, 85, 470, 30, k);
+		Font::StrDraw(str, 75, 470, 30, k);
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 25, 510, 30, k);
 	}
