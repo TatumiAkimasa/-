@@ -23,7 +23,7 @@ void CObjBackground::Init()
 {
 	m_y1 = 0.0f;
 	count = 10;
-	add = ((UserData*)Save::GetData())->sp;;
+	add =5;
 	n = 0;
 }
 
