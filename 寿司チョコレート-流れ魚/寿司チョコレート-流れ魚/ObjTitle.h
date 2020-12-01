@@ -19,6 +19,7 @@ public:
 private:
 	bool R_flag;//キーフラグ(右）
 	bool L_flag;//キーフラグ（左）
+	bool D_flag;//キーフラグ(下)
 	int num;//描画優先度
 	
 

@@ -18,16 +18,17 @@ enum OBJ_NAME
 	OBJ_LIFE_ITEM,
 	OBJ_SP_UP,
 	OBJ_SP_DOWN,
+	OBJ_FLOW,
 	OBJ_MIRROR,
 	OBJ_TREEITEM,
 	OBJ_TREE,
-	OBJ_FLOW,
 	OBJ_100ENN,
 	OBJ_1000ENN,
 	OBJ_10000ENN,
 	OBJ_BAD_LIFE,
 	OBJ_RANKING,
 	OBJ_TATAMI,
+	OBJ_ACHIEVEMENT,
 
 };
 //------------------------------------------------
@@ -72,6 +73,7 @@ struct UserData
 	bool Tree_said;			//木の表示用フラグ
 	bool key_flag_mirror;	//操作反転用フラグ
 	int Ranking[11];        //ランキングの表示用変数
+	bool Achievement_flag[29];//実績が解放されているかのフラグ
 
 };
 //------------------------------------------------
@@ -107,7 +109,6 @@ enum FLOW_OBJ_ID
 #include "ObjLifeItem.h"
 #include "Objsp_up.h"
 #include "Objsp_down.h"
-#include "Objmirror.h"
 #include "ObjFlow.h"
 #include "Objmirror.h"
 #include "ObjTreeItem.h"
@@ -118,6 +119,8 @@ enum FLOW_OBJ_ID
 #include "Objbadlife.h"
 #include "ObjRanking.h"
 #include "ObjTatami.h"
+#include "ObjAchievement.h"
+
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
@@ -125,6 +128,7 @@ enum FLOW_OBJ_ID
 #include "SceneTitle.h"
 #include "SceneResult.h"
 #include "SceneRanking.h"
+#include "SceneAchievement.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------

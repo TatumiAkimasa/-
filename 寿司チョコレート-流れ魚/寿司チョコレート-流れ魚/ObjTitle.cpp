@@ -29,8 +29,9 @@ void CObjTitle::Init()
 {
 	R_flag = false;
 	L_flag = false;
+	D_flag = false;
 	num = 0;//描画優先度
-
+	//((UserData*)Save::GetData())->sp_lv = 0;//スピードレベル初期化
 
 	static bool init_point = false;
 	if (init_point == false)
@@ -101,7 +102,15 @@ void CObjTitle::Action()
 	//上下キーを押してシーン：ランキングに移行する。/
 	if (Input::GetVKey(VK_DOWN) == true)
 	{
-		Scene::SetScene(new CSceneRanking());
+		if (D_flag == true)
+		{
+			Scene::SetScene(new CSceneRanking());
+			D_flag = false;
+		}
+	}
+	else
+	{
+		D_flag = true;
 	}
 
 	if (num > 5)

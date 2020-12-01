@@ -5,18 +5,19 @@
 //使用するネームスペース
 using namespace GameL;
 
+#define ACHIEVEMENT_POS_L 100
+#define ACHIEVEMENT_POS_R 450
+#define ACHIEVEMENT_SIZE 20
+
 //オブジェクト：タイトル
-class CObjRanking :public CObj
+class CObjAchievement :public CObj
 {
 public:
-	CObjRanking() {};
-	~CObjRanking() {};
+	CObjAchievement() {};
+	~CObjAchievement() {};
 	void Init();
 	void Action();
 	void Draw();
 private:
-	//ランキングソートメソッド
-	void RankingSort(int rank[11]);
-	bool D_flag;//キーフラグ(下)
-	bool U_flag;//キーフラグ(上)
+	
 };
