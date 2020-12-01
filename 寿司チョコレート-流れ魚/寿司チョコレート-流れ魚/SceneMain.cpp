@@ -115,7 +115,7 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(11, L"隠し.wav", SOUND_TYPE::EFFECT);
 
-	Audio::LoadAudio(12, L"隠し2.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(12, L"隠し3.wav", SOUND_TYPE::EFFECT);
 
 	Audio::LoadAudio(13, L"シーンBGM第二段階.wav", SOUND_TYPE::BACK_MUSIC);
 	//バックミュージックスタート

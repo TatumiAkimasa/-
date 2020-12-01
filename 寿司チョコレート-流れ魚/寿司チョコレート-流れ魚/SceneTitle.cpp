@@ -35,19 +35,19 @@ void CSceneTitle::InitScene()
 	Draw::LoadImageW(L"タイトル.png", 0, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み0番に登録（386*564ピクセル）
-	Draw::LoadImageW(L"新説明画面.png", 1, TEX_SIZE_512);
+	Draw::LoadImageW(L"新生説明画面.png", 1, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み0番に登録（386*564ピクセル）
-	Draw::LoadImageW(L"新説明画面2.png", 2, TEX_SIZE_512);
+	Draw::LoadImageW(L"新生説明画面2.png", 2, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み0番に登録（386*564ピクセル）
-	Draw::LoadImageW(L"新説明画面3.png", 3, TEX_SIZE_512);
+	Draw::LoadImageW(L"新生説明画面3.png", 3, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み0番に登録（386*564ピクセル）
-	Draw::LoadImageW(L"新説明画面4.png", 4, TEX_SIZE_512);
+	Draw::LoadImageW(L"新生説明画面4.png", 4, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み0番に登録（386*564ピクセル）
-	Draw::LoadImageW(L"新説明画面5.png", 5, TEX_SIZE_512);
+	Draw::LoadImageW(L"新生説明画面5打ち止め.png", 5, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"タイトルBGM.wav", SOUND_TYPE::BACK_MUSIC);
