@@ -49,146 +49,175 @@ void CObjResult::Draw()
 	if (((UserData*)Save::GetData())->save_score == 0)
 	{
 		Font::StrDraw(L"‹›‚Ì•—ã‚É‚à’u‚¯‚È‚¢c", 150, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[0] = true;
 	}
 	//‹›—Í 0`500
 	else if (((UserData*)Save::GetData())->save_score > 0 && ((UserData*)Save::GetData())->save_score < 500)
 	{
 		Font::StrDraw(L"’t‹›", 370, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[1] = true;
 	}
 	//‹›—Í 500`1000
 	else if (((UserData*)Save::GetData())->save_score >= 500 && ((UserData*)Save::GetData())->save_score < 1000)
 	{
 		Font::StrDraw(L"‚à‚Á‚Æ‚ª‚ñ‚Î‚ë‚¤I", 200, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[2] = true;
 	}
 	//‹›—Í 1000`2500
 	else if (((UserData*)Save::GetData())->save_score >= 1000 && ((UserData*)Save::GetData())->save_score < 2500)
 	{
 		Font::StrDraw(L"–½‚Æ‚Í™R‚¢‚à‚Ì‚¾‚Ë", 190, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[3] = true;
 	}
 	//‹›—Í 2500`5000
 	else if (((UserData*)Save::GetData())->save_score >= 2500 && ((UserData*)Save::GetData())->save_score < 5000)
 	{
 		Font::StrDraw(L"¬‹›", 370, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[4] = true;
 	}
 	//‹›—Í 5000`7500
 	else if (((UserData*)Save::GetData())->save_score >= 5000 && ((UserData*)Save::GetData())->save_score < 7500)
 	{
 		Font::StrDraw(L"‚Ü‚é‚Å‹›", 300, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[5] = true;
 	}
 	//‹›—Í 7500`10000
 	else if (((UserData*)Save::GetData())->save_score >= 7500 && ((UserData*)Save::GetData())->save_score < 10000)
 	{
 		Font::StrDraw(L"‚¬‚å‚¬‚å‚¬‚å", 270, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[6] = true;
 	}
 	//‹›—Í 10000`20000
 	else if (((UserData*)Save::GetData())->save_score >= 10000 && ((UserData*)Save::GetData())->save_score < 20000)
 	{
 		Font::StrDraw(L"‚à‚Í‚â‹›", 300, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[7] = true;
 	}
 	//‹›—Í 20000`30000
 	else if (((UserData*)Save::GetData())->save_score >= 20000 && ((UserData*)Save::GetData())->save_score < 30000)
 	{
 		Font::StrDraw(L"‹›‹›‹›`ô", 290, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[8] = true;
 	}
 	//‹›—Í 30000`40000
 	else if (((UserData*)Save::GetData())->save_score >= 30000 && ((UserData*)Save::GetData())->save_score < 40000)
 	{
 		Font::StrDraw(L"ƒZƒ“ƒX‚Ì‰ò", 290, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[9] = true;
 	}
 	//‹›—Í 40000`50000
 	else if (((UserData*)Save::GetData())->save_score >= 40000 && ((UserData*)Save::GetData())->save_score < 50000)
 	{
 		Font::StrDraw(L"‹¶‹C“I‚É‚·‚²‚¢I", 220, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[10] = true;
 	}
 	//‹›—Í 50000`60000
 	else if (((UserData*)Save::GetData())->save_score >= 50000 && ((UserData*)Save::GetData())->save_score < 60000)
 	{
 		Font::StrDraw(L"‹›‚Æ‚Í", 320, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[11] = true;
 	}
 	//‹›—Í 60000`70000
 	else if (((UserData*)Save::GetData())->save_score >= 60000 && ((UserData*)Save::GetData())->save_score < 70000)
 	{
 		Font::StrDraw(L"‚à‚Í‚âƒTƒ", 290, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[12] = true;
 	}
 	//‹›—Í 70000`80000
 	else if (((UserData*)Save::GetData())->save_score >= 70000 && ((UserData*)Save::GetData())->save_score < 80000)
 	{
 		Font::StrDraw(L"‚à‚Í‚âíŠÍ", 290, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[13] = true;
 	}
 	//‹›—Í 80000`90000
 	else if (((UserData*)Save::GetData())->save_score >= 80000 && ((UserData*)Save::GetData())->save_score < 90000)
 	{
 		Font::StrDraw(L"‹›‚Ì‰¤", 320, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[14] = true;
 	}
 	//‹›—Í 90000`100000
 	else if (((UserData*)Save::GetData())->save_score >= 90000 && ((UserData*)Save::GetData())->save_score < 100000)
 	{
 		Font::StrDraw(L"§ìŽÒ‚Ìl‚Å‚·‚©H", 190, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[15] = true;
 	}
 	//‹›—Í 100000`110000
 	else if (((UserData*)Save::GetData())->save_score >= 100000 && ((UserData*)Save::GetData())->save_score < 110000)
 	{
 		Font::StrDraw(L"§ìŽÒ‚Ìl‚Å‚·‚ËI", 190, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[16] = true;
 	}
 	//‹›—Í 110000`120000
 	else if (((UserData*)Save::GetData())->save_score >= 110000 && ((UserData*)Save::GetData())->save_score < 120000)
 	{
 		Font::StrDraw(L"§ìŽÒ‚Å‚àŒµ‚µ‚¢c", 190, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[17] = true;
 	}
 	//‹›—Í 120000`130000
 	else if (((UserData*)Save::GetData())->save_score >= 120000 && ((UserData*)Save::GetData())->save_score < 130000)
 	{
 		Font::StrDraw(L"§ìŽÒ‚æ‚èãŽè‚¢I", 190, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[18] = true;
 	}
 	//‹›—Í 130000`140000
 	else if (((UserData*)Save::GetData())->save_score >= 130000 && ((UserData*)Save::GetData())->save_score < 140000)
 	{
 		Font::StrDraw(L"§ìŽÒ‚Å‚à–³—cc", 190, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[19] = true;
 	}
 	//‹›—Í 140000`150000
 	else if (((UserData*)Save::GetData())->save_score >= 140000 && ((UserData*)Save::GetData())->save_score < 150000)
 	{
 		Font::StrDraw(L"ŽO”{–ð–ž", 190, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[20] = true;
 	}
 	//‹›—Í 150000`160000
 	else if (((UserData*)Save::GetData())->save_score >= 150000 && ((UserData*)Save::GetData())->save_score < 160000)
 	{
 		Font::StrDraw(L"‚µ‚á‚©‚É‚á", 290, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[21] = true;
 	}
 	//‹›—Í 160000`170000
 	else if (((UserData*)Save::GetData())->save_score >= 160000 && ((UserData*)Save::GetData())->save_score < 170000)
 	{
 		Font::StrDraw(L"‰”C‹‹16–œ‚Í‚¿‚å‚Á‚Æc", 190, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[22] = true;
 	}
 	//‹›—Í 170000`180000
 	else if (((UserData*)Save::GetData())->save_score >= 170000 && ((UserData*)Save::GetData())->save_score < 180000)
 	{
 		Font::StrDraw(L"ŽÀ‚Í§ìŽÒ‘Sˆõ”Þ—‚¢‚Ü‚¹‚ñ", 90, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[23] = true;
 	}
 	//‹›—Í 180000`190000
 	else if (((UserData*)Save::GetData())->save_score >= 180000 && ((UserData*)Save::GetData())->save_score < 190000)
 	{
 		Font::StrDraw(L"ƒTƒP‚ÌØ‚ègAŽÀ‚Í¶‚È‚ñ‚¾", 90, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[24] = true;
 	}
 	//‹›—Í 190000`200000
 	else if (((UserData*)Save::GetData())->save_score >= 190000 && ((UserData*)Save::GetData())->save_score < 200000)
 	{
 		Font::StrDraw(L"‚â‚è‚±‚ñ‚Å‚­‚ê‚Ä‚ ‚è‚ª‚Æ‚¤", 90, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[25] = true;
 	}
 	//‹›—Í 200000`530000
 	else if (((UserData*)Save::GetData())->save_score >= 200000 && ((UserData*)Save::GetData())->save_score < 530000)
 	{
 		Font::StrDraw(L"ƒMƒƒƒ‰ƒNƒeƒBƒbƒNƒtƒBƒbƒVƒ…", 90, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[26] = true;
 	}
 	//‹›—Í 530000`1000000
 	else if (((UserData*)Save::GetData())->save_score >= 530000 && ((UserData*)Save::GetData())->save_score < 1000000)
 	{
 		Font::StrDraw(L"‹›—Í53–œ‰z‚¦‚¾‚Æ", 210, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[27] = true;
 	}
 	//‹›—Í 1000000`
 	else if (((UserData*)Save::GetData())->save_score >= 1000000)
 	{
 		Font::StrDraw(L"ƒ`[ƒg‚ªŒŸo‚³‚ê‚Ü‚µ‚½", 140, COMMENT_POS, COMMENT_SIZE, c);
+		((UserData*)Save::GetData())->Achievement_flag[28] = true;
 	}
 
 	//ƒ^ƒCƒ€•\Ž¦

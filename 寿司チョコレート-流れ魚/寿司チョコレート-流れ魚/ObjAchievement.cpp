@@ -16,7 +16,28 @@ using namespace GameL;
 //ƒCƒjƒVƒƒƒ‰ƒCƒY
 void CObjAchievement::Init()
 {
-	
+	//ÀÑ‰ğ•ú—pƒtƒ‰ƒO‚Ì‰Šú‰»
+	for (int i = 0; i < 29; i++)
+	{
+		if (((UserData*)Save::GetData())->Achievement_flag[i] == true)
+		{
+			;
+		}
+		else
+		{
+			((UserData*)Save::GetData())->Achievement_flag[i] = false;
+		}
+	}
+	/*for (int i = 0; i < 29; i++)
+	{
+		((UserData*)Save::GetData())->Achievement_flag[i] = true;
+		
+	}*/
+	/*for (int i = 0; i < 29; i++)
+	{
+		((UserData*)Save::GetData())->Achievement_flag[i] = false;
+
+	}*/
 }
 //ƒAƒNƒVƒ‡ƒ“
 void CObjAchievement::Action()
@@ -30,5 +51,270 @@ void CObjAchievement::Action()
 //ƒhƒ[
 void CObjAchievement::Draw()
 {
-	
+	wchar_t str[256];
+	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+
+	Font::StrDraw(L"ÀÑ", 340, 25, 50, c);
+
+	//0
+	if (((UserData*)Save::GetData())->Achievement_flag[0] == true)
+	{
+		Font::StrDraw(L"1.‹›‚Ì•—ã‚É‚à’u‚¯‚È‚¢c", ACHIEVEMENT_POS_L, 100, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"1.0‹›—Í", ACHIEVEMENT_POS_L, 100, ACHIEVEMENT_SIZE, c);
+	}
+	//0`500
+	if (((UserData*)Save::GetData())->Achievement_flag[1] == true)
+	{
+		Font::StrDraw(L"2.’t‹›", ACHIEVEMENT_POS_L, 130, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"2.1`499‹›—Í", ACHIEVEMENT_POS_L, 130, ACHIEVEMENT_SIZE, c);
+	}
+	//500`1000
+	if (((UserData*)Save::GetData())->Achievement_flag[2] == true)
+	{
+		Font::StrDraw(L"3.‚à‚Á‚Æ‚ª‚ñ‚Î‚ë‚¤I", ACHIEVEMENT_POS_L, 160, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"3.500`999‹›—Í", ACHIEVEMENT_POS_L, 160, ACHIEVEMENT_SIZE, c);
+	}
+	//1000`2500
+	if (((UserData*)Save::GetData())->Achievement_flag[3] == true)
+	{
+		Font::StrDraw(L"4.–½‚Æ‚Í™R‚¢‚à‚Ì‚¾‚Ë", ACHIEVEMENT_POS_L, 190, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"4.1000`2499‹›—Í", ACHIEVEMENT_POS_L, 190, ACHIEVEMENT_SIZE, c);
+	}
+	//2500`5000
+	if (((UserData*)Save::GetData())->Achievement_flag[4] == true)
+	{
+		Font::StrDraw(L"5.¬‹›", ACHIEVEMENT_POS_L, 220, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"5.2500`4999‹›—Í", ACHIEVEMENT_POS_L, 220, ACHIEVEMENT_SIZE, c);
+	}
+	//5000`7500
+	if (((UserData*)Save::GetData())->Achievement_flag[5] == true)
+	{
+		Font::StrDraw(L"6.‚Ü‚é‚Å‹›", ACHIEVEMENT_POS_L, 250, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"6.5000`7499‹›—Í", ACHIEVEMENT_POS_L, 250, ACHIEVEMENT_SIZE, c);
+	}
+	//7500`10000
+	if (((UserData*)Save::GetData())->Achievement_flag[6] == true)
+	{
+		Font::StrDraw(L"7.‚¬‚å‚¬‚å‚¬‚å", ACHIEVEMENT_POS_L, 280, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"7.7500`9999‹›—Í", ACHIEVEMENT_POS_L, 280, ACHIEVEMENT_SIZE, c);
+	}
+	//10000`20000
+	if (((UserData*)Save::GetData())->Achievement_flag[7] == true)
+	{
+		Font::StrDraw(L"8.‚à‚Í‚â‹›", ACHIEVEMENT_POS_L, 310, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"8.10000`19999‹›—Í", ACHIEVEMENT_POS_L, 310, ACHIEVEMENT_SIZE, c);
+	}
+	//20000`30000
+	if (((UserData*)Save::GetData())->Achievement_flag[8] == true)
+	{
+		Font::StrDraw(L"9.‹›‹›‹›`ô", ACHIEVEMENT_POS_L, 340, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"9.20000`29999‹›—Í", ACHIEVEMENT_POS_L, 340, ACHIEVEMENT_SIZE, c);
+	}
+	//30000`40000
+	if (((UserData*)Save::GetData())->Achievement_flag[9] == true)
+	{
+		Font::StrDraw(L"10.ƒZƒ“ƒX‚Ì‰ò", ACHIEVEMENT_POS_L, 370, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"10.30000`39999‹›—Í", ACHIEVEMENT_POS_L, 370, ACHIEVEMENT_SIZE, c);
+	}
+	//40000`50000
+	if (((UserData*)Save::GetData())->Achievement_flag[10] == true)
+	{
+		Font::StrDraw(L"11.‹¶‹C“I‚É‚·‚²‚¢I", ACHIEVEMENT_POS_L, 400, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"11.40000`49999‹›—Í", ACHIEVEMENT_POS_L, 400, ACHIEVEMENT_SIZE, c);
+	}
+	//50000`60000
+	if (((UserData*)Save::GetData())->Achievement_flag[11] == true)
+	{
+		Font::StrDraw(L"12.‹›‚Æ‚Í", ACHIEVEMENT_POS_L, 430, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"12.50000`59999‹›—Í", ACHIEVEMENT_POS_L, 430, ACHIEVEMENT_SIZE, c);
+	}
+	//60000`70000
+	if (((UserData*)Save::GetData())->Achievement_flag[12] == true)
+	{
+		Font::StrDraw(L"13.‚à‚Í‚âƒTƒ", ACHIEVEMENT_POS_L, 460, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"13.60000`69999‹›—Í", ACHIEVEMENT_POS_L, 460, ACHIEVEMENT_SIZE, c);
+	}
+	//70000`80000
+	if (((UserData*)Save::GetData())->Achievement_flag[13] == true)
+	{
+		Font::StrDraw(L"14.‚à‚Í‚âíŠÍ", ACHIEVEMENT_POS_L, 490, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"14.70000`79999‹›—Í", ACHIEVEMENT_POS_L, 490, ACHIEVEMENT_SIZE, c);
+	}
+	//80000`90000
+	if (((UserData*)Save::GetData())->Achievement_flag[14] == true)
+	{
+		Font::StrDraw(L"15.‹›‚Ì‰¤", ACHIEVEMENT_POS_L, 520, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"15.80000`89999‹›—Í", ACHIEVEMENT_POS_L, 520, ACHIEVEMENT_SIZE, c);
+	}
+	//90000`100000
+	if (((UserData*)Save::GetData())->Achievement_flag[15] == true)
+	{
+		Font::StrDraw(L"16.§ìÒ‚Ìl‚Å‚·‚©H", ACHIEVEMENT_POS_R, 100, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"16.90000`99999‹›—Í", ACHIEVEMENT_POS_R, 100, ACHIEVEMENT_SIZE, c);
+	}
+	//100000`110000
+	if (((UserData*)Save::GetData())->Achievement_flag[16] == true)
+	{
+		Font::StrDraw(L"17.§ìÒ‚Ìl‚Å‚·‚ËI", ACHIEVEMENT_POS_R, 130, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"17.100000`109999‹›—Í", ACHIEVEMENT_POS_R, 130, ACHIEVEMENT_SIZE, c);
+	}
+	//110000`120000
+	if (((UserData*)Save::GetData())->Achievement_flag[17] == true)
+	{
+		Font::StrDraw(L"18.§ìÒ‚Å‚àŒµ‚µ‚¢c", ACHIEVEMENT_POS_R, 160, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"18.110000`119999‹›—Í", ACHIEVEMENT_POS_R, 160, ACHIEVEMENT_SIZE, c);
+	}
+	//120000`130000
+	if (((UserData*)Save::GetData())->Achievement_flag[18] == true)
+	{
+		Font::StrDraw(L"19.§ìÒ‚æ‚èãè‚¢I", ACHIEVEMENT_POS_R, 190, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"19.120000`129999‹›—Í", ACHIEVEMENT_POS_R, 190, ACHIEVEMENT_SIZE, c);
+	}
+	//130000`140000
+	if (((UserData*)Save::GetData())->Achievement_flag[19] == true)
+	{
+		Font::StrDraw(L"20.§ìÒ‚Å‚à–³—cc", ACHIEVEMENT_POS_R, 220, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"20.130000`139999‹›—Í", ACHIEVEMENT_POS_R, 220, ACHIEVEMENT_SIZE, c);
+	}
+	//140000`150000
+	if (((UserData*)Save::GetData())->Achievement_flag[20] == true)
+	{
+		Font::StrDraw(L"21.O”{–ğ–", ACHIEVEMENT_POS_R, 250, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"21.140000`149999‹›—Í", ACHIEVEMENT_POS_R, 250, ACHIEVEMENT_SIZE, c);
+	}
+	//150000`160000
+	if (((UserData*)Save::GetData())->Achievement_flag[21] == true)
+	{
+		Font::StrDraw(L"22.‚µ‚á‚©‚É‚á", ACHIEVEMENT_POS_R, 280, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"22.150000`159999‹›—Í", ACHIEVEMENT_POS_R, 280, ACHIEVEMENT_SIZE, c);
+	}
+	//160000`170000
+	if (((UserData*)Save::GetData())->Achievement_flag[22] == true)
+	{
+		Font::StrDraw(L"23.‰”C‹‹16–œ‚Í‚¿‚å‚Á‚Æc", ACHIEVEMENT_POS_R, 310, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"23.160000`169999‹›—Í", ACHIEVEMENT_POS_R, 310, ACHIEVEMENT_SIZE, c);
+	}
+	//170000`180000
+	if (((UserData*)Save::GetData())->Achievement_flag[23] == true)
+	{
+		Font::StrDraw(L"24.À‚Í§ìÒ‘Sˆõ”Ş—‚¢‚Ü‚¹‚ñ", ACHIEVEMENT_POS_R, 340, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"24.170000`179999‹›—Í", ACHIEVEMENT_POS_R, 340, ACHIEVEMENT_SIZE, c);
+	}
+	//180000`190000
+	if (((UserData*)Save::GetData())->Achievement_flag[24] == true)
+	{
+		Font::StrDraw(L"25.ƒTƒP‚ÌØ‚ègAÀ‚Í¶‚È‚ñ‚¾", ACHIEVEMENT_POS_R, 370, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"25.180000`189999‹›—Í", ACHIEVEMENT_POS_R, 370, ACHIEVEMENT_SIZE, c);
+	}
+	//190000`200000
+	if (((UserData*)Save::GetData())->Achievement_flag[25] == true)
+	{
+		Font::StrDraw(L"26.‚â‚è‚±‚ñ‚Å‚­‚ê‚Ä‚ ‚è‚ª‚Æ‚¤", ACHIEVEMENT_POS_R, 400, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"26.190000`199999‹›—Í", ACHIEVEMENT_POS_R, 400, ACHIEVEMENT_SIZE, c);
+	}
+	//200000`530000
+	if (((UserData*)Save::GetData())->Achievement_flag[26] == true)
+	{
+		Font::StrDraw(L"27.ƒMƒƒƒ‰ƒNƒeƒBƒbƒNƒtƒBƒbƒVƒ…", ACHIEVEMENT_POS_R, 430, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"27.190000`529999‹›—Í", ACHIEVEMENT_POS_R, 430, ACHIEVEMENT_SIZE, c);
+	}
+	//530000`1000000
+	if (((UserData*)Save::GetData())->Achievement_flag[27] == true)
+	{
+		Font::StrDraw(L"28.‹›—Í53–œ‰z‚¦‚¾‚Æ", ACHIEVEMENT_POS_R, 460, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"28.530000`999999‹›—Í", ACHIEVEMENT_POS_R, 460, ACHIEVEMENT_SIZE, c);
+	}
+	//1000000`
+	if (((UserData*)Save::GetData())->Achievement_flag[28] == true)
+	{
+		Font::StrDraw(L"29ƒ`[ƒg‚ªŒŸo‚³‚ê‚Ü‚µ‚½", ACHIEVEMENT_POS_R, 490, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"29.1000000‹›—Í", ACHIEVEMENT_POS_R, 490, ACHIEVEMENT_SIZE, c);
+	}
 }
