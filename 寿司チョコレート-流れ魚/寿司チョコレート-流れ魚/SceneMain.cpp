@@ -90,6 +90,9 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み18番に登録(木)
 	Draw::LoadImage(L"木.png", 18, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み19番に登録(もう一匹の金魚)
+	Draw::LoadImage(L"hosi.png", 19, TEX_SIZE_512);
+
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
@@ -166,11 +169,12 @@ void CSceneMain::Scene()
 
 	//フレーム数の計算
 	m_time++;
+	
 
 	//落下の初期化
 	if (t == 0)
 	{
-		((UserData*)Save::GetData())->sp = 5.0f;
+		((UserData*)Save::GetData())->sp = 21.0f;
 		t++;
 	}
 
@@ -545,10 +549,10 @@ void CSceneMain::Scene()
 		}
 
 		//落下加速
-		if (((UserData*)Save::GetData())->sp <= 20)
+		/*if (((UserData*)Save::GetData())->sp <= 20)
 		{
 			((UserData*)Save::GetData())->sp += 0.1f;
-		}
+		}*/
 		
 	}
 }

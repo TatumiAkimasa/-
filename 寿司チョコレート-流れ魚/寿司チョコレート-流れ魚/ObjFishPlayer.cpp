@@ -36,6 +36,8 @@ void CObjFishPlayer::Init()
     m_damage = false;
     come_heel_flag = false;
 
+    srand(time(NULL));
+
     //当たり判定用HitBoxを作成
     Hits::SetHitBox(this, m_px + 22, m_py + 16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
 }
@@ -43,6 +45,9 @@ void CObjFishPlayer::Init()
 //アクション
 void CObjFishPlayer::Action()
 {
+    rand(); rand(); rand(); rand(); rand();
+    float x = rand();
+
     m_ani_time++;
 
     if (m_ani_time > 25 - ((UserData*)Save::GetData())->sp)
@@ -144,6 +149,13 @@ void CObjFishPlayer::Action()
     m_px += 1 * m_vx;
     m_py += 1 * m_vy;
 
+    //流れる金魚オブジェクト連続生成
+    if (m_time % 5 == 0 && ((UserData*)Save::GetData())->sp >= 20.0)
+    {
+        ObjDriftFish* df = new ObjDriftFish(x, m_py);
+        Objs::InsertObj(df, NULL, 100);
+    }
+
     //HitBoxの内容を更新
    CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
    hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
@@ -176,14 +188,15 @@ void CObjFishPlayer::Action()
     //障害物オブジェクトと接触したら削除
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true && m_damage == false)
     {
-      ((UserData*)Save::GetData())->life_point--;
+      /*((UserData*)Save::GetData())->life_point--;
         ((UserData*)Save::GetData())->sp_lv = 0;
-        m_damage = true;
+        m_damage = true;*/
 
         Audio::Start(4);
 
         if (((UserData*)Save::GetData())->life_point == 0)
         {
+           
             Audio::Stop(4);
             Audio::Start(5);//やられ時SE
             std::this_thread::sleep_for(std::chrono::seconds(3));//処理を3秒止める

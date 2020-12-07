@@ -103,6 +103,7 @@ enum FLOW_OBJ_ID
 #include "Objwater_flow.h"
 #include "ObjTitle.h"
 #include "ObjFishPlayer.h"
+#include "ObjDriftFish.h"
 #include "Obj10enn.h"
 #include "ObjResult.h"
 #include "ObjMain.h"
