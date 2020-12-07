@@ -25,9 +25,15 @@ CSceneAchievement::CSceneAchievement()
 //ゲームメイン初期化メソッド
 void CSceneAchievement::InitScene()
 {
-	//ランキングオブジェクト作成
+	//外部グラフィックファイルを読み込み0番に登録（線なし背景）
+	Draw::LoadImageW(L"tatami_ranking.png", 0, TEX_SIZE_512);
+
 	CObjAchievement* ca = new CObjAchievement();//実績ブジェクト作成
 	Objs::InsertObj(ca, OBJ_ACHIEVEMENT, 10);//実績オブジェクト登録
+
+	//背景オブジェクト作成
+	CObjTatami* aot = new CObjTatami();
+	Objs::InsertObj(aot, OBJ_TATAMI, 5);
 }
 
 //ゲームメイン実行中メソッド

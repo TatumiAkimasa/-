@@ -83,11 +83,10 @@ struct UserData
 //特殊効果なしの障害物
 enum FLOW_OBJ_ID
 {
-	FLOW_TAKO,//タコオブジェクト
-	FLOW_RAKKO,//ラッコオブジェクト
-	FLOW_KIRIMI,//切り身オブジェクト
-	FLOW_AKIKAN,//空き缶オブジェクト
-	FLOW_SUIKA,//スイカオブジェクト
+	FLOW1,//
+	FLOW2,//
+	FLOW3,//
+	
 
 };
 //------------------------------------------------
