@@ -28,6 +28,14 @@ void CSceneAchievement::InitScene()
 	//ランキングオブジェクト作成
 	CObjAchievement* ca = new CObjAchievement();//実績ブジェクト作成
 	Objs::InsertObj(ca, OBJ_ACHIEVEMENT, 10);//実績オブジェクト登録
+
+
+	//音楽情報の読み込み
+	Audio::LoadAudio(0, L"ランキングBGM（仮）.wav", SOUND_TYPE::BACK_MUSIC);
+
+	//バックミュージックスタート
+	float volume = Audio::VolumeMaster(0.0f);
+	Audio::Start(0);//音楽スタート
 }
 
 //ゲームメイン実行中メソッド
