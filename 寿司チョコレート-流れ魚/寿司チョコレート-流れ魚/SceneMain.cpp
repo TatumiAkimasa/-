@@ -70,7 +70,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImage(L"反転アイコン.png", 11, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み12番に登録(障害物一覧）
-	Draw::LoadImage(L"syougaibutu.png", 12, TEX_SIZE_512);
+	Draw::LoadImage(L"まとめそうめん.png", 12, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み13番に登録(100円）
 	Draw::LoadImage(L"100enn.png", 13, TEX_SIZE_512);
