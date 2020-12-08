@@ -29,6 +29,8 @@ private:
 	int m_inv_time;	//無敵時間用タイム変数
 	int m_stop_time;//金魚のライフ0で処理停止の時間用
 	int m_move;		//移動量制御用変数
+	float m_spin;		//魚回転用
+	int cont;
 	bool come_heel_flag;//コメント回復用フラグ
 
 	int m_ani_time; //主人公アニメーションタイム用変数

@@ -37,6 +37,8 @@ void CObjFishPlayer::Init()
     m_move = 0;
     m_damage = false;
     come_heel_flag = false;
+    m_spin = 0.0f;
+    cont = 0;
 
     srand(rand());
 
@@ -140,6 +142,33 @@ void CObjFishPlayer::Action()
         m_px += 1 * m_vx;
         m_py += 1 * m_vy;
     }
+    else
+    {
+        ((UserData*)Save::GetData())->sp = 0;
+        Audio::Stop(0);
+        Audio::Stop(1);
+        Audio::Stop(13);
+        Audio::Stop(4);
+        Audio::Start(5);//やられ時SE
+        if (cont==0)
+        {
+            m_vx += 20;
+            cont++;
+        }
+        else if (cont==1)
+        {
+            m_vx -= 20;
+            cont--;
+        }
+        else if (cont == -1)
+        {
+            m_vx += 20;
+            cont++;
+        }
+        m_px += 1 * m_vx;
+        m_vy = 1;
+        m_py += 1 * m_vy;
+    }
 
     //主人公の移動ベクトルの初期化
     m_vx = 0.0f;
@@ -207,24 +236,18 @@ void CObjFishPlayer::Action()
 
         Audio::Start(4);
 
-        if (((UserData*)Save::GetData())->life_point <= 0)
-        {
+      
+    }
 
-            ((UserData*)Save::GetData())->sp = 0;
-            Audio::Stop(4);
-            Audio::Start(5);//やられ時SE
-            m_stop_time++;
-           
-            if (m_stop_time == 10)
-            {
-                this->SetStatus(false);    //自身に削除命令を出す
-                Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
+    //画面外に出たらHitBoxを削除
+    if (m_py > 600.0f)
+    {
+        this->SetStatus(false);
+        Hits::DeleteHitBox(this);
 
-                //主人公消滅でシーンをゲームオーバーに移行する
-                Scene::SetScene(new CSceneResult());
-                m_stop_time = 0;
-            }
-        }
+        //主人公消滅でシーンをゲームオーバーに移行する
+        Scene::SetScene(new CSceneResult());
+        m_spin++;
     }
 }
 
@@ -235,6 +258,8 @@ void CObjFishPlayer::Draw()
     float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
     int AniData[4]{ 1,2,3,4 };
+
+    static float r = 0.0f;
 
     RECT_F src;//描写元の切り取り位置
     RECT_F dst;//描画先の表示位置

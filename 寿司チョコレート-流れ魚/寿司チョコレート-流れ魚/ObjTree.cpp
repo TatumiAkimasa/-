@@ -27,7 +27,10 @@ void CObjTree::Init()
 void CObjTree::Action()
 {
 	//木用タイム
-	((UserData*)Save::GetData())->Tree_time--;
+	if (((UserData*)Save::GetData())->life_point > 0)
+	{
+		((UserData*)Save::GetData())->Tree_time--;
+	}
 }
 
 //ドロー

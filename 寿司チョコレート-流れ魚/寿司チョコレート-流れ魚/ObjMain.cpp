@@ -140,30 +140,33 @@ void CObjMain::Action()
 		come_flag = true;
 	}
 
-	f++;
-	//fが60回回ると1秒カウント
-	if (f == 60)
+	if (((UserData*)Save::GetData())->life_point > 0)
 	{
-		f = 0;
-		s_time++;
-		//s_time++の時点でセーブ用s_timeもインクリメント
-		((UserData*)Save::GetData())->save_s_time++;
+		f++;
+		//fが60回回ると1秒カウント
+		if (f == 60)
+		{
+			f = 0;
+			s_time++;
+			//s_time++の時点でセーブ用s_timeもインクリメント
+			((UserData*)Save::GetData())->save_s_time++;
+		}
+		//s_timeが60で1分です
+		if (s_time == 60)
+		{
+			s_time = 0;
+			m_time++;
+			//m_time++の時点でセーブ用m_timeもインクリメント
+			((UserData*)Save::GetData())->save_m_time++;
+			((UserData*)Save::GetData())->save_s_time = 0;
+		}
 
+		if (((UserData*)Save::GetData())->sp == 20.0)
+		{
+			int i = 0;
+		}
 	}
-	//s_timeが60で1分です
-	if (s_time == 60)
-	{
-		s_time = 0;
-		m_time++;
-		//m_time++の時点でセーブ用m_timeもインクリメント
-		((UserData*)Save::GetData())->save_m_time++;
-		((UserData*)Save::GetData())->save_s_time = 0;
-	}
-
-	if (((UserData*)Save::GetData())->sp == 20.0)
-	{
-		int i = 0;
-	}
+	
 }
 
 //ドロー

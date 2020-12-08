@@ -47,6 +47,11 @@ void CObjBackground_2::Action()
 		}
 	}
 
+	if (((UserData*)Save::GetData())->life_point == 0)
+	{
+		n = 0;
+	}
+
 	//‘¬“x‚Ì•Ï‰»—p
 	if (n > 14 && n < 20)
 		m_y1 -= 15;
