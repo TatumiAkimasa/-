@@ -66,7 +66,8 @@ void CObjRanking::Draw()
 
 	//ランキング
 	Font::StrDraw(L"ランキング", 270, 25, 50, a);
-	Font::StrDraw(L"上ボタンでタイトルに戻る", 570, 550, 17, a);
+	Font::StrDraw(L"上ボタンでタイトルに戻る", 25, 550, 17, a);
+	Font::StrDraw(L"下ボタンで実績画面に移動", 570, 550, 17, a);
 
 	wchar_t str[256];
 	swprintf_s(str, L" 1位  %4d魚力", ((UserData*)Save::GetData())->Ranking[0]);

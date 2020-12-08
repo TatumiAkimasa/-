@@ -159,6 +159,11 @@ void CObjMain::Action()
 		((UserData*)Save::GetData())->save_m_time++;
 		((UserData*)Save::GetData())->save_s_time = 0;
 	}
+
+	if (((UserData*)Save::GetData())->sp == 20.0)
+	{
+		int i = 0;
+	}
 }
 
 //ドロー
