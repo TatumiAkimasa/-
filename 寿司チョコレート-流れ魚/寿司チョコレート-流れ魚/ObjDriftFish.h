@@ -25,6 +25,6 @@ private:
 	bool m_left_move;//左移動操作審議
 	int m_time;		//操作反転用
 	int m_move;		//移動量制御用変数
-	
+
 	int m_key_time = 0;	//操作反転管理用タイム
 };
