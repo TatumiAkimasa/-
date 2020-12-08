@@ -44,7 +44,7 @@ void CObjTreeItem::Action()
 	//主人公オブジェクトと接触したら木アイテムを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
-		Audio::Start(12);
+		Audio::Start(11);
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//木アイテムが所有するHitBoxを削除する
 	
