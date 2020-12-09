@@ -19,10 +19,6 @@ void ObjDriftFish::Init()
 {
     m_vx = 0.0f;     //移動ベクトル
     m_vy = 0.0f;
-    m_f = true;      //移動制御
-    m_time = 0;
-    m_right_move = false;
-    m_left_move = false;
 
     //当たり判定用HitBoxを作成
     Hits::SetHitBox(this, m_px + 22, m_py + 16, 0,0, NULL, NULL, 1);
@@ -37,16 +33,9 @@ ObjDriftFish::ObjDriftFish(float x, float y)
 
 //アクション
 void ObjDriftFish::Action()
-{
-    if (((UserData*)Save::GetData())->sp >=20)
-    {
-        m_vy += 0.1;
-    }
-    else
-    {
-        m_vy = 1;
-    }
-   
+{  
+    m_vy += 0.1;
+    m_spin += 30.0f;
 
     //移動ベクトルを座標に加算する
     m_px += 1 * m_vx;
@@ -56,22 +45,12 @@ void ObjDriftFish::Action()
     CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
     hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
 
-    //if (m_px > 640.0f)
-    //{
-    //    m_px = 640.0f;//はみ出ない位置に移動させる
-    //}
-    //if (m_px < 400.0f)
-    //{
-    //    m_px = 400.0f;
-    //}
-
     //画面外に出たらHitBoxを削除
     if (m_py > 600.0f)
     {
         this->SetStatus(false);
         Hits::DeleteHitBox(this);
     }
-
 }
 
 //ドロー
@@ -93,8 +72,5 @@ void ObjDriftFish::Draw()
     src.m_right = 64.0f;
     src.m_bottom = 64.0f;
 
-    if (((UserData*)Save::GetData())->sp >= 20.0)
-    {
-        Draw::Draw(19, &src, &dst, c, 0.0f);
-    }
+    Draw::Draw(19, &src, &dst, c, m_spin);
 }
