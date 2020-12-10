@@ -19,5 +19,6 @@ private:
 	float m_vy;			//10円の落下です
 	float s;            //スピード用変数
 	int m_id;           //障害物ID
+	int g_ani;          //そうめん反転切り替え
 	
 };

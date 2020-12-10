@@ -5,7 +5,7 @@
 //使用するネームスペース
 using namespace GameL;
 
-#define FLOW_HIGHT -64
+#define FLOW_HIGHT -128
 #define FLOW_SPACE_LEFT 385
 #define FLOW_SPACE_CENTER 505
 #define FLOW_SPACE_RIGHT 625
