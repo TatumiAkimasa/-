@@ -11,6 +11,8 @@
 #include "GameL\Audio.h"
 #include <thread>
 #include <chrono>
+#include<stdlib.h>
+#include<time.h>
 //使用するネームスペース
 using namespace GameL;
 
@@ -19,6 +21,8 @@ void ObjDriftFish::Init()
 {
     m_vx = 0.0f;     //移動ベクトル
     m_vy = 0.0f;
+    m_spin = 0.0f;
+    srand(time(NULL));
 
     //当たり判定用HitBoxを作成
     Hits::SetHitBox(this, m_px + 22, m_py + 16, 0,0, NULL, NULL, 1);
@@ -34,8 +38,10 @@ ObjDriftFish::ObjDriftFish(float x, float y)
 //アクション
 void ObjDriftFish::Action()
 {  
+    rand(); rand(); rand(); rand();
+    int x = rand() % 21;
     m_vy += 0.1;
-    m_spin += 30.0f;
+    m_spin += 10.0f;
 
     //移動ベクトルを座標に加算する
     m_px += 1 * m_vx;

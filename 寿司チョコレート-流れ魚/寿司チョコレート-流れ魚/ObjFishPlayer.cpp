@@ -51,7 +51,7 @@ void CObjFishPlayer::Action()
 {
     rand(); rand(); rand(); rand(); 
     
-    float x = rand() % 120;
+    float x = rand() % 122;
 
     
     m_ani_time++;
@@ -157,7 +157,7 @@ void CObjFishPlayer::Action()
             m_time++;
             if (m_time % 5 == 0)
             {
-                ObjDriftFish* df = new ObjDriftFish(m_px + x, m_py);
+                ObjDriftFish* df = new ObjDriftFish(m_px+x, m_py);
                 Objs::InsertObj(df, NULL, 100);
                 m_time = 0;
             }
@@ -191,9 +191,9 @@ void CObjFishPlayer::Action()
             }
             m_time = 0;
         }*/
-        m_spin += 15;
+        m_spin += 15.0f;
         //m_px += 1 * m_vx;
-        m_vy = 1;
+        m_vy += 0.01;
         m_py += 1 * m_vy;
     }
 
@@ -277,7 +277,7 @@ void CObjFishPlayer::Draw()
     src.m_left = 0.0f + (AniData[m_ani_frame] - 1) * 828;
     src.m_right = 828.0f * AniData[m_ani_frame];
     src.m_bottom = 1588.0f;
-
+    
     if (m_damage == false)
     {
         Draw::Draw(2, &src, &dst, c, m_spin);
