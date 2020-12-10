@@ -278,30 +278,37 @@ void CObjFishPlayer::Draw()
     src.m_right = 828.0f * AniData[m_ani_frame];
     src.m_bottom = 1588.0f;
     
-    if (m_damage == false)
+    if (((UserData*)Save::GetData())->life_point > 0)
     {
-        Draw::Draw(2, &src, &dst, c, m_spin);
-    }
-    else
-    {
-        m_inv_time++;
-
-        if (m_inv_time % 5 == 0)
+        if (m_damage == false)
         {
             Draw::Draw(2, &src, &dst, c, 0.0f);
         }
         else
         {
-            c[0] = 1.0f;
-            c[1] = 0.5f;
-            c[2] = 0.0f;
-            Draw::Draw(2, &src, &dst, c, 0.0f);
-        }
+            m_inv_time++;
 
-        if (m_inv_time == 30)
-        {
-            m_inv_time = 0;
-            m_damage = false;
+            if (m_inv_time % 5 == 0)
+            {
+                Draw::Draw(2, &src, &dst, c, 0.0f);
+            }
+            else
+            {
+                c[0] = 1.0f;
+                c[1] = 0.5f;
+                c[2] = 0.0f;
+                Draw::Draw(2, &src, &dst, c, 0.0f);
+            }
+
+            if (m_inv_time == 30)
+            {
+                m_inv_time = 0;
+                m_damage = false;
+            }
         }
+    }
+    else
+    {
+        Draw::Draw(2, &src, &dst, c, m_spin);
     }
 }
