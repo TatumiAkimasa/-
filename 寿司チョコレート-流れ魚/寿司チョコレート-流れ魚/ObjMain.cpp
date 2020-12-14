@@ -45,8 +45,8 @@ void CObjMain::Action()
 	CObjFishPlayer* obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
 
 	//フラグ受け渡し
-	if(obj!=nullptr)
-	heel_flag = obj->heel_flag();
+	if (obj != nullptr)
+		heel_flag = obj->heel_flag();
 
 	//乱数複雑化
 	rand(); rand(); rand(); rand(); rand();
@@ -56,7 +56,7 @@ void CObjMain::Action()
 		life_flag = true;
 	else
 		life_flag = false;
-	
+
 	//コメントを瞬時に一度だけ切り替え
 	if (((UserData*)Save::GetData())->key_flag_mirror == true)
 	{
@@ -65,13 +65,13 @@ void CObjMain::Action()
 		come_flag = false;
 		mirrior_flag = true;
 	}
-	else if (((UserData*)Save::GetData())->Tree_flag==true)
+	else if (((UserData*)Save::GetData())->Tree_flag == true)
 	{
 		//目隠し（2番目）
 		random = 11;
 		come_flag = false;
 	}
-	else if (((UserData*)Save::GetData())->life_point==life-1 && life_flag == true)
+	else if (((UserData*)Save::GetData())->life_point == life - 1 && life_flag == true)
 	{
 		//全て三番目優先
 		//ライフが1なら
@@ -84,12 +84,12 @@ void CObjMain::Action()
 			random = 7;
 		//if(((UserData*)Save::GetData())->save_s_time % 5 == 0)
 		//ライフ更新
-			life = ((UserData*)Save::GetData())->life_point;
+		life = ((UserData*)Save::GetData())->life_point;
 
 		come_flag = false;
 	}
 	//回復フラグで判断
-	else if (heel_flag==true)
+	else if (heel_flag == true)
 	{
 		//回復コメント（優先四番目）
 		random = 6;
@@ -104,7 +104,7 @@ void CObjMain::Action()
 		come_flag = false;
 	}
 	//spが10～11の時
-	else if (((UserData*)Save::GetData())->sp>10&& ((UserData*)Save::GetData())->sp<11)
+	else if (((UserData*)Save::GetData())->sp > 10 && ((UserData*)Save::GetData())->sp < 11)
 	{
 		//なんか言う（優先六番目）
 		random = 4;
@@ -124,7 +124,7 @@ void CObjMain::Action()
 		mirrior_flag = false;
 	}
 	//日常会話
-	else if (((UserData*)Save::GetData())->save_s_time % 20 == 0 )
+	else if (((UserData*)Save::GetData())->save_s_time % 20 == 0)
 	{
 		//基本、すべて上が反映もし、何もなければ20秒ごとにセリフが変わる。
 		if (come_flag == true)
@@ -160,16 +160,18 @@ void CObjMain::Action()
 			((UserData*)Save::GetData())->save_m_time++;
 			((UserData*)Save::GetData())->save_s_time = 0;
 		}
+	}
 
-	if (((UserData*)Save::GetData())->sp == 20.0)
+	if (((UserData*)Save::GetData())->sp >= 20.0)
 	{
 		//int i = 0;
 		((UserData*)Save::GetData())->max_time++;
 		if (((UserData*)Save::GetData())->max_time >= 600)
 		{
-			((UserData*)Save::GetData())->Achievement_flag[30] = true;
+			((UserData*)Save::GetData())->Achievement_flag[29] = true;
 		}
 	}
+
 }
 
 //ドロー

@@ -322,7 +322,7 @@ void CObjAchievement::Draw()
 	}
 	if (((UserData*)Save::GetData())->Achievement_flag[28] == true)
 	{
-		swprintf_s(str, L"‹t‚ç‹› : %d", ((UserData*)Save::GetData())->max_time);
+		swprintf_s(str, L"30.‹t‚ç‹› : %d", ((UserData*)Save::GetData())->max_time);
 		Font::StrDraw(str, ACHIEVEMENT_POS_R, 520, ACHIEVEMENT_SIZE, c);
 	}
 	else
