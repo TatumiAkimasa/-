@@ -168,7 +168,7 @@ void CObjFishPlayer::Action()
         ((UserData*)Save::GetData())->sp = 0;
         Audio::Stop(0);
         Audio::Stop(1);
-        Audio::Stop(13);
+        Audio::Stop(2);
         Audio::Stop(4);
         Audio::Start(5);//‚â‚ç‚êŽžSE
         m_time++;
