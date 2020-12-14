@@ -28,7 +28,10 @@ void CObjmirror::Init()
 //アクション
 void CObjmirror::Action()
 {
-	m_y += m_vy;
+	if (((UserData*)Save::GetData())->life_point > 0)
+	{
+		m_y += m_vy;
+	}
 
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);	//作成したHitBox更新用の入り口を取り出す

@@ -31,6 +31,9 @@
     <Filter Include="ソース ファイル\シーンタイトル">
       <UniqueIdentifier>{e8927663-ed5c-47f0-ad85-f0b3084c9b8d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\金魚処理系">
+      <UniqueIdentifier>{1515bb7c-0dc5-441e-adff-f222dd34d9ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -71,9 +74,6 @@
     </ClCompile>
     <ClCompile Include="GameL\WinInputs.cpp">
       <Filter>リソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjFishPlayer.cpp">
-      <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="ObjTitle.cpp">
       <Filter>ソース ファイル\シーンタイトル</Filter>
@@ -153,8 +153,14 @@
     <ClCompile Include="ObjAchievement.cpp">
       <Filter>ソース ファイル\シーンアチーブメント</Filter>
     </ClCompile>
+    <ClCompile Include="ObjDriftFish.cpp">
+      <Filter>ソース ファイル\金魚処理系</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjFishPlayer.cpp">
+      <Filter>ソース ファイル\金魚処理系</Filter>
+    </ClCompile>
     <ClCompile Include="ObjTatami.cpp">
-      <Filter>ソース ファイル\シーンランキング</Filter>
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -195,9 +201,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjFishPlayer.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="ObjTitle.h">
@@ -283,6 +286,12 @@
     </ClInclude>
     <ClInclude Include="ObjTatami.h">
       <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjFishPlayer.h">
+      <Filter>ソース ファイル\金魚処理系</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjDriftFish.h">
+      <Filter>ソース ファイル\金魚処理系</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -38,10 +38,18 @@ void CObjBackground::Action()
 	//‘¬“x‚ğÅ‰‚Ì‚Ù‚¤‚Ì•¨‚ğŒÅ’è‰»
 	if (m_y1 >= 580)
 		add = n;
+	
+	if (((UserData*)Save::GetData())->life_point == 0)
+	{
+		n = 0;
+		add = 0;
+	}
 
 	//‚à‚µA“r’†‚Å1ˆÙí‚Ì•Ï‰»‚ª‚ ‚Á‚½ê‡–³‹‚·‚é
 	if (n != add)
 		n = add;
+
+
 
 	//‘¬“x‚Ì·•Ê‰»(15¨20)
 	if (n == 20)

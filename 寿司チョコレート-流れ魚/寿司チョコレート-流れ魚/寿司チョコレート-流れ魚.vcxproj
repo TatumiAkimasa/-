@@ -161,6 +161,7 @@
     <ClCompile Include="Obj10enn.cpp" />
     <ClCompile Include="ObjBackground.cpp" />
     <ClCompile Include="Objbadlife.cpp" />
+    <ClCompile Include="ObjDriftFish.cpp" />
     <ClCompile Include="ObjFishPlayer.cpp" />
     <ClCompile Include="ObjFlow.cpp" />
     <ClCompile Include="ObjLifeItem.cpp" />
@@ -204,6 +205,7 @@
     <ClInclude Include="ObjBackground_2.h" />
     <ClInclude Include="ObjBackground_stats.h" />
     <ClInclude Include="Objbadlife.h" />
+    <ClInclude Include="ObjDriftFish.h" />
     <ClInclude Include="ObjFishPlayer.h" />
     <ClInclude Include="ObjFlow.h" />
     <ClInclude Include="ObjLifeItem.h" />

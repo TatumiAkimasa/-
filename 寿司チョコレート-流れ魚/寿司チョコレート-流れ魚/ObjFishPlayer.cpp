@@ -29,12 +29,18 @@ void CObjFishPlayer::Init()
     m_f = true;      //移動制御
     m_ani_time = 0;
     m_ani_frame = 0;
-    m_time = 0;
+    m_time = 0; 
+    m_inv_time = 0;//無敵時間用タイム変数
+    m_stop_time = 0;
     m_right_move = false;
     m_left_move = false;
     m_move = 0;
     m_damage = false;
     come_heel_flag = false;
+    m_spin = 0.0f;
+    cont = 0;
+
+    srand(rand());
 
     //当たり判定用HitBoxを作成
     Hits::SetHitBox(this, m_px + 22, m_py + 16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
@@ -43,19 +49,155 @@ void CObjFishPlayer::Init()
 //アクション
 void CObjFishPlayer::Action()
 {
+    rand(); rand(); rand(); rand(); 
+    
+    float x = rand() % 122;
+
+    
     m_ani_time++;
 
-    if (m_ani_time > 25 - ((UserData*)Save::GetData())->sp)
+    if (((UserData*)Save::GetData())->life_point > 0)
     {
-        m_ani_time = 0;
-        m_ani_frame += 1;
+        if (m_ani_time > 25 - ((UserData*)Save::GetData())->sp)
+        {
+            m_ani_time = 0;
+            m_ani_frame += 1;
+        }
+
+        if (m_ani_frame == 4)
+        {
+            m_ani_frame = 0;
+        }
+
+        //キーの入力方向にベクトルの速度を入れる
+        if (Input::GetVKey(VK_RIGHT) == true)
+        {
+            if (m_f == true)
+            {
+                //trueの時操作反転
+                if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                {
+                    if (m_f == true)
+                    {
+                        m_left_move = true;
+                        m_f = false;
+
+                    }
+                }
+                else
+                {
+                    m_right_move = true;
+                    m_f = false;
+                }
+            }
+        }
+        else if (Input::GetVKey(VK_LEFT) == true)
+        {
+            if (m_f == true)
+            {
+                //trueの時操作反転
+                if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                {
+                    if (m_f == true)
+                    {
+                        m_right_move = true;
+                        m_f = false;
+                    }
+                }
+                else
+                {
+                    m_left_move = true;
+                    m_f = false;
+                }
+            }
+        }
+        else
+        {
+            m_f = true;
+        }
+
+        if (m_right_move == true)
+        {
+            m_vx += 40;
+            m_move++;
+            if (m_move == 3)
+            {
+                m_move = 0;
+                m_right_move = false;
+            }
+        }
+
+        if (m_left_move == true)
+        {
+            m_vx -= 40;
+            m_move++;
+            if (m_move == 3)
+            {
+                m_move = 0;
+                m_left_move = false;
+            }
+        }
+
+        //移動ベクトルを座標に加算する
+        m_px += 1 * m_vx;
+        m_py += 1 * m_vy;
+
+        if (m_px > 640.0f)
+        {
+            m_px = 640.0f;//はみ出ない位置に移動させる
+        }
+        if (m_px < 400.0f)
+        {
+            m_px = 400.0f;
+        }
+
+        //sp20で流れる金魚オブジェクト連続生成
+        if (((UserData*)Save::GetData())->sp >= 20)
+        {
+            m_time++;
+            if (m_time % 5 == 0)
+            {
+                ObjDriftFish* df = new ObjDriftFish(m_px+x, m_py);
+                Objs::InsertObj(df, NULL, 100);
+                m_time = 0;
+            }
+        }
+    }
+    else
+    {
+        ((UserData*)Save::GetData())->sp = 0;
+        Audio::Stop(0);
+        Audio::Stop(1);
+        Audio::Stop(13);
+        Audio::Stop(4);
+        Audio::Start(5);//やられ時SE
+        m_time++;
+       /* if (m_time % 4 == 0)
+        {
+            if (cont == 0)
+            {
+                m_vx += 5;
+                cont++;
+            }
+            else if (cont == 1)
+            {
+                m_vx -= 15;
+                cont = -1;
+            }
+            else if (cont == -1)
+            {
+                m_vx += 15;
+                cont = 1;
+            }
+            m_time = 0;
+        }*/
+        m_spin += 15.0f;
+        //m_px += 1 * m_vx;
+        m_vy += 0.01;
+        m_py += 1 * m_vy;
     }
 
-    if (m_ani_frame == 4)
-    {
-        m_ani_frame = 0;
-    }
-
+    
     //主人公の移動ベクトルの初期化
     m_vx = 0.0f;
 
@@ -71,91 +213,9 @@ void CObjFishPlayer::Action()
         }
     }
 
-    //キーの入力方向にベクトルの速度を入れる
-    if (Input::GetVKey(VK_RIGHT) == true)
-    {
-        if (m_f == true)
-        {
-            //trueの時操作反転
-            if (((UserData*)Save::GetData())->key_flag_mirror == true)
-            {
-                if (m_f == true)
-                {
-                    m_left_move = true;
-                    m_f = false;
-
-                }
-            }
-            else
-            {
-                m_right_move = true;
-                m_f = false;
-            }
-        }
-    }
-    else if (Input::GetVKey(VK_LEFT) == true)
-    {
-        if (m_f == true)
-        {
-            //trueの時操作反転
-            if (((UserData*)Save::GetData())->key_flag_mirror == true)
-            {
-                if (m_f == true)
-                {
-                    m_right_move = true;
-                    m_f = false;
-                }
-            }
-            else
-            {
-                m_left_move = true;
-                m_f = false;
-            }
-        }
-    }
-    else
-    {
-        m_f = true;
-    }
-
-    if (m_right_move == true)
-    {
-        m_vx += 40;
-        m_move++;
-        if (m_move == 3)
-        {
-            m_move = 0;
-            m_right_move = false;
-        }
-    }
-
-    if (m_left_move == true)
-    {
-        m_vx -= 40;
-        m_move++;
-        if (m_move == 3)
-        {
-            m_move = 0;
-            m_left_move = false;
-        }
-    }
-
-    //移動ベクトルを座標に加算する
-    m_px += 1 * m_vx;
-    m_py += 1 * m_vy;
-
     //HitBoxの内容を更新
    CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
    hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
-
-    if (m_px > 640.0f)
-    {
-        m_px = 640.0f;//はみ出ない位置に移動させる
-    }
-    if (m_px < 400.0f)
-    {
-        m_px = 400.0f;
-    }
 
     //回復アイテムと接触したら回復＆削除
     if (hit->CheckElementHit(ELEMENT_HEAL) == true)
@@ -176,25 +236,22 @@ void CObjFishPlayer::Action()
     //障害物オブジェクトと接触したら削除
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true && m_damage == false)
     {
-      ((UserData*)Save::GetData())->life_point--;
+        ((UserData*)Save::GetData())->life_point--;
         ((UserData*)Save::GetData())->sp_lv = 0;
         m_damage = true;
 
         Audio::Start(4);
+    }
 
-        if (((UserData*)Save::GetData())->life_point == 0)
-        {
-            Audio::Stop(4);
-            Audio::Start(5);//やられ時SE
-            std::this_thread::sleep_for(std::chrono::seconds(3));//処理を3秒止める
+    //画面外に出たらHitBoxを削除
+    if (m_py > 600.0f)
+    {
+        this->SetStatus(false);
+        Hits::DeleteHitBox(this);
 
-            this->SetStatus(false);    //自身に削除命令を出す
-            Hits::DeleteHitBox(this);  //主人公機が所有するHitBoxに削除する
-
-            //主人公消滅でシーンをゲームオーバーに移行する
-            Scene::SetScene(new CSceneResult());
-
-        }
+        //主人公消滅でシーンをゲームオーバーに移行する
+        Scene::SetScene(new CSceneResult());
+        m_spin++;
     }
 }
 
@@ -206,43 +263,52 @@ void CObjFishPlayer::Draw()
 
     int AniData[4]{ 1,2,3,4 };
 
+    static float r = 0.0f;
+
     RECT_F src;//描写元の切り取り位置
     RECT_F dst;//描画先の表示位置
 
-    dst.m_top = -75.0f + m_py;
+    dst.m_top = -122.0f + m_py;
     dst.m_left = -64.9f + m_px;
     dst.m_right = 192.0f + dst.m_left;
     dst.m_bottom = 384.0f + dst.m_top;
 
-    src.m_top = 0.0f;
+    src.m_top = -224.0f;
     src.m_left = 0.0f + (AniData[m_ani_frame] - 1) * 828;
     src.m_right = 828.0f * AniData[m_ani_frame];
-    src.m_bottom = 1792.0f;
-
-    if (m_damage == false)
+    src.m_bottom = 1588.0f;
+    
+    if (((UserData*)Save::GetData())->life_point > 0)
     {
-        Draw::Draw(2, &src, &dst, c, 0.0f);
-    }
-    else
-    {
-        m_time++;
-
-        if (m_time % 5 == 0)
+        if (m_damage == false)
         {
             Draw::Draw(2, &src, &dst, c, 0.0f);
         }
         else
         {
-            c[0] = 1.0f;
-            c[1] = 0.5f;
-            c[2] = 0.0f;
-            Draw::Draw(2, &src, &dst, c, 0.0f);
-        }
+            m_inv_time++;
 
-        if (m_time == 30)
-        {
-            m_time = 0;
-            m_damage = false;
+            if (m_inv_time % 5 == 0)
+            {
+                Draw::Draw(2, &src, &dst, c, 0.0f);
+            }
+            else
+            {
+                c[0] = 1.0f;
+                c[1] = 0.5f;
+                c[2] = 0.0f;
+                Draw::Draw(2, &src, &dst, c, 0.0f);
+            }
+
+            if (m_inv_time == 30)
+            {
+                m_inv_time = 0;
+                m_damage = false;
+            }
         }
+    }
+    else
+    {
+        Draw::Draw(2, &src, &dst, c, m_spin);
     }
 }
