@@ -17,7 +17,7 @@ using namespace GameL;
 void CObjAchievement::Init()
 {
 	//実績解放用フラグの初期化
-	for (int i = 0; i < 29; i++)
+	for (int i = 0; i < 30; i++)
 	{
 		if (((UserData*)Save::GetData())->Achievement_flag[i] == true)
 		{
@@ -314,10 +314,20 @@ void CObjAchievement::Draw()
 	//1000000～
 	if (((UserData*)Save::GetData())->Achievement_flag[28] == true)
 	{
-		Font::StrDraw(L"29チートが検出されました", ACHIEVEMENT_POS_R, 490, ACHIEVEMENT_SIZE, b);
+		Font::StrDraw(L"29.チートが検出されました", ACHIEVEMENT_POS_R, 490, ACHIEVEMENT_SIZE, b);
 	}
 	else
 	{
 		Font::StrDraw(L"29.1000000魚力", ACHIEVEMENT_POS_R, 490, ACHIEVEMENT_SIZE, c);
 	}
+	if (((UserData*)Save::GetData())->Achievement_flag[28] == true)
+	{
+		swprintf_s(str, L"逆ら魚 : %d", ((UserData*)Save::GetData())->max_time);
+		Font::StrDraw(str, ACHIEVEMENT_POS_R, 520, ACHIEVEMENT_SIZE, c);
+	}
+	else
+	{
+		Font::StrDraw(L"30.???????????", ACHIEVEMENT_POS_R, 520, ACHIEVEMENT_SIZE, c);
+	}
+
 }

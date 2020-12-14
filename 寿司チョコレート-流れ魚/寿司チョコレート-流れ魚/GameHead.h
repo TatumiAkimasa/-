@@ -73,8 +73,8 @@ struct UserData
 	bool Tree_said;			//木の表示用フラグ
 	bool key_flag_mirror;	//操作反転用フラグ
 	int Ranking[11];        //ランキングの表示用変数
-	bool Achievement_flag[29];//実績が解放されているかのフラグ
-
+	bool Achievement_flag[30];//実績が解放されているかのフラグ
+	int max_time;           //速度が20の時カウントが始まる
 };
 //------------------------------------------------
 

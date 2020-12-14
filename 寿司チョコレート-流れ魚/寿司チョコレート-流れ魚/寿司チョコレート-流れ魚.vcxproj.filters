@@ -159,6 +159,9 @@
     <ClCompile Include="ObjFishPlayer.cpp">
       <Filter>ソース ファイル\金魚処理系</Filter>
     </ClCompile>
+    <ClCompile Include="ObjTatami.cpp">
+      <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -283,6 +286,12 @@
     </ClInclude>
     <ClInclude Include="ObjTatami.h">
       <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjFishPlayer.h">
+      <Filter>ソース ファイル\金魚処理系</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjDriftFish.h">
+      <Filter>ソース ファイル\金魚処理系</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
