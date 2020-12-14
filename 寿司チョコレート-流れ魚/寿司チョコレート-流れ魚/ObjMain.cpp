@@ -167,7 +167,7 @@ void CObjMain::Action()
 		}
 	}
 
-	random = -1;
+	
 	
 }
 
