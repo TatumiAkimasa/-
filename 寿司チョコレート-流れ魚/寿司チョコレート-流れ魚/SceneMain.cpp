@@ -213,6 +213,10 @@ void CSceneMain::Scene()
 			((UserData*)Save::GetData())->sp -= 1.0f;
 			((UserData*)Save::GetData())->sp_lv += 1;
 		}
+		else
+		{
+			((UserData*)Save::GetData())->sp = 5.0f;
+		}
 	}
 
 	if (((UserData*)Save::GetData())->life_point > 0)
