@@ -160,6 +160,9 @@
       <Filter>ソース ファイル\金魚処理系</Filter>
     </ClCompile>
     <ClCompile Include="ObjTatami.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTatami.cpp">
       <Filter>ソース ファイル\シーンランキング</Filter>
     </ClCompile>
   </ItemGroup>
