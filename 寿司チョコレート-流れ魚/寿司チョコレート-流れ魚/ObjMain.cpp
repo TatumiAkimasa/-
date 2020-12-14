@@ -129,7 +129,7 @@ void CObjMain::Action()
 		//基本、すべて上が反映もし、何もなければ20秒ごとにセリフが変わる。
 		if (come_flag == true)
 		{
-			//３パターン
+			//4パターン
 			random = rand() % 3;
 			come_flag = false;
 		}
@@ -166,6 +166,8 @@ void CObjMain::Action()
 			int i = 0;
 		}
 	}
+
+	random = -1;
 	
 }
 
@@ -223,6 +225,15 @@ void CObjMain::Draw()
 		swprintf_s(str, L"上げよう！");
 		Font::StrDraw(str, 60, 470, 30, k);
 	}
+	/*else if (random == -1)
+	{
+		swprintf_s(str, L"僕的にはカレー味");
+		Font::StrDraw(str, 40, 430, 30, k);
+		swprintf_s(str, L"のそうめんが一番");
+		Font::StrDraw(str, 25, 470, 30, k);
+		swprintf_s(str, L"体に悪そうなんだよね");
+		Font::StrDraw(str, 20, 510, 30, k);
+	}*/
 	else if (random == 1)
 	{
 		swprintf_s(str, L"知ってる？");
@@ -235,9 +246,9 @@ void CObjMain::Draw()
 		swprintf_s(str, L"因みに今泳いで");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"いるところは流し");
-		Font::StrDraw(str, 25, 470, 30, k);
+		Font::StrDraw(str, 30, 470, 30, k);
 		swprintf_s(str, L"そうめん台だよ");
-		Font::StrDraw(str, 25, 510, 30, k);
+		Font::StrDraw(str, 30, 510, 30, k);
 	}
 	else if (random == 3)
 	{
@@ -249,16 +260,16 @@ void CObjMain::Draw()
 	else if (random == 4)
 	{
 		swprintf_s(str, L"肩慣らしは完了!");
-		Font::StrDraw(str, 60, 430, 30, k);
-		swprintf_s(str, L"どんどん行こう！");
-		Font::StrDraw(str, 25, 470, 30, k);
+		Font::StrDraw(str, 55, 430, 30, k);
+		swprintf_s(str, L"どんどん行こう!");
+		Font::StrDraw(str, 55, 470, 30, k);
 	}
 	else if (random == 5)
 	{
 		swprintf_s(str, L"僕の魚力が");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"みなぎってる！");
-		Font::StrDraw(str, 25, 470, 30, k);
+		Font::StrDraw(str, 60, 470, 30, k);
 		swprintf_s(str, L"どんどん行こう！");
 		Font::StrDraw(str, 25, 510, 30, k);
 	}
@@ -295,7 +306,7 @@ void CObjMain::Draw()
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"操作反転中！");
-		Font::StrDraw(str, 80, 470, 30, k);
+		Font::StrDraw(str, 70, 470, 30, k);
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 25, 510, 30, k);
 	}
@@ -304,7 +315,7 @@ void CObjMain::Draw()
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"前が見えない！？");
-		Font::StrDraw(str, 30, 470, 30, k);
+		Font::StrDraw(str, 40, 470, 30, k);
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 25, 510, 30, k);
 	}
@@ -314,7 +325,7 @@ void CObjMain::Draw()
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"操作反転終了！");
-		Font::StrDraw(str, 75, 470, 30, k);
+		Font::StrDraw(str, 55, 470, 30, k);
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 25, 510, 30, k);
 	}
