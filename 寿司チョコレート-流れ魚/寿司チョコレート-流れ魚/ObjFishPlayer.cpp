@@ -52,10 +52,13 @@ void CObjFishPlayer::Action()
     rand(); rand(); rand(); rand(); 
     
     float x = rand() % 122;
-
     
     m_ani_time++;
 
+    CObjPiyokoFish* pf = new CObjPiyokoFish(m_px, m_py,90);
+    Objs::InsertObj(pf, NULL, 100);
+
+    //金魚のライフ1以上で金魚操作可能
     if (((UserData*)Save::GetData())->life_point > 0)
     {
         if (m_ani_time > 25 - ((UserData*)Save::GetData())->sp)
@@ -172,7 +175,8 @@ void CObjFishPlayer::Action()
         Audio::Stop(4);
         Audio::Start(5);//やられ時SE
         m_time++;
-       /* if (m_time % 4 == 0)
+       /*魚ふるわせてgameoverさせる用の処理 
+       if (m_time % 4 == 0)
         {
             if (cont == 0)
             {

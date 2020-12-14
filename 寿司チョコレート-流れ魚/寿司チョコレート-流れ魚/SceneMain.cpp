@@ -90,8 +90,17 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み18番に登録(木)
 	Draw::LoadImage(L"木.png", 18, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み19番に登録(もう一匹の金魚)
+	//外部グラフィックファイルを読み込み19番に登録(☆)
 	Draw::LoadImage(L"hosi.png", 19, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み20番に登録
+	Draw::LoadImage(L"ピヨコ_お尻.png", 20, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み21番に登録
+	Draw::LoadImage(L"ピヨコ_正面.png", 20, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み22番に登録
+	Draw::LoadImage(L"ピヨコ_真横.png", 20, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);

@@ -211,6 +211,8 @@
     <ClInclude Include="ObjLifeItem.h" />
     <ClInclude Include="ObjMain.h" />
     <ClInclude Include="Objmirror.h" />
+    <ClInclude Include="ObjPitokoFish.cpp" />
+    <ClInclude Include="ObjPiyokoFish.h" />
     <ClInclude Include="ObjRanking.h" />
     <ClInclude Include="ObjResult.h" />
     <ClInclude Include="Objsp_down.h" />

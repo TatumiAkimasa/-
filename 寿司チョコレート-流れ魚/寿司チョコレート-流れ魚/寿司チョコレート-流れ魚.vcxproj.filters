@@ -293,5 +293,11 @@
     <ClInclude Include="ObjDriftFish.h">
       <Filter>ソース ファイル\金魚処理系</Filter>
     </ClInclude>
+    <ClInclude Include="ObjPiyokoFish.h">
+      <Filter>ソース ファイル\金魚処理系</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPitokoFish.cpp">
+      <Filter>ソース ファイル\金魚処理系</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

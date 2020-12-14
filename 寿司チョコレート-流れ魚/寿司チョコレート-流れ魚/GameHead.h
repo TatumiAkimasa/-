@@ -103,6 +103,7 @@ enum FLOW_OBJ_ID
 #include "ObjTitle.h"
 #include "ObjFishPlayer.h"
 #include "ObjDriftFish.h"
+#include "ObjPiyokoFish.h"
 #include "Obj10enn.h"
 #include "ObjResult.h"
 #include "ObjMain.h"
