@@ -17,9 +17,11 @@ CObjLifeItem::CObjLifeItem(float x, float y, float s)
 	m_vy = s;
 }
 
+
 //イニシャライズ
 void CObjLifeItem::Init()
 {
+	
 	//当たり判定用Hitboxを作成
 	Hits::SetHitBox(this, m_x + 16, m_y + 16, 40, 40, ELEMENT_HEAL, OBJ_LIFE_ITEM, 1);
 }
@@ -27,7 +29,10 @@ void CObjLifeItem::Init()
 //アクション
 void CObjLifeItem::Action()
 {
-	m_y += m_vy;
+	if (((UserData*)Save::GetData())->life_point > 0)
+	{
+		m_y += m_vy;
+	}
 
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);	//作成したHitBox更新用の入り口を取り出す
@@ -40,12 +45,13 @@ void CObjLifeItem::Action()
 		Hits::DeleteHitBox(this);
 	}
 
-	//主人公オブジェクトと接触したら10円を削除
+	//主人公オブジェクトと接触したらライフアイテムを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
 		this->SetStatus(false);		//自身に削除命令を出す。
-		Hits::DeleteHitBox(this);	//10円が所有するHitBoxを削除する
+		Hits::DeleteHitBox(this);	//ライフアイテムが所有するHitBoxを削除する
 	}
+	
 }
 
 //ドロー

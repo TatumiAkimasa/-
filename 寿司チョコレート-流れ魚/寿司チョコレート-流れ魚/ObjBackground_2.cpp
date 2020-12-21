@@ -2,6 +2,7 @@
 #include "ObjBackground_2.h"
 #include "GameHead.h"
 #include "GameL\DrawTexture.h"
+#include "GameL/UserData.h"
 
 
 //使用するネームスペース
@@ -12,28 +13,97 @@ void CObjBackground_2::Init()
 {
 	m_y1 = 600.0f;
 	count = 2;
+	n = 0;
+	end_P=0;
 }
 
 //アクション
 void CObjBackground_2::Action()
 {
 	//背景①の動作
-	//みず（白線）を流せばこの処理は不要
-	m_y1 -= 5.0f;
-	if (m_y1 < -600.0f && count == 1)
+	
+	//Bcakgroundから速度と現在位置取得
+
+	CObjBackground* obj = (CObjBackground*)Objs::GetObj(OBJ_BACK_GROUND);
+	if (obj != nullptr)
 	{
-		m_y1 = 600;
-		count = 3;
+		n = obj->speed_back();
+		end_P = obj->end_point();
 	}
-	else if (m_y1 < -600.0f && count == 2)
+
+	//もし、下に行ったら上に表示（修正用）
+	if (n < 10)
 	{
-		m_y1 = 600;
-		count = 1;
+		if (end_P == 0.0f)
+		{
+			m_y1 = 600;
+		}
 	}
-	else if (m_y1 < -600.0f && count == 3)
+	else
 	{
-		m_y1 = 600;
-		count = 2;
+		if (end_P == 0.0f)
+		{
+			m_y1 = 590;
+		}
+	}
+
+	if (((UserData*)Save::GetData())->life_point == 0)
+	{
+		n = 0;
+	}
+
+	//速度の変化用
+	if (n > 14 && n < 20)
+		m_y1 -= 15;
+	else
+		m_y1 -= n;
+	
+
+	if (n >= 9 && n <=20)
+	{
+		if (m_y1 < -595.0f && count == 1)
+		{
+			m_y1 = 600;
+			count = 3;
+		}
+		else if (m_y1 < -595.0f && count == 2)
+		{
+			m_y1 = 600;
+			count = 1;
+		}
+		else if (m_y1 < -595.0f && count == 3)
+		{
+			m_y1 = 600;
+			count = 2;
+		}
+		else if (m_y1 < -595.0f && count == 10)
+		{
+			m_y1 = 600;
+			count = 3;
+		}
+	}
+	else
+	{
+		if (m_y1 < -600.0f && count == 1)
+		{
+			m_y1 = 600;
+			count = 3;
+		}
+		else if (m_y1 < -600.0f && count == 2)
+		{
+			m_y1 = 600;
+			count = 1;
+		}
+		else if (m_y1 < -600.0f && count == 3)
+		{
+			m_y1 = 600;
+			count = 2;
+		}
+		else if (m_y1 < -600.0f && count == 10)
+		{
+			m_y1 = 600;
+			count = 3;
+		}
 	}
 
 }
@@ -60,7 +130,7 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 250.0f;
 		dst.m_right = 820.0f;
-		dst.m_bottom = 610.0f - m_y1;
+		dst.m_bottom = 620.0f  - m_y1;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 	}
@@ -70,7 +140,7 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 238.0f;
 		dst.m_right = 808.0f;
-		dst.m_bottom = 601.0f - m_y1;
+		dst.m_bottom = 620.0f - m_y1;
 
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
@@ -80,7 +150,7 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 233.2f;
 		dst.m_right = 803.2f;
-		dst.m_bottom = 600.0f - m_y1;
+		dst.m_bottom = 620.0f  - m_y1;
 
 		Draw::Draw(5, &src, &dst, c, 0.0f);
 	}

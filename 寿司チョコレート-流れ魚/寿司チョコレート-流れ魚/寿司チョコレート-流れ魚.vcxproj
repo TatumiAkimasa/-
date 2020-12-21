@@ -142,6 +142,7 @@
     <ClCompile Include="Obj10000enn.cpp" />
     <ClCompile Include="Obj1000enn.cpp" />
     <ClCompile Include="Obj100enn.cpp" />
+    <ClCompile Include="ObjAchievement.cpp" />
     <ClCompile Include="ObjBackground_2.cpp" />
     <ClCompile Include="ObjBackground_stats.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="Obj10enn.cpp" />
     <ClCompile Include="ObjBackground.cpp" />
     <ClCompile Include="Objbadlife.cpp" />
+    <ClCompile Include="ObjDriftFish.cpp" />
     <ClCompile Include="ObjFishPlayer.cpp" />
     <ClCompile Include="ObjFlow.cpp" />
     <ClCompile Include="ObjLifeItem.cpp" />
@@ -174,6 +176,7 @@
     <ClCompile Include="ObjTree.cpp" />
     <ClCompile Include="ObjTreeItem.cpp" />
     <ClCompile Include="Objwater_flow.cpp" />
+    <ClCompile Include="SceneAchievement.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneRanking.cpp" />
     <ClCompile Include="SceneResult.cpp" />
@@ -197,10 +200,12 @@
     <ClInclude Include="Obj1000enn.h" />
     <ClInclude Include="Obj100enn.h" />
     <ClInclude Include="Obj10enn.h" />
+    <ClInclude Include="ObjAchievement.h" />
     <ClInclude Include="ObjBackground.h" />
     <ClInclude Include="ObjBackground_2.h" />
     <ClInclude Include="ObjBackground_stats.h" />
     <ClInclude Include="Objbadlife.h" />
+    <ClInclude Include="ObjDriftFish.h" />
     <ClInclude Include="ObjFishPlayer.h" />
     <ClInclude Include="ObjFlow.h" />
     <ClInclude Include="ObjLifeItem.h" />
@@ -215,6 +220,7 @@
     <ClInclude Include="ObjTree.h" />
     <ClInclude Include="ObjTreeItem.h" />
     <ClInclude Include="Objwater_flow.h" />
+    <ClInclude Include="SceneAchievement.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneRanking.h" />
     <ClInclude Include="SceneResult.h" />

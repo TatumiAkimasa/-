@@ -18,16 +18,17 @@ enum OBJ_NAME
 	OBJ_LIFE_ITEM,
 	OBJ_SP_UP,
 	OBJ_SP_DOWN,
+	OBJ_FLOW,
 	OBJ_MIRROR,
 	OBJ_TREEITEM,
 	OBJ_TREE,
-	OBJ_FLOW,
 	OBJ_100ENN,
 	OBJ_1000ENN,
 	OBJ_10000ENN,
 	OBJ_BAD_LIFE,
 	OBJ_RANKING,
 	OBJ_TATAMI,
+	OBJ_ACHIEVEMENT,
 
 };
 //------------------------------------------------
@@ -72,7 +73,9 @@ struct UserData
 	bool Tree_said;			//木の表示用フラグ
 	bool key_flag_mirror;	//操作反転用フラグ
 	int Ranking[11];        //ランキングの表示用変数
-
+	bool Achievement_flag[30];//実績が解放されているかのフラグ
+	int max_time;           //速度が20の時カウントが始まる
+	int m_max_time = 0;      //max_timeの記憶用変数
 };
 //------------------------------------------------
 
@@ -81,11 +84,10 @@ struct UserData
 //特殊効果なしの障害物
 enum FLOW_OBJ_ID
 {
-	FLOW_TAKO,//タコオブジェクト
-	FLOW_RAKKO,//ラッコオブジェクト
-	FLOW_KIRIMI,//切り身オブジェクト
-	FLOW_AKIKAN,//空き缶オブジェクト
-	FLOW_SUIKA,//スイカオブジェクト
+	FLOW1,//
+	FLOW2,//
+	FLOW3,//
+	FLOW4,
 
 };
 //------------------------------------------------
@@ -101,13 +103,13 @@ enum FLOW_OBJ_ID
 #include "Objwater_flow.h"
 #include "ObjTitle.h"
 #include "ObjFishPlayer.h"
+#include "ObjDriftFish.h"
 #include "Obj10enn.h"
 #include "ObjResult.h"
 #include "ObjMain.h"
 #include "ObjLifeItem.h"
 #include "Objsp_up.h"
 #include "Objsp_down.h"
-#include "Objmirror.h"
 #include "ObjFlow.h"
 #include "Objmirror.h"
 #include "ObjTreeItem.h"
@@ -118,6 +120,8 @@ enum FLOW_OBJ_ID
 #include "Objbadlife.h"
 #include "ObjRanking.h"
 #include "ObjTatami.h"
+#include "ObjAchievement.h"
+
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
@@ -125,6 +129,7 @@ enum FLOW_OBJ_ID
 #include "SceneTitle.h"
 #include "SceneResult.h"
 #include "SceneRanking.h"
+#include "SceneAchievement.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------

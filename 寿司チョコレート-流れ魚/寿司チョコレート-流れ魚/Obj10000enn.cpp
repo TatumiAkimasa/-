@@ -5,6 +5,7 @@
 
 #include "GameHead.h"
 #include "Obj10000enn.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -27,7 +28,10 @@ void CObj10000enn::Init()
 //アクション
 void CObj10000enn::Action()
 {
-	m_y += m_vy;
+	if (((UserData*)Save::GetData())->life_point > 0)
+	{
+		m_y += m_vy;
+	}
 
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);	//作成したHitBox更新用の入り口を取り出す
@@ -45,6 +49,9 @@ void CObj10000enn::Action()
 	//主人公オブジェクトと接触したら10円を削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
+
+		Audio::Start(6);
+
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//10円が所有するHitBoxを削除する
 

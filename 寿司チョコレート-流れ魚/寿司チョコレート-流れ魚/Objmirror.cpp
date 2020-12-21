@@ -5,6 +5,7 @@
 
 #include "GameHead.h"
 #include "Objmirror.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -27,7 +28,10 @@ void CObjmirror::Init()
 //アクション
 void CObjmirror::Action()
 {
-	m_y += m_vy;
+	if (((UserData*)Save::GetData())->life_point > 0)
+	{
+		m_y += m_vy;
+	}
 
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);	//作成したHitBox更新用の入り口を取り出す
@@ -43,6 +47,7 @@ void CObjmirror::Action()
 	//主人公オブジェクトと接触したら操作反転アイテムを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
+		Audio::Start(10);
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//操作反転アイテムが所有するHitBoxを削除する
 
@@ -50,7 +55,7 @@ void CObjmirror::Action()
 		((UserData*)Save::GetData())->key_flag_mirror = true;
 
 		//スコアの加算
-		((UserData*)Save::GetData())->save_score += 500;
+		((UserData*)Save::GetData())->save_score += 1000;
 	}
 }
 

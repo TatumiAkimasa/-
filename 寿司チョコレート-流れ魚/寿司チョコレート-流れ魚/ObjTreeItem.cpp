@@ -5,6 +5,7 @@
 
 #include "GameHead.h"
 #include "ObjTreeItem.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -27,11 +28,14 @@ void CObjTreeItem::Init()
 //アクション
 void CObjTreeItem::Action()
 {
-	m_y += m_vy;
+	if (((UserData*)Save::GetData())->life_point > 0)
+	{
+		m_y += m_vy;
+	}
 
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);	//作成したHitBox更新用の入り口を取り出す
-	hit->SetPos(m_x + 16, m_y + 16);					//入り口から新しい位置(主人公の位置)情報に置き換える
+	hit->SetPos(m_x + 16, m_y + 16);		//入り口から新しい位置(木の位置)情報に置き換える
 
 	//画面外に出たらHitBoxを削除
 	if (m_y > 600.0f)
@@ -43,6 +47,7 @@ void CObjTreeItem::Action()
 	//主人公オブジェクトと接触したら木アイテムを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
+		Audio::Start(11);
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//木アイテムが所有するHitBoxを削除する
 	
@@ -51,7 +56,7 @@ void CObjTreeItem::Action()
 		((UserData*)Save::GetData())->Tree_time = 600;
 
 		//スコアの加算
-		((UserData*)Save::GetData())->save_score += 500;
+		((UserData*)Save::GetData())->save_score += 1000;
 	}
 }
 

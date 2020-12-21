@@ -17,5 +17,6 @@ public:
 private:
 	//ランキングソートメソッド
 	void RankingSort(int rank[11]);
-
+	bool D_flag;//キーフラグ(下)
+	bool U_flag;//キーフラグ(上)
 };

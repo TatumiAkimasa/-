@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="ソース ファイル\シーンタイトル">
-      <UniqueIdentifier>{e8927663-ed5c-47f0-ad85-f0b3084c9b8d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\シーンメイン">
       <UniqueIdentifier>{40ffa3cb-251a-4367-8f4e-6510e80e4a1b}</UniqueIdentifier>
     </Filter>
@@ -27,6 +24,15 @@
     </Filter>
     <Filter Include="ソース ファイル\シーンランキング">
       <UniqueIdentifier>{d4a8bea9-728a-45a4-8631-e777290ee498}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\シーンアチーブメント">
+      <UniqueIdentifier>{b52fb2b7-a560-4ed4-8acd-9d82ecdca0bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\シーンタイトル">
+      <UniqueIdentifier>{e8927663-ed5c-47f0-ad85-f0b3084c9b8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\金魚処理系">
+      <UniqueIdentifier>{1515bb7c-0dc5-441e-adff-f222dd34d9ab}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -68,9 +74,6 @@
     </ClCompile>
     <ClCompile Include="GameL\WinInputs.cpp">
       <Filter>リソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjFishPlayer.cpp">
-      <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="ObjTitle.cpp">
       <Filter>ソース ファイル\シーンタイトル</Filter>
@@ -138,6 +141,27 @@
     <ClCompile Include="SceneRanking.cpp">
       <Filter>ソース ファイル\シーンランキング</Filter>
     </ClCompile>
+    <ClCompile Include="Objmirror.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTreeItem.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneAchievement.cpp">
+      <Filter>ソース ファイル\シーンアチーブメント</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjAchievement.cpp">
+      <Filter>ソース ファイル\シーンアチーブメント</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjDriftFish.cpp">
+      <Filter>ソース ファイル\金魚処理系</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjFishPlayer.cpp">
+      <Filter>ソース ファイル\金魚処理系</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTatami.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="ObjTatami.cpp">
       <Filter>ソース ファイル\シーンランキング</Filter>
     </ClCompile>
@@ -180,9 +204,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjFishPlayer.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="ObjTitle.h">
@@ -260,8 +281,20 @@
     <ClInclude Include="SceneRanking.h">
       <Filter>ソース ファイル\シーンランキング</Filter>
     </ClInclude>
+    <ClInclude Include="SceneAchievement.h">
+      <Filter>ソース ファイル\シーンアチーブメント</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjAchievement.h">
+      <Filter>ソース ファイル\シーンアチーブメント</Filter>
+    </ClInclude>
     <ClInclude Include="ObjTatami.h">
       <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjFishPlayer.h">
+      <Filter>ソース ファイル\金魚処理系</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjDriftFish.h">
+      <Filter>ソース ファイル\金魚処理系</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 #include "Objwater_flow.h"
 #include "GameHead.h"
 #include "GameL\DrawTexture.h"
+#include "GameL/UserData.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -44,6 +45,11 @@ void CObjwater_flow::Action()
 
 	//”wŒi‡@‚Ì“®ì
 	m_y1 += speed;
+	if (((UserData*)Save::GetData())->life_point == 0)
+	{
+		m_y1 = 0;
+	}
+
 	if (m_y1 > 650.0f)
 	{
 		this->SetStatus(false);//©g‚Éíœ–½—ß
