@@ -1,4 +1,4 @@
-//使用するヘッダーファイル/
+//使用するヘッダーファイル//
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
 #include "GameL/DrawFont.h"
