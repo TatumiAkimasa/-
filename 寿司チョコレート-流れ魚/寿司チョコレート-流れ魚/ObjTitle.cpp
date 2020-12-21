@@ -9,7 +9,7 @@
 //使用するネームスペース
 using namespace GameL;
 
-//イニシャライズ
+//イニシャライズ/
 void CObjTitle::Init()
 {
 	m_key_flag = false;
