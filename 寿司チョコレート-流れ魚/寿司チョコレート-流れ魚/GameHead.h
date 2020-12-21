@@ -75,6 +75,7 @@ struct UserData
 	int Ranking[11];        //ランキングの表示用変数
 	bool Achievement_flag[30];//実績が解放されているかのフラグ
 	int max_time;           //速度が20の時カウントが始まる
+	int m_max_time = 0;      //max_timeの記憶用変数
 };
 //------------------------------------------------
 

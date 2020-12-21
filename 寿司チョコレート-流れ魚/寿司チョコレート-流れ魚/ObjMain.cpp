@@ -129,8 +129,9 @@ void CObjMain::Action()
 		//基本、すべて上が反映もし、何もなければ20秒ごとにセリフが変わる。
 		if (come_flag == true)
 		{
-			//4パターン
-			random = rand() % 3;
+			//３パターン
+			random = (rand() % 8)-5;
+			//random = -5;
 			come_flag = false;
 		}
 	}
@@ -162,7 +163,7 @@ void CObjMain::Action()
 		}
 	}
 
-	if (((UserData*)Save::GetData())->sp >= 20.0)
+	if (((UserData*)Save::GetData())->sp >= 19.0)
 	{
 		//int i = 0;
 		((UserData*)Save::GetData())->max_time++;
@@ -171,9 +172,8 @@ void CObjMain::Action()
 			((UserData*)Save::GetData())->Achievement_flag[29] = true;
 		}
 	}
+	
 
-	
-	
 }
 
 //ドロー
@@ -223,6 +223,47 @@ void CObjMain::Draw()
 
 	//コメントの表示
 	float k[4] = { 0.1f,0.1f,0.1f,1.0f };
+	if (random == -5)
+	{
+	swprintf_s(str, L"世界最小の魚は");
+	Font::StrDraw(str, 60, 430, 30, k);
+	swprintf_s(str, L"ドワーフフェアリー");
+	Font::StrDraw(str, 15, 470, 30, k);
+	swprintf_s(str, L"ミノーだよ");
+	Font::StrDraw(str, 70, 510, 30, k);
+	}
+	if (random == -4)
+	{
+	swprintf_s(str, L"ハリセンボン");
+	Font::StrDraw(str, 60, 430, 30, k);
+	swprintf_s(str, L"実は、針は");
+	Font::StrDraw(str, 50, 470, 30, k);
+	swprintf_s(str, L"400本くらい");
+	Font::StrDraw(str, 50, 510, 30, k);
+	}
+	if (random == -3)
+	{
+	    swprintf_s(str, L"ドイツでは");
+	    Font::StrDraw(str, 60, 430, 30, k);
+	    swprintf_s(str, L"釣りに免許が");
+	    Font::StrDraw(str, 60, 470, 30, k);
+		swprintf_s(str, L"いるらしいよ");
+		Font::StrDraw(str, 60, 510, 30, k);
+	}
+	if (random == -2)
+	{
+		swprintf_s(str, L"サーモンは");
+		Font::StrDraw(str, 80, 430, 30, k);
+		swprintf_s(str, L"白身魚だよ");
+		Font::StrDraw(str, 80, 470, 30, k);
+	}
+	if (random == -1)
+	{
+		swprintf_s(str, L"トビウオって最大");
+		Font::StrDraw(str, 33, 430, 30, k);
+		swprintf_s(str, L"400m飛ぶらしいよ！");
+		Font::StrDraw(str, 25, 470, 30, k);
+	}
 	if (random == 0)
 	{
 		swprintf_s(str, L"さぁ、魚力を");
@@ -230,23 +271,14 @@ void CObjMain::Draw()
 		swprintf_s(str, L"上げよう！");
 		Font::StrDraw(str, 60, 470, 30, k);
 	}
-	/*else if (random == -1)
-	{
-		swprintf_s(str, L"僕的にはカレー味");
-		Font::StrDraw(str, 40, 430, 30, k);
-		swprintf_s(str, L"のそうめんが一番");
-		Font::StrDraw(str, 25, 470, 30, k);
-		swprintf_s(str, L"体に悪そうなんだよね");
-		Font::StrDraw(str, 20, 510, 30, k);
-	}*/
-	else if (random == 1)
+	if (random == 1)
 	{
 		swprintf_s(str, L"知ってる？");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"僕って金魚なんだ！");
 		Font::StrDraw(str, 25, 470, 30, k);
 	}
-	else if (random == 2)
+	if (random == 2)
 	{
 		swprintf_s(str, L"因みに今泳いで");
 		Font::StrDraw(str, 60, 430, 30, k);

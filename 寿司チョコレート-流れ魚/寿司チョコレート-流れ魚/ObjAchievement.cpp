@@ -28,12 +28,12 @@ void CObjAchievement::Init()
 			((UserData*)Save::GetData())->Achievement_flag[i] = false;
 		}
 	}
-	/*for (int i = 0; i < 29; i++)
+	/*for (int i = 0; i < 30; i++)
 	{
 		((UserData*)Save::GetData())->Achievement_flag[i] = true;
 		
 	}*/
-	/*for (int i = 0; i < 29; i++)
+	/*for (int i = 0; i < 30; i++)
 	{
 		((UserData*)Save::GetData())->Achievement_flag[i] = false;
 
@@ -57,7 +57,7 @@ void CObjAchievement::Draw()
 	float b[4] = { 0.3f,0.3f,2.5f,1.0f };
 
 	Font::StrDraw(L"ŽÀÑ", 340, 25, 50, r);
-	Font::StrDraw(L"ãƒ{ƒ^ƒ“‚Åƒ‰ƒ“ƒLƒ“ƒO‚É–ß‚é", 555, 550, 17, r);
+	Font::StrDraw(L"ãƒ{ƒ^ƒ“‚Åƒ‰ƒ“ƒLƒ“ƒO‚É–ß‚é", 25, 550, 17, r);
 
 	//0
 	if (((UserData*)Save::GetData())->Achievement_flag[0] == true)
@@ -320,10 +320,13 @@ void CObjAchievement::Draw()
 	{
 		Font::StrDraw(L"29.1000000‹›—Í", ACHIEVEMENT_POS_R, 490, ACHIEVEMENT_SIZE, c);
 	}
-	if (((UserData*)Save::GetData())->Achievement_flag[28] == true)
+	//‘¬“x20‚©‚Â10•bˆÈã‘Ï‹v
+	if (((UserData*)Save::GetData())->Achievement_flag[29] == true)
 	{
-		swprintf_s(str, L"30.‹t‚ç‹› : %d", ((UserData*)Save::GetData())->max_time);
-		Font::StrDraw(str, ACHIEVEMENT_POS_R, 520, ACHIEVEMENT_SIZE, c);
+		if (((UserData*)Save::GetData())->m_max_time < ((UserData*)Save::GetData())->max_time)
+			((UserData*)Save::GetData())->m_max_time = ((UserData*)Save::GetData())->max_time;
+		swprintf_s(str, L"30.‹t‚ç‹›: %d•b", ((UserData*)Save::GetData())->m_max_time / 60);
+		Font::StrDraw(str, ACHIEVEMENT_POS_R, 520, ACHIEVEMENT_SIZE, b);
 	}
 	else
 	{
