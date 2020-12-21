@@ -29,7 +29,7 @@ enum OBJ_NAME
 	OBJ_RANKING,
 	OBJ_TATAMI,
 	OBJ_ACHIEVEMENT,
-
+	OBJ_SETTING,
 };
 //------------------------------------------------
 
@@ -121,6 +121,7 @@ enum FLOW_OBJ_ID
 #include "ObjRanking.h"
 #include "ObjTatami.h"
 #include "ObjAchievement.h"
+#include "ObjSetting.h"
 
 //------------------------------------------------
 
@@ -130,6 +131,7 @@ enum FLOW_OBJ_ID
 #include "SceneResult.h"
 #include "SceneRanking.h"
 #include "SceneAchievement.h"
+#include "SceneSetting.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------

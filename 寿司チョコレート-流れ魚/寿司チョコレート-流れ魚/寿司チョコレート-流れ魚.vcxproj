@@ -169,6 +169,7 @@
     <ClCompile Include="Objmirror.cpp" />
     <ClCompile Include="ObjRanking.cpp" />
     <ClCompile Include="ObjResult.cpp" />
+    <ClCompile Include="ObjSetting.cpp" />
     <ClCompile Include="Objsp_down.cpp" />
     <ClCompile Include="Objsp_up.cpp" />
     <ClCompile Include="ObjTatami.cpp" />
@@ -180,6 +181,7 @@
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneRanking.cpp" />
     <ClCompile Include="SceneResult.cpp" />
+    <ClCompile Include="SceneSetting.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -213,6 +215,7 @@
     <ClInclude Include="Objmirror.h" />
     <ClInclude Include="ObjRanking.h" />
     <ClInclude Include="ObjResult.h" />
+    <ClInclude Include="ObjSetting.h" />
     <ClInclude Include="Objsp_down.h" />
     <ClInclude Include="Objsp_up.h" />
     <ClInclude Include="ObjTatami.h" />
@@ -224,6 +227,7 @@
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneRanking.h" />
     <ClInclude Include="SceneResult.h" />
+    <ClInclude Include="SceneSetting.h" />
     <ClInclude Include="SceneTitle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
