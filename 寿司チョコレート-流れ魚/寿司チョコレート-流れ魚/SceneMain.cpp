@@ -165,8 +165,8 @@ void CSceneMain::Scene()
 
 	//障害物が落ちてくる確率
 	//通常障害物 50/全体　ギミック 1/全体
-	int x = rand() % 61;
-	
+	//int x = rand() % 61;
+	int x = 60;
 
 	//落下の初期化
 	if (t == 0)
@@ -543,8 +543,23 @@ void CSceneMain::Scene()
 			//木
 			if (((UserData*)Save::GetData())->Tree_flag == true)
 			{
-				CObjTree* t = new CObjTree(380, -120);
-				Objs::InsertObj(t, OBJ_TREE, 50);
+				int x = rand() % 3;
+
+				if (x == 0)
+				{
+					CObjTree* t = new CObjTree(350, -100);
+					Objs::InsertObj(t, OBJ_TREE, 50);
+				}
+				else if (x == 1)
+				{
+					CObjTree* t = new CObjTree(350, 20);
+					Objs::InsertObj(t, OBJ_TREE, 50);
+				}
+				else if (x == 2)
+				{
+					CObjTree* t = new CObjTree(350, 250);
+					Objs::InsertObj(t, OBJ_TREE, 50);
+				}
 
 				((UserData*)Save::GetData())->Tree_flag = false;
 			}
