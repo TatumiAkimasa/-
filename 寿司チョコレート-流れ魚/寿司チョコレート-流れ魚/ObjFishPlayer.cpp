@@ -39,6 +39,7 @@ void CObjFishPlayer::Init()
     come_heel_flag = false;
     m_spin = 0.0f;
     cont = 0;
+    m_not_move_time = false;//falseで操作可能・trueで操作不能
 
     srand(rand());
 
@@ -59,8 +60,8 @@ void CObjFishPlayer::Action()
     
     m_ani_time++;
 
-    CObjPiyokoFish* pf = new CObjPiyokoFish(m_px, m_py,90);
-    Objs::InsertObj(pf, NULL, 100);
+  /*  CObjPiyokoFish* pf = new CObjPiyokoFish(m_px, m_py,90);
+    Objs::InsertObj(pf, NULL, 100);*/
 
     //金魚のライフ1以上で金魚操作可能
     if (((UserData*)Save::GetData())->life_point > 0)
@@ -78,7 +79,7 @@ void CObjFishPlayer::Action()
 
         //キーの入力方向にベクトルの速度を入れる
         //右
-        if (Input::GetVKey(VK_RIGHT) == true)
+        if (Input::GetVKey(VK_RIGHT) == true && m_not_move_time == false)
         {
             if (m_f == true)
             {
@@ -106,7 +107,7 @@ void CObjFishPlayer::Action()
             }
         }
         //左
-        else if (Input::GetVKey(VK_LEFT) == true)
+        else if (Input::GetVKey(VK_LEFT) == true && m_not_move_time == false)
         {
             if (m_f == true)
             {
@@ -174,15 +175,18 @@ void CObjFishPlayer::Action()
         //Renがfalseの時
         else
         {
+
             //右
             if (m_right_move == true)
             {
-                m_vx += 40;
+                m_vx += 1;
                 m_move++;
-                if (m_move == 3)
+                m_not_move_time = true;
+                if (m_move >= 120)
                 {
                     m_move = 0;
                     m_right_move = false;
+                    m_not_move_time = false;
                 }
             }
             //左
@@ -190,10 +194,12 @@ void CObjFishPlayer::Action()
             {
                 m_vx -= 40;
                 m_move++;
-                if (m_move == 3)
+                m_not_move_time = true;
+                if (m_move >= 3)
                 {
                     m_move = 0;
                     m_left_move = false;
+                    m_not_move_time = false;
                 }
             }
         }
