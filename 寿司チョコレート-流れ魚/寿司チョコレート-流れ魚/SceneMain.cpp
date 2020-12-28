@@ -161,7 +161,6 @@ void CSceneMain::InitScene()
 
 	bgm_flag = false;
 	bgm_flag2 = false;
-	cout = 0;
 }
 
 //ゲーム実行中メソッド
@@ -245,12 +244,7 @@ void CSceneMain::Scene()
 			CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
 		}
-		if (cout == 0)
-		{
-			CObjRen* t = new CObjRen(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(t, OBJ_REN, 50);
-			cout++;
-		}
+		
 		//障害物の出現
 		if (m_time % 60 == 0)
 		{

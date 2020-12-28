@@ -26,8 +26,6 @@ private:
 	bool bgm_flag2;//BGM切り替えフラグ2
 	int m_ani_time; //主人公アニメーションタイム用変数
 	int m_ani_frame; //主人公アニメーションフレーム用変数
-
-	int cout;
 };
 
 
