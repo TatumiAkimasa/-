@@ -21,12 +21,14 @@ void CObjSetting::Init()
 	U_flag = true;
 	D_flag = true;
 	setting_pos = 0;
+	//((UserData*)Save::GetData())->start_sp = 5.0f;
+	//((UserData*)Save::GetData())->start_control_mirror = true;
 }
 //アクション
 void CObjSetting::Action()
 {
-	//bkeyでタイトルに戻る
-	if (Input::GetVKey('B') == true)
+	//enterでタイトルに戻る
+	if (Input::GetVKey(VK_RETURN) == true)
 	{
 		Scene::SetScene(new CSceneTitle());
 	}
@@ -147,7 +149,7 @@ void CObjSetting::Draw()
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
-	Font::StrDraw(L"設定", 330, 25, 50, c);
+	Font::StrDraw(L"設定(矢印キーで操作)", 170, 25, 50, c);
 
 	Font::StrDraw(L"初期速度", 80, 100, 50, c);
 	if (setting_pos == 0)
@@ -155,12 +157,22 @@ void CObjSetting::Draw()
 		Font::StrDraw(L"________", 80, 110, 50, c);
 	}
 	
-	swprintf_s(str, L"%0.1f", ((UserData*)Save::GetData())->start_sp);
-	Font::StrDraw(str, 400, 100, 50, c);
+	swprintf_s(str, L"<- %0.1f +>", ((UserData*)Save::GetData())->start_sp);
+	Font::StrDraw(str, 500, 100, 50, c);
 
 	Font::StrDraw(L"操作反転モード", 80, 200, 50, c);
 	if (setting_pos == 1)
 	{
 		Font::StrDraw(L"______________", 80, 210, 50, c);
 	}
+	if (((UserData*)Save::GetData())->start_control_mirror == true)
+	{
+		Font::StrDraw(L"<  OFF  >", 500, 200, 50, c);
+	}
+	else
+	{
+		Font::StrDraw(L"<  ON   >", 500, 200, 50, c);
+	}
+
+	Font::StrDraw(L"エンターキーで戻る", 540, 560, 25, c);
 }

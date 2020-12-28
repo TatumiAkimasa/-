@@ -119,41 +119,90 @@ void CObjFishPlayer::Action()
             //‰E
             if (Input::GetVKey(VK_RIGHT) == true && m_not_move_time == false)
             {
-                if (m_f == true)
+                //‘€ì”½“]ƒ‚[ƒhFOFF
+                if (((UserData*)Save::GetData())->start_control_mirror == true)
                 {
-                    //true‚ÌŽž‘€ì”½“]
-                    if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                    if (m_f == true)
                     {
-                        if (m_f == true)
+                        //true‚ÌŽž‘€ì”½“]
+                        if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                        {
+                            if (m_f == true)
+                            {
+                                m_left_move = true;
+                            }
+                        }
+                        else
+                        {
+                            m_right_move = true;
+                        }
+                    }
+                }
+                //‘€ì”½“]ƒ‚[ƒhFON
+                else
+                {
+                    if (m_f == true)
+                    {
+                        //true‚ÌŽž‘€ì”½“]
+                        if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                        {
+                            if (m_f == true)
+                            {
+                                m_right_move = true;
+                            }
+                        }
+                        else
                         {
                             m_left_move = true;
                         }
-                    }
-                    else
-                    {
-                        m_right_move = true;
                     }
                 }
             }
             //¶
             else if (Input::GetVKey(VK_LEFT) == true && m_not_move_time == false)
             {
-                if (m_f == true)
+                //‘€ì”½“]ƒ‚[ƒhFOFF
+                if (((UserData*)Save::GetData())->start_control_mirror == true)
                 {
-                    //true‚ÌŽž‘€ì”½“]
-                    if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                    if (m_f == true)
                     {
-                        //˜A‘Å‚Ìˆ—
-                        ((UserData*)Save::GetData())->ren--;
+                        //true‚ÌŽž‘€ì”½“]
+                        if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                        {
+                            //˜A‘Å‚Ìˆ—
+                            ((UserData*)Save::GetData())->ren--;
 
-                        if (m_f == true)
+                            if (m_f == true)
+                            {
+                                m_right_move = true;
+                            }
+                        }
+                        else
+                        {
+                            m_left_move = true;
+                        }
+                    }
+                }
+                //‘€ì”½“]ƒ‚[ƒhFON
+                else
+                {
+                    if (m_f == true)
+                    {
+                        //true‚ÌŽž‘€ì”½“]
+                        if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                        {
+                            //˜A‘Å‚Ìˆ—
+                            ((UserData*)Save::GetData())->ren--;
+
+                            if (m_f == true)
+                            {
+                                m_left_move = true;
+                            }
+                        }
+                        else
                         {
                             m_right_move = true;
                         }
-                    }
-                    else
-                    {
-                        m_left_move = true;
                     }
                 }
             }
