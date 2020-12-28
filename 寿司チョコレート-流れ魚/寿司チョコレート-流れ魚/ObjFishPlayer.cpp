@@ -81,21 +81,35 @@ void CObjFishPlayer::Action()
         {
             if (Input::GetVKey(VK_RIGHT) == true)
             {
-                //連打の処理
-                ((UserData*)Save::GetData())->ren--;
-                if (((UserData*)Save::GetData())->ren <= 0)
+                if (m_f == true)
                 {
-                    ((UserData*)Save::GetData())->Ren_flag = false;
+                    //連打の処理
+                    if(m_f==true)
+                    ((UserData*)Save::GetData())->ren--;
+
+                    if (((UserData*)Save::GetData())->ren <= 0)
+                    {
+                        ((UserData*)Save::GetData())->Ren_flag = false;
+                    }
+                    m_f = false;
                 }
             }
             //左
             else if (Input::GetVKey(VK_LEFT) == true)
             {
-                ((UserData*)Save::GetData())->ren--;
+                //連打の処理
+                if (m_f == true)
+                    ((UserData*)Save::GetData())->ren--;
+
                 if (((UserData*)Save::GetData())->ren <= 0)
                 {
                     ((UserData*)Save::GetData())->Ren_flag = false;
                 }
+                m_f = false;
+            }
+            else
+            {
+                m_f = true;
             }
         }
         else
@@ -109,19 +123,14 @@ void CObjFishPlayer::Action()
                     //trueの時操作反転
                     if (((UserData*)Save::GetData())->key_flag_mirror == true)
                     {
-                        //連打の処理
-                        ((UserData*)Save::GetData())->ren--;
-
                         if (m_f == true)
                         {
                             m_left_move = true;
-
                         }
                     }
                     else
                     {
                         m_right_move = true;
-                        m_f = false;
                     }
                 }
             }
@@ -139,7 +148,6 @@ void CObjFishPlayer::Action()
                         if (m_f == true)
                         {
                             m_right_move = true;
-                            m_f = false;
                         }
                     }
                     else
