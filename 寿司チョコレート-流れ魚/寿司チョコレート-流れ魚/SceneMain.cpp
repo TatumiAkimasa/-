@@ -171,7 +171,7 @@ void CSceneMain::Scene()
 	//—‰º‚Ì‰Šú‰»
 	if (t == 0)
 	{
-		((UserData*)Save::GetData())->sp = 5.0f;
+		((UserData*)Save::GetData())->sp = ((UserData*)Save::GetData())->start_sp;
 		t++;
 	}
 

@@ -113,6 +113,12 @@ void CObjTitle::Action()
 		D_flag = true;
 	}
 
+	//SƒL[‚Åİ’è—“‚ÉˆÚ“®
+	if (Input::GetVKey('S') == true)
+	{
+		Scene::SetScene(new CSceneSetting());
+	}
+
 	if (num > 5)
 	{
 		num = 5;

@@ -15,5 +15,9 @@ public:
 	void Action();
 	void Draw();
 private:
-
+	bool R_flag;//キーフラグ(右）
+	bool L_flag;//キーフラグ（左）
+	bool U_flag;//キーフラグ(右）
+	bool D_flag;//キーフラグ（左）
+	int setting_pos;//自分が設定したい欄への移動
 };
