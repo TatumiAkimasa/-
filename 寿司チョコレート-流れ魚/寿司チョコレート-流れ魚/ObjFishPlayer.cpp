@@ -179,10 +179,10 @@ void CObjFishPlayer::Action()
             //‰E
             if (m_right_move == true)
             {
-                m_vx += 1;
+                m_vx += 40;
                 m_move++;
                 m_not_move_time = true;
-                if (m_move >= 120)
+                if (m_move >= 3)
                 {
                     m_move = 0;
                     m_right_move = false;
