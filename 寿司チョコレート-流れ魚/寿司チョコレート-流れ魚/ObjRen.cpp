@@ -53,6 +53,7 @@ void CObjRen::Action()
 		//Ren_flag‚ğtrue
 		((UserData*)Save::GetData())->Ren_flag = true;
 
+	
 		//ren‚É4‚ğ‘ã“ü
 		((UserData*)Save::GetData())->ren = 4;
 	}
