@@ -77,130 +77,109 @@ void CObjFishPlayer::Action()
             m_ani_frame = 0;
         }
 
-        //キーの入力方向にベクトルの速度を入れる
-        //右
-        if (Input::GetVKey(VK_RIGHT) == true && m_not_move_time == false)
+        if (((UserData*)Save::GetData())->Ren_flag == true)
         {
-            if (m_f == true)
+            if (Input::GetVKey(VK_RIGHT) == true)
             {
-                //trueの時操作反転
-                if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                //連打の処理
+                ((UserData*)Save::GetData())->ren--;
+                if (((UserData*)Save::GetData())->ren <= 0)
                 {
-                    //連打の処理
-                    ((UserData*)Save::GetData())->ren--;
-
-                    if (m_f == true)
-                    {
-                        m_left_move = true;
-                        m_f = false;
-
-                    }
+                    ((UserData*)Save::GetData())->Ren_flag = false;
                 }
-                else
+            }
+            //左
+            else if (Input::GetVKey(VK_LEFT) == true)
+            {
+                ((UserData*)Save::GetData())->ren--;
+                if (((UserData*)Save::GetData())->ren <= 0)
                 {
-                    //連打の処理
-                    ((UserData*)Save::GetData())->ren--;
-
-                    m_right_move = true;
-                    m_f = false;
+                    ((UserData*)Save::GetData())->Ren_flag = false;
                 }
             }
         }
-        //左
-        else if (Input::GetVKey(VK_LEFT) == true && m_not_move_time == false)
+        else
         {
-            if (m_f == true)
+            //キーの入力方向にベクトルの速度を入れる
+            //右
+            if (Input::GetVKey(VK_RIGHT) == true && m_not_move_time == false)
             {
-                //trueの時操作反転
-                if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                if (m_f == true)
                 {
-                    //連打の処理
-                    ((UserData*)Save::GetData())->ren--;
+                    //trueの時操作反転
+                    if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                    {
+                        //連打の処理
+                        ((UserData*)Save::GetData())->ren--;
 
-                    if (m_f == true)
+                        if (m_f == true)
+                        {
+                            m_left_move = true;
+
+                        }
+                    }
+                    else
                     {
                         m_right_move = true;
                         m_f = false;
                     }
                 }
-                else
-                {
-                    //連打の処理
-                    ((UserData*)Save::GetData())->ren--;
-
-                    m_left_move = true;
-                    m_f = false;
-                }
             }
-        }
-        else
-        {
-            m_f = true;
-        }
-
-        //ベクトルを挿入
-        //Renがtrueの時
-        if (((UserData*)Save::GetData())->Ren_flag == true)
-        {
-            if (((UserData*)Save::GetData())->ren > 0)
+            //左
+            else if (Input::GetVKey(VK_LEFT) == true && m_not_move_time == false)
             {
-                //右
-                if (m_right_move == true)
+                if (m_f == true)
                 {
-                    m_vx = 0;
-                    m_move++;
-                    if (m_move == 3)
+                    //trueの時操作反転
+                    if (((UserData*)Save::GetData())->key_flag_mirror == true)
                     {
-                        m_move = 0;
-                        m_right_move = false;
+                        //連打の処理
+                        ((UserData*)Save::GetData())->ren--;
+
+                        if (m_f == true)
+                        {
+                            m_right_move = true;
+                            m_f = false;
+                        }
                     }
-                }
-                //左
-                if (m_left_move == true)
-                {  
-                    m_vx = 0;
-                    m_move++;
-                    if (m_move == 3)
+                    else
                     {
-                        m_move = 0;
-                        m_left_move = false;
+                        m_left_move = true;
                     }
                 }
             }
             else
             {
-                ((UserData*)Save::GetData())->Ren_flag = false;
+                m_f = true;
             }
         }
-        //Renがfalseの時
-        else
+        //ベクトルを挿入
+        //右
+        if (m_right_move == true)
         {
-
-            //右
-            if (m_right_move == true)
+            m_vx += 40;
+            m_move++;
+            m_not_move_time = true;
+            m_f = false;
+            if (m_move >= 3)
             {
-                m_vx += 40;
-                m_move++;
-                m_not_move_time = true;
-                if (m_move >= 3)
-                {
-                    m_move = 0;
-                    m_right_move = false;
-                    m_not_move_time = false;
-                }
+                m_move = 0;
+                m_right_move = false;
+                m_not_move_time = false;
             }
-            //左
-            if (m_left_move == true)
+        }
+        //左
+        if (m_left_move == true)
+        {
+            m_vx -= 40;
+            m_move++;
+            m_not_move_time = true;
+            m_f = false;
+            if (m_move >= 3)
             {
-                m_vx -= 40;
-                m_move++;
-                m_not_move_time = true;
-                if (m_move >= 3)
-                {
-                    m_move = 0;
-                    m_left_move = false;
-                    m_not_move_time = false;
-                }
+                m_move = 0;
+                m_left_move = false;
+                m_not_move_time = false;
             }
         }
 
