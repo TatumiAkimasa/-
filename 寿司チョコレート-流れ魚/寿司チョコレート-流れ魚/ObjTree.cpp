@@ -16,13 +16,6 @@ CObjTree::CObjTree(float x, float y)
 	m_y = y;
 }
 
-//イニシャライズ
-void CObjTree::Init()
-{
-	m_x = 800;
-	m_vx = -450.0f;
-}
-
 //アクション
 void CObjTree::Action()
 {
@@ -48,9 +41,11 @@ void CObjTree::Draw()
 	src.m_right = 1024.0f;
 	src.m_bottom = 510.0f;
 
+	//上450　真ん中　下
+
 	dst.m_top = 0.0f + m_y;
-	dst.m_left = 0.0f + m_x + m_vx;
-	dst.m_right = 1000.0f + m_x + m_vx;
+	dst.m_left = 0.0f + m_x;
+	dst.m_right = 1000.0f + m_x;
 	dst.m_bottom = 450.0f + m_y;
 
 	//木を出現させる処理
@@ -78,5 +73,7 @@ void CObjTree::Draw()
 		}
 	}
 	
+	((UserData*)Save::GetData())->Tree_flag = false;
+
 	Draw::Draw(18, &src, &dst, c, r);
 }
