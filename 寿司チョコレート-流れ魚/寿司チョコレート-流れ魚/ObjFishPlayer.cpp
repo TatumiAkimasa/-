@@ -378,15 +378,15 @@ void CObjFishPlayer::Draw()
     RECT_F src;//•`ŽÊŒ³‚ÌØ‚èŽæ‚èˆÊ’u
     RECT_F dst;//•`‰ææ‚Ì•\Ž¦ˆÊ’u
 
-    dst.m_top = -122.0f + m_py;
-    dst.m_left = -64.9f + m_px;
-    dst.m_right = 192.0f + dst.m_left;
-    dst.m_bottom = 384.0f + dst.m_top;
+    dst.m_top = -27.0f + m_py;
+    dst.m_left = -62.5f + m_px;
+    dst.m_right = 182.0f + dst.m_left;
+    dst.m_bottom = 216.0f + dst.m_top;
 
-    src.m_top = -224.0f;
-    src.m_left = 0.0f + (AniData[m_ani_frame] - 1) * 828;
-    src.m_right = 828.0f * AniData[m_ani_frame];
-    src.m_bottom = 1588.0f;
+    src.m_top = 0.0f;
+    src.m_left = 0.0f + (AniData[m_ani_frame] - 1) * 207;
+    src.m_right = 207.0f * AniData[m_ani_frame];
+    src.m_bottom = 224.0f;
     
     if (((UserData*)Save::GetData())->life_point > 0)
     {
