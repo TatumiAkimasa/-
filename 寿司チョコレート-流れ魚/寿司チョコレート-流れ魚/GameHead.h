@@ -26,10 +26,12 @@ enum OBJ_NAME
 	OBJ_1000ENN,
 	OBJ_10000ENN,
 	OBJ_BAD_LIFE,
+	OBJ_ARMOR,
+	OBJ_REN,
 	OBJ_RANKING,
 	OBJ_TATAMI,
 	OBJ_ACHIEVEMENT,
-
+	OBJ_SETTING,
 };
 //------------------------------------------------
 
@@ -54,6 +56,8 @@ enum HIT_ELEMENTS
 	ELEMENT_MIRROR,
 	ELEMENT_TREEITEM,
 	ELEMENT_TREE,
+	ELEMENT_ARMOR,
+	ELEMENT_REN,
 };
 //------------------------------------------------
 
@@ -72,9 +76,13 @@ struct UserData
 	int Tree_time = 0;		//木の表示時間用変数
 	bool Tree_said;			//木の表示用フラグ
 	bool key_flag_mirror;	//操作反転用フラグ
+	bool Armor_flag;		//Aromr用フラグ
+	bool Ren_flag;			//連打用フラグ
+	int ren;				//連打用変数
 	int Ranking[11];        //ランキングの表示用変数
-	bool Achievement_flag[29];//実績が解放されているかのフラグ
-
+	bool Achievement_flag[30];//実績が解放されているかのフラグ
+	int max_time;           //速度が20の時カウントが始まる
+	int m_max_time = 0;      //max_timeの記憶用変数
 };
 //------------------------------------------------
 
@@ -86,7 +94,7 @@ enum FLOW_OBJ_ID
 	FLOW1,//
 	FLOW2,//
 	FLOW3,//
-	
+	FLOW4,
 
 };
 //------------------------------------------------
@@ -118,9 +126,12 @@ enum FLOW_OBJ_ID
 #include "Obj1000enn.h"
 #include "Obj10000enn.h"
 #include "Objbadlife.h"
+#include "ObjArmor.h"
+#include "ObjRen.h"
 #include "ObjRanking.h"
 #include "ObjTatami.h"
 #include "ObjAchievement.h"
+#include "ObjSetting.h"
 
 //------------------------------------------------
 
@@ -130,6 +141,7 @@ enum FLOW_OBJ_ID
 #include "SceneResult.h"
 #include "SceneRanking.h"
 #include "SceneAchievement.h"
+#include "SceneSetting.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------

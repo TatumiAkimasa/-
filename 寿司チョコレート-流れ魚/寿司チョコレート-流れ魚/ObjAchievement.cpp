@@ -17,7 +17,7 @@ using namespace GameL;
 void CObjAchievement::Init()
 {
 	//実績解放用フラグの初期化
-	for (int i = 0; i < 29; i++)
+	for (int i = 0; i < 30; i++)
 	{
 		if (((UserData*)Save::GetData())->Achievement_flag[i] == true)
 		{
@@ -28,12 +28,12 @@ void CObjAchievement::Init()
 			((UserData*)Save::GetData())->Achievement_flag[i] = false;
 		}
 	}
-	/*for (int i = 0; i < 29; i++)
+	/*for (int i = 0; i < 30; i++)
 	{
 		((UserData*)Save::GetData())->Achievement_flag[i] = true;
 		
 	}*/
-	/*for (int i = 0; i < 29; i++)
+	/*for (int i = 0; i < 30; i++)
 	{
 		((UserData*)Save::GetData())->Achievement_flag[i] = false;
 
@@ -57,7 +57,7 @@ void CObjAchievement::Draw()
 	float b[4] = { 0.3f,0.3f,2.5f,1.0f };
 
 	Font::StrDraw(L"実績", 340, 25, 50, r);
-	Font::StrDraw(L"上ボタンでランキングに戻る", 555, 550, 17, r);
+	Font::StrDraw(L"上ボタンでランキングに戻る", 25, 550, 17, r);
 
 	//0
 	if (((UserData*)Save::GetData())->Achievement_flag[0] == true)
@@ -314,10 +314,23 @@ void CObjAchievement::Draw()
 	//1000000～
 	if (((UserData*)Save::GetData())->Achievement_flag[28] == true)
 	{
-		Font::StrDraw(L"29チートが検出されました", ACHIEVEMENT_POS_R, 490, ACHIEVEMENT_SIZE, b);
+		Font::StrDraw(L"29.チートが検出されました", ACHIEVEMENT_POS_R, 490, ACHIEVEMENT_SIZE, b);
 	}
 	else
 	{
 		Font::StrDraw(L"29.1000000魚力", ACHIEVEMENT_POS_R, 490, ACHIEVEMENT_SIZE, c);
 	}
+	//速度20かつ10秒以上耐久
+	if (((UserData*)Save::GetData())->Achievement_flag[29] == true)
+	{
+		if (((UserData*)Save::GetData())->m_max_time < ((UserData*)Save::GetData())->max_time)
+			((UserData*)Save::GetData())->m_max_time = ((UserData*)Save::GetData())->max_time;
+		swprintf_s(str, L"30.逆ら魚: %d秒", ((UserData*)Save::GetData())->m_max_time / 60);
+		Font::StrDraw(str, ACHIEVEMENT_POS_R, 520, ACHIEVEMENT_SIZE, b);
+	}
+	else
+	{
+		Font::StrDraw(L"30.???????????", ACHIEVEMENT_POS_R, 520, ACHIEVEMENT_SIZE, c);
+	}
+
 }

@@ -93,21 +93,18 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み19番に登録(☆)
 	Draw::LoadImage(L"hosi.png", 19, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み20番に登録
-	Draw::LoadImage(L"ピヨコ_お尻.png", 20, TEX_SIZE_512);
+	//外部グラフィックファイルを読み込み20番に登録(Armor)
+	
 
-	//外部グラフィックファイルを読み込み21番に登録
-	Draw::LoadImage(L"ピヨコ_正面.png", 20, TEX_SIZE_512);
+	//外部グラフィックファイルを読み込み20番に登録(Ren)
 
-	//外部グラフィックファイルを読み込み22番に登録
-	Draw::LoadImage(L"ピヨコ_真横.png", 20, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
 	Audio::LoadAudio(1, L"シーンBGM2(仮)修正.wav", SOUND_TYPE::BACK_MUSIC);
 
-	Audio::LoadAudio(2, L"シーンBGM(仮)スピードup.wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(2, L"シーンBGM第二段階.wav", SOUND_TYPE::BACK_MUSIC);
 
 	Audio::LoadAudio(3, L"上昇.wav", SOUND_TYPE::EFFECT);
 
@@ -129,7 +126,7 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(12, L"隠し3.wav", SOUND_TYPE::EFFECT);
 
-	Audio::LoadAudio(13, L"シーンBGM第二段階.wav", SOUND_TYPE::BACK_MUSIC);
+	
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
 	Audio::Start(0);//音楽スタート
@@ -174,8 +171,7 @@ void CSceneMain::Scene()
 
 	//障害物が落ちてくる確率
 	//通常障害物 50/全体　ギミック 1/全体
-	int x = rand() % 61;
-	
+	int x = rand() % 63;
 
 	//落下の初期化
 	if (t == 0)
@@ -204,12 +200,12 @@ void CSceneMain::Scene()
 	{
 		Audio::Start(3);
 		Audio::Stop(1);
-		Audio::Start(13);
+		Audio::Start(2);
 		bgm_flag2 = true;
 	}
 	if (((UserData*)Save::GetData())->sp < 15.0f && bgm_flag2 == true)
 	{
-		Audio::Stop(13);
+		Audio::Stop(2);
 		Audio::Start(1);
 		bgm_flag2 = false;
 	}
@@ -221,6 +217,10 @@ void CSceneMain::Scene()
 		{
 			((UserData*)Save::GetData())->sp -= 1.0f;
 			((UserData*)Save::GetData())->sp_lv += 1;
+		}
+		else
+		{
+			((UserData*)Save::GetData())->sp = 5.0f;
 		}
 	}
 
@@ -548,10 +548,71 @@ void CSceneMain::Scene()
 			//木
 			if (((UserData*)Save::GetData())->Tree_flag == true)
 			{
-				CObjTree* t = new CObjTree(380, -120);
-				Objs::InsertObj(t, OBJ_TREE, 50);
+				int x = rand() % 3;
+
+				if (x == 0)
+				{
+					CObjTree* t = new CObjTree(350, -100);
+					Objs::InsertObj(t, OBJ_TREE, 50);
+				}
+				else if (x == 1)
+				{
+					CObjTree* t = new CObjTree(350, 20);
+					Objs::InsertObj(t, OBJ_TREE, 50);
+				}
+				else if (x == 2)
+				{
+					CObjTree* t = new CObjTree(350, 250);
+					Objs::InsertObj(t, OBJ_TREE, 50);
+				}
 
 				((UserData*)Save::GetData())->Tree_flag = false;
+			}
+			//Armorアイテム
+			else if (x == 61)
+			{
+				x = rand() % 3;
+
+				if (x == 0)
+				{
+					CObjArmor* t = new CObjArmor(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_ARMOR, 50);
+				}
+				else if (x == 1)
+				{
+					CObjArmor* t = new CObjArmor(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_ARMOR, 50);
+				}
+				else if (x == 2)
+				{
+					CObjArmor* t = new CObjArmor(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_ARMOR, 50);
+				}
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			//Ren
+			else if (x == 62)
+			{
+				x = rand() % 3;
+
+				if (x == 0)
+				{
+					CObjRen* t = new CObjRen(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_REN, 50);
+				}
+				else if (x == 1)
+				{
+					CObjRen* t = new CObjRen(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_REN, 50);
+				}
+				else if (x == 2)
+				{
+					CObjRen* t = new CObjRen(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_REN, 50);
+				}
+
+				((UserData*)Save::GetData())->sp_lv++;
 			}
 
 			//落下加速

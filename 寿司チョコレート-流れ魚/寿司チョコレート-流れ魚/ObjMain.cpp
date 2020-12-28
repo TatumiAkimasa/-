@@ -35,7 +35,7 @@ void CObjMain::Init()
 	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
 	((UserData*)Save::GetData())->life_point = 3;//セーブ用life_point初期化
 	((UserData*)Save::GetData())->key_flag_mirror = false;//
-	
+	((UserData*)Save::GetData())->max_time = 0;//実績用のタイムの初期化
 }
 
 //アクション
@@ -45,8 +45,8 @@ void CObjMain::Action()
 	CObjFishPlayer* obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
 
 	//フラグ受け渡し
-	if(obj!=nullptr)
-	heel_flag = obj->heel_flag();
+	if (obj != nullptr)
+		heel_flag = obj->heel_flag();
 
 	//乱数複雑化
 	rand(); rand(); rand(); rand(); rand();
@@ -56,7 +56,7 @@ void CObjMain::Action()
 		life_flag = true;
 	else
 		life_flag = false;
-	
+
 	//コメントを瞬時に一度だけ切り替え
 	if (((UserData*)Save::GetData())->key_flag_mirror == true)
 	{
@@ -65,13 +65,13 @@ void CObjMain::Action()
 		come_flag = false;
 		mirrior_flag = true;
 	}
-	else if (((UserData*)Save::GetData())->Tree_flag==true)
+	else if (((UserData*)Save::GetData())->Tree_flag == true)
 	{
 		//目隠し（2番目）
 		random = 11;
 		come_flag = false;
 	}
-	else if (((UserData*)Save::GetData())->life_point==life-1 && life_flag == true)
+	else if (((UserData*)Save::GetData())->life_point == life - 1 && life_flag == true)
 	{
 		//全て三番目優先
 		//ライフが1なら
@@ -84,12 +84,12 @@ void CObjMain::Action()
 			random = 7;
 		//if(((UserData*)Save::GetData())->save_s_time % 5 == 0)
 		//ライフ更新
-			life = ((UserData*)Save::GetData())->life_point;
+		life = ((UserData*)Save::GetData())->life_point;
 
 		come_flag = false;
 	}
 	//回復フラグで判断
-	else if (heel_flag==true)
+	else if (heel_flag == true)
 	{
 		//回復コメント（優先四番目）
 		random = 6;
@@ -104,7 +104,7 @@ void CObjMain::Action()
 		come_flag = false;
 	}
 	//spが10～11の時
-	else if (((UserData*)Save::GetData())->sp>10&& ((UserData*)Save::GetData())->sp<11)
+	else if (((UserData*)Save::GetData())->sp > 10 && ((UserData*)Save::GetData())->sp < 11)
 	{
 		//なんか言う（優先六番目）
 		random = 4;
@@ -124,13 +124,14 @@ void CObjMain::Action()
 		mirrior_flag = false;
 	}
 	//日常会話
-	else if (((UserData*)Save::GetData())->save_s_time % 20 == 0 )
+	else if (((UserData*)Save::GetData())->save_s_time % 20 == 0)
 	{
 		//基本、すべて上が反映もし、何もなければ20秒ごとにセリフが変わる。
 		if (come_flag == true)
 		{
 			//３パターン
-			random = rand() % 3;
+			random = (rand() % 8)-5;
+			//random = -5;
 			come_flag = false;
 		}
 	}
@@ -160,13 +161,19 @@ void CObjMain::Action()
 			((UserData*)Save::GetData())->save_m_time++;
 			((UserData*)Save::GetData())->save_s_time = 0;
 		}
+	}
 
-		if (((UserData*)Save::GetData())->sp == 20.0)
+	if (((UserData*)Save::GetData())->sp >= 19.0)
+	{
+		//int i = 0;
+		((UserData*)Save::GetData())->max_time++;
+		if (((UserData*)Save::GetData())->max_time >= 600)
 		{
-			int i = 0;
+			((UserData*)Save::GetData())->Achievement_flag[29] = true;
 		}
 	}
 	
+
 }
 
 //ドロー
@@ -216,6 +223,47 @@ void CObjMain::Draw()
 
 	//コメントの表示
 	float k[4] = { 0.1f,0.1f,0.1f,1.0f };
+	if (random == -5)
+	{
+	swprintf_s(str, L"世界最小の魚は");
+	Font::StrDraw(str, 60, 430, 30, k);
+	swprintf_s(str, L"ドワーフフェアリー");
+	Font::StrDraw(str, 15, 470, 30, k);
+	swprintf_s(str, L"ミノーだよ");
+	Font::StrDraw(str, 70, 510, 30, k);
+	}
+	if (random == -4)
+	{
+	swprintf_s(str, L"ハリセンボン");
+	Font::StrDraw(str, 60, 430, 30, k);
+	swprintf_s(str, L"実は、針は");
+	Font::StrDraw(str, 50, 470, 30, k);
+	swprintf_s(str, L"400本くらい");
+	Font::StrDraw(str, 50, 510, 30, k);
+	}
+	if (random == -3)
+	{
+	    swprintf_s(str, L"ドイツでは");
+	    Font::StrDraw(str, 60, 430, 30, k);
+	    swprintf_s(str, L"釣りに免許が");
+	    Font::StrDraw(str, 60, 470, 30, k);
+		swprintf_s(str, L"いるらしいよ");
+		Font::StrDraw(str, 60, 510, 30, k);
+	}
+	if (random == -2)
+	{
+		swprintf_s(str, L"サーモンは");
+		Font::StrDraw(str, 80, 430, 30, k);
+		swprintf_s(str, L"白身魚だよ");
+		Font::StrDraw(str, 80, 470, 30, k);
+	}
+	if (random == -1)
+	{
+		swprintf_s(str, L"トビウオって最大");
+		Font::StrDraw(str, 33, 430, 30, k);
+		swprintf_s(str, L"400m飛ぶらしいよ！");
+		Font::StrDraw(str, 25, 470, 30, k);
+	}
 	if (random == 0)
 	{
 		swprintf_s(str, L"さぁ、魚力を");
@@ -223,21 +271,21 @@ void CObjMain::Draw()
 		swprintf_s(str, L"上げよう！");
 		Font::StrDraw(str, 60, 470, 30, k);
 	}
-	else if (random == 1)
+	if (random == 1)
 	{
 		swprintf_s(str, L"知ってる？");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"僕って金魚なんだ！");
 		Font::StrDraw(str, 25, 470, 30, k);
 	}
-	else if (random == 2)
+	if (random == 2)
 	{
 		swprintf_s(str, L"因みに今泳いで");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"いるところは流し");
-		Font::StrDraw(str, 25, 470, 30, k);
+		Font::StrDraw(str, 30, 470, 30, k);
 		swprintf_s(str, L"そうめん台だよ");
-		Font::StrDraw(str, 25, 510, 30, k);
+		Font::StrDraw(str, 30, 510, 30, k);
 	}
 	else if (random == 3)
 	{
@@ -249,16 +297,16 @@ void CObjMain::Draw()
 	else if (random == 4)
 	{
 		swprintf_s(str, L"肩慣らしは完了!");
-		Font::StrDraw(str, 60, 430, 30, k);
-		swprintf_s(str, L"どんどん行こう！");
-		Font::StrDraw(str, 25, 470, 30, k);
+		Font::StrDraw(str, 55, 430, 30, k);
+		swprintf_s(str, L"どんどん行こう!");
+		Font::StrDraw(str, 55, 470, 30, k);
 	}
 	else if (random == 5)
 	{
 		swprintf_s(str, L"僕の魚力が");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"みなぎってる！");
-		Font::StrDraw(str, 25, 470, 30, k);
+		Font::StrDraw(str, 60, 470, 30, k);
 		swprintf_s(str, L"どんどん行こう！");
 		Font::StrDraw(str, 25, 510, 30, k);
 	}
@@ -295,7 +343,7 @@ void CObjMain::Draw()
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"操作反転中！");
-		Font::StrDraw(str, 80, 470, 30, k);
+		Font::StrDraw(str, 70, 470, 30, k);
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 25, 510, 30, k);
 	}
@@ -304,7 +352,7 @@ void CObjMain::Draw()
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"前が見えない！？");
-		Font::StrDraw(str, 30, 470, 30, k);
+		Font::StrDraw(str, 40, 470, 30, k);
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 25, 510, 30, k);
 	}
@@ -314,7 +362,7 @@ void CObjMain::Draw()
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"操作反転終了！");
-		Font::StrDraw(str, 75, 470, 30, k);
+		Font::StrDraw(str, 55, 470, 30, k);
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 25, 510, 30, k);
 	}

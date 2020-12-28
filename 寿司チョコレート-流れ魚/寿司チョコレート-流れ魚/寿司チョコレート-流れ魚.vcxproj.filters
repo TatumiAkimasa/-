@@ -34,6 +34,9 @@
     <Filter Include="ソース ファイル\金魚処理系">
       <UniqueIdentifier>{1515bb7c-0dc5-441e-adff-f222dd34d9ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\シーン設定">
+      <UniqueIdentifier>{01b2fa88-19cd-4a07-950c-2d47e38f3ce4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -160,7 +163,22 @@
       <Filter>ソース ファイル\金魚処理系</Filter>
     </ClCompile>
     <ClCompile Include="ObjTatami.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneSetting.cpp">
+      <Filter>ソース ファイル\シーン設定</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjSetting.cpp">
+      <Filter>ソース ファイル\シーン設定</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjArmor.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTatami.cpp">
+      <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjRen.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -293,11 +311,17 @@
     <ClInclude Include="ObjDriftFish.h">
       <Filter>ソース ファイル\金魚処理系</Filter>
     </ClInclude>
-    <ClInclude Include="ObjPiyokoFish.h">
-      <Filter>ソース ファイル\金魚処理系</Filter>
+    <ClInclude Include="SceneSetting.h">
+      <Filter>ソース ファイル\シーン設定</Filter>
     </ClInclude>
-    <ClInclude Include="ObjPitokoFish.cpp">
-      <Filter>ソース ファイル\金魚処理系</Filter>
+    <ClInclude Include="ObjSetting.h">
+      <Filter>ソース ファイル\シーン設定</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjArmor.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjRen.h">
+      <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

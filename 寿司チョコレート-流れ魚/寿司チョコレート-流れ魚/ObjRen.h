@@ -4,16 +4,17 @@
 //使用するネームスペース
 using namespace GameL;
 
-//オブジェクト：木
-class CObjTree : public CObj
+//オブジェクト：Ren
+class CObjRen : public CObj
 {
 public:
-	CObjTree(float x, float y);
-	~CObjTree() {};
-	void Init() {};		//イニシャライズ
+	CObjRen(float x, float y, float s);
+	~CObjRen() {};
+	void Init();		//イニシャライズ
 	void Action();		//アクション
 	void Draw();		//ドロー
 private:
-	float m_x;			//木の位置
+	float m_x;			//Renの位置
 	float m_y;
+	float m_vy;			//Renの落下
 };
