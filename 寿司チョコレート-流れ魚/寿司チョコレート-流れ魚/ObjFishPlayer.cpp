@@ -53,6 +53,9 @@ void CObjFishPlayer::Action()
     
     float x = rand() % 122;
 
+    //HitBoxの内容を更新
+    CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
+    hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
     
     m_ani_time++;
 
@@ -70,6 +73,7 @@ void CObjFishPlayer::Action()
         }
 
         //キーの入力方向にベクトルの速度を入れる
+        //右
         if (Input::GetVKey(VK_RIGHT) == true)
         {
             if (m_f == true)
@@ -77,6 +81,9 @@ void CObjFishPlayer::Action()
                 //trueの時操作反転
                 if (((UserData*)Save::GetData())->key_flag_mirror == true)
                 {
+                    //連打の処理
+                    ((UserData*)Save::GetData())->ren--;
+
                     if (m_f == true)
                     {
                         m_left_move = true;
@@ -86,11 +93,15 @@ void CObjFishPlayer::Action()
                 }
                 else
                 {
+                    //連打の処理
+                    ((UserData*)Save::GetData())->ren--;
+
                     m_right_move = true;
                     m_f = false;
                 }
             }
         }
+        //左
         else if (Input::GetVKey(VK_LEFT) == true)
         {
             if (m_f == true)
@@ -98,6 +109,9 @@ void CObjFishPlayer::Action()
                 //trueの時操作反転
                 if (((UserData*)Save::GetData())->key_flag_mirror == true)
                 {
+                    //連打の処理
+                    ((UserData*)Save::GetData())->ren--;
+
                     if (m_f == true)
                     {
                         m_right_move = true;
@@ -106,6 +120,9 @@ void CObjFishPlayer::Action()
                 }
                 else
                 {
+                    //連打の処理
+                    ((UserData*)Save::GetData())->ren--;
+
                     m_left_move = true;
                     m_f = false;
                 }
@@ -116,25 +133,64 @@ void CObjFishPlayer::Action()
             m_f = true;
         }
 
-        if (m_right_move == true)
+        //ベクトルを挿入
+        //Renがtrueの時
+        if (((UserData*)Save::GetData())->Ren_flag == true)
         {
-            m_vx += 40;
-            m_move++;
-            if (m_move == 3)
+            if (((UserData*)Save::GetData())->ren > 0)
             {
-                m_move = 0;
-                m_right_move = false;
+                //右
+                if (m_right_move == true)
+                {
+                    m_vx = 0;
+                    m_move++;
+                    if (m_move == 3)
+                    {
+                        m_move = 0;
+                        m_right_move = false;
+                    }
+                }
+                //左
+                if (m_left_move == true)
+                {  
+                    m_vx = 0;
+                    m_move++;
+                    if (m_move == 3)
+                    {
+                        m_move = 0;
+                        m_left_move = false;
+                    }
+                }
+            }
+            else
+            {
+                ((UserData*)Save::GetData())->Ren_flag = false;
             }
         }
-
-        if (m_left_move == true)
+        //Renがfalseの時
+        else
         {
-            m_vx -= 40;
-            m_move++;
-            if (m_move == 3)
+            //右
+            if (m_right_move == true)
             {
-                m_move = 0;
-                m_left_move = false;
+                m_vx += 40;
+                m_move++;
+                if (m_move == 3)
+                {
+                    m_move = 0;
+                    m_right_move = false;
+                }
+            }
+            //左
+            if (m_left_move == true)
+            {
+                m_vx -= 40;
+                m_move++;
+                if (m_move == 3)
+                {
+                    m_move = 0;
+                    m_left_move = false;
+                }
             }
         }
 
@@ -213,10 +269,6 @@ void CObjFishPlayer::Action()
         }
     }
 
-    //HitBoxの内容を更新
-   CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
-   hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
-
     //回復アイテムと接触したら回復＆削除
     if (hit->CheckElementHit(ELEMENT_HEAL) == true)
     {
@@ -236,11 +288,21 @@ void CObjFishPlayer::Action()
     //障害物オブジェクトと接触したら削除
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true && m_damage == false)
     {
-        ((UserData*)Save::GetData())->life_point--;
-        ((UserData*)Save::GetData())->sp_lv = 0;
-        m_damage = true;
+        //Armorフラグがtrueの時
+        if (((UserData*)Save::GetData())->Armor_flag == true)
+        {
+            //ダメージ判定はなし、フラグのみ変更
+            ((UserData*)Save::GetData())->Armor_flag = false;
+        }
+        //Armorフラグがfalseの時
+        else
+        {
+            ((UserData*)Save::GetData())->life_point--;
+            ((UserData*)Save::GetData())->sp_lv = 0;
+            m_damage = true;
 
-        Audio::Start(4);
+            Audio::Start(4);
+        }
     }
 
     //画面外に出たらHitBoxを削除

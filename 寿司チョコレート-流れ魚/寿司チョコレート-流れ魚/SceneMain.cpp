@@ -93,6 +93,12 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み19番に登録(もう一匹の金魚)
 	Draw::LoadImage(L"hosi.png", 19, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み20番に登録(Armor)
+	
+
+	//外部グラフィックファイルを読み込み20番に登録(Ren)
+
+
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
@@ -165,8 +171,7 @@ void CSceneMain::Scene()
 
 	//障害物が落ちてくる確率
 	//通常障害物 50/全体　ギミック 1/全体
-	//int x = rand() % 61;
-	int x = 60;
+	int x = rand() % 63;
 
 	//落下の初期化
 	if (t == 0)
@@ -562,6 +567,52 @@ void CSceneMain::Scene()
 				}
 
 				((UserData*)Save::GetData())->Tree_flag = false;
+			}
+			//Armorアイテム
+			else if (x == 61)
+			{
+				x = rand() % 3;
+
+				if (x == 0)
+				{
+					CObjArmor* t = new CObjArmor(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_ARMOR, 50);
+				}
+				else if (x == 1)
+				{
+					CObjArmor* t = new CObjArmor(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_ARMOR, 50);
+				}
+				else if (x == 2)
+				{
+					CObjArmor* t = new CObjArmor(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_ARMOR, 50);
+				}
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			//Ren
+			else if (x == 62)
+			{
+				x = rand() % 3;
+
+				if (x == 0)
+				{
+					CObjRen* t = new CObjRen(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_REN, 50);
+				}
+				else if (x == 1)
+				{
+					CObjRen* t = new CObjRen(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_REN, 50);
+				}
+				else if (x == 2)
+				{
+					CObjRen* t = new CObjRen(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_REN, 50);
+				}
+
+				((UserData*)Save::GetData())->sp_lv++;
 			}
 
 			//落下加速

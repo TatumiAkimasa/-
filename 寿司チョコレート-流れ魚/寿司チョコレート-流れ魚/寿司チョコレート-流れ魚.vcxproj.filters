@@ -163,9 +163,6 @@
       <Filter>ソース ファイル\金魚処理系</Filter>
     </ClCompile>
     <ClCompile Include="ObjTatami.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjTatami.cpp">
       <Filter>ソース ファイル\シーンランキング</Filter>
     </ClCompile>
     <ClCompile Include="SceneSetting.cpp">
@@ -173,6 +170,15 @@
     </ClCompile>
     <ClCompile Include="ObjSetting.cpp">
       <Filter>ソース ファイル\シーン設定</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjArmor.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTatami.cpp">
+      <Filter>ソース ファイル\シーンランキング</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjRen.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -310,6 +316,12 @@
     </ClInclude>
     <ClInclude Include="ObjSetting.h">
       <Filter>ソース ファイル\シーン設定</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjArmor.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjRen.h">
+      <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
