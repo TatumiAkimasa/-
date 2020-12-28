@@ -79,6 +79,7 @@ void CObjFishPlayer::Action()
 
         if (((UserData*)Save::GetData())->Ren_flag == true)
         {
+            //‰E
             if (Input::GetVKey(VK_RIGHT) == true)
             {
                 //˜A‘Å‚Ìˆ—
