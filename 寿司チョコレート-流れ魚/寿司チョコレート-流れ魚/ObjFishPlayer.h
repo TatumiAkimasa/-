@@ -32,6 +32,7 @@ private:
 	float m_spin;		//魚回転用
 	int cont;
 	bool come_heel_flag;//コメント回復用フラグ
+	bool m_not_move_time;//操作不能時間
 
 	int m_ani_time; //主人公アニメーションタイム用変数
 	int m_ani_frame; //主人公アニメーションフレーム用変数
