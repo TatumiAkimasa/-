@@ -72,6 +72,8 @@ void CObjSetting::Action()
 		D_flag = true;
 	}
 
+
+	//初期速度の変更可能処理
 	if (setting_pos == 0)
 	{
 		if (((UserData*)Save::GetData())->start_sp < 20.0f)
@@ -109,6 +111,8 @@ void CObjSetting::Action()
 		}
 	}
 
+
+	//操作反転モード変更可能処理
 	if (setting_pos == 1)
 	{
 		if (Input::GetVKey(VK_RIGHT) == true)
