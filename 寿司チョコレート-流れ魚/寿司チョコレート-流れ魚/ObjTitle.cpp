@@ -119,9 +119,10 @@ void CObjTitle::Action()
 		Scene::SetScene(new CSceneSetting());
 	}
 
-	if (num > 5)
+	//•`‰æ”ià–¾‰æ–Êj
+	if (num > 6)
 	{
-		num = 5;
+		num = 6;
 	}
 	else if (num < 0)
 	{
