@@ -37,6 +37,7 @@ void CObjSetting::Action()
 	{
 		if (U_flag == true)
 		{
+			Audio::Start(0);
 			if (setting_pos > 0)
 			{
 				setting_pos -= 1;
@@ -56,6 +57,7 @@ void CObjSetting::Action()
 	{
 		if (D_flag == true)
 		{
+			Audio::Start(0);
 			if (setting_pos < 1)
 			{
 				setting_pos += 1;
