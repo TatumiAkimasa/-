@@ -108,9 +108,6 @@
     <ClCompile Include="Objwater_flow.cpp">
       <Filter>ソース ファイル\シーンメイン</Filter>
     </ClCompile>
-    <ClCompile Include="Obj10enn.cpp">
-      <Filter>ソース ファイル\障害物</Filter>
-    </ClCompile>
     <ClCompile Include="ObjLifeItem.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
@@ -251,9 +248,6 @@
     <ClInclude Include="Objwater_flow.h">
       <Filter>ソース ファイル\シーンメイン</Filter>
     </ClInclude>
-    <ClInclude Include="Obj10enn.h">
-      <Filter>ソース ファイル\障害物</Filter>
-    </ClInclude>
     <ClInclude Include="ObjLifeItem.h">
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
@@ -322,6 +316,12 @@
     </ClInclude>
     <ClInclude Include="ObjRen.h">
       <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPitokoFish.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPiyokoFish.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

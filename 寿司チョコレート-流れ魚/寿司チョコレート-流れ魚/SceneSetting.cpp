@@ -30,6 +30,7 @@ void CSceneSetting::InitScene()
 
 		//音楽情報の読み込み
 	Audio::LoadAudio(0, L"カーソル移動.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(1, L"速度マイナス音.wav", SOUND_TYPE::EFFECT);
 }
 
 //ゲームメイン実行中メソッド
