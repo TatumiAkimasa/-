@@ -384,31 +384,9 @@ void CSceneMain::Scene()
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
+
 			//ëÄçÏîΩì]
 			else if (x == 54)
-			{
-				x = rand() % FLOW_GIMMICK_PROBABILITY;
-
-				if (x == FLOW_PROBABILITY_0)
-				{
-					CObj10enn* obj = new CObj10enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_10ENN, FLOW_PICTURE_PRIORITY);
-				}
-				else if (x == FLOW_PROBABILITY_1)
-				{
-					CObj10enn* obj = new CObj10enn(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_10ENN, FLOW_PICTURE_PRIORITY);
-				}
-				else if (x == FLOW_PROBABILITY_2)
-				{
-					CObj10enn* obj = new CObj10enn(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_10ENN, FLOW_PICTURE_PRIORITY);
-				}
-
-				((UserData*)Save::GetData())->sp_lv++;
-			}
-			//ëÄçÏîΩì]
-			else if (x == 55)
 			{
 				x = rand() % FLOW_GIMMICK_PROBABILITY;
 
