@@ -46,7 +46,11 @@ void CObjBackground::Action()
 		{
 			end_P = true;
 		}
-		else if (n < 10 && m_y1 >= 0.0f && m_y1 <= 9.0f)
+		else if (n < 9 && m_y1 >= 0.0f && m_y1 <= 9.0f)
+		{
+			end_P = true;
+		}
+		else if (n == 9 && m_y1 >= 14.0f && m_y1 <= 16.0f)
 		{
 			end_P = true;
 		}
