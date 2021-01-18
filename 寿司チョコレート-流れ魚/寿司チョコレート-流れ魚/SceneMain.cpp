@@ -226,7 +226,7 @@ void CSceneMain::Scene()
 
 	if (((UserData*)Save::GetData())->life_point > 0)
 	{
-		//フレーム数の計算
+		//フレーム数の計算！
 		m_time++;
 		//水の流れの処理
 		if (m_time%29 == 0)
