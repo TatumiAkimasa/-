@@ -159,7 +159,7 @@ void CSceneMain::InitScene()
 
 	((UserData*)Save::GetData())->save_score = 0;
 
-	t = 0;
+	m_t = 0;
 
 	bgm_flag = false;
 	bgm_flag2 = false;
@@ -225,7 +225,13 @@ void CSceneMain::Scene()
 			((UserData*)Save::GetData())->sp = 5.0f;
 		}
 	}
+	if (m_t == 0)
+	{
+		CObjmirror* ff = new CObjmirror(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+		Objs::InsertObj(ff, OBJ_10ENN, 50);
 
+		m_t++;
+	}
 	if (((UserData*)Save::GetData())->life_point > 0)
 	{
 		//フレーム数の計算
@@ -246,13 +252,7 @@ void CSceneMain::Scene()
 			CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
 		}
-		if (t == 0)
-		{
-			CObjmirror* ff = new CObjmirror(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-			Objs::InsertObj(ff, OBJ_10ENN, 50);
-
-			t++;
-		}
+		
 		//障害物の出現
 		if (m_time % 60 == 0)
 		{

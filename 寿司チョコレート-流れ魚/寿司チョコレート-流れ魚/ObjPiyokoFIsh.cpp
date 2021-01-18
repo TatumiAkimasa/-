@@ -21,6 +21,7 @@ CObjPiyokoFish::CObjPiyokoFish(float x, float y, float r)
 //イニシャライズ
 void CObjPiyokoFish::Init()
 {
+
 	m_vx = cos(3.14 / 180 * m_r);
 	m_vy = sin(3.14 / 180 * m_r);
 	//当たり判定用ヒットボックスを作成
@@ -31,7 +32,10 @@ void CObjPiyokoFish::Init()
 //アクション
 void CObjPiyokoFish::Action()
 {
+	CObjFishPlayer* obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
+	float x = obj->GetVX();
 
+	m_vx += x;
 
 	//敵機拡散弾のHitBox用ポインターを取得
 	CHitBox* hit = Hits::GetHitBox(this);

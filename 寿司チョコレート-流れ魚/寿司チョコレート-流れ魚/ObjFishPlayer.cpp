@@ -63,6 +63,7 @@ void CObjFishPlayer::Action()
     //金魚のライフ1以上で金魚操作可能
     if (((UserData*)Save::GetData())->life_point > 0)
     {
+        //金魚アニメ
         if (m_ani_time > 25 - ((UserData*)Save::GetData())->sp)
         {
             m_ani_time = 0;
@@ -210,10 +211,10 @@ void CObjFishPlayer::Action()
             }
         }
 
-        if (((UserData*)Save::GetData())->key_flag_mirror == true)
+        if (hit->CheckElementHit(ELEMENT_MIRROR) == true)
         {
-            CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
-            hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
+            CObjPiyokoFish* df = new CObjPiyokoFish(m_px, m_py,90);
+            Objs::InsertObj(df, NULL, 100);
         }
 
         //ベクトルを挿入
