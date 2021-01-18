@@ -103,7 +103,7 @@ void CObjSetting::Action()
 
 				if (L_flag == true)
 				{
-					Audio::Start(1);
+					Audio::Start(0);
 					((UserData*)Save::GetData())->start_sp -= 0.5f;
 					L_flag = false;
 				}
