@@ -257,58 +257,58 @@ void CSceneMain::Scene()
 
 				//通常障害物の表示
 				x = rand() % 6;
-				if (x == 0)
+				if (x == FLOW_PROBABILITY_0)
 				{
 					CObjFlow* f = new CObjFlow(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(f, OBJ_FLOW, 50);
+					Objs::InsertObj(f, OBJ_FLOW, FLOW_PICTURE_PRIORITY);
 
 
 					((UserData*)Save::GetData())->sp_lv++;
 				}
-				else if (x == 1)
+				else if (x == FLOW_PROBABILITY_1)
 				{
 
 					CObjFlow* f = new CObjFlow(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(f, OBJ_FLOW, 50);
+					Objs::InsertObj(f, OBJ_FLOW, FLOW_PICTURE_PRIORITY);
 
 					((UserData*)Save::GetData())->sp_lv++;
 				}
-				else if (x == 2)
+				else if (x == FLOW_PROBABILITY_2)
 				{
 					CObjFlow* f = new CObjFlow(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(f, OBJ_FLOW, 50);
+					Objs::InsertObj(f, OBJ_FLOW, FLOW_PICTURE_PRIORITY);
 
 
 					((UserData*)Save::GetData())->sp_lv++;
 				}
-				else if (x == 3)
+				else if (x == FLOW_PROBABILITY_3)
 				{
 					CObjFlow* f = new CObjFlow(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(f, OBJ_FLOW, 50);
+					Objs::InsertObj(f, OBJ_FLOW, FLOW_PICTURE_PRIORITY);
 
 					f = new CObjFlow(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(f, OBJ_FLOW, 50);
+					Objs::InsertObj(f, OBJ_FLOW, FLOW_PICTURE_PRIORITY);
 
 					((UserData*)Save::GetData())->sp_lv++;
 				}
-				else if (x == 4)
+				else if (x == FLOW_PROBABILITY_4)
 				{
 					CObjFlow* f = new CObjFlow(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(f, OBJ_FLOW, 50);
+					Objs::InsertObj(f, OBJ_FLOW, FLOW_PICTURE_PRIORITY);
 
 					f = new CObjFlow(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(f, OBJ_FLOW, 50);
+					Objs::InsertObj(f, OBJ_FLOW, FLOW_PICTURE_PRIORITY);
 
 
 					((UserData*)Save::GetData())->sp_lv++;
 				}
-				else if (x == 5)
+				else if (x == FLOW_PROBABILITY_5)
 				{
 					CObjFlow* f = new CObjFlow(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(f, OBJ_FLOW, 50);
+					Objs::InsertObj(f, OBJ_FLOW, FLOW_PICTURE_PRIORITY);
 
 					f = new CObjFlow(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(f, OBJ_FLOW, 50);
+					Objs::InsertObj(f, OBJ_FLOW, FLOW_PICTURE_PRIORITY);
 
 					((UserData*)Save::GetData())->sp_lv++;
 				}
@@ -318,22 +318,22 @@ void CSceneMain::Scene()
 			//ライフ回復
 			else if (x == 51)
 			{
-				x = rand() % 3;
+				x = rand() % FLOW_GIMMICK_PROBABILITY;
 
-				if (x == 0)
+				if (x == FLOW_PROBABILITY_0)
 				{
 					CObjLifeItem* lt = new CObjLifeItem(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(lt, OBJ_LIFE_ITEM, 50);
+					Objs::InsertObj(lt, OBJ_LIFE_ITEM, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 1)
+				else if (x == FLOW_PROBABILITY_1)
 				{
 					CObjLifeItem* lt = new CObjLifeItem(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(lt, OBJ_LIFE_ITEM, 50);
+					Objs::InsertObj(lt, OBJ_LIFE_ITEM, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 2)
+				else if (x == FLOW_PROBABILITY_2)
 				{
 					CObjLifeItem* lt = new CObjLifeItem(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(lt, OBJ_LIFE_ITEM, 50);
+					Objs::InsertObj(lt, OBJ_LIFE_ITEM, FLOW_PICTURE_PRIORITY);
 				}
 
 				((UserData*)Save::GetData())->sp_lv++;
@@ -341,22 +341,22 @@ void CSceneMain::Scene()
 			//スピードアップ
 			else if (x == 52)
 			{
-				x = rand() % 3;
+				x = rand() % FLOW_GIMMICK_PROBABILITY;
 
-				if (x == 0)
+				if (x == FLOW_PROBABILITY_0)
 				{
 					CObjsp_up* obj = new CObjsp_up(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_SP_UP, 50);
+					Objs::InsertObj(obj, OBJ_SP_UP, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 1)
+				else if (x == FLOW_PROBABILITY_1)
 				{
 					CObjsp_up* obj = new CObjsp_up(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_SP_UP, 50);
+					Objs::InsertObj(obj, OBJ_SP_UP, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 2)
+				else if (x == FLOW_PROBABILITY_2)
 				{
 					CObjsp_up* obj = new CObjsp_up(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_SP_UP, 50);
+					Objs::InsertObj(obj, OBJ_SP_UP, FLOW_PICTURE_PRIORITY);
 				}
 
 				((UserData*)Save::GetData())->sp_lv++;
@@ -364,22 +364,22 @@ void CSceneMain::Scene()
 			//スピードダウン
 			else if (x == 53)
 			{
-				x = rand() % 3;
+				x = rand() % FLOW_GIMMICK_PROBABILITY;
 
-				if (x == 0)
+				if (x == FLOW_PROBABILITY_0)
 				{
 					CObjsp_down* obj = new CObjsp_down(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_SP_DOWN, 50);
+					Objs::InsertObj(obj, OBJ_SP_DOWN, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 1)
+				else if (x == FLOW_PROBABILITY_1)
 				{
 					CObjsp_down* obj = new CObjsp_down(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_SP_DOWN, 50);
+					Objs::InsertObj(obj, OBJ_SP_DOWN, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 2)
+				else if (x == FLOW_PROBABILITY_2)
 				{
 					CObjsp_down* obj = new CObjsp_down(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_SP_DOWN, 50);
+					Objs::InsertObj(obj, OBJ_SP_DOWN, FLOW_PICTURE_PRIORITY);
 				}
 
 				((UserData*)Save::GetData())->sp_lv++;
@@ -387,22 +387,22 @@ void CSceneMain::Scene()
 			//スコアアップ(10)
 			else if (x == 54)
 			{
-				x = rand() % 3;
+				x = rand() % FLOW_GIMMICK_PROBABILITY;
 
-				if (x == 0)
+				if (x == FLOW_PROBABILITY_0)
 				{
 					CObj10enn* obj = new CObj10enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_10ENN, 50);
+					Objs::InsertObj(obj, OBJ_10ENN, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 1)
+				else if (x == FLOW_PROBABILITY_1)
 				{
 					CObj10enn* obj = new CObj10enn(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_10ENN, 50);
+					Objs::InsertObj(obj, OBJ_10ENN, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 2)
+				else if (x == FLOW_PROBABILITY_2)
 				{
 					CObj10enn* obj = new CObj10enn(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_10ENN, 50);
+					Objs::InsertObj(obj, OBJ_10ENN, FLOW_PICTURE_PRIORITY);
 				}
 
 				((UserData*)Save::GetData())->sp_lv++;
@@ -410,22 +410,22 @@ void CSceneMain::Scene()
 			//操作反転
 			else if (x == 55)
 			{
-				x = rand() % 3;
+				x = rand() % FLOW_GIMMICK_PROBABILITY;
 
-				if (x == 0)
+				if (x == FLOW_PROBABILITY_0)
 				{
 					CObjmirror* m = new CObjmirror(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(m, OBJ_10ENN, 50);
+					Objs::InsertObj(m, OBJ_10ENN, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 1)
+				else if (x == FLOW_PROBABILITY_1)
 				{
 					CObjmirror* m = new CObjmirror(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(m, OBJ_10ENN, 50);
+					Objs::InsertObj(m, OBJ_10ENN, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 2)
+				else if (x == FLOW_PROBABILITY_2)
 				{
 					CObjmirror* m = new CObjmirror(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(m, OBJ_10ENN, 50);
+					Objs::InsertObj(m, OBJ_10ENN, FLOW_PICTURE_PRIORITY);
 				}
 
 				((UserData*)Save::GetData())->sp_lv++;
@@ -433,22 +433,22 @@ void CSceneMain::Scene()
 			//スコアアップ(100)
 			else if (x == 56)
 			{
-				x = rand() % 3;
+				x = rand() % FLOW_GIMMICK_PROBABILITY;
 
-				if (x == 0)
+				if (x == FLOW_PROBABILITY_0)
 				{
 					CObj100enn* obj = new CObj100enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_100ENN, 50);
+					Objs::InsertObj(obj, OBJ_100ENN, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 1)
+				else if (x == FLOW_PROBABILITY_1)
 				{
 					CObj100enn* obj = new CObj100enn(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_100ENN, 50);
+					Objs::InsertObj(obj, OBJ_100ENN, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 2)
+				else if (x == FLOW_PROBABILITY_2)
 				{
 					CObj100enn* obj = new CObj100enn(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_100ENN, 50);
+					Objs::InsertObj(obj, OBJ_100ENN, FLOW_PICTURE_PRIORITY);
 				}
 
 				((UserData*)Save::GetData())->sp_lv++;
@@ -456,22 +456,22 @@ void CSceneMain::Scene()
 			//スコアアップ(1000)
 			else if (x == 57)
 			{
-				x = rand() % 3;
+				x = rand() % FLOW_GIMMICK_PROBABILITY;
 
-				if (x == 0)
+				if (x == FLOW_PROBABILITY_0)
 				{
 					CObj1000enn* obj = new CObj1000enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_1000ENN, 50);
+					Objs::InsertObj(obj, OBJ_1000ENN, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 1)
+				else if (x == FLOW_PROBABILITY_1)
 				{
 					CObj1000enn* obj = new CObj1000enn(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_1000ENN, 50);
+					Objs::InsertObj(obj, OBJ_1000ENN, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 2)
+				else if (x == FLOW_PROBABILITY_2)
 				{
 					CObj1000enn* obj = new CObj1000enn(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_1000ENN, 50);
+					Objs::InsertObj(obj, OBJ_1000ENN, FLOW_PICTURE_PRIORITY);
 				}
 
 				((UserData*)Save::GetData())->sp_lv++;
@@ -479,22 +479,22 @@ void CSceneMain::Scene()
 			//スコアアップ(10000)
 			else if (x == 58)
 			{
-				x = rand() % 3;
+				x = rand() % FLOW_GIMMICK_PROBABILITY;
 
-				if (x == 0)
+				if (x == FLOW_PROBABILITY_0)
 				{
 					CObj10000enn* obj = new CObj10000enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_10000ENN, 50);
+					Objs::InsertObj(obj, OBJ_10000ENN, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 1)
+				else if (x == FLOW_PROBABILITY_1)
 				{
 					CObj10000enn* obj = new CObj10000enn(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_10000ENN, 50);
+					Objs::InsertObj(obj, OBJ_10000ENN, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 2)
+				else if (x == FLOW_PROBABILITY_2)
 				{
 					CObj10000enn* obj = new CObj10000enn(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_10000ENN, 50);
+					Objs::InsertObj(obj, OBJ_10000ENN, FLOW_PICTURE_PRIORITY);
 				}
 
 				((UserData*)Save::GetData())->sp_lv++;
@@ -502,22 +502,22 @@ void CSceneMain::Scene()
 			//偽ライフ
 			else if (x == 59)
 			{
-				x = rand() % 3;
+				x = rand() % FLOW_GIMMICK_PROBABILITY;
 
-				if (x == 0)
+				if (x == FLOW_PROBABILITY_0)
 				{
 					CObjbadlife* bl = new CObjbadlife(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(bl, OBJ_BAD_LIFE, 50);
+					Objs::InsertObj(bl, OBJ_BAD_LIFE, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 1)
+				else if (x == FLOW_PROBABILITY_1)
 				{
 					CObjbadlife* bl = new CObjbadlife(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(bl, OBJ_BAD_LIFE, 50);
+					Objs::InsertObj(bl, OBJ_BAD_LIFE, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 2)
+				else if (x == FLOW_PROBABILITY_2)
 				{
 					CObjbadlife* bl = new CObjbadlife(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(bl, OBJ_BAD_LIFE, 50);
+					Objs::InsertObj(bl, OBJ_BAD_LIFE, FLOW_PICTURE_PRIORITY);
 				}
 
 				((UserData*)Save::GetData())->sp_lv++;
@@ -525,22 +525,22 @@ void CSceneMain::Scene()
 			//木アイテム
 			else if (x == 60)
 			{
-				x = rand() % 3;
+				x = rand() % FLOW_GIMMICK_PROBABILITY;
 
-				if (x == 0)
+				if (x == FLOW_PROBABILITY_0)
 				{
 					CObjTreeItem* t = new CObjTreeItem(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(t, OBJ_TREEITEM, 50);
+					Objs::InsertObj(t, OBJ_TREEITEM, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 1)
+				else if (x == FLOW_PROBABILITY_1)
 				{
 					CObjTreeItem* t = new CObjTreeItem(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(t, OBJ_TREEITEM, 50);
+					Objs::InsertObj(t, OBJ_TREEITEM, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 2)
+				else if (x == FLOW_PROBABILITY_2)
 				{
 					CObjTreeItem* t = new CObjTreeItem(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(t, OBJ_TREEITEM, 50);
+					Objs::InsertObj(t, OBJ_TREEITEM, FLOW_PICTURE_PRIORITY);
 				}
 
 				((UserData*)Save::GetData())->sp_lv++;
@@ -548,22 +548,22 @@ void CSceneMain::Scene()
 			//木
 			if (((UserData*)Save::GetData())->Tree_flag == true)
 			{
-				int x = rand() % 3;
+				int x = rand() % FLOW_GIMMICK_PROBABILITY;
 
-				if (x == 0)
+				if (x == FLOW_PROBABILITY_0)
 				{
-					CObjTree* t = new CObjTree(350, -100);
-					Objs::InsertObj(t, OBJ_TREE, 50);
+					CObjTree* t = new CObjTree(FLOW_TREE_SIDE, -100);
+					Objs::InsertObj(t, OBJ_TREE, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 1)
+				else if (x == FLOW_PROBABILITY_1)
 				{
-					CObjTree* t = new CObjTree(350, 20);
-					Objs::InsertObj(t, OBJ_TREE, 50);
+					CObjTree* t = new CObjTree(FLOW_TREE_SIDE, 20);
+					Objs::InsertObj(t, OBJ_TREE, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 2)
+				else if (x == FLOW_PROBABILITY_2)
 				{
-					CObjTree* t = new CObjTree(350, 250);
-					Objs::InsertObj(t, OBJ_TREE, 50);
+					CObjTree* t = new CObjTree(FLOW_TREE_SIDE, 250);
+					Objs::InsertObj(t, OBJ_TREE, FLOW_PICTURE_PRIORITY);
 				}
 
 				((UserData*)Save::GetData())->Tree_flag = false;
@@ -571,22 +571,22 @@ void CSceneMain::Scene()
 			//Armorアイテム
 			else if (x == 61)
 			{
-				x = rand() % 3;
+				x = rand() % FLOW_GIMMICK_PROBABILITY;
 
-				if (x == 0)
+				if (x == FLOW_PROBABILITY_0)
 				{
 					CObjArmor* t = new CObjArmor(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(t, OBJ_ARMOR, 50);
+					Objs::InsertObj(t, OBJ_ARMOR, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 1)
+				else if (x == FLOW_PROBABILITY_1)
 				{
 					CObjArmor* t = new CObjArmor(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(t, OBJ_ARMOR, 50);
+					Objs::InsertObj(t, OBJ_ARMOR, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 2)
+				else if (x == FLOW_PROBABILITY_2)
 				{
 					CObjArmor* t = new CObjArmor(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(t, OBJ_ARMOR, 50);
+					Objs::InsertObj(t, OBJ_ARMOR, FLOW_PICTURE_PRIORITY);
 				}
 
 				((UserData*)Save::GetData())->sp_lv++;
@@ -594,22 +594,22 @@ void CSceneMain::Scene()
 			//Ren
 			else if (x == 62)
 			{
-				x = rand() % 3;
+				x = rand() % FLOW_GIMMICK_PROBABILITY;
 
-				if (x == 0)
+				if (x == FLOW_PROBABILITY_0)
 				{
 					CObjRen* t = new CObjRen(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(t, OBJ_REN, 50);
+					Objs::InsertObj(t, OBJ_REN, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 1)
+				else if (x == FLOW_PROBABILITY_1)
 				{
 					CObjRen* t = new CObjRen(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(t, OBJ_REN, 50);
+					Objs::InsertObj(t, OBJ_REN, FLOW_PICTURE_PRIORITY);
 				}
-				else if (x == 2)
+				else if (x == FLOW_PROBABILITY_2)
 				{
 					CObjRen* t = new CObjRen(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(t, OBJ_REN, 50);
+					Objs::InsertObj(t, OBJ_REN, FLOW_PICTURE_PRIORITY);
 				}
 
 				((UserData*)Save::GetData())->sp_lv++;
