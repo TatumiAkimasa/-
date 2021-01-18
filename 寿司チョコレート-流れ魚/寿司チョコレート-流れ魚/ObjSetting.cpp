@@ -37,6 +37,7 @@ void CObjSetting::Action()
 	{
 		if (U_flag == true)
 		{
+			Audio::Start(0);
 			if (setting_pos > 0)
 			{
 				setting_pos -= 1;
@@ -56,6 +57,7 @@ void CObjSetting::Action()
 	{
 		if (D_flag == true)
 		{
+			Audio::Start(0);
 			if (setting_pos < 1)
 			{
 				setting_pos += 1;
@@ -83,6 +85,7 @@ void CObjSetting::Action()
 
 				if (R_flag == true)
 				{
+					Audio::Start(0);
 					((UserData*)Save::GetData())->start_sp += 0.5f;
 					R_flag = false;
 				}
@@ -100,6 +103,7 @@ void CObjSetting::Action()
 
 				if (L_flag == true)
 				{
+					Audio::Start(0);
 					((UserData*)Save::GetData())->start_sp -= 0.5f;
 					L_flag = false;
 				}
@@ -120,6 +124,7 @@ void CObjSetting::Action()
 
 			if (R_flag == true)
 			{
+				Audio::Start(0);
 				((UserData*)Save::GetData())->start_control_mirror = false;
 				R_flag = false;
 			}
@@ -134,6 +139,7 @@ void CObjSetting::Action()
 
 			if (L_flag == true)
 			{
+				Audio::Start(0);
 				((UserData*)Save::GetData())->start_control_mirror = true;
 				L_flag = false;
 			}
