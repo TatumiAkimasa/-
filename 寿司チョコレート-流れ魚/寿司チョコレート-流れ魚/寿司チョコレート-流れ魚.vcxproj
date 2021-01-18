@@ -143,6 +143,7 @@
     <ClCompile Include="Obj1000enn.cpp" />
     <ClCompile Include="Obj100enn.cpp" />
     <ClCompile Include="ObjAchievement.cpp" />
+    <ClCompile Include="ObjArmor.cpp" />
     <ClCompile Include="ObjBackground_2.cpp" />
     <ClCompile Include="ObjBackground_stats.cpp" />
     <ClCompile Include="GameL\Audio.cpp" />
@@ -168,7 +169,9 @@
     <ClCompile Include="ObjMain.cpp" />
     <ClCompile Include="Objmirror.cpp" />
     <ClCompile Include="ObjRanking.cpp" />
+    <ClCompile Include="ObjRen.cpp" />
     <ClCompile Include="ObjResult.cpp" />
+    <ClCompile Include="ObjSetting.cpp" />
     <ClCompile Include="Objsp_down.cpp" />
     <ClCompile Include="Objsp_up.cpp" />
     <ClCompile Include="ObjTatami.cpp" />
@@ -180,6 +183,7 @@
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneRanking.cpp" />
     <ClCompile Include="SceneResult.cpp" />
+    <ClCompile Include="SceneSetting.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +205,7 @@
     <ClInclude Include="Obj100enn.h" />
     <ClInclude Include="Obj10enn.h" />
     <ClInclude Include="ObjAchievement.h" />
+    <ClInclude Include="ObjArmor.h" />
     <ClInclude Include="ObjBackground.h" />
     <ClInclude Include="ObjBackground_2.h" />
     <ClInclude Include="ObjBackground_stats.h" />
@@ -211,8 +216,12 @@
     <ClInclude Include="ObjLifeItem.h" />
     <ClInclude Include="ObjMain.h" />
     <ClInclude Include="Objmirror.h" />
+    <ClInclude Include="ObjPitokoFish.cpp" />
+    <ClInclude Include="ObjPiyokoFish.h" />
     <ClInclude Include="ObjRanking.h" />
+    <ClInclude Include="ObjRen.h" />
     <ClInclude Include="ObjResult.h" />
+    <ClInclude Include="ObjSetting.h" />
     <ClInclude Include="Objsp_down.h" />
     <ClInclude Include="Objsp_up.h" />
     <ClInclude Include="ObjTatami.h" />
@@ -224,6 +233,7 @@
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneRanking.h" />
     <ClInclude Include="SceneResult.h" />
+    <ClInclude Include="SceneSetting.h" />
     <ClInclude Include="SceneTitle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

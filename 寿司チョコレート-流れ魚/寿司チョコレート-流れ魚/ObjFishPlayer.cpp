@@ -39,6 +39,7 @@ void CObjFishPlayer::Init()
     come_heel_flag = false;
     m_spin = 0.0f;
     cont = 0;
+    m_not_move_time = false;//falseで操作可能・trueで操作不能
 
     srand(rand());
 
@@ -53,9 +54,16 @@ void CObjFishPlayer::Action()
     
     float x = rand() % 122;
 
+    //HitBoxの内容を更新
+    CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
+    hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
     
     m_ani_time++;
 
+  /*  CObjPiyokoFish* pf = new CObjPiyokoFish(m_px, m_py,90);
+    Objs::InsertObj(pf, NULL, 100);*/
+
+    //金魚のライフ1以上で金魚操作可能
     if (((UserData*)Save::GetData())->life_point > 0)
     {
         if (m_ani_time > 25 - ((UserData*)Save::GetData())->sp)
@@ -69,72 +77,167 @@ void CObjFishPlayer::Action()
             m_ani_frame = 0;
         }
 
-        //キーの入力方向にベクトルの速度を入れる
-        if (Input::GetVKey(VK_RIGHT) == true)
+        if (((UserData*)Save::GetData())->Ren_flag == true)
         {
-            if (m_f == true)
+            //右
+            if (Input::GetVKey(VK_RIGHT) == true)
             {
-                //trueの時操作反転
-                if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                if (m_f == true)
                 {
-                    if (m_f == true)
-                    {
-                        m_left_move = true;
-                        m_f = false;
+                    //連打の処理
+                    if(m_f==true)
+                    ((UserData*)Save::GetData())->ren--;
 
+                    if (((UserData*)Save::GetData())->ren <= 0)
+                    {
+                        ((UserData*)Save::GetData())->Ren_flag = false;
                     }
-                }
-                else
-                {
-                    m_right_move = true;
                     m_f = false;
                 }
             }
-        }
-        else if (Input::GetVKey(VK_LEFT) == true)
-        {
-            if (m_f == true)
+            //左
+            else if (Input::GetVKey(VK_LEFT) == true)
             {
-                //trueの時操作反転
-                if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                //連打の処理
+                if (m_f == true)
+                    ((UserData*)Save::GetData())->ren--;
+
+                if (((UserData*)Save::GetData())->ren <= 0)
                 {
-                    if (m_f == true)
-                    {
-                        m_right_move = true;
-                        m_f = false;
-                    }
+                    ((UserData*)Save::GetData())->Ren_flag = false;
                 }
-                else
-                {
-                    m_left_move = true;
-                    m_f = false;
-                }
+                m_f = false;
+            }
+            else
+            {
+                m_f = true;
             }
         }
         else
         {
-            m_f = true;
-        }
+            //キーの入力方向にベクトルの速度を入れる
+            //右
+            if (Input::GetVKey(VK_RIGHT) == true && m_not_move_time == false)
+            {
+                //操作反転モード：OFF
+                if (((UserData*)Save::GetData())->start_control_mirror == true)
+                {
+                    if (m_f == true)
+                    {
+                        //trueの時操作反転
+                        if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                        {
+                            if (m_f == true)
+                            {
+                                m_left_move = true;
+                            }
+                        }
+                        else
+                        {
+                            m_right_move = true;
+                        }
+                    }
+                }
+                //操作反転モード：ON
+                else
+                {
+                    if (m_f == true)
+                    {
+                        //trueの時操作反転
+                        if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                        {
+                            if (m_f == true)
+                            {
+                                m_right_move = true;
+                            }
+                        }
+                        else
+                        {
+                            m_left_move = true;
+                        }
+                    }
+                }
+            }
+            //左
+            else if (Input::GetVKey(VK_LEFT) == true && m_not_move_time == false)
+            {
+                //操作反転モード：OFF
+                if (((UserData*)Save::GetData())->start_control_mirror == true)
+                {
+                    if (m_f == true)
+                    {
+                        //trueの時操作反転
+                        if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                        {
+                            //連打の処理
+                            ((UserData*)Save::GetData())->ren--;
 
+                            if (m_f == true)
+                            {
+                                m_right_move = true;
+                            }
+                        }
+                        else
+                        {
+                            m_left_move = true;
+                        }
+                    }
+                }
+                //操作反転モード：ON
+                else
+                {
+                    if (m_f == true)
+                    {
+                        //trueの時操作反転
+                        if (((UserData*)Save::GetData())->key_flag_mirror == true)
+                        {
+                            //連打の処理
+                            ((UserData*)Save::GetData())->ren--;
+
+                            if (m_f == true)
+                            {
+                                m_left_move = true;
+                            }
+                        }
+                        else
+                        {
+                            m_right_move = true;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                m_f = true;
+            }
+        }
+        //ベクトルを挿入
+        //右
         if (m_right_move == true)
         {
             m_vx += 40;
             m_move++;
-            if (m_move == 3)
+            m_not_move_time = true;
+            m_f = false;
+            if (m_move >= 3)
             {
                 m_move = 0;
                 m_right_move = false;
+                m_not_move_time = false;
             }
         }
-
+        //左
         if (m_left_move == true)
         {
             m_vx -= 40;
             m_move++;
-            if (m_move == 3)
+            m_not_move_time = true;
+            m_f = false;
+            if (m_move >= 3)
             {
                 m_move = 0;
                 m_left_move = false;
+                m_not_move_time = false;
             }
         }
 
@@ -172,7 +275,8 @@ void CObjFishPlayer::Action()
         Audio::Stop(4);
         Audio::Start(5);//やられ時SE
         m_time++;
-       /* if (m_time % 4 == 0)
+       /*魚ふるわせてgameoverさせる用の処理 
+       if (m_time % 4 == 0)
         {
             if (cont == 0)
             {
@@ -213,10 +317,6 @@ void CObjFishPlayer::Action()
         }
     }
 
-    //HitBoxの内容を更新
-   CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
-   hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
-
     //回復アイテムと接触したら回復＆削除
     if (hit->CheckElementHit(ELEMENT_HEAL) == true)
     {
@@ -236,11 +336,21 @@ void CObjFishPlayer::Action()
     //障害物オブジェクトと接触したら削除
     if (hit->CheckElementHit(ELEMENT_ENEMY) == true && m_damage == false)
     {
-        ((UserData*)Save::GetData())->life_point--;
-        ((UserData*)Save::GetData())->sp_lv = 0;
-        m_damage = true;
+        //Armorフラグがtrueの時
+        if (((UserData*)Save::GetData())->Armor_flag == true)
+        {
+            //ダメージ判定はなし、フラグのみ変更
+            ((UserData*)Save::GetData())->Armor_flag = false;
+        }
+        //Armorフラグがfalseの時
+        else
+        {
+            ((UserData*)Save::GetData())->life_point--;
+            ((UserData*)Save::GetData())->sp_lv = 0;
+            m_damage = true;
 
-        Audio::Start(4);
+            Audio::Start(4);
+        }
     }
 
     //画面外に出たらHitBoxを削除
@@ -268,15 +378,15 @@ void CObjFishPlayer::Draw()
     RECT_F src;//描写元の切り取り位置
     RECT_F dst;//描画先の表示位置
 
-    dst.m_top = -122.0f + m_py;
-    dst.m_left = -64.9f + m_px;
-    dst.m_right = 192.0f + dst.m_left;
-    dst.m_bottom = 384.0f + dst.m_top;
+    dst.m_top = -23.0f + m_py;
+    dst.m_left = -62.5f + m_px;
+    dst.m_right = 182.0f + dst.m_left;
+    dst.m_bottom = 192.0f + dst.m_top;
 
-    src.m_top = -224.0f;
-    src.m_left = 0.0f + (AniData[m_ani_frame] - 1) * 828;
-    src.m_right = 828.0f * AniData[m_ani_frame];
-    src.m_bottom = 1588.0f;
+    src.m_top = 0.0f;
+    src.m_left = 0.0f + (AniData[m_ani_frame] - 1) * 207;
+    src.m_right = 207.0f * AniData[m_ani_frame];
+    src.m_bottom = 224.0f;
     
     if (((UserData*)Save::GetData())->life_point > 0)
     {

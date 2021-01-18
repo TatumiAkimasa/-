@@ -90,8 +90,14 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み18番に登録(木)
 	Draw::LoadImage(L"木.png", 18, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み19番に登録(もう一匹の金魚)
+	//外部グラフィックファイルを読み込み19番に登録(☆)
 	Draw::LoadImage(L"hosi.png", 19, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み20番に登録(Armor)
+	
+
+	//外部グラフィックファイルを読み込み20番に登録(Ren)
+
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -165,13 +171,12 @@ void CSceneMain::Scene()
 
 	//障害物が落ちてくる確率
 	//通常障害物 50/全体　ギミック 1/全体
-	int x = rand() % 61;
-	
+	int x = rand() % 63;
 
 	//落下の初期化
 	if (t == 0)
 	{
-		((UserData*)Save::GetData())->sp = 5.0f;
+		((UserData*)Save::GetData())->sp = ((UserData*)Save::GetData())->start_sp;
 		t++;
 	}
 
@@ -239,7 +244,7 @@ void CSceneMain::Scene()
 			CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
 		}
-
+		
 		//障害物の出現
 		if (m_time % 60 == 0)
 		{
@@ -543,10 +548,71 @@ void CSceneMain::Scene()
 			//木
 			if (((UserData*)Save::GetData())->Tree_flag == true)
 			{
-				CObjTree* t = new CObjTree(380, -120);
-				Objs::InsertObj(t, OBJ_TREE, 50);
+				int x = rand() % 3;
+
+				if (x == 0)
+				{
+					CObjTree* t = new CObjTree(350, -100);
+					Objs::InsertObj(t, OBJ_TREE, 50);
+				}
+				else if (x == 1)
+				{
+					CObjTree* t = new CObjTree(350, 20);
+					Objs::InsertObj(t, OBJ_TREE, 50);
+				}
+				else if (x == 2)
+				{
+					CObjTree* t = new CObjTree(350, 250);
+					Objs::InsertObj(t, OBJ_TREE, 50);
+				}
 
 				((UserData*)Save::GetData())->Tree_flag = false;
+			}
+			//Armorアイテム
+			else if (x == 61)
+			{
+				x = rand() % 3;
+
+				if (x == 0)
+				{
+					CObjArmor* t = new CObjArmor(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_ARMOR, 50);
+				}
+				else if (x == 1)
+				{
+					CObjArmor* t = new CObjArmor(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_ARMOR, 50);
+				}
+				else if (x == 2)
+				{
+					CObjArmor* t = new CObjArmor(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_ARMOR, 50);
+				}
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			//Ren
+			else if (x == 62)
+			{
+				x = rand() % 3;
+
+				if (x == 0)
+				{
+					CObjRen* t = new CObjRen(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_REN, 50);
+				}
+				else if (x == 1)
+				{
+					CObjRen* t = new CObjRen(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_REN, 50);
+				}
+				else if (x == 2)
+				{
+					CObjRen* t = new CObjRen(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_REN, 50);
+				}
+
+				((UserData*)Save::GetData())->sp_lv++;
 			}
 
 			//落下加速

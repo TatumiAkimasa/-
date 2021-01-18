@@ -8,13 +8,19 @@
 //使用するネームスペース
 using namespace GameL;
 
+bool CObjBackground_2::End_point()
+{
+	return End_P;
+}
+
 //イニシャライズ
 void CObjBackground_2::Init()
 {
-	m_y1 = 600.0f;
+	m_y1 = 590.0f;
 	count = 2;
 	n = 0;
-	end_P=0;
+	end_P=false;
+	End_P = false;
 }
 
 //アクション
@@ -31,21 +37,29 @@ void CObjBackground_2::Action()
 		end_P = obj->end_point();
 	}
 
-	//もし、下に行ったら上に表示（修正用）
-	if (n < 10)
+	if (End_P == false)
 	{
-		if (end_P == 0.0f)
+		if (n>=10&& m_y1 >= 15.0f && m_y1 <= 27.0f)
 		{
-			m_y1 = 600;
+			End_P = true;
+		}
+		else if (n < 10 && m_y1 >= 0.0f && m_y1 <= 9.0f)
+		{
+			End_P = true;
 		}
 	}
 	else
 	{
-		if (end_P == 0.0f)
-		{
-			m_y1 = 590;
-		}
+		End_P = false;
 	}
+
+	//もし、下に行ったら上に表示（修正用）
+	
+	if (end_P == true)
+	{
+		m_y1 = 600;
+	}
+	
 
 	if (((UserData*)Save::GetData())->life_point == 0)
 	{
@@ -63,48 +77,27 @@ void CObjBackground_2::Action()
 	{
 		if (m_y1 < -595.0f && count == 1)
 		{
-			m_y1 = 600;
+			
 			count = 3;
 		}
 		else if (m_y1 < -595.0f && count == 2)
 		{
-			m_y1 = 600;
+			
 			count = 1;
 		}
 		else if (m_y1 < -595.0f && count == 3)
 		{
-			m_y1 = 600;
+			
 			count = 2;
 		}
 		else if (m_y1 < -595.0f && count == 10)
 		{
-			m_y1 = 600;
+			
 			count = 3;
 		}
 	}
-	else
-	{
-		if (m_y1 < -600.0f && count == 1)
-		{
-			m_y1 = 600;
-			count = 3;
-		}
-		else if (m_y1 < -600.0f && count == 2)
-		{
-			m_y1 = 600;
-			count = 1;
-		}
-		else if (m_y1 < -600.0f && count == 3)
-		{
-			m_y1 = 600;
-			count = 2;
-		}
-		else if (m_y1 < -600.0f && count == 10)
-		{
-			m_y1 = 600;
-			count = 3;
-		}
-	}
+	
+	
 
 }
 
@@ -130,7 +123,7 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 250.0f;
 		dst.m_right = 820.0f;
-		dst.m_bottom = 620.0f  - m_y1;
+		dst.m_bottom = 605.0f  - m_y1;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 	}
@@ -140,7 +133,7 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 238.0f;
 		dst.m_right = 808.0f;
-		dst.m_bottom = 620.0f - m_y1;
+		dst.m_bottom = 605.0f - m_y1;
 
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
@@ -150,7 +143,7 @@ void CObjBackground_2::Draw()
 		dst.m_top = 0.0f - m_y1;
 		dst.m_left = 233.2f;
 		dst.m_right = 803.2f;
-		dst.m_bottom = 620.0f  - m_y1;
+		dst.m_bottom = 605.0f  - m_y1;
 
 		Draw::Draw(5, &src, &dst, c, 0.0f);
 	}

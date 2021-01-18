@@ -113,9 +113,16 @@ void CObjTitle::Action()
 		D_flag = true;
 	}
 
-	if (num > 5)
+	//Sキーで設定欄に移動
+	if (Input::GetVKey('S') == true)
 	{
-		num = 5;
+		Scene::SetScene(new CSceneSetting());
+	}
+
+	//描画数（説明画面）
+	if (num > 6)
+	{
+		num = 6;
 	}
 	else if (num < 0)
 	{

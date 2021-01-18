@@ -13,10 +13,12 @@ public:
 	void Init();//イニシャライズ
 	void Action();//アクション
 	void Draw();//ドロー
+	bool End_point();
 private:
 
 	float m_y1; //背景①の描画情報
 	int count;//画面切り替え用
 	int n;//基本速度変数
-	float end_P;//Background1の終端受け取り用
+	bool end_P;//Background1の終端受け取り用
+	bool End_P;//Background1の終端受判定用
 };
