@@ -40,11 +40,11 @@ void CObjFishPlayer::Init()
     m_spin = 0.0f;
     cont = 0;
     m_not_move_time = false;//falseで操作可能・trueで操作不能
-
+    
     srand(rand());
 
     //当たり判定用HitBoxを作成
-    Hits::SetHitBox(this, m_px + 22, m_py + 16, 20, 45, ELEMENT_PLAYER, OBJ_FISH_PLAYER, 1);
+    Hits::SetHitBox(this, m_px + 22, m_py + 16, 20, 45, ELEMENT_PLAYER, ELEMENT_PLAYER, 1);
 }
 
 //アクション
@@ -59,9 +59,6 @@ void CObjFishPlayer::Action()
     hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
     
     m_ani_time++;
-
-  /*  CObjPiyokoFish* pf = new CObjPiyokoFish(m_px, m_py,90);
-    Objs::InsertObj(pf, NULL, 100);*/
 
     //金魚のライフ1以上で金魚操作可能
     if (((UserData*)Save::GetData())->life_point > 0)
@@ -186,6 +183,7 @@ void CObjFishPlayer::Action()
                 //操作反転モード：ON
                 else
                 {
+               
                     if (m_f == true)
                     {
                         //trueの時操作反転
@@ -211,6 +209,13 @@ void CObjFishPlayer::Action()
                 m_f = true;
             }
         }
+
+        if (((UserData*)Save::GetData())->key_flag_mirror == true)
+        {
+            CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
+            hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
+        }
+
         //ベクトルを挿入
         //右
         if (m_right_move == true)

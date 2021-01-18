@@ -2,11 +2,11 @@
 //使用するヘッダー
 #include "GameL\SceneObjManager.h"
 #include "GameL\DrawTexture.h"
-#include"ObjDriftFish.h"
+
 //使用するネームスペース
 using namespace GameL;
 
-//オブジェクト：敵機弾丸
+//オブジェクト：ひよこ
 class CObjPiyokoFish :public CObj
 {
 public:

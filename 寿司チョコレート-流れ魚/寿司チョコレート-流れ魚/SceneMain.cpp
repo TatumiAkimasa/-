@@ -98,6 +98,8 @@ void CSceneMain::InitScene()
 
 	//外部グラフィックファイルを読み込み20番に登録(Ren)
 
+	//外部グラフィックファイルを読み込み19番に登録(ぴよこ)
+	Draw::LoadImage(L"ピヨコ_正面.png", 22, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -209,7 +211,7 @@ void CSceneMain::Scene()
 		Audio::Start(1);
 		bgm_flag2 = false;
 	}
-
+	
 	//障害物に当たった時、スピードが初期に戻る処理
 	if (((UserData*)Save::GetData())->sp_lv == 0)
 	{
@@ -244,7 +246,13 @@ void CSceneMain::Scene()
 			CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
 		}
-		
+		if (t == 0)
+		{
+			CObjmirror* ff = new CObjmirror(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(ff, OBJ_10ENN, 50);
+
+			t++;
+		}
 		//障害物の出現
 		if (m_time % 60 == 0)
 		{

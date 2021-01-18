@@ -53,12 +53,12 @@ void CObjPiyokoFish::Draw()
 	dst.m_right = 32.0f + m_px;
 	dst.m_bottom = 32.0f + m_py;
 
-	
+
 	//切り取り位置の設定
 	src.m_top = 0.0f;
-	src.m_left = 96.0f;
-	src.m_right = 126.0f;
-	src.m_bottom = 32.0f;
+	src.m_left = 0.0f;
+	src.m_right = 254.0f;
+	src.m_bottom = 254.0f;
 	//0番目に登録したグラフィックをsrc・dst・cの情報を元に描画
-	Draw::Draw(20, &src, &dst, c, m_r);
+	Draw::Draw(22, &src, &dst, c, m_r);
 }
