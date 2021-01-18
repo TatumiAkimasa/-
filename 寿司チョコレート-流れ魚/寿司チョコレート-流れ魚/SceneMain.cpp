@@ -94,10 +94,10 @@ void CSceneMain::InitScene()
 	Draw::LoadImage(L"hosi.png", 19, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み20番に登録(Armor)
-	
+	Draw::LoadImage(L"Armor.png", 20, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み20番に登録(Ren)
-
+	//外部グラフィックファイルを読み込み21番に登録(Ren)
+	//Draw::LoadImage(L".png", 21, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -171,7 +171,7 @@ void CSceneMain::Scene()
 
 	//障害物が落ちてくる確率
 	//通常障害物 50/全体　ギミック 1/全体
-	int x = rand() % 63;
+	int x = rand() % 62;
 
 	//落下の初期化
 	if (t == 0)
@@ -384,31 +384,8 @@ void CSceneMain::Scene()
 
 				((UserData*)Save::GetData())->sp_lv++;
 			}
-			//スコアアップ(10)
-			else if (x == 54)
-			{
-				x = rand() % 3;
-
-				if (x == 0)
-				{
-					CObj10enn* obj = new CObj10enn(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_10ENN, 50);
-				}
-				else if (x == 1)
-				{
-					CObj10enn* obj = new CObj10enn(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_10ENN, 50);
-				}
-				else if (x == 2)
-				{
-					CObj10enn* obj = new CObj10enn(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-					Objs::InsertObj(obj, OBJ_10ENN, 50);
-				}
-
-				((UserData*)Save::GetData())->sp_lv++;
-			}
 			//操作反転
-			else if (x == 55)
+			else if (x == 54)
 			{
 				x = rand() % 3;
 
@@ -431,7 +408,7 @@ void CSceneMain::Scene()
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			//スコアアップ(100)
-			else if (x == 56)
+			else if (x == 55)
 			{
 				x = rand() % 3;
 
@@ -454,7 +431,7 @@ void CSceneMain::Scene()
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			//スコアアップ(1000)
-			else if (x == 57)
+			else if (x == 56)
 			{
 				x = rand() % 3;
 
@@ -477,7 +454,7 @@ void CSceneMain::Scene()
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			//スコアアップ(10000)
-			else if (x == 58)
+			else if (x == 57)
 			{
 				x = rand() % 3;
 
@@ -500,7 +477,7 @@ void CSceneMain::Scene()
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			//偽ライフ
-			else if (x == 59)
+			else if (x == 58)
 			{
 				x = rand() % 3;
 
@@ -523,7 +500,7 @@ void CSceneMain::Scene()
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			//木アイテム
-			else if (x == 60)
+			else if (x == 59)
 			{
 				x = rand() % 3;
 
@@ -569,7 +546,7 @@ void CSceneMain::Scene()
 				((UserData*)Save::GetData())->Tree_flag = false;
 			}
 			//Armorアイテム
-			else if (x == 61)
+			else if (x == 60)
 			{
 				x = rand() % 3;
 
@@ -592,7 +569,7 @@ void CSceneMain::Scene()
 				((UserData*)Save::GetData())->sp_lv++;
 			}
 			//Ren
-			else if (x == 62)
+			else if (x == 61)
 			{
 				x = rand() % 3;
 

@@ -58,7 +58,14 @@ void CObjsp_up::Action()
 		}
 
 		//ƒXƒRƒA‚Ì‰ÁŽZ
-		((UserData*)Save::GetData())->save_score += 1000;
+		if (((UserData*)Save::GetData())->key_flag_mirror == true)
+		{
+			((UserData*)Save::GetData())->save_score += 4000;
+		}
+		else
+		{
+			((UserData*)Save::GetData())->save_score += 2000;
+		}
 	}
 }
 

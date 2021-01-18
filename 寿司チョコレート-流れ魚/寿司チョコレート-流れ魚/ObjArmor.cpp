@@ -22,7 +22,7 @@ CObjArmor::CObjArmor(float x, float y, float s)
 void CObjArmor::Init()
 {
 	//当たり判定用Hitboxを作成
-	Hits::SetHitBox(this, m_x + 16, m_y + 16, 48, 48, ELEMENT_ENEMY, OBJ_ARMOR, 1);
+	Hits::SetHitBox(this, m_x + 16, m_y + 16, 48, 48, ELEMENT_ARMOR, OBJ_ARMOR, 1);
 }
 
 //アクション
