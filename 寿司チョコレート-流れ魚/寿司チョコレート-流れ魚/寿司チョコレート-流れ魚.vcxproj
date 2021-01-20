@@ -171,6 +171,7 @@
     <ClCompile Include="ObjRen.cpp" />
     <ClCompile Include="ObjResult.cpp" />
     <ClCompile Include="ObjSetting.cpp" />
+    <ClCompile Include="ObjSlow.cpp" />
     <ClCompile Include="Objsp_down.cpp" />
     <ClCompile Include="Objsp_up.cpp" />
     <ClCompile Include="ObjTatami.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="ObjRen.h" />
     <ClInclude Include="ObjResult.h" />
     <ClInclude Include="ObjSetting.h" />
+    <ClInclude Include="ObjSlow.h" />
     <ClInclude Include="Objsp_down.h" />
     <ClInclude Include="Objsp_up.h" />
     <ClInclude Include="ObjTatami.h" />

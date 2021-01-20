@@ -32,6 +32,7 @@ enum OBJ_NAME
 	OBJ_TATAMI,
 	OBJ_ACHIEVEMENT,
 	OBJ_SETTING,
+	OBJ_SLOW,
 };
 //------------------------------------------------
 
@@ -134,6 +135,7 @@ enum FLOW_OBJ_ID
 #include "ObjTatami.h"
 #include "ObjAchievement.h"
 #include "ObjSetting.h"
+#include "ObjSlow.h"
 
 //------------------------------------------------
 
