@@ -123,6 +123,18 @@ void CObjMain::Action()
 		random = 12;
 		mirrior_flag = false;
 	}
+	//ヒント
+	else if (((UserData*)Save::GetData())->save_s_time % 60 == 0)
+	{
+		//基本、すべて上が反映もし、何もなければ20秒ごとにセリフが変わる。
+		if (come_flag == true)
+		{
+			//３パターン
+			random = (rand() % 3) - 8;
+			//random = -6~-8;
+			come_flag = false;
+		}
+	}
 	//日常会話
 	else if (((UserData*)Save::GetData())->save_s_time % 20 == 0)
 	{
@@ -172,8 +184,6 @@ void CObjMain::Action()
 			((UserData*)Save::GetData())->Achievement_flag[29] = true;
 		}
 	}
-	
-
 }
 
 //ドロー
@@ -223,7 +233,34 @@ void CObjMain::Draw()
 
 	//コメントの表示
 	float k[4] = { 0.1f,0.1f,0.1f,1.0f };
-	if (random == -5)
+	if (random == -8)
+	{
+		swprintf_s(str, L"そうめんにわざと");
+		Font::StrDraw(str, 50, 430, 30, k);
+		swprintf_s(str, L"当たって速度を");
+		Font::StrDraw(str, 50, 470, 30, k);
+		swprintf_s(str, L"調節してみよう!");
+		Font::StrDraw(str, 30, 510, 30, k);
+	}
+	else if (random == -7)
+	{
+		swprintf_s(str, L"操作反転中は点数");
+		Font::StrDraw(str, 45, 430, 30, k);
+		swprintf_s(str, L"が二倍増えるピンチ");
+		Font::StrDraw(str, 25, 470, 30, k);
+		swprintf_s(str, L"がチャンスへ！");
+		Font::StrDraw(str, 40, 510, 30, k);
+	}
+	else if (random == -6)
+	{
+		swprintf_s(str, L"長く生き残れば");
+		Font::StrDraw(str, 60, 430, 30, k);
+		swprintf_s(str, L"獲得魚力がより");
+		Font::StrDraw(str, 60, 470, 30, k);
+		swprintf_s(str, L"多くもらえるよ！");
+		Font::StrDraw(str, 25, 510, 30, k);
+	}
+	else if (random == -5)
 	{
 	swprintf_s(str, L"世界最小の魚は");
 	Font::StrDraw(str, 60, 430, 30, k);
