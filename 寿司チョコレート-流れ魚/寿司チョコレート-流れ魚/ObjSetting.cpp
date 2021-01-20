@@ -154,7 +154,7 @@ void CObjSetting::Action()
 //ドロー
 void CObjSetting::Draw()
 {	
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 0.0f,0.0f,0.0f,1.0f };
 	wchar_t str[256];
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
@@ -184,5 +184,5 @@ void CObjSetting::Draw()
 		Font::StrDraw(L"<  ON   >", 500, 200, 50, c);
 	}
 
-	Font::StrDraw(L"エンターキーで戻る", 540, 560, 25, c);
+	Font::StrDraw(L"エンターキーで戻る", 540, 540, 25, c);
 }
