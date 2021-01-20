@@ -213,7 +213,7 @@ void CObjFishPlayer::Action()
 
         if (hit->CheckElementHit(ELEMENT_MIRROR) == true)
         {
-            CObjPiyokoFish* df = new CObjPiyokoFish(m_px, m_py,90);
+            CObjPiyokoFish* df = new CObjPiyokoFish(m_px, m_py);
             Objs::InsertObj(df, NULL, 100);
         }
 

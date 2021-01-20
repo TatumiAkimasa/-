@@ -11,19 +11,16 @@
 using namespace GameL;
 
 //コンストラクタ
-CObjPiyokoFish::CObjPiyokoFish(float x, float y, float r)
+CObjPiyokoFish::CObjPiyokoFish(float x, float y)
 {
 	m_px = x;
 	m_py = y;
-	m_r = r;
 }
 
 //イニシャライズ
 void CObjPiyokoFish::Init()
 {
-
-	m_vx = cos(3.14 / 180 * m_r);
-	m_vy = sin(3.14 / 180 * m_r);
+	m_r = 0.0f;
 	//当たり判定用ヒットボックスを作成
 	Hits::SetHitBox(this, m_px, m_py, 0, 0, NULL, NULL, 1);
 
@@ -32,14 +29,28 @@ void CObjPiyokoFish::Init()
 //アクション
 void CObjPiyokoFish::Action()
 {
+	m_r += 2.0f;
 	CObjFishPlayer* obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
 	float x = obj->GetVX();
+	
+	if (m_r > 360)
+	{
+		m_r = 0;
+	}
 
-	m_vx += x;
+	m_vx += 5;
+	m_vy = sin(3.14 / 180 * m_r);
+	//m_vx = cos(3.14 / 180 * m_r);
 
 	//敵機拡散弾のHitBox用ポインターを取得
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_px, m_py);
+
+	if (((UserData*)Save::GetData())->key_flag_mirror == false)
+	{
+		this->SetStatus(false);
+		Hits::DeleteHitBox(this);
+	}
 }
 
 //ドロー

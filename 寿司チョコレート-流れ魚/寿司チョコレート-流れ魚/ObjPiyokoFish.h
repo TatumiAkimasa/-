@@ -10,7 +10,7 @@ using namespace GameL;
 class CObjPiyokoFish :public CObj
 {
 public:
-	CObjPiyokoFish(float x, float y, float r);
+	CObjPiyokoFish(float x, float y);
 	~CObjPiyokoFish() {};
 	void Init();  //イニシャライズ
 	void Action();//アクション
