@@ -54,36 +54,14 @@ void CObjFlow::Action()
 			//mirror‚ÌƒXƒRƒA2”{‚Ìˆ—
 			if (((UserData*)Save::GetData())->key_flag_mirror == true)
 			{
-				((UserData*)Save::GetData())->save_score += 200;
+				((UserData*)Save::GetData())->save_score += 500;
 			}
 			else
 			{
-				((UserData*)Save::GetData())->save_score += 100;
+				((UserData*)Save::GetData())->save_score += 250;
 			}
 		}
 		else if (((UserData*)Save::GetData())->sp >= 10.0f && ((UserData*)Save::GetData())->sp < 15.0f)
-		{
-			if (((UserData*)Save::GetData())->key_flag_mirror == true)
-			{
-				((UserData*)Save::GetData())->save_score += 400;
-			}
-			else
-			{
-				((UserData*)Save::GetData())->save_score += 200;
-			}
-		}
-		else if (((UserData*)Save::GetData())->sp >= 15.0f && ((UserData*)Save::GetData())->sp < 20.0f)
-		{
-			if (((UserData*)Save::GetData())->key_flag_mirror == true)
-			{
-				((UserData*)Save::GetData())->save_score += 600;
-			}
-			else
-			{
-				((UserData*)Save::GetData())->save_score += 300;
-			}
-		}
-		else if (((UserData*)Save::GetData())->sp >= 20.0f)
 		{
 			if (((UserData*)Save::GetData())->key_flag_mirror == true)
 			{
@@ -92,6 +70,28 @@ void CObjFlow::Action()
 			else
 			{
 				((UserData*)Save::GetData())->save_score += 500;
+			}
+		}
+		else if (((UserData*)Save::GetData())->sp >= 15.0f && ((UserData*)Save::GetData())->sp < 20.0f)
+		{
+			if (((UserData*)Save::GetData())->key_flag_mirror == true)
+			{
+				((UserData*)Save::GetData())->save_score += 1500;
+			}
+			else
+			{
+				((UserData*)Save::GetData())->save_score += 750;
+			}
+		}
+		else if (((UserData*)Save::GetData())->sp >= 20.0f)
+		{
+			if (((UserData*)Save::GetData())->key_flag_mirror == true)
+			{
+				((UserData*)Save::GetData())->save_score += 2000;
+			}
+			else
+			{
+				((UserData*)Save::GetData())->save_score += 1000;
 			}
 		}
 	}

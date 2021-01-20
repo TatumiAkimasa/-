@@ -14,6 +14,7 @@ using namespace GameL;
 void CObjResult::Init()
 {
 	m_key_flag = false;
+	((UserData*)Save::GetData())->Tree_flag = false;
 	m_time = 0;
 	s_time = 0;
 }
