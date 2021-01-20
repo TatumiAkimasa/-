@@ -169,7 +169,7 @@ void CObjResult::Draw()
 	//‹›—Í 140000`150000
 	else if (((UserData*)Save::GetData())->save_score >= 140000 && ((UserData*)Save::GetData())->save_score < 150000)
 	{
-		Font::StrDraw(L"O”{–ğ–", 190, COMMENT_POS, COMMENT_SIZE, c);
+		Font::StrDraw(L"O”{–ğ–", 300, COMMENT_POS, COMMENT_SIZE, c);
 		((UserData*)Save::GetData())->Achievement_flag[20] = true;
 	}
 	//‹›—Í 150000`160000
