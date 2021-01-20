@@ -124,7 +124,7 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(11, L"隠し.wav", SOUND_TYPE::EFFECT);
 
-	Audio::LoadAudio(12, L"隠し3.wav", SOUND_TYPE::EFFECT);
+	
 
 	
 	//バックミュージックスタート
