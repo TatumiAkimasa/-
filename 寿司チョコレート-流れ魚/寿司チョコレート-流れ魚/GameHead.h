@@ -32,6 +32,7 @@ enum OBJ_NAME
 	OBJ_TATAMI,
 	OBJ_ACHIEVEMENT,
 	OBJ_SETTING,
+	OBJ_SLOW,
 };
 //------------------------------------------------
 
