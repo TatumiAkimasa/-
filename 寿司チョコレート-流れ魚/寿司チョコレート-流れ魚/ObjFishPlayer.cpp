@@ -86,10 +86,12 @@ void CObjFishPlayer::Action()
                 {
                     //連打の処理
                     if(m_f==true)
+                        Audio::Start(16);
                     ((UserData*)Save::GetData())->ren--;
 
                     if (((UserData*)Save::GetData())->ren <= 0)
                     {
+                        Audio::Start(17);
                         ((UserData*)Save::GetData())->Ren_flag = false;
                     }
                     m_f = false;
@@ -100,10 +102,12 @@ void CObjFishPlayer::Action()
             {
                 //連打の処理
                 if (m_f == true)
+                    Audio::Start(16);
                     ((UserData*)Save::GetData())->ren--;
 
                 if (((UserData*)Save::GetData())->ren <= 0)
                 {
+                    Audio::Start(17);
                     ((UserData*)Save::GetData())->Ren_flag = false;
                 }
                 m_f = false;
@@ -339,6 +343,7 @@ void CObjFishPlayer::Action()
         //Armorフラグがtrueの時
         if (((UserData*)Save::GetData())->Armor_flag == true)
         {
+            Audio::Start(13);
             //ダメージ判定はなし、フラグのみ変更
             ((UserData*)Save::GetData())->Armor_flag = false;
         }
