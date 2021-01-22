@@ -40,6 +40,9 @@ void CObjFishPlayer::Init()
     m_spin = 0.0f;
     cont = 0;
     m_not_move_time = false;//falseで操作可能・trueで操作不能
+    slow_right_move = false;
+    slow_left_move = false;
+    slow_count = 0;
 
     srand(rand());
 
@@ -133,12 +136,28 @@ void CObjFishPlayer::Action()
                         {
                             if (m_f == true)
                             {
-                                m_left_move = true;
+                                //主人公のの左右移動鈍足化
+                                if (((UserData*)Save::GetData())->key_flag_slow == true)
+                                {
+                                    slow_left_move = true;
+                                }
+                                else
+                                {
+                                    m_left_move = true;
+                                }
                             }
                         }
                         else
                         {
-                            m_right_move = true;
+                            //主人公のの左右移動鈍足化
+                            if (((UserData*)Save::GetData())->key_flag_slow == true)
+                            {
+                                slow_right_move = true;
+                            }
+                            else
+                            {
+                                m_right_move = true;
+                            }
                         }
                     }
                 }
@@ -152,12 +171,28 @@ void CObjFishPlayer::Action()
                         {
                             if (m_f == true)
                             {
-                                m_right_move = true;
+                                //主人公のの左右移動鈍足化
+                                if (((UserData*)Save::GetData())->key_flag_slow == true)
+                                {
+                                    slow_right_move = true;
+                                }
+                                else
+                                {
+                                    m_right_move = true;
+                                }
                             }
                         }
                         else
                         {
-                            m_left_move = true;
+                            //主人公のの左右移動鈍足化
+                            if (((UserData*)Save::GetData())->key_flag_slow == true)
+                            {
+                                slow_left_move = true;
+                            }
+                            else
+                            {
+                                m_left_move = true;
+                            }
                         }
                     }
                 }
@@ -178,12 +213,28 @@ void CObjFishPlayer::Action()
 
                             if (m_f == true)
                             {
-                                m_right_move = true;
+                                //主人公のの左右移動鈍足化
+                                if (((UserData*)Save::GetData())->key_flag_slow == true)
+                                {
+                                    slow_right_move = true;
+                                }
+                                else
+                                {
+                                    m_right_move = true;
+                                }
                             }
                         }
                         else
                         {
-                            m_left_move = true;
+                            //主人公のの左右移動鈍足化
+                            if (((UserData*)Save::GetData())->key_flag_slow == true)
+                            {
+                                slow_left_move = true;
+                            }
+                            else
+                            {
+                                m_left_move = true;
+                            }
                         }
                     }
                 }
@@ -200,12 +251,28 @@ void CObjFishPlayer::Action()
 
                             if (m_f == true)
                             {
-                                m_left_move = true;
+                                //主人公のの左右移動鈍足化
+                                if (((UserData*)Save::GetData())->key_flag_slow == true)
+                                {
+                                    slow_left_move = true;
+                                }
+                                else
+                                {
+                                    m_left_move = true;
+                                }
                             }
                         }
                         else
                         {
-                            m_right_move = true;
+                            //主人公のの左右移動鈍足化
+                            if (((UserData*)Save::GetData())->key_flag_slow == true)
+                            {
+                                slow_right_move = true;
+                            }
+                            else
+                            {
+                                m_right_move = true;
+                            }
                         }
                     }
                 }
@@ -230,6 +297,26 @@ void CObjFishPlayer::Action()
                 m_not_move_time = false;
             }
         }
+        //右(操作鈍足)
+        if (slow_right_move == true)
+        {
+            m_vx += 5;
+            m_move++;
+            m_not_move_time = true;
+            m_f = false;
+            if (slow_count >= 10)
+            {
+                ((UserData*)Save::GetData())->key_flag_slow = false;
+                slow_count = 0;
+            }
+            if (m_move >= 24)
+            {
+                m_move = 0;
+                slow_count++;
+                slow_right_move = false;
+                m_not_move_time = false;
+            }
+        }
         //左
         if (m_left_move == true)
         {
@@ -241,6 +328,26 @@ void CObjFishPlayer::Action()
             {
                 m_move = 0;
                 m_left_move = false;
+                m_not_move_time = false;
+            }
+        }
+        //左(操作鈍足)
+        if (slow_left_move == true)
+        {
+            m_vx -= 5;
+            m_move++;
+            m_not_move_time = true;
+            m_f = false;
+            if (slow_count >= 10)
+            {
+                ((UserData*)Save::GetData())->key_flag_slow = false;
+                slow_count = 0;
+            }
+            if (m_move >= 24)
+            {
+                m_move = 0;
+                slow_count++;
+                slow_left_move = false;
                 m_not_move_time = false;
             }
         }

@@ -59,6 +59,7 @@ enum HIT_ELEMENTS
 	ELEMENT_TREE,
 	ELEMENT_ARMOR,
 	ELEMENT_REN,
+	ELEMENT_SLOW,
 };
 //------------------------------------------------
 
@@ -86,6 +87,7 @@ struct UserData
 	int m_max_time = 0;      //max_timeの記憶用変数
 	float start_sp;         //初期速度を変更できるようにする変数
 	bool start_control_mirror;//操作反転の切り替えができる
+	bool key_flag_slow;     //主人公の左右の移動速度低下用フラグ
 };
 //------------------------------------------------
 
@@ -135,6 +137,7 @@ enum FLOW_OBJ_ID
 #include "ObjTatami.h"
 #include "ObjAchievement.h"
 #include "ObjSetting.h"
+#include "ObjSlow.h"
 
 //------------------------------------------------
 
