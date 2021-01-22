@@ -21,7 +21,7 @@ bool CObjBackground::end_point()
 //ƒCƒjƒVƒƒƒ‰ƒCƒY
 void CObjBackground::Init()
 {
-	m_y1 = 0.0f;
+	m_y1 = -0.001f;
 	count = 10;
 	add =5;
 	n = 0;
@@ -34,12 +34,14 @@ void CObjBackground::Action()
 {
 	//”wŒi‡@‚Ì“®ì
 
+	//‚à‚¤ˆê‚Â‚Ì”wŒi‚ÌŒ»Ý’n‚ª‹K’è’li—¬‚µ‚È‚¨‚·ƒ^ƒCƒ~ƒ“ƒOj‚É’B‚µ‚½‚©‚Ç‚¤‚©
 	CObjBackground_2* obj = (CObjBackground_2*)Objs::GetObj(OBJ_BACK_GROUND_2);
 	if (obj != nullptr)
 	{
 		End_P = obj->End_point();
 	}
 
+	//‚±‚Ì”wŒi‚ÌŒ»Ý’n‚ª‹K’è’l‚É’B‚µ‚½‚©‚Ç‚¤‚©‚ð”»’è
 	if (end_P == false)
 	{
 		if (n >= 10 && m_y1 >= 15.0f && m_y1 <= 27.0f)
@@ -51,6 +53,10 @@ void CObjBackground::Action()
 			end_P = true;
 		}
 		else if (n == 9 && m_y1 >= 14.0f && m_y1 <= 16.0f)
+		{
+			end_P = true;
+		}
+		else if (n == 7 && m_y1 >= 11.0f && m_y1 <= 13.0f)
 		{
 			end_P = true;
 		}
@@ -73,6 +79,7 @@ void CObjBackground::Action()
 	if (m_y1 >= 580)
 		add = n;
 	
+	//Ž€‚ñ‚¾‚ç”wŒistop
 	if (((UserData*)Save::GetData())->life_point == 0)
 	{
 		n = 0;
@@ -92,6 +99,7 @@ void CObjBackground::Action()
 	else
 		m_y1 -= n;
 
+	//”wŒiØ‚è‘Ö‚¦
 	if (n >= 9 && n <= 20)
 	{
 		if (m_y1 < -595.0f && count == 1)
@@ -115,9 +123,6 @@ void CObjBackground::Action()
 			count = 3;
 		}
 	}
-	
-	
-	
 
 }
 
