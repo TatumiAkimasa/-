@@ -6,7 +6,7 @@
 #include "GameHead.h"
 #include "Objmirror.h"
 #include "GameL\Audio.h"
-
+//
 //使用するネームスペース
 using namespace GameL;
 
@@ -68,8 +68,8 @@ void CObjmirror::Draw()
 
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
-	src.m_right = 616.0f;
-	src.m_bottom = 616.0f;
+	src.m_right = 128.0f;
+	src.m_bottom = 128.0f;
 
 	dst.m_top = 0.0f + m_y;
 	dst.m_left = 0.0f + m_x;

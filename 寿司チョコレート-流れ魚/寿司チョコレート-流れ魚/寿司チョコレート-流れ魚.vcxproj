@@ -104,7 +104,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -132,7 +132,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -159,7 +159,6 @@
     <ClCompile Include="GameL\SetWindow.cpp" />
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
-    <ClCompile Include="Obj10enn.cpp" />
     <ClCompile Include="ObjBackground.cpp" />
     <ClCompile Include="Objbadlife.cpp" />
     <ClCompile Include="ObjDriftFish.cpp" />
@@ -172,6 +171,7 @@
     <ClCompile Include="ObjRen.cpp" />
     <ClCompile Include="ObjResult.cpp" />
     <ClCompile Include="ObjSetting.cpp" />
+    <ClCompile Include="ObjSlow.cpp" />
     <ClCompile Include="Objsp_down.cpp" />
     <ClCompile Include="Objsp_up.cpp" />
     <ClCompile Include="ObjTatami.cpp" />
@@ -203,7 +203,6 @@
     <ClInclude Include="Obj10000enn.h" />
     <ClInclude Include="Obj1000enn.h" />
     <ClInclude Include="Obj100enn.h" />
-    <ClInclude Include="Obj10enn.h" />
     <ClInclude Include="ObjAchievement.h" />
     <ClInclude Include="ObjArmor.h" />
     <ClInclude Include="ObjBackground.h" />
@@ -222,6 +221,7 @@
     <ClInclude Include="ObjRen.h" />
     <ClInclude Include="ObjResult.h" />
     <ClInclude Include="ObjSetting.h" />
+    <ClInclude Include="ObjSlow.h" />
     <ClInclude Include="Objsp_down.h" />
     <ClInclude Include="Objsp_up.h" />
     <ClInclude Include="ObjTatami.h" />

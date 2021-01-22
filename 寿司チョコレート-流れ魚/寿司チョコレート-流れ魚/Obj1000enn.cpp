@@ -55,7 +55,14 @@ void CObj1000enn::Action()
 		Hits::DeleteHitBox(this);	//10‰~‚ªŠ—L‚·‚éHitBox‚ðíœ‚·‚é
 
 		//ƒXƒRƒA‚Ì‰ÁŽZ
-		((UserData*)Save::GetData())->save_score += 1000;
+		if (((UserData*)Save::GetData())->key_flag_mirror == true)
+		{
+			((UserData*)Save::GetData())->save_score += 2000;
+		}
+		else
+		{
+			((UserData*)Save::GetData())->save_score += 1000;
+		}
 	}
 }
 
