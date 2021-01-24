@@ -37,6 +37,7 @@ void CObjSetting::Action()
 	{
 		if (U_flag == true)
 		{
+			Audio::Start(0);
 			if (setting_pos > 0)
 			{
 				setting_pos -= 1;
@@ -56,6 +57,7 @@ void CObjSetting::Action()
 	{
 		if (D_flag == true)
 		{
+			Audio::Start(0);
 			if (setting_pos < 1)
 			{
 				setting_pos += 1;
@@ -83,6 +85,7 @@ void CObjSetting::Action()
 
 				if (R_flag == true)
 				{
+					Audio::Start(0);
 					((UserData*)Save::GetData())->start_sp += 0.5f;
 					R_flag = false;
 				}
@@ -100,6 +103,7 @@ void CObjSetting::Action()
 
 				if (L_flag == true)
 				{
+					Audio::Start(1);
 					((UserData*)Save::GetData())->start_sp -= 0.5f;
 					L_flag = false;
 				}
@@ -120,6 +124,7 @@ void CObjSetting::Action()
 
 			if (R_flag == true)
 			{
+				Audio::Start(0);
 				((UserData*)Save::GetData())->start_control_mirror = false;
 				R_flag = false;
 			}
@@ -134,6 +139,7 @@ void CObjSetting::Action()
 
 			if (L_flag == true)
 			{
+				Audio::Start(0);
 				((UserData*)Save::GetData())->start_control_mirror = true;
 				L_flag = false;
 			}
@@ -148,7 +154,7 @@ void CObjSetting::Action()
 //ドロー
 void CObjSetting::Draw()
 {	
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float c[4] = { 0.0f,0.0f,0.0f,1.0f };
 	wchar_t str[256];
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
@@ -178,5 +184,5 @@ void CObjSetting::Draw()
 		Font::StrDraw(L"<  ON   >", 500, 200, 50, c);
 	}
 
-	Font::StrDraw(L"エンターキーで戻る", 540, 560, 25, c);
+	Font::StrDraw(L"エンターキーで戻る", 540, 540, 25, c);
 }

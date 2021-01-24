@@ -54,9 +54,6 @@ void CObjTreeItem::Action()
 		((UserData*)Save::GetData())->Tree_flag = true;
 		((UserData*)Save::GetData())->Tree_said = true;
 		((UserData*)Save::GetData())->Tree_time = 600;
-
-		//ƒXƒRƒA‚Ì‰ÁŽZ
-		((UserData*)Save::GetData())->save_score += 1000;
 	}
 }
 
