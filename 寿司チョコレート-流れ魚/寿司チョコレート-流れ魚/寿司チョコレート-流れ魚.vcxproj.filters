@@ -183,6 +183,9 @@
     <ClCompile Include="ObjPiyokoFIsh.cpp">
       <Filter>ソース ファイル\金魚処理系</Filter>
     </ClCompile>
+    <ClCompile Include="Piyoko_Move.cpp">
+      <Filter>ソース ファイル\金魚処理系</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -327,6 +330,9 @@
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
     <ClInclude Include="ObjPiyokoFish.h">
+      <Filter>ソース ファイル\金魚処理系</Filter>
+    </ClInclude>
+    <ClInclude Include="Piyoko_Move.h">
       <Filter>ソース ファイル\金魚処理系</Filter>
     </ClInclude>
   </ItemGroup>

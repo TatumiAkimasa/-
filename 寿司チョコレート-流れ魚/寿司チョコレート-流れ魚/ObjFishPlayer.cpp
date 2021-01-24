@@ -41,6 +41,7 @@ void CObjFishPlayer::Init()
     cont = 0;
     m_not_move_time = false;//falseで操作可能・trueで操作不能
     
+    m_i = 0;
     srand(rand());
 
     //当たり判定用HitBoxを作成
@@ -211,17 +212,34 @@ void CObjFishPlayer::Action()
             }
         }
 
-        if (hit->CheckElementHit(ELEMENT_MIRROR) == true)
+        if (hit->CheckElementHit(ELEMENT_MIRROR) == true && ((UserData*)Save::GetData())->key_flag_mirror == false)
         {
-            CObjPiyokoFish* df = new CObjPiyokoFish(m_px, m_py);
-            Objs::InsertObj(df, NULL, 100);
+            CObjPiyokoFish* pf;
+            for (m_i = 0; m_i < 3; m_i++)
+            {
+                switch (m_i)
+                {
+                case 0:
+                    pf = new CObjPiyokoFish(0.0f, m_py, 0.0f);
+                    Objs::InsertObj(pf, NULL, 100);
+                case 1:
+                    pf = new CObjPiyokoFish(0.0f+45, m_py+45,0.0f);
+                    Objs::InsertObj(pf, NULL, 100);
+                case 2:
+                    pf = new CObjPiyokoFish(0.0f, m_py+90,0.0f);
+                    Objs::InsertObj(pf, NULL, 100);
+                case 3:
+                    pf = new CObjPiyokoFish(0.0f - 45, m_py+45,0.0f);
+                    Objs::InsertObj(pf, NULL, 100);
+                }
+            }
         }
 
         //ベクトルを挿入
         //右
         if (m_right_move == true)
         {
-            m_vx += 40;
+            m_vx += 40.0f;
             m_move++;
             m_not_move_time = true;
             m_f = false;
@@ -235,7 +253,7 @@ void CObjFishPlayer::Action()
         //左
         if (m_left_move == true)
         {
-            m_vx -= 40;
+            m_vx -= 40.0f;
             m_move++;
             m_not_move_time = true;
             m_f = false;

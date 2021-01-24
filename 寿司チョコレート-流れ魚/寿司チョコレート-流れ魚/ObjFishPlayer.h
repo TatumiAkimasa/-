@@ -16,7 +16,8 @@ public:
 	void Action();//アクション
 	void Draw();  //ドロー
 	bool heel_flag();
-	float GetVX() { return m_vx; };
+	float GetX() { return m_px; };
+	float GetI() { return m_i; };
 private:
 	float m_px;     //位置
 	float m_py;
@@ -30,6 +31,7 @@ private:
 	int m_inv_time;	//無敵時間用タイム変数
 	int m_stop_time;//金魚のライフ0で処理停止の時間用
 	int m_move;		//移動量制御用変数
+	int m_i;		//ピヨコ呼び出しfor分
 	float m_spin;		//魚回転用
 	int cont;
 	bool come_heel_flag;//コメント回復用フラグ

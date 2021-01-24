@@ -6,13 +6,17 @@
 #include "GameL/WinInputs.h"
 #include "GameL/UserData.h"
 
+#include<math.h>
+
+#include"Piyoko_Move.h"
 
 //使用するゲームスペース
 using namespace GameL;
 
 //コンストラクタ
-CObjPiyokoFish::CObjPiyokoFish(float x, float y)
+CObjPiyokoFish::CObjPiyokoFish(float x, float y, float r)
 {
+	m_r = r+(m_angle * 90.0f);
 	m_px = x;
 	m_py = y;
 }
@@ -20,29 +24,56 @@ CObjPiyokoFish::CObjPiyokoFish(float x, float y)
 //イニシャライズ
 void CObjPiyokoFish::Init()
 {
-	m_r = 0.0f;
+	m_vx = 0.0f;
+	m_vy = 0.0f;
+	m_obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
+	m_fp_x = m_obj->GetX();
+	
 	//当たり判定用ヒットボックスを作成
 	Hits::SetHitBox(this, m_px, m_py, 0, 0, NULL, NULL, 1);
 
+	
 }
 
 //アクション
 void CObjPiyokoFish::Action()
 {
+	m_obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
+	m_fp_x = m_obj->GetX();
+
+	m_angle = m_obj->GetI();
+
 	m_r += 2.0f;
-	CObjFishPlayer* obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
-	float x = obj->GetVX();
-	
+
 	if (m_r > 360)
 	{
 		m_r = 0;
 	}
 
-	m_vx += 5;
+	m_vx = cos(3.14 / 180 * m_r);
 	m_vy = sin(3.14 / 180 * m_r);
-	//m_vx = cos(3.14 / 180 * m_r);
 
-	//敵機拡散弾のHitBox用ポインターを取得
+	float r = 0.0f;
+	r = m_vx * m_vx + m_vy * m_vy;
+	r = sqrt(r);
+
+	if (r == 0.0f)
+	{
+		;
+	}
+	else
+	{
+		m_vx = 1.0 / r * m_vx;
+		m_vy = 1.0 / r * m_vy;
+	}
+
+	m_vx *= 1.5f;
+	m_vy *= 1.5f;
+
+	m_px += m_vx;
+	m_py += m_vy;
+	
+	//piyokoのHitBox用ポインターを取得
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_px, m_py);
 
@@ -64,9 +95,9 @@ void CObjPiyokoFish::Draw()
 
 	//表示位置の設定
 	dst.m_top = 0.0f + m_py;
-	dst.m_left = 0.0f + m_px;
-	dst.m_right = 32.0f + m_px;
-	dst.m_bottom = 32.0f + m_py;
+	dst.m_left = 16.0f + m_px + m_fp_x;
+	dst.m_right = 48.0f + m_px + m_fp_x;
+	dst.m_bottom = -32.0f + m_py;
 
 
 	//切り取り位置の設定
@@ -75,5 +106,5 @@ void CObjPiyokoFish::Draw()
 	src.m_right = 254.0f;
 	src.m_bottom = 254.0f;
 	//0番目に登録したグラフィックをsrc・dst・cの情報を元に描画
-	Draw::Draw(22, &src, &dst, c, m_r);
+	Draw::Draw(22, &src, &dst, c, 180.0f+m_r);
 }

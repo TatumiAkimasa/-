@@ -10,7 +10,7 @@ using namespace GameL;
 class CObjPiyokoFish :public CObj
 {
 public:
-	CObjPiyokoFish(float x, float y);
+	CObjPiyokoFish(float x, float y,float r);
 	~CObjPiyokoFish() {};
 	void Init();  //イニシャライズ
 	void Action();//アクション
@@ -20,6 +20,9 @@ private:
 	float m_py;
 	float m_vx;     //主人公のｘ方向移動ベクトル用変数
 	float m_vy;
-	float m_spin;	//回転処理用変数
 	float m_r;
+	float m_fp_x;
+	int m_angle;
+
+	CObjFishPlayer* m_obj;
 }; 
