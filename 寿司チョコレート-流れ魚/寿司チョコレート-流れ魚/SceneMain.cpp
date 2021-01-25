@@ -97,12 +97,12 @@ void CSceneMain::InitScene()
 	Draw::LoadImage(L"Armor.png", 20, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み21番に登録(Ren)
-	//Draw::LoadImage(L".png", 21, TEX_SIZE_512);
+	Draw::LoadImage(L"ani氷.png", 21, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み20番に登録(Armor)
 	Draw::LoadImage(L"鈍足.png", 22, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み19番に登録(ぴよこ)
+	//外部グラフィックファイルを読み込み23番に登録(ぴよこ)
 	Draw::LoadImage(L"ピヨコ_正面.png", 23, TEX_SIZE_512);
 
 	//音楽情報の読み込み
@@ -231,8 +231,8 @@ void CSceneMain::Scene()
 	}
 	if (m_t == 0)
 	{
-		CObjmirror* ff = new CObjmirror(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-		Objs::InsertObj(ff, OBJ_10ENN, 50);
+		CObjRen* t = new CObjRen(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+		Objs::InsertObj(t, OBJ_REN, 51);
 
 		m_t++;
 	}

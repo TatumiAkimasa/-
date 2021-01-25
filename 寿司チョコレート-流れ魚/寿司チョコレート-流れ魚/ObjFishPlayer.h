@@ -17,7 +17,7 @@ public:
 	void Draw();  //ドロー
 	bool heel_flag();
 	float GetX() { return m_px; };
-	float GetI() { return m_i; };
+
 private:
 	float m_px;     //位置
 	float m_py;
@@ -39,6 +39,7 @@ private:
 
 	int m_ani_time; //主人公アニメーションタイム用変数
 	int m_ani_frame; //主人公アニメーションフレーム用変数
+	int m_ice_ani_frame;
 	int m_key_time = 0;	//操作反転管理用タイム
  
 	bool slow_right_move;//右への移動が遅くなるフラグ

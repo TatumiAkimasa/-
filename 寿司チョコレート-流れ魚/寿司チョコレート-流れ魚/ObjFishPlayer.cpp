@@ -29,6 +29,7 @@ void CObjFishPlayer::Init()
     m_f = true;      //移動制御
     m_ani_time = 0;
     m_ani_frame = 0;
+    m_ice_ani_frame = 0;
     m_time = 0; 
     m_inv_time = 0;//無敵時間用タイム変数
     m_stop_time = 0;
@@ -62,26 +63,17 @@ void CObjFishPlayer::Action()
     //HitBoxの内容を更新
     CHitBox* hit = Hits::GetHitBox(this);  //作成したHitBox更新用の入り口を取り出す
     hit->SetPos(m_px + 22, m_py + 16);         //入口から新しい位置(主人公の位置)情報に置き換える
-    
-    m_ani_time++;
 
     //金魚のライフ1以上で金魚操作可能
     if (((UserData*)Save::GetData())->life_point > 0)
     {
-        //金魚アニメ
-        if (m_ani_time > 25 - ((UserData*)Save::GetData())->sp)
-        {
-            m_ani_time = 0;
-            m_ani_frame += 1;
-        }
-
-        if (m_ani_frame == 4)
-        {
-            m_ani_frame = 0;
-        }
 
         if (((UserData*)Save::GetData())->Ren_flag == true)
         {
+           /* CObjRen* ice;
+            ice = new CObjRen(m_px, m_py, 0.0f);
+            Objs::InsertObj(ice, NULL, 100);*/
+
             //右
             if (Input::GetVKey(VK_RIGHT) == true)
             {
@@ -95,6 +87,7 @@ void CObjFishPlayer::Action()
                     {
                         ((UserData*)Save::GetData())->Ren_flag = false;
                     }
+                    m_ice_ani_frame++;
                     m_f = false;
                 }
             }
@@ -109,6 +102,7 @@ void CObjFishPlayer::Action()
                 {
                     ((UserData*)Save::GetData())->Ren_flag = false;
                 }
+                m_ice_ani_frame += 1;
                 m_f = false;
             }
             else
@@ -118,6 +112,19 @@ void CObjFishPlayer::Action()
         }
         else
         {
+            m_ani_time++;
+            //金魚アニメ
+            if (m_ani_time > 25 - ((UserData*)Save::GetData())->sp)
+            {
+                m_ani_time = 0;
+                m_ani_frame += 1;
+            }
+
+            if (m_ani_frame == 4)
+            {
+                m_ani_frame = 0;
+            }
+
             //キーの入力方向にベクトルの速度を入れる
             //右
             if (Input::GetVKey(VK_RIGHT) == true && m_not_move_time == false)
@@ -532,7 +539,15 @@ void CObjFishPlayer::Draw()
 
             if (m_inv_time % 5 == 0)
             {
-                Draw::Draw(2, &src, &dst, c, 0.0f);
+                if (((UserData*)Save::GetData())->Ren_flag == true)
+                {
+                    Draw::Draw(2, &src, &dst, c, 0.0f);
+                }
+                else
+                {
+                    Draw::Draw(2, &src, &dst, c, 0.0f);
+                }
+
             }
             else
             {
@@ -552,5 +567,20 @@ void CObjFishPlayer::Draw()
     else
     {
         Draw::Draw(2, &src, &dst, c, m_spin);
+    }
+    
+    if (((UserData*)Save::GetData())->Ren_flag == true)
+    {
+        dst.m_top = 0.0f + m_py;
+        dst.m_left = 0.0f - 32.0f + m_px;
+        dst.m_right = 128.0f -32.0f+ m_px;
+        dst.m_bottom = 128.0f + m_py;
+
+        src.m_top = 0.0f;
+        src.m_left = 0.0f + (AniData[m_ice_ani_frame] - 1) * 128;
+        src.m_right = 128.0f * AniData[m_ice_ani_frame];
+        src.m_bottom = 128.00f;
+
+        Draw::Draw(21, &src, &dst, c, m_spin);
     }
 }
