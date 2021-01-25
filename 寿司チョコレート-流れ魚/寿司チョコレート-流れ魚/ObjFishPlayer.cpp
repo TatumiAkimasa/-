@@ -490,6 +490,21 @@ void CObjFishPlayer::Draw()
     RECT_F src;//•`ŽÊŒ³‚ÌØ‚èŽæ‚èˆÊ’u
     RECT_F dst;//•`‰ææ‚Ì•\Ž¦ˆÊ’u
 
+    if (((UserData*)Save::GetData())->Armor_flag == true)
+    {
+        dst.m_top = -23.0f + m_py;
+        dst.m_left = -62.5f + m_px;
+        dst.m_right = 182.0f + dst.m_left;
+        dst.m_bottom = 192.0f + dst.m_top;
+
+        src.m_top = 0.0f;
+        src.m_left = 0.0f;
+        src.m_right = 64.0f;
+        src.m_bottom = 64.0f;
+
+        Draw::Draw(23, &src, &dst, c, 0);
+    }
+
     dst.m_top = -23.0f + m_py;
     dst.m_left = -62.5f + m_px;
     dst.m_right = 182.0f + dst.m_left;
@@ -533,4 +548,6 @@ void CObjFishPlayer::Draw()
     {
         Draw::Draw(2, &src, &dst, c, m_spin);
     }
+
+    
 }
