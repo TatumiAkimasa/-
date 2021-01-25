@@ -97,13 +97,16 @@ void CSceneMain::InitScene()
 	Draw::LoadImage(L"Armor.png", 20, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み21番に登録(Ren)
-	Draw::LoadImage(L"氷.png", 21, TEX_SIZE_512);
+	Draw::LoadImage(L"ani氷.png", 21, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み20番に登録(Armor)
 	Draw::LoadImage(L"鈍足.png", 22, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み20番に登録(Armor)
 	Draw::LoadImage(L"金魚装甲可視化.png", 23, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み23番に登録(ぴよこ)
+	Draw::LoadImage(L"ピヨコ_正面.png", 24, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -173,7 +176,7 @@ void CSceneMain::InitScene()
 
 	((UserData*)Save::GetData())->save_score = 0;
 
-	t = 0;
+	m_t = 0;
 
 	bgm_flag = false;
 	bgm_flag2 = false;
@@ -225,7 +228,7 @@ void CSceneMain::Scene()
 		Audio::Start(1);
 		bgm_flag2 = false;
 	}
-
+	
 	//障害物に当たった時、スピードが初期に戻る処理
 	if (((UserData*)Save::GetData())->sp_lv == 0)
 	{
@@ -238,6 +241,14 @@ void CSceneMain::Scene()
 		{
 			((UserData*)Save::GetData())->sp = 5.0f;
 		}
+	}
+
+	if (m_t == 0)
+	{
+		CObjRen* t = new CObjRen(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+		Objs::InsertObj(t, OBJ_REN, 51);
+
+		m_t++;
 	}
 
 	if (((UserData*)Save::GetData())->life_point > 0)
