@@ -160,7 +160,7 @@ void CObjBackground::Draw()
 		dst.m_left = 250.0f;
 		dst.m_right = 820.0f;
 		dst.m_bottom = 605.0f  - m_y1;
-		if(n>10)
+		if(n>=10)
 			dst.m_bottom = 610.0f - m_y1;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
@@ -172,7 +172,7 @@ void CObjBackground::Draw()
 		dst.m_left = 238.0f;
 		dst.m_right = 808.0f;
 		dst.m_bottom = 605.0f  - m_y1;
-		if (n > 10)
+		if (n >= 10)
 			dst.m_bottom = 610.0f - m_y1;
 
 		Draw::Draw(4, &src, &dst, c, 0.0f);
@@ -184,7 +184,7 @@ void CObjBackground::Draw()
 		dst.m_left = 233.2f;
 		dst.m_right = 803.2f;
 		dst.m_bottom = 605.0f  - m_y1;
-		if (n > 10)
+		if (n >= 10)
 			dst.m_bottom = 610.0f - m_y1;
 
 		Draw::Draw(5, &src, &dst, c, 0.0f);
