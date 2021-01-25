@@ -41,8 +41,6 @@ void CObjTree::Draw()
 	src.m_right = 1024.0f;
 	src.m_bottom = 510.0f;
 
-	//ã450@^‚ñ’†@‰º
-
 	dst.m_top = 0.0f + m_y;
 	dst.m_left = 0.0f + m_x;
 	dst.m_right = 1000.0f + m_x;
@@ -65,9 +63,9 @@ void CObjTree::Draw()
 
 		//–Ø‚ğ‰ñ“]‚³‚¹‚éˆ—
 		r -= 1.5f;
-		if (r <= -80.0f)
+		if (r <= -100.0f)
 		{
-			r = -80.0f;
+			r = -100.0f;
 			this->SetStatus(false);
 			((UserData*)Save::GetData())->Tree_time = 0;
 		}

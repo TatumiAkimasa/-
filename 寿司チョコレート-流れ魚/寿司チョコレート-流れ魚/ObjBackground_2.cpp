@@ -29,7 +29,6 @@ void CObjBackground_2::Action()
 	//”wŒi‡@‚Ì“®ì
 	
 	//Bcakground‚©‚ç‘¬“x‚ÆŒ»ÝˆÊ’uŽæ“¾
-
 	CObjBackground* obj = (CObjBackground*)Objs::GetObj(OBJ_BACK_GROUND);
 	if (obj != nullptr)
 	{
@@ -37,6 +36,7 @@ void CObjBackground_2::Action()
 		end_P = obj->end_point();
 	}
 
+	//Background2‚ÌŒ»Ý’n‚ð”»’è‚µA‰º‚És‚Á‚½‚©‚Ç‚¤‚©‚ð‘ŠŽè(Background)‚É“n‚·
 	if (End_P == false)
 	{
 		if (n>=10&& m_y1 >= 15.0f && m_y1 <= 27.0f)
@@ -44,6 +44,14 @@ void CObjBackground_2::Action()
 			End_P = true;
 		}
 		else if (n < 10 && m_y1 >= 0.0f && m_y1 <= 9.0f)
+		{
+			End_P = true;
+		}
+		else if (n == 9 && m_y1 >= 14.0f && m_y1 <= 16.0f)
+		{
+			End_P = true;
+		}
+		else if (n == 7 && m_y1 >= 11.0f && m_y1 <= 13.0f)
 		{
 			End_P = true;
 		}
@@ -60,7 +68,7 @@ void CObjBackground_2::Action()
 		m_y1 = 600;
 	}
 	
-
+	//Ž€‚ñ‚¾‚ç”wŒistop
 	if (((UserData*)Save::GetData())->life_point == 0)
 	{
 		n = 0;
@@ -72,7 +80,7 @@ void CObjBackground_2::Action()
 	else
 		m_y1 -= n;
 	
-
+	//”wŒiØ‚è‘Ö‚¦
 	if (n >= 9 && n <=20)
 	{
 		if (m_y1 < -595.0f && count == 1)
@@ -96,8 +104,6 @@ void CObjBackground_2::Action()
 			count = 3;
 		}
 	}
-	
-	
 
 }
 

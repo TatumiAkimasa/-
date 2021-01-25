@@ -108,9 +108,6 @@
     <ClCompile Include="Objwater_flow.cpp">
       <Filter>ソース ファイル\シーンメイン</Filter>
     </ClCompile>
-    <ClCompile Include="Obj10enn.cpp">
-      <Filter>ソース ファイル\障害物</Filter>
-    </ClCompile>
     <ClCompile Include="ObjLifeItem.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
@@ -178,6 +175,12 @@
       <Filter>ソース ファイル\シーンランキング</Filter>
     </ClCompile>
     <ClCompile Include="ObjRen.cpp">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjPiyokoFIsh.cpp">
+      <Filter>ソース ファイル\金魚処理系</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjSlow.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
   </ItemGroup>
@@ -251,9 +254,6 @@
     <ClInclude Include="Objwater_flow.h">
       <Filter>ソース ファイル\シーンメイン</Filter>
     </ClInclude>
-    <ClInclude Include="Obj10enn.h">
-      <Filter>ソース ファイル\障害物</Filter>
-    </ClInclude>
     <ClInclude Include="ObjLifeItem.h">
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
@@ -322,6 +322,12 @@
     </ClInclude>
     <ClInclude Include="ObjRen.h">
       <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjSlow.h">
+      <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPiyokoFish.h">
+      <Filter>ソース ファイル\金魚処理系</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
