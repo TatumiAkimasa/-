@@ -39,7 +39,7 @@ void CObjBackground_2::Action()
 	//Background2‚ÌŒ»Ý’n‚ð”»’è‚µA‰º‚És‚Á‚½‚©‚Ç‚¤‚©‚ð‘ŠŽè(Background)‚É“n‚·
 	if (End_P == false)
 	{
-		if (n>=10&& m_y1 >= 15.0f && m_y1 <= 27.0f)
+		if (n>=10&& m_y1 >= 13.0f && m_y1 <= 27.0f)
 		{
 			End_P = true;
 		}
