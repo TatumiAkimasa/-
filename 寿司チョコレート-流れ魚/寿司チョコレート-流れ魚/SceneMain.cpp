@@ -103,7 +103,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImage(L"鈍足.png", 22, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み19番に登録(ぴよこ)
-	Draw::LoadImage(L"ピヨコ_正面.png", 22, TEX_SIZE_512);
+	Draw::LoadImage(L"ピヨコ_正面.png", 23, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);

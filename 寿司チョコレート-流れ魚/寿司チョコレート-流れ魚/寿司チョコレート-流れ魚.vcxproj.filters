@@ -180,9 +180,6 @@
     <ClCompile Include="ObjPiyokoFIsh.cpp">
       <Filter>ソース ファイル\金魚処理系</Filter>
     </ClCompile>
-    <ClCompile Include="Piyoko_Move.cpp">
-      <Filter>ソース ファイル\金魚処理系</Filter>
-    </ClCompile>
     <ClCompile Include="ObjSlow.cpp">
       <Filter>ソース ファイル\障害物</Filter>
     </ClCompile>
@@ -326,14 +323,11 @@
     <ClInclude Include="ObjRen.h">
       <Filter>ソース ファイル\障害物</Filter>
     </ClInclude>
-    <ClInclude Include="ObjPitokoFish.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjPiyokoFish.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="ObjSlow.h">
       <Filter>ソース ファイル\障害物</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPiyokoFish.h">
+      <Filter>ソース ファイル\金魚処理系</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

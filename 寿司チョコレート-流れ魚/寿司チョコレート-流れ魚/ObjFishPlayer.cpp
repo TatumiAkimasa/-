@@ -288,16 +288,16 @@ void CObjFishPlayer::Action()
                 switch (m_i)
                 {
                 case 0:
-                    pf = new CObjPiyokoFish(0.0f, m_py, 0.0f);
+                     pf = new CObjPiyokoFish(0.0f, m_py, 0.0f);
                     Objs::InsertObj(pf, NULL, 100);
                 case 1:
-                    pf = new CObjPiyokoFish(0.0f+45, m_py+45,0.0f);
+                    pf = new CObjPiyokoFish(0.0f + 45, m_py + 45, 90.0f);
                     Objs::InsertObj(pf, NULL, 100);
                 case 2:
-                    pf = new CObjPiyokoFish(0.0f, m_py+90,0.0f);
+                    pf = new CObjPiyokoFish(0.0f, m_py + 90, 180.0f);
                     Objs::InsertObj(pf, NULL, 100);
                 case 3:
-                    pf = new CObjPiyokoFish(0.0f - 45, m_py+45,0.0f);
+                    pf = new CObjPiyokoFish(0.0f - 45, m_py + 45, 270.0f);
                     Objs::InsertObj(pf, NULL, 100);
                 }
             }

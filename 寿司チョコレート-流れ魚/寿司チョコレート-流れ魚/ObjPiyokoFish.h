@@ -22,7 +22,6 @@ private:
 	float m_vy;
 	float m_r;
 	float m_fp_x;
-	int m_angle;
 
 	CObjFishPlayer* m_obj;
 }; 

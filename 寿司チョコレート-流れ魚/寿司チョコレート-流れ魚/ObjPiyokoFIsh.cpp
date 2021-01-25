@@ -8,15 +8,13 @@
 
 #include<math.h>
 
-#include"Piyoko_Move.h"
-
 //使用するゲームスペース
 using namespace GameL;
 
 //コンストラクタ
 CObjPiyokoFish::CObjPiyokoFish(float x, float y, float r)
 {
-	m_r = r+(m_angle * 90.0f);
+	m_r = r;
 	m_px = x;
 	m_py = y;
 }
@@ -31,8 +29,6 @@ void CObjPiyokoFish::Init()
 	
 	//当たり判定用ヒットボックスを作成
 	Hits::SetHitBox(this, m_px, m_py, 0, 0, NULL, NULL, 1);
-
-	
 }
 
 //アクション
@@ -40,8 +36,6 @@ void CObjPiyokoFish::Action()
 {
 	m_obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
 	m_fp_x = m_obj->GetX();
-
-	m_angle = m_obj->GetI();
 
 	m_r += 2.0f;
 
@@ -106,5 +100,5 @@ void CObjPiyokoFish::Draw()
 	src.m_right = 254.0f;
 	src.m_bottom = 254.0f;
 	//0番目に登録したグラフィックをsrc・dst・cの情報を元に描画
-	Draw::Draw(22, &src, &dst, c, 180.0f+m_r);
+	Draw::Draw(23, &src, &dst, c, 180.0f+m_r);
 }

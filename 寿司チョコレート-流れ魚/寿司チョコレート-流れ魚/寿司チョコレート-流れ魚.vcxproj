@@ -180,7 +180,6 @@
     <ClCompile Include="ObjTree.cpp" />
     <ClCompile Include="ObjTreeItem.cpp" />
     <ClCompile Include="Objwater_flow.cpp" />
-    <ClCompile Include="Piyoko_Move.cpp" />
     <ClCompile Include="SceneAchievement.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="SceneRanking.cpp" />
@@ -232,7 +231,6 @@
     <ClInclude Include="ObjTree.h" />
     <ClInclude Include="ObjTreeItem.h" />
     <ClInclude Include="Objwater_flow.h" />
-    <ClInclude Include="Piyoko_Move.h" />
     <ClInclude Include="SceneAchievement.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="SceneRanking.h" />
