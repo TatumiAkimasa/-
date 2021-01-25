@@ -102,6 +102,9 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み20番に登録(Armor)
 	Draw::LoadImage(L"鈍足.png", 22, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み20番に登録(Armor)
+	Draw::LoadImage(L"金魚装甲可視化.png", 23, TEX_SIZE_512);
+
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
