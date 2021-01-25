@@ -79,6 +79,7 @@ void CObjFishPlayer::Action()
             {
                 if (m_f == true)
                 {
+                    m_ice_ani_frame++;
                     //˜A‘Å‚Ìˆ—
                     if (m_f == true)
                     {
@@ -92,7 +93,7 @@ void CObjFishPlayer::Action()
                         ((UserData*)Save::GetData())->Ren_flag = false;
                         m_ice_ani_frame = 0;
                     }
-                    m_ice_ani_frame++;
+                    
                     m_f = false;
                 }
             }
@@ -101,6 +102,7 @@ void CObjFishPlayer::Action()
             {
                 if (m_f == true)
                 {
+                    m_ice_ani_frame += 1;
                     //˜A‘Å‚Ìˆ—
                     if (m_f == true)
                     {
@@ -114,7 +116,7 @@ void CObjFishPlayer::Action()
                         ((UserData*)Save::GetData())->Ren_flag = false;
                         m_ice_ani_frame = 0;
                     }
-                    m_ice_ani_frame += 1;
+                    
                     m_f = false;
                 }
             }
