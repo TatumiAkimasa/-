@@ -47,6 +47,9 @@ void CObjRen::Action()
 	//主人公オブジェクトと接触したらオブジェクト削除しフラグをtrueにする
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
+
+		Audio::Start(15);
+
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//Armorが所有するHitBoxを削除する
 
@@ -68,8 +71,8 @@ void CObjRen::Draw()
 
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
-	src.m_right = 64.0f;
-	src.m_bottom = 64.0f;
+	src.m_right = 128.0f;
+	src.m_bottom = 128.0f;
 
 	dst.m_top = 0.0f + m_y;
 	dst.m_left = 0.0f + m_x;
