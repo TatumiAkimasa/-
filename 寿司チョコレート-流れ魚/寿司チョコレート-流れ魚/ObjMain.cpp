@@ -58,6 +58,11 @@ void CObjMain::Action()
 		life_flag = false;
 
 	//コメントを瞬時に一度だけ切り替え
+	if (((UserData*)Save::GetData())->life_point == 0)
+	{
+		//反転（最優先）
+		random = 99;
+	}
 	if (((UserData*)Save::GetData())->key_flag_mirror == true)
 	{
 		//反転（最優先）
@@ -417,6 +422,16 @@ void CObjMain::Draw()
 		Font::StrDraw(str, 55, 470, 30, k);
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 25, 510, 30, k);
+	}
+	else if (random == 99)
+	{
+		float k[4] = { 0.9f,0.1f,0.1f,1.0f };
+		swprintf_s(str, L"");
+		Font::StrDraw(str, 60, 430, 30, k);
+		swprintf_s(str, L"次こそは！");
+		Font::StrDraw(str, 85, 460, 30, k);
+		swprintf_s(str, L"必ず強くなる！");
+		Font::StrDraw(str, 50, 490, 30, k);
 	}
 	
 
