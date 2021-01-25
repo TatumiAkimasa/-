@@ -97,7 +97,16 @@ void CSceneMain::InitScene()
 	Draw::LoadImage(L"Armor.png", 20, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み21番に登録(Ren)
-	//Draw::LoadImage(L".png", 21, TEX_SIZE_512);
+	Draw::LoadImage(L"ani氷.png", 21, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み20番に登録(Armor)
+	Draw::LoadImage(L"鈍足.png", 22, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み20番に登録(Armor)
+	Draw::LoadImage(L"金魚装甲可視化.png", 23, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み23番に登録(ぴよこ)
+	Draw::LoadImage(L"ピヨコ_正面.png", 24, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -124,7 +133,17 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(11, L"隠し.wav", SOUND_TYPE::EFFECT);
 
-	
+	Audio::LoadAudio(12, L"装甲取得音.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(13, L"装甲消滅音.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(14, L"鈍足アイテム取得音.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(15, L"氷アイテム取得音.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(16, L"氷連打音.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(17, L"氷破壊音.wav", SOUND_TYPE::EFFECT);
 
 	
 	//バックミュージックスタート
@@ -157,7 +176,7 @@ void CSceneMain::InitScene()
 
 	((UserData*)Save::GetData())->save_score = 0;
 
-	t = 0;
+	m_t = 0;
 
 	bgm_flag = false;
 	bgm_flag2 = false;
@@ -171,8 +190,8 @@ void CSceneMain::Scene()
 
 	//障害物が落ちてくる確率
 	//通常障害物 50/全体　ギミック 1/全体
-	int x = rand() % 62;
-
+	int x = rand() % 63;
+	
 	//落下の初期化
 	if (t == 0)
 	{
@@ -209,7 +228,7 @@ void CSceneMain::Scene()
 		Audio::Start(1);
 		bgm_flag2 = false;
 	}
-
+	
 	//障害物に当たった時、スピードが初期に戻る処理
 	if (((UserData*)Save::GetData())->sp_lv == 0)
 	{
@@ -588,6 +607,29 @@ void CSceneMain::Scene()
 				{
 					CObjRen* t = new CObjRen(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
 					Objs::InsertObj(t, OBJ_REN, FLOW_PICTURE_PRIORITY);
+				}
+
+				((UserData*)Save::GetData())->sp_lv++;
+			}
+			//slow
+			if (x == 62)
+			{
+				x = rand() % FLOW_GIMMICK_PROBABILITY;
+
+				if (x == FLOW_PROBABILITY_0)
+				{
+					CObjSlow* t = new CObjSlow(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_SLOW, FLOW_PICTURE_PRIORITY);
+				}
+				else if (x == FLOW_PROBABILITY_1)
+				{
+					CObjSlow* t = new CObjSlow(FLOW_SPACE_CENTER, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_SLOW, FLOW_PICTURE_PRIORITY);
+				}
+				else if (x == FLOW_PROBABILITY_2)
+				{
+					CObjSlow* t = new CObjSlow(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+					Objs::InsertObj(t, OBJ_SLOW, FLOW_PICTURE_PRIORITY);
 				}
 
 				((UserData*)Save::GetData())->sp_lv++;

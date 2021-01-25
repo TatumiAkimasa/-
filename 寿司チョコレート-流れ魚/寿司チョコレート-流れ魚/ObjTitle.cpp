@@ -120,9 +120,9 @@ void CObjTitle::Action()
 	}
 
 	//•`‰æ”ià–¾‰æ–Êj
-	if (num > 6)
+	if (num > 7)
 	{
-		num = 6;
+		num = 7;
 	}
 	else if (num < 0)
 	{
