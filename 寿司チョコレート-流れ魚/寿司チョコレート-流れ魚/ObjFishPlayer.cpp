@@ -96,7 +96,7 @@ void CObjFishPlayer::Action()
                 }
             }
             //ç∂
-            if (Input::GetVKey(VK_LEFT) == true)
+            else if (Input::GetVKey(VK_LEFT) == true)
             {
                 if (m_f == true)
                 {
