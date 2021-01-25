@@ -58,11 +58,6 @@ void CObjMain::Action()
 		life_flag = false;
 
 	//コメントを瞬時に一度だけ切り替え
-	if (((UserData*)Save::GetData())->life_point == 0)
-	{
-		//反転（最優先）
-		random = 99;
-	}
 	if (((UserData*)Save::GetData())->key_flag_mirror == true)
 	{
 		//反転（最優先）
@@ -194,6 +189,12 @@ void CObjMain::Action()
 		{
 			((UserData*)Save::GetData())->Achievement_flag[29] = true;
 		}
+	}
+
+	if (((UserData*)Save::GetData())->life_point == 0)
+	{
+		//反転（最優先）
+		random = 99;
 	}
 }
 
