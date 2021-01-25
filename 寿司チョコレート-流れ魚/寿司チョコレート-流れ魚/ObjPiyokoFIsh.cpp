@@ -100,5 +100,5 @@ void CObjPiyokoFish::Draw()
 	src.m_right = 254.0f;
 	src.m_bottom = 254.0f;
 	//0番目に登録したグラフィックをsrc・dst・cの情報を元に描画
-	Draw::Draw(23, &src, &dst, c, 180.0f+m_r);
+	Draw::Draw(23, &src, &dst, c, 180.0f);
 }
