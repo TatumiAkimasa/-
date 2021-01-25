@@ -102,6 +102,9 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み20番に登録(Armor)
 	Draw::LoadImage(L"鈍足.png", 22, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み20番に登録(Armor)
+	Draw::LoadImage(L"金魚装甲可視化.png", 23, TEX_SIZE_512);
+
 	//外部グラフィックファイルを読み込み23番に登録(ぴよこ)
 	Draw::LoadImage(L"ピヨコ_正面.png", 23, TEX_SIZE_512);
 
@@ -130,7 +133,17 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(11, L"隠し.wav", SOUND_TYPE::EFFECT);
 
-	
+	Audio::LoadAudio(12, L"装甲取得音.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(13, L"装甲消滅音.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(14, L"鈍足アイテム取得音.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(15, L"氷アイテム取得音.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(16, L"氷連打音.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(17, L"氷破壊音.wav", SOUND_TYPE::EFFECT);
 
 	
 	//バックミュージックスタート

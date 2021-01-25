@@ -81,10 +81,12 @@ void CObjFishPlayer::Action()
                 {
                     //連打の処理
                     if(m_f==true)
+                        Audio::Start(16);
                     ((UserData*)Save::GetData())->ren--;
 
                     if (((UserData*)Save::GetData())->ren <= 0)
                     {
+                        Audio::Start(17);
                         ((UserData*)Save::GetData())->Ren_flag = false;
                     }
                     m_ice_ani_frame++;
@@ -96,10 +98,12 @@ void CObjFishPlayer::Action()
             {
                 //連打の処理
                 if (m_f == true)
+                    Audio::Start(16);
                     ((UserData*)Save::GetData())->ren--;
 
                 if (((UserData*)Save::GetData())->ren <= 0)
                 {
+                    Audio::Start(17);
                     ((UserData*)Save::GetData())->Ren_flag = false;
                 }
                 m_ice_ani_frame += 1;
@@ -478,6 +482,7 @@ void CObjFishPlayer::Action()
         //Armorフラグがtrueの時
         if (((UserData*)Save::GetData())->Armor_flag == true)
         {
+            Audio::Start(13);
             //ダメージ判定はなし、フラグのみ変更
             ((UserData*)Save::GetData())->Armor_flag = false;
         }
@@ -516,6 +521,21 @@ void CObjFishPlayer::Draw()
 
     RECT_F src;//描写元の切り取り位置
     RECT_F dst;//描画先の表示位置
+
+    if (((UserData*)Save::GetData())->Armor_flag == true)
+    {
+        dst.m_top = -23.0f + m_py;
+        dst.m_left = -62.5f + m_px;
+        dst.m_right = 182.0f + dst.m_left;
+        dst.m_bottom = 192.0f + dst.m_top;
+
+        src.m_top = 0.0f;
+        src.m_left = 0.0f;
+        src.m_right = 64.0f;
+        src.m_bottom = 64.0f;
+
+        Draw::Draw(23, &src, &dst, c, 0);
+    }
 
     dst.m_top = -23.0f + m_py;
     dst.m_left = -62.5f + m_px;
