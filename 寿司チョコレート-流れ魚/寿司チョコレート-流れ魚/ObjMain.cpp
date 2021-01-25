@@ -96,24 +96,30 @@ void CObjMain::Action()
 		life = ((UserData*)Save::GetData())->life_point;
 		come_flag = false;
 	}
+	else if (((UserData*)Save::GetData())->key_flag_slow==true)
+	{
+		//鈍足（優先五番目）
+		random = -9;
+		come_flag = false;
+	}
 	//2000点を通過したら
 	else if (((UserData*)Save::GetData())->save_score == 2000)
 	{
-		//なんかほざく（優先五番目）
+		//なんかほざく（優先六番目）
 		random = 5;
 		come_flag = false;
 	}
 	//spが10～11の時
 	else if (((UserData*)Save::GetData())->sp > 10 && ((UserData*)Save::GetData())->sp < 11)
 	{
-		//なんか言う（優先六番目）
+		//なんか言う（優先七番目）
 		random = 4;
 		come_flag = false;
 	}
 	//spが20の時
 	else if (((UserData*)Save::GetData())->sp >= 20)
 	{
-		//限界みたいです（優先七番目）
+		//限界みたいです（優先八番目）
 		random = 3;
 		come_flag = false;
 	}
@@ -233,7 +239,16 @@ void CObjMain::Draw()
 
 	//コメントの表示
 	float k[4] = { 0.1f,0.1f,0.1f,1.0f };
-	if (random == -8)
+	if (random == -9)
+	{
+		swprintf_s(str, L"");
+		Font::StrDraw(str, 50, 430, 30, k);
+		swprintf_s(str, L" 体が...重い!?");
+		Font::StrDraw(str, 50, 470, 30, k);
+		swprintf_s(str, L"");
+		Font::StrDraw(str, 30, 510, 30, k);
+	}
+	else if (random == -8)
 	{
 		swprintf_s(str, L"そうめんにわざと");
 		Font::StrDraw(str, 50, 430, 30, k);
