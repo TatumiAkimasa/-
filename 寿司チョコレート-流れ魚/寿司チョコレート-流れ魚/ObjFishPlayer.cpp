@@ -90,6 +90,7 @@ void CObjFishPlayer::Action()
                     {
                         Audio::Start(17);
                         ((UserData*)Save::GetData())->Ren_flag = false;
+                        m_ice_ani_frame = 0;
                     }
                     m_ice_ani_frame++;
                     m_f = false;
@@ -111,6 +112,7 @@ void CObjFishPlayer::Action()
                     {
                         Audio::Start(17);
                         ((UserData*)Save::GetData())->Ren_flag = false;
+                        m_ice_ani_frame = 0;
                     }
                     m_ice_ani_frame += 1;
                     m_f = false;
@@ -605,5 +607,17 @@ void CObjFishPlayer::Draw()
         src.m_bottom = 128.00f;
 
         Draw::Draw(21, &src, &dst, c, m_spin);
+    }
+    else
+    {
+        dst.m_top = 0.0f + m_py;
+        dst.m_left = 0.0f - 32.0f + m_px;
+        dst.m_right = 128.0f - 32.0f + m_px;
+        dst.m_bottom = 128.0f + m_py;
+
+        src.m_top = 0.0f;
+        src.m_left = 0.0f;
+        src.m_right = 128.0f;
+        src.m_bottom = 128.00f;
     }
 }
