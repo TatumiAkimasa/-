@@ -80,9 +80,11 @@ void CObjFishPlayer::Action()
                 if (m_f == true)
                 {
                     //連打の処理
-                    if(m_f==true)
+                    if (m_f == true)
+                    {
                         Audio::Start(16);
-                    ((UserData*)Save::GetData())->ren--;
+                        ((UserData*)Save::GetData())->ren--;
+                    }
 
                     if (((UserData*)Save::GetData())->ren <= 0)
                     {
@@ -94,20 +96,25 @@ void CObjFishPlayer::Action()
                 }
             }
             //左
-            else if (Input::GetVKey(VK_LEFT) == true)
+            if (Input::GetVKey(VK_LEFT) == true)
             {
-                //連打の処理
                 if (m_f == true)
-                    Audio::Start(16);
-                    ((UserData*)Save::GetData())->ren--;
-
-                if (((UserData*)Save::GetData())->ren <= 0)
                 {
-                    Audio::Start(17);
-                    ((UserData*)Save::GetData())->Ren_flag = false;
+                    //連打の処理
+                    if (m_f == true)
+                    {
+                        ((UserData*)Save::GetData())->ren--;
+                        Audio::Start(16);
+                    }
+
+                    if (((UserData*)Save::GetData())->ren <= 0)
+                    {
+                        Audio::Start(17);
+                        ((UserData*)Save::GetData())->Ren_flag = false;
+                    }
+                    m_ice_ani_frame += 1;
+                    m_f = false;
                 }
-                m_ice_ani_frame += 1;
-                m_f = false;
             }
             else
             {
@@ -215,9 +222,7 @@ void CObjFishPlayer::Action()
                         //trueの時操作反転
                         if (((UserData*)Save::GetData())->key_flag_mirror == true)
                         {
-                            //連打の処理
-                            ((UserData*)Save::GetData())->ren--;
-
+                            
                             if (m_f == true)
                             {
                                 //主人公のの左右移動鈍足化
@@ -254,9 +259,7 @@ void CObjFishPlayer::Action()
                         //trueの時操作反転
                         if (((UserData*)Save::GetData())->key_flag_mirror == true)
                         {
-                            //連打の処理
-                            ((UserData*)Save::GetData())->ren--;
-
+                            
                             if (m_f == true)
                             {
                                 //主人公のの左右移動鈍足化

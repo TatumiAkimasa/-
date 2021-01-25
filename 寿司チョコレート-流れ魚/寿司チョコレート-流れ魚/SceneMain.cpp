@@ -106,7 +106,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImage(L"金魚装甲可視化.png", 23, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み23番に登録(ぴよこ)
-	Draw::LoadImage(L"ピヨコ_正面.png", 23, TEX_SIZE_512);
+	Draw::LoadImage(L"ピヨコ_正面.png", 24, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -242,6 +242,7 @@ void CSceneMain::Scene()
 			((UserData*)Save::GetData())->sp = 5.0f;
 		}
 	}
+
 	if (m_t == 0)
 	{
 		CObjRen* t = new CObjRen(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
@@ -249,6 +250,7 @@ void CSceneMain::Scene()
 
 		m_t++;
 	}
+
 	if (((UserData*)Save::GetData())->life_point > 0)
 	{
 		//フレーム数の計算！
