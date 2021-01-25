@@ -247,7 +247,7 @@ void CSceneMain::Scene()
 	{
 		//フレーム数の計算！
 		m_time++;
-		//水の流れの処理
+		//水の流れの処理/
 		if (m_time%29 == 0)
 		{
 			CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
