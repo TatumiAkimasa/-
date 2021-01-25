@@ -195,6 +195,12 @@ void CObjMain::Action()
 			((UserData*)Save::GetData())->Achievement_flag[29] = true;
 		}
 	}
+
+	if (((UserData*)Save::GetData())->life_point == 0)
+	{
+		//反転（最優先）
+		random = 99;
+	}
 }
 
 //ドロー
