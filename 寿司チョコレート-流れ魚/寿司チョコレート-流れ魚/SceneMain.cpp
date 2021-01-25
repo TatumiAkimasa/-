@@ -560,7 +560,7 @@ void CSceneMain::Scene()
 				((UserData*)Save::GetData())->Tree_flag = false;
 			}
 			//ArmorƒAƒCƒeƒ€
-			else if (x <= 60)
+			else if (x == 60)
 			{
 				x = rand() % FLOW_GIMMICK_PROBABILITY;
 
