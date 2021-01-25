@@ -97,7 +97,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImage(L"Armor.png", 20, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み21番に登録(Ren)
-	//Draw::LoadImage(L".png", 21, TEX_SIZE_512);
+	Draw::LoadImage(L"氷.png", 21, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み20番に登録(Armor)
 	Draw::LoadImage(L"鈍足.png", 22, TEX_SIZE_512);
@@ -127,18 +127,9 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(11, L"隠し.wav", SOUND_TYPE::EFFECT);
 
-	Audio::LoadAudio(12, L"装甲取得音.wav", SOUND_TYPE::EFFECT);
+	
 
-	Audio::LoadAudio(13, L"装甲消滅音.wav", SOUND_TYPE::EFFECT);
-
-	Audio::LoadAudio(14, L"鈍足アイテム取得音.wav", SOUND_TYPE::EFFECT);
-
-	Audio::LoadAudio(15, L"氷アイテム取得音.wav", SOUND_TYPE::EFFECT);
-
-	Audio::LoadAudio(16, L"氷連打音.wav", SOUND_TYPE::EFFECT);
-
-	Audio::LoadAudio(17, L"氷破壊音.wav", SOUND_TYPE::EFFECT);
-
+	
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
 	Audio::Start(0);//音楽スタート
