@@ -243,14 +243,6 @@ void CSceneMain::Scene()
 		}
 	}
 
-	if (m_t == 0)
-	{
-		CObjRen* t = new CObjRen(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-		Objs::InsertObj(t, OBJ_REN, 51);
-
-		m_t++;
-	}
-
 	if (((UserData*)Save::GetData())->life_point > 0)
 	{
 		//フレーム数の計算！
