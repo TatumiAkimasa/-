@@ -15,15 +15,15 @@
 //使用するネームスペース
 using namespace GameL;
 
-int CObjTitle::key_num_T()
-{
-	return num;
-}
-
-bool CObjTitle::key_num2_T()
-{
-	return R_flag;
-}
+//int CObjTitle::key_num_T()
+//{
+//	return num;
+//}
+//
+//bool CObjTitle::key_num2_T()
+//{
+//	return R_flag;
+//}
 //イニシャライズ
 void CObjTitle::Init()
 {
@@ -65,7 +65,7 @@ void CObjTitle::Init()
 //アクション
 void CObjTitle::Action()
 {
-	//スペースキーを押してシーン：ゲーム説明に移行する。/
+	//→キーを押してシーン：ゲーム説明に移行する。/
 	if (Input::GetVKey(VK_RIGHT) == true)
 	{
 

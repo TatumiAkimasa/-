@@ -14,8 +14,8 @@ public:
 	void Init();
 	void Action();
 	void Draw();
-	int key_num_T();
-	bool key_num2_T();
+	/*int key_num_T();
+	bool key_num2_T();いらないかも？*/
 private:
 	bool R_flag;//キーフラグ(右）
 	bool L_flag;//キーフラグ（左）

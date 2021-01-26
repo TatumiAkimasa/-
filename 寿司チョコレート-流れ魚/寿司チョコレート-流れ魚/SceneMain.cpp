@@ -109,12 +109,14 @@ void CSceneMain::InitScene()
 	Draw::LoadImage(L"ピヨコ_正面.png", 24, TEX_SIZE_512);
 
 	//音楽情報の読み込み
+	//BGM
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
 	Audio::LoadAudio(1, L"シーンBGM2(仮)修正.wav", SOUND_TYPE::BACK_MUSIC);
 
 	Audio::LoadAudio(2, L"シーンBGM第二段階.wav", SOUND_TYPE::BACK_MUSIC);
 
+	//SE
 	Audio::LoadAudio(3, L"上昇.wav", SOUND_TYPE::EFFECT);
 
 	Audio::LoadAudio(4, L"ダメージ音テスト.wav", SOUND_TYPE::EFFECT);
