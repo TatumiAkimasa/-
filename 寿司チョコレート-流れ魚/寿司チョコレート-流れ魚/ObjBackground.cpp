@@ -147,9 +147,9 @@ void CObjBackground::Draw()
 	{
 		//”wŒi‡@‚ÌˆÊ’uÝ’è‚µ•`‰æ
 		dst.m_top = 0.0f - m_y1;
-		dst.m_left = 250.0f;
-		dst.m_right = 820.0f;
-		dst.m_bottom = 605.0f  - m_y1;
+		dst.m_left = LEFT;
+		dst.m_right = RIGHT;
+		dst.m_bottom = UNDER - m_y1;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 	}
@@ -157,11 +157,11 @@ void CObjBackground::Draw()
 	{
 		//”wŒi‡@‚ÌˆÊ’uÝ’è‚µ•`‰æ
 		dst.m_top = 0.0f - m_y1;
-		dst.m_left = 250.0f;
-		dst.m_right = 820.0f;
-		dst.m_bottom = 605.0f  - m_y1;
+		dst.m_left = LEFT;
+		dst.m_right = RIGHT;
+		dst.m_bottom = UNDER  - m_y1;
 		if(n>=10)
-			dst.m_bottom = 610.0f - m_y1;
+			dst.m_bottom = UNDER+5 - m_y1;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 	}
@@ -169,11 +169,11 @@ void CObjBackground::Draw()
 	{
 		//”wŒi‡@‚ÌˆÊ’uÝ’è‚µ•`‰æ
 		dst.m_top = 0.0f - m_y1;
-		dst.m_left = 238.0f;
-		dst.m_right = 808.0f;
-		dst.m_bottom = 605.0f  - m_y1;
+		dst.m_left = LEFT-12.0f;
+		dst.m_right = RIGHT-12.0f;
+		dst.m_bottom = UNDER  - m_y1;
 		if (n >= 10)
-			dst.m_bottom = 610.0f - m_y1;
+			dst.m_bottom = UNDER+5 - m_y1;
 
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
@@ -181,11 +181,11 @@ void CObjBackground::Draw()
 	{
 		//”wŒi‡@‚ÌˆÊ’uÝ’è‚µ•`‰æ
 		dst.m_top = 0.0f - m_y1;
-		dst.m_left = 233.2f;
-		dst.m_right = 803.2f;
-		dst.m_bottom = 605.0f  - m_y1;
+		dst.m_left = LEFT-16.8f;
+		dst.m_right = RIGHT-16.8f;
+		dst.m_bottom = UNDER  - m_y1;
 		if (n >= 10)
-			dst.m_bottom = 610.0f - m_y1;
+			dst.m_bottom = UNDER+5 - m_y1;
 
 		Draw::Draw(5, &src, &dst, c, 0.0f);
 	}
