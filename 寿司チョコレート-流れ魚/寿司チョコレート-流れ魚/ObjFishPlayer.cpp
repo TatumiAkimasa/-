@@ -558,7 +558,12 @@ void CObjFishPlayer::Draw()
     {
         if (m_damage == false)
         {
-            Draw::Draw(2, &src, &dst, c, 0.0f);
+            if (((UserData*)Save::GetData())->space_flag == true)
+            {
+                Draw::Draw(25, &src, &dst, c, 0.0f);
+            }
+            else if (((UserData*)Save::GetData())->space_flag == false)
+                Draw::Draw(2, &src, &dst, c, 0.0f);
         }
         else
         {
@@ -568,11 +573,17 @@ void CObjFishPlayer::Draw()
             {
                 if (((UserData*)Save::GetData())->Ren_flag == true)
                 {
-                    Draw::Draw(2, &src, &dst, c, 0.0f);
+                    if (((UserData*)Save::GetData())->space_flag == true)
+                        Draw::Draw(25, &src, &dst, c, 0.0f);
+                    else
+                        Draw::Draw(2, &src, &dst, c, 0.0f);
                 }
                 else
                 {
-                    Draw::Draw(2, &src, &dst, c, 0.0f);
+                    if (((UserData*)Save::GetData())->space_flag == true)
+                        Draw::Draw(25, &src, &dst, c, 0.0f);
+                    else
+                        Draw::Draw(2, &src, &dst, c, 0.0f);
                 }
 
             }
@@ -581,7 +592,10 @@ void CObjFishPlayer::Draw()
                 c[0] = 1.0f;
                 c[1] = 0.5f;
                 c[2] = 0.0f;
-                Draw::Draw(2, &src, &dst, c, 0.0f);
+                if (((UserData*)Save::GetData())->space_flag == true)
+                    Draw::Draw(25, &src, &dst, c, 0.0f);
+                else
+                    Draw::Draw(2, &src, &dst, c, 0.0f);
             }
 
             if (m_inv_time == 30)
@@ -593,7 +607,10 @@ void CObjFishPlayer::Draw()
     }
     else
     {
-        Draw::Draw(2, &src, &dst, c, m_spin);
+        if (((UserData*)Save::GetData())->space_flag == true)
+            Draw::Draw(25, &src, &dst, c, m_spin);
+        else
+            Draw::Draw(2, &src, &dst, c, m_spin);
     }
     
     if (((UserData*)Save::GetData())->Ren_flag == true)

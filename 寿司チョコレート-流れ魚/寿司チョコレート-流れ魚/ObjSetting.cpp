@@ -21,6 +21,7 @@ void CObjSetting::Init()
 	U_flag = true;
 	D_flag = true;
 	setting_pos = 0;
+	Hidden_flag = false;
 	//((UserData*)Save::GetData())->start_sp = 5.0f;
 	//((UserData*)Save::GetData())->start_control_mirror = true;
 }
@@ -58,13 +59,27 @@ void CObjSetting::Action()
 		if (D_flag == true)
 		{
 			Audio::Start(0);
-			if (setting_pos < 1)
+			if (Hidden_flag == true)
 			{
-				setting_pos += 1;
+				if (setting_pos < 2)
+				{
+					setting_pos += 1;
+				}
+				else
+				{
+					;
+				}
 			}
 			else
 			{
-				;
+				if (setting_pos < 1)
+				{
+					setting_pos += 1;
+				}
+				else
+				{
+					;
+				}
 			}
 			D_flag = false;
 		}
@@ -150,6 +165,43 @@ void CObjSetting::Action()
 		}
 	}
 	
+	if (((UserData*)Save::GetData())->Achievement_flag[26] == true)
+	{
+		Hidden_flag = true;
+		if (setting_pos == 2)
+		{
+			
+			if (Input::GetVKey(VK_RIGHT) == true)
+			{
+				if (R_flag == true)
+				{
+					Audio::Start(0);
+					((UserData*)Save::GetData())->space_flag = true;
+					R_flag = false;
+				}
+			}
+			else
+			{
+				R_flag = true;
+			}
+			
+			if (Input::GetVKey(VK_LEFT) == true)
+			{
+
+				if (L_flag == true)
+				{
+					Audio::Start(1);
+					((UserData*)Save::GetData())->space_flag = false;
+					L_flag = false;
+				}
+				}
+			else
+			{
+				L_flag = true;
+			}
+			
+		}
+	}
 }
 //ドロー
 void CObjSetting::Draw()
@@ -185,4 +237,25 @@ void CObjSetting::Draw()
 	}
 
 	Font::StrDraw(L"エンターキーで戻る", 540, 540, 25, c);
+
+	if (Hidden_flag == true)
+	{
+		Font::StrDraw(L"スキン変更", 80, 300, 50, c);
+		if (setting_pos == 2)
+		{
+			Font::StrDraw(L"__________", 80, 310, 50, c);
+		}
+		if (((UserData*)Save::GetData())->space_flag == true)
+		{
+			Font::StrDraw(L"<  宇宙 >", 500, 300, 50, c);
+		}
+		else
+		{
+			Font::StrDraw(L"<  地球 >", 500, 300, 50, c);
+		}
+	}
+	else
+	{
+		Font::StrDraw(L"???(20万点必要)", 80, 300, 50, c);
+	}
 }

@@ -99,14 +99,17 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み21番に登録(Ren)
 	Draw::LoadImage(L"ani氷.png", 21, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み20番に登録(Armor)
+	//外部グラフィックファイルを読み込み20番に登録(鈍足)
 	Draw::LoadImage(L"鈍足.png", 22, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み20番に登録(Armor)
+	//外部グラフィックファイルを読み込み20番に登録(Armor（オーラ）)
 	Draw::LoadImage(L"金魚装甲可視化.png", 23, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み23番に登録(ぴよこ)
 	Draw::LoadImage(L"ピヨコ_正面.png", 24, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み2番に登録(主人公ver.宇宙)アニメーション
+	Draw::LoadImage(L"ani金魚_宇宙.png", 25, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
