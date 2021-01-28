@@ -210,8 +210,6 @@ void CObjMain::Action()
 		//死亡（最優先）
 		random = 99;
 	}
-
-	random = -9;
 }
 
 //ドロー
