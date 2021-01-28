@@ -247,11 +247,11 @@ void CObjSetting::Draw()
 		}
 		if (((UserData*)Save::GetData())->space_flag == true)
 		{
-			Font::StrDraw(L"<  ‰F’ˆ >", 500, 300, 50, c);
+			Font::StrDraw(L"<  ‰F’ˆ  >", 500, 300, 50, c);
 		}
 		else
 		{
-			Font::StrDraw(L"<  ’n‹… >", 500, 300, 50, c);
+			Font::StrDraw(L"<  ’n‹…  >", 500, 300, 50, c);
 		}
 	}
 	else

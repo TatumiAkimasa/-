@@ -266,6 +266,11 @@ void CSceneMain::Scene()
 			CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
 		}
+		else if (((UserData*)Save::GetData())->space_flag == true && m_time % 9 == 0)
+		{
+			CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
+		}
 		
 		//è·äQï®ÇÃèoåª
 		if (m_time % 60 == 0)

@@ -45,17 +45,17 @@ void CObjRen::Action()
 	}
 
 	//主人公オブジェクトと接触したらオブジェクト削除しフラグをtrueにする
-	if (((UserData*)Save::GetData())->Ren_flag == true)
-	{
-		if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
-		{
+	//if (((UserData*)Save::GetData())->Ren_flag == true)
+	//{
+	//	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
+	//	{
 
-			Audio::Start(15);
+	//		Audio::Start(15);
 
-			this->SetStatus(false);		//自身に削除命令を出す。
-			Hits::DeleteHitBox(this);	//Armorが所有するHitBoxを削除する
-		}
-	}
+	//		this->SetStatus(false);		//自身に削除命令を出す。
+	//		Hits::DeleteHitBox(this);	//renが所有するHitBoxを削除する
+	//	}
+	//}
 	else
 	{
 		if (hit->CheckElementHit(ELEMENT_PLAYER) == true)

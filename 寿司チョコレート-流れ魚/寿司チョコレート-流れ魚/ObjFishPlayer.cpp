@@ -70,6 +70,7 @@ void CObjFishPlayer::Action()
 
         if (((UserData*)Save::GetData())->Ren_flag == true)
         {
+            m_ice_ani_frame = 4 - ((UserData*)Save::GetData())->ren;
            /* CObjRen* ice;
             ice = new CObjRen(m_px, m_py, 0.0f);
             Objs::InsertObj(ice, NULL, 100);*/
@@ -79,7 +80,6 @@ void CObjFishPlayer::Action()
             {
                 if (m_f == true)
                 {
-                    m_ice_ani_frame++;
                     //òAë≈ÇÃèàóù
                     if (m_f == true)
                     {
@@ -102,7 +102,6 @@ void CObjFishPlayer::Action()
             {
                 if (m_f == true)
                 {
-                    m_ice_ani_frame += 1;
                     //òAë≈ÇÃèàóù
                     if (m_f == true)
                     {
