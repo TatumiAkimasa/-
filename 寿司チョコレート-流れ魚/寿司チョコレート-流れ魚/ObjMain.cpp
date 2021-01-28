@@ -107,7 +107,7 @@ void CObjMain::Action()
 	else if (((UserData*)Save::GetData())->key_flag_slow==true)
 	{
 		//鈍足（優先6番目）
-		random = -9;
+		random = 15;
 		come_flag = false;
 	}
 	//2000点を通過したら
@@ -150,7 +150,7 @@ void CObjMain::Action()
 		if (come_flag == true)
 		{
 			//３パターン
-			random = (rand() % 3) - 8;
+			random = (rand() % 4) - 9;
 			//random = -6~-8;
 			come_flag = false;
 		}
@@ -210,6 +210,8 @@ void CObjMain::Action()
 		//死亡（最優先）
 		random = 99;
 	}
+
+	random = -9;
 }
 
 //ドロー
@@ -261,12 +263,12 @@ void CObjMain::Draw()
 	float k[4] = { 0.1f,0.1f,0.1f,1.0f };
 	if (random == -9)
 	{
-		swprintf_s(str, L"");
+		swprintf_s(str, L"僕の速度が20の時");
 		Font::StrDraw(str, 50, 430, 30, k);
-		swprintf_s(str, L" 体が...重い!?");
+		swprintf_s(str, L"10秒耐えると30が");
 		Font::StrDraw(str, 50, 470, 30, k);
-		swprintf_s(str, L"");
-		Font::StrDraw(str, 30, 510, 30, k);
+		swprintf_s(str, L"開くんだって！");
+		Font::StrDraw(str, 50, 510, 30, k);
 	}
 	else if (random == -8)
 	{
@@ -458,6 +460,15 @@ void CObjMain::Draw()
 	swprintf_s(str, L"");
 	Font::StrDraw(str, 25, 510, 30, k);
     }
+	else if (random == 15)
+	{
+		swprintf_s(str, L"");
+		Font::StrDraw(str, 50, 430, 30, k);
+		swprintf_s(str, L" 体が...重い!?");
+		Font::StrDraw(str, 50, 470, 30, k);
+		swprintf_s(str, L"");
+		Font::StrDraw(str, 30, 510, 30, k);
+	}
 	else if (random == 99)
 	{
 		float k[4] = { 0.9f,0.1f,0.1f,1.0f };
