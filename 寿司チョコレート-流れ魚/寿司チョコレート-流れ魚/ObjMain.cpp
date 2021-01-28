@@ -186,7 +186,7 @@ void CObjMain::Action()
 		}
 	}
 
-	if (((UserData*)Save::GetData())->sp >= 19.0)
+	if (((UserData*)Save::GetData())->sp >= 5.0)
 	{
 		//int i = 0;
 		((UserData*)Save::GetData())->max_time++;
