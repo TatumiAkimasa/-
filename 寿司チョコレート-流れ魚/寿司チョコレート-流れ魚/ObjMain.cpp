@@ -115,7 +115,7 @@ void CObjMain::Action()
 		come_flag = false;
 	}
 	//spが10～11の時
-	else if (((UserData*)Save::GetData())->sp > 10 && ((UserData*)Save::GetData())->sp < 11)
+	else if (((UserData*)Save::GetData())->sp > 10 && ((UserData*)Save::GetData())->sp < 10.5)
 	{
 		//なんか言う（優先七番目）
 		random = 4;
@@ -295,7 +295,7 @@ void CObjMain::Draw()
 	swprintf_s(str, L"ミノーだよ");
 	Font::StrDraw(str, 70, 510, 30, k);
 	}
-	if (random == -4)
+	else if (random == -4)
 	{
 	swprintf_s(str, L"ハリセンボン");
 	Font::StrDraw(str, 60, 430, 30, k);
@@ -304,7 +304,7 @@ void CObjMain::Draw()
 	swprintf_s(str, L"400本くらい");
 	Font::StrDraw(str, 50, 510, 30, k);
 	}
-	if (random == -3)
+	else if (random == -3)
 	{
 	    swprintf_s(str, L"ドイツでは");
 	    Font::StrDraw(str, 60, 430, 30, k);
@@ -313,35 +313,35 @@ void CObjMain::Draw()
 		swprintf_s(str, L"いるらしいよ");
 		Font::StrDraw(str, 60, 510, 30, k);
 	}
-	if (random == -2)
+	else if (random == -2)
 	{
 		swprintf_s(str, L"サーモンは");
 		Font::StrDraw(str, 80, 430, 30, k);
 		swprintf_s(str, L"白身魚だよ");
 		Font::StrDraw(str, 80, 470, 30, k);
 	}
-	if (random == -1)
+	else if (random == -1)
 	{
 		swprintf_s(str, L"トビウオって最大");
 		Font::StrDraw(str, 33, 430, 30, k);
 		swprintf_s(str, L"400m飛ぶらしいよ！");
 		Font::StrDraw(str, 25, 470, 30, k);
 	}
-	if (random == 0)
+	else if (random == 0)
 	{
 		swprintf_s(str, L"さぁ、魚力を");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"上げよう！");
 		Font::StrDraw(str, 60, 470, 30, k);
 	}
-	if (random == 1)
+	else if (random == 1)
 	{
 		swprintf_s(str, L"知ってる？");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"僕って金魚なんだ！");
 		Font::StrDraw(str, 25, 470, 30, k);
 	}
-	if (random == 2)
+	else if (random == 2)
 	{
 		swprintf_s(str, L"因みに今泳いで");
 		Font::StrDraw(str, 60, 430, 30, k);

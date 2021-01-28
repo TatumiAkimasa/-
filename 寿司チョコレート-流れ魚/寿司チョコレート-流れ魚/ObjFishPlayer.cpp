@@ -79,6 +79,7 @@ void CObjFishPlayer::Action()
             {
                 if (m_f == true)
                 {
+                    m_ice_ani_frame++;
                     //˜A‘Å‚Ìˆ—
                     if (m_f == true)
                     {
@@ -90,8 +91,9 @@ void CObjFishPlayer::Action()
                     {
                         Audio::Start(17);
                         ((UserData*)Save::GetData())->Ren_flag = false;
+                        m_ice_ani_frame = 0;
                     }
-                    m_ice_ani_frame++;
+                    
                     m_f = false;
                 }
             }
@@ -100,6 +102,7 @@ void CObjFishPlayer::Action()
             {
                 if (m_f == true)
                 {
+                    m_ice_ani_frame += 1;
                     //˜A‘Å‚Ìˆ—
                     if (m_f == true)
                     {
@@ -111,8 +114,9 @@ void CObjFishPlayer::Action()
                     {
                         Audio::Start(17);
                         ((UserData*)Save::GetData())->Ren_flag = false;
+                        m_ice_ani_frame = 0;
                     }
-                    m_ice_ani_frame += 1;
+                    
                     m_f = false;
                 }
             }
@@ -554,7 +558,12 @@ void CObjFishPlayer::Draw()
     {
         if (m_damage == false)
         {
-            Draw::Draw(2, &src, &dst, c, 0.0f);
+            if (((UserData*)Save::GetData())->space_flag == true)
+            {
+                Draw::Draw(25, &src, &dst, c, 0.0f);
+            }
+            else if (((UserData*)Save::GetData())->space_flag == false)
+                Draw::Draw(2, &src, &dst, c, 0.0f);
         }
         else
         {
@@ -564,11 +573,17 @@ void CObjFishPlayer::Draw()
             {
                 if (((UserData*)Save::GetData())->Ren_flag == true)
                 {
-                    Draw::Draw(2, &src, &dst, c, 0.0f);
+                    if (((UserData*)Save::GetData())->space_flag == true)
+                        Draw::Draw(25, &src, &dst, c, 0.0f);
+                    else
+                        Draw::Draw(2, &src, &dst, c, 0.0f);
                 }
                 else
                 {
-                    Draw::Draw(2, &src, &dst, c, 0.0f);
+                    if (((UserData*)Save::GetData())->space_flag == true)
+                        Draw::Draw(25, &src, &dst, c, 0.0f);
+                    else
+                        Draw::Draw(2, &src, &dst, c, 0.0f);
                 }
 
             }
@@ -577,7 +592,10 @@ void CObjFishPlayer::Draw()
                 c[0] = 1.0f;
                 c[1] = 0.5f;
                 c[2] = 0.0f;
-                Draw::Draw(2, &src, &dst, c, 0.0f);
+                if (((UserData*)Save::GetData())->space_flag == true)
+                    Draw::Draw(25, &src, &dst, c, 0.0f);
+                else
+                    Draw::Draw(2, &src, &dst, c, 0.0f);
             }
 
             if (m_inv_time == 30)
@@ -589,7 +607,10 @@ void CObjFishPlayer::Draw()
     }
     else
     {
-        Draw::Draw(2, &src, &dst, c, m_spin);
+        if (((UserData*)Save::GetData())->space_flag == true)
+            Draw::Draw(25, &src, &dst, c, m_spin);
+        else
+            Draw::Draw(2, &src, &dst, c, m_spin);
     }
     
     if (((UserData*)Save::GetData())->Ren_flag == true)
@@ -605,5 +626,17 @@ void CObjFishPlayer::Draw()
         src.m_bottom = 128.00f;
 
         Draw::Draw(21, &src, &dst, c, m_spin);
+    }
+    else
+    {
+        dst.m_top = 0.0f + m_py;
+        dst.m_left = 0.0f - 32.0f + m_px;
+        dst.m_right = 128.0f - 32.0f + m_px;
+        dst.m_bottom = 128.0f + m_py;
+
+        src.m_top = 0.0f;
+        src.m_left = 0.0f;
+        src.m_right = 128.0f;
+        src.m_bottom = 128.00f;
     }
 }
