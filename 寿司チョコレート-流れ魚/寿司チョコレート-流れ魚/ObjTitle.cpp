@@ -24,15 +24,7 @@ CObjTitle::CObjTitle()
 	num = 0;//描画優先度
 }
 
-int CObjTitle::key_num_T()
-{
-	return num;
-}
 
-bool CObjTitle::key_num2_T()
-{
-	return R_flag;
-}
 //イニシャライズ
 void CObjTitle::Init()
 {

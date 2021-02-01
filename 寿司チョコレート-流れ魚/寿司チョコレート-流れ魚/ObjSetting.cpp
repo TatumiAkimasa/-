@@ -250,7 +250,7 @@ void CObjSetting::Draw()
 		}
 		if (((UserData*)Save::GetData())->space_flag == true)
 		{
-			Font::StrDraw(L"<  ‰F’ˆ >", 500, 300, SET_INFO_SIZE, c);
+			Font::StrDraw(L"<  ‰F’ˆ  >", 500, 300, SET_INFO_SIZE, c);
 		}
 		else
 		{
