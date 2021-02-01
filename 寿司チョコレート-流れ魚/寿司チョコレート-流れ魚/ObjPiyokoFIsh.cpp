@@ -14,6 +14,9 @@ using namespace GameL;
 //コンストラクタ
 CObjPiyokoFish::CObjPiyokoFish(float x, float y, float r)
 {
+	m_vx = 0.0f;
+	m_vy = 0.0f;
+	m_fp_x = 0.0f;
 	m_r = r;
 	m_px = x;
 	m_py = y;
@@ -22,8 +25,6 @@ CObjPiyokoFish::CObjPiyokoFish(float x, float y, float r)
 //イニシャライズ
 void CObjPiyokoFish::Init()
 {
-	m_vx = 0.0f;
-	m_vy = 0.0f;
 	m_obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
 	m_fp_x = m_obj->GetX();
 	
@@ -57,8 +58,8 @@ void CObjPiyokoFish::Action()
 	}
 	else
 	{
-		m_vx = 1.0 / r * m_vx;
-		m_vy = 1.0 / r * m_vy;
+		m_vx = 1.0f / r * m_vx;
+		m_vy = 1.0f / r * m_vy;
 	}
 
 	m_vx *= 1.5f;

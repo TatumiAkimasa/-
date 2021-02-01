@@ -17,5 +17,4 @@ class CObjsp_down : public CObj
 		float m_x;			//sp_down‚ÌˆÊ’u
 		float m_y;
 		float m_vy;			//sp_down‚Ì—Ž‰º
-		float s;
 };

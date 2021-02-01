@@ -17,5 +17,4 @@ private:
 	float m_x;			//Ren‚ÌˆÊ’u
 	float m_y;
 	float m_vy;			//Ren‚Ì—Ž‰º
-	int m_ani_flame;
 };

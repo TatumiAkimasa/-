@@ -23,7 +23,6 @@ void CObjBackground::Init()
 {
 	m_y1 = -0.001f;
 	count = 10;
-	add =5;
 	n = 0;
 	End_P = false;
 	end_P = false;
@@ -79,16 +78,11 @@ void CObjBackground::Action()
 	
 	//‘¬“x‚ğsp‚©‚çó‚¯æ‚é
 	n = ((UserData*)Save::GetData())->sp;
-
-	//‘¬“x‚ğÅ‰‚Ì‚Ù‚¤‚Ì•¨‚ğŒÅ’è‰»
-	if (m_y1 >= 580)
-		add = n;
 	
 	//€‚ñ‚¾‚ç”wŒistop
 	if (((UserData*)Save::GetData())->life_point == 0)
 	{
 		n = 0;
-		add = 0;
 	}
 
 	//‚à‚µA“r’†‚Å1ˆÙí‚Ì•Ï‰»‚ª‚ ‚Á‚½ê‡–³‹‚·‚é

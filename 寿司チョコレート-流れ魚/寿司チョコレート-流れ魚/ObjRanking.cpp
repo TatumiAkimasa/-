@@ -12,14 +12,18 @@
 //使用するネームスペース
 using namespace GameL;
 
+//コンストラクタ
+CObjRanking::CObjRanking()
+{
+	D_flag = false;
+	U_flag = false;
+}
 
 //イニシャライズ
 void CObjRanking::Init()
 {
 	//点数を0にする
 	((UserData*)Save::GetData())->save_score = 0;
-	D_flag = false;
-	U_flag = false;
 }
 //アクション
 void CObjRanking::Action()
@@ -61,8 +65,6 @@ void CObjRanking::Draw()
 	float c[4] = { 0.6f,0.5f,0.0f,1.0f };
 	float d[4] = { 0.5f,0.5f,0.5f,1.0f };
 	float e[4] = { 0.8f,0.4f,0.1f,1.0f };
-	RECT_F src;//描画元切り取り位置
-	RECT_F dst;//描画先表示位置
 
 	//ランキング
 	Font::StrDraw(L"ランキング", 270, 25, 50, a);

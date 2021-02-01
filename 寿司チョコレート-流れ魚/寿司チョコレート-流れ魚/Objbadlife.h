@@ -16,7 +16,5 @@ public:
 private:
 	float m_x;			//10円の位置
 	float m_y;
-	float m_vy;			//10円の落下です
-	float s;            //スピード用変数
-	
+	float m_vy;			//10円の落下です	
 };

@@ -12,9 +12,8 @@
 //使用するネームスペース
 using namespace GameL;
 
-
-//イニシャライズ
-void CObjSetting::Init()
+//コンストラクタ
+CObjSetting::CObjSetting()
 {
 	R_flag = true;
 	L_flag = true;
@@ -22,6 +21,11 @@ void CObjSetting::Init()
 	D_flag = true;
 	setting_pos = 0;
 	Hidden_flag = false;
+}
+
+//イニシャライズ
+void CObjSetting::Init()
+{
 	//((UserData*)Save::GetData())->start_sp = 5.0f;
 	//((UserData*)Save::GetData())->start_control_mirror = true;
 }
@@ -208,8 +212,7 @@ void CObjSetting::Draw()
 {	
 	float c[4] = { 0.0f,0.0f,0.0f,1.0f };
 	wchar_t str[256];
-	RECT_F src;//描画元切り取り位置
-	RECT_F dst;//描画先表示位置
+	
 
 	Font::StrDraw(L"設定(矢印キーで操作)", 170, 25, 50, c);
 

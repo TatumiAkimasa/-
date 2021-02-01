@@ -11,7 +11,7 @@ using namespace GameL;
 class CObjMain :public CObj
 {
 public:
-	CObjMain() {};
+	CObjMain();
 	~CObjMain() {};
 	void Init();  //イニシャライズ
 	void Action();//アクション
@@ -29,9 +29,9 @@ private:
 	bool mirrior_flag;//コメント用反転終了基準フラグ
 	bool ren_flag;    //コメント用連打終了基準フラグ
 
-	int fps = 0;//操作反転の時使う
-	int i = 9;//操作反転の時使う
-	int second = 10;//操作反転の時使う
+	int fps;//操作反転の時使う
+	int i;//操作反転の時使う
+	int second;//操作反転の時使う
 
 	
 };
