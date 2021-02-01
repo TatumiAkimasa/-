@@ -22,8 +22,6 @@ void CObjSetting::Init()
 	D_flag = true;
 	setting_pos = 0;
 	Hidden_flag = false;
-	//((UserData*)Save::GetData())->start_sp = 5.0f;
-	//((UserData*)Save::GetData())->start_control_mirror = true;
 }
 //アクション
 void CObjSetting::Action()
@@ -211,51 +209,51 @@ void CObjSetting::Draw()
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
-	Font::StrDraw(L"設定(矢印キーで操作)", 170, 25, 50, c);
+	Font::StrDraw(L"設定(矢印キーで操作)", 170, 25, SET_INFO_SIZE, c);
 
-	Font::StrDraw(L"初期速度", 80, 100, 50, c);
+	Font::StrDraw(L"初期速度", 80, 100, SET_INFO_SIZE, c);
 	if (setting_pos == 0)
 	{
-		Font::StrDraw(L"________", 80, 110, 50, c);
+		Font::StrDraw(L"________", 80, 110, SET_INFO_SIZE, c);
 	}
 	
 	swprintf_s(str, L"<- %0.1f +>", ((UserData*)Save::GetData())->start_sp);
 	Font::StrDraw(str, 500, 100, 50, c);
 
-	Font::StrDraw(L"操作反転モード", 80, 200, 50, c);
+	Font::StrDraw(L"操作反転モード", 80, 200, SET_INFO_SIZE, c);
 	if (setting_pos == 1)
 	{
-		Font::StrDraw(L"______________", 80, 210, 50, c);
+		Font::StrDraw(L"______________", 80, 210, SET_INFO_SIZE, c);
 	}
 	if (((UserData*)Save::GetData())->start_control_mirror == true)
 	{
-		Font::StrDraw(L"<  OFF  >", 500, 200, 50, c);
+		Font::StrDraw(L"<  OFF  >", 500, 200, SET_INFO_SIZE, c);
 	}
 	else
 	{
-		Font::StrDraw(L"<  ON   >", 500, 200, 50, c);
+		Font::StrDraw(L"<  ON   >", 500, 200, SET_INFO_SIZE, c);
 	}
 
 	Font::StrDraw(L"エンターキーで戻る", 540, 540, 25, c);
 
 	if (Hidden_flag == true)
 	{
-		Font::StrDraw(L"スキン変更", 80, 300, 50, c);
+		Font::StrDraw(L"スキン変更", 80, 300, SET_INFO_SIZE, c);
 		if (setting_pos == 2)
 		{
-			Font::StrDraw(L"__________", 80, 310, 50, c);
+			Font::StrDraw(L"__________", 80, 310, SET_INFO_SIZE, c);
 		}
 		if (((UserData*)Save::GetData())->space_flag == true)
 		{
-			Font::StrDraw(L"<  宇宙 >", 500, 300, 50, c);
+			Font::StrDraw(L"<  宇宙 >", 500, 300, SET_INFO_SIZE, c);
 		}
 		else
 		{
-			Font::StrDraw(L"<  地球 >", 500, 300, 50, c);
+			Font::StrDraw(L"<  地球 >", 500, 300, SET_INFO_SIZE, c);
 		}
 	}
 	else
 	{
-		Font::StrDraw(L"???(20万点必要)", 80, 300, 50, c);
+		Font::StrDraw(L"???(20万点必要)", 80, 300, SET_INFO_SIZE, c);
 	}
 }
