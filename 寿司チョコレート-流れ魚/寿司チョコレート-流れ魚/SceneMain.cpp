@@ -150,7 +150,6 @@ void CSceneMain::InitScene()
 	Audio::LoadAudio(16, L"氷連打音.wav", SOUND_TYPE::EFFECT);
 
 	Audio::LoadAudio(17, L"氷破壊音.wav", SOUND_TYPE::EFFECT);
-
 	
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
