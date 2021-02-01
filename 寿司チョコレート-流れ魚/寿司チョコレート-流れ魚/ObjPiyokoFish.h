@@ -22,6 +22,8 @@ private:
 	float m_vy;
 	float m_r;
 	float m_fp_x;
+	int m_ani_time;		//アニメーションタイム
+	int m_ani_frame;	//アニメーションフレーム
 
 	CObjFishPlayer* m_obj;
 }; 
