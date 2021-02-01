@@ -83,7 +83,7 @@ struct UserData
 	int ren;				//連打用変数
 	int Ranking[11];        //ランキングの表示用変数
 	bool Achievement_flag[30];//実績が解放されているかのフラグ
-	int max_time;           //速度が20の時カウントが始まる
+	float max_time;           //速度が20の時カウントが始まる
 	float m_max_time = 0;      //max_timeの記憶用変数
 	float start_sp = 5.0f;         //初期速度を変更できるようにする変数
 	bool start_control_mirror = true;//操作反転の切り替えができる

@@ -429,26 +429,7 @@ void CObjFishPlayer::Action()
         Audio::Stop(4);
         Audio::Start(5);//Ç‚ÇÁÇÍéûSE
         m_time++;
-       /*ãõÇ”ÇÈÇÌÇπÇƒgameoverÇ≥ÇπÇÈópÇÃèàóù 
-       if (m_time % 4 == 0)
-        {
-            if (cont == 0)
-            {
-                m_vx += 5;
-                cont++;
-            }
-            else if (cont == 1)
-            {
-                m_vx -= 15;
-                cont = -1;
-            }
-            else if (cont == -1)
-            {
-                m_vx += 15;
-                cont = 1;
-            }
-            m_time = 0;
-        }*/
+       
         m_spin += 15.0f;
         //m_px += 1 * m_vx;
         m_vy += 0.01f;
