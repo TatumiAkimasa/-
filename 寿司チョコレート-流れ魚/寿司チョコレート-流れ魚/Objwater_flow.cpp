@@ -5,6 +5,7 @@
 #include "GameL/UserData.h"
 #include <stdlib.h>
 #include <time.h>
+#include"GameL/UserData.h"
 
 
 //使用するネームスペース////////
@@ -69,30 +70,56 @@ void CObjwater_flow::Draw()
 	RECT_F dst;  //描画先表示位置
 
 	//切り取り位置の設定
-	src.m_top = 0.0f;
-	src.m_left = 60.0f;
-	src.m_right = 500.0f;
-	src.m_bottom = 512.0f;
-
-	//背景①の位置設定し描画
-	if (flow_flag == true)
+	//宇宙
+	if (((UserData*)Save::GetData())->space_flag == true)
 	{
-		dst.m_top = -200.0f + m_y1;
-		dst.m_left = 360.0f + right;
-		dst.m_right = 380.0f + right;
-		dst.m_bottom = -10.0f + m_y1;
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 64.0f;
+		src.m_bottom = 64.0f;
+
+		//背景①の位置設定し描画
+		if (flow_flag == true)
+		{
+			dst.m_top = -16.0f + m_y1;
+			dst.m_left = 360.0f + right;
+			dst.m_right = 376.0f + right;
+			dst.m_bottom = 0.0f + m_y1;
+		}
+		else if (flow_flag == false)
+		{
+			dst.m_top = -16.0f + m_y1;
+			dst.m_left = 360.0f + right_d;
+			dst.m_right = 376.0f + right_d;
+			dst.m_bottom = 0.0f + m_y1;
+		}
+		//19番目に登録したグラフィックをsrc・dst・cの情報をもとに描画
+		Draw::Draw(19, &src, &dst, c, 0.0f);
 	}
-	else if (flow_flag == false)
+	//地球
+	else
 	{
-		dst.m_top = -200.0f + m_y1;
-		dst.m_left = 360.0f + right_d;
-		dst.m_right = 380.0f + right_d;
-		dst.m_bottom = -10.0f + m_y1;
+		src.m_top = 0.0f;
+		src.m_left = 60.0f;
+		src.m_right = 500.0f;
+		src.m_bottom = 512.0f;
+
+		//背景①の位置設定し描画
+		if (flow_flag == true)
+		{
+			dst.m_top = -200.0f + m_y1;
+			dst.m_left = 360.0f + right;
+			dst.m_right = 380.0f + right;
+			dst.m_bottom = -10.0f + m_y1;
+		}
+		else if (flow_flag == false)
+		{
+			dst.m_top = -200.0f + m_y1;
+			dst.m_left = 360.0f + right_d;
+			dst.m_right = 380.0f + right_d;
+			dst.m_bottom = -10.0f + m_y1;
+		}
+		//1番目に登録したグラフィックをsrc・dst・cの情報をもとに描画
+		Draw::Draw(1, &src, &dst, c, 0.0f);
 	}
-
-	//1番目に登録したグラフィックをsrc・dst・cの情報をもとに描画
-	Draw::Draw(1, &src, &dst, c, 0.0f);
-
-
-
 }

@@ -94,6 +94,5 @@ void CObjRanking::Draw()
 		swprintf_s(str, L"%2dˆÊ       %10d‹›—Í", i + 1, ((UserData*)Save::GetData())->Ranking[i]);
 		Font::StrDraw(str, 250, 90 + 48 * i, 24, b);
 	}
-
 }
 

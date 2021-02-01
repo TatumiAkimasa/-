@@ -325,8 +325,18 @@ void CObjAchievement::Draw()
 	{
 		if (((UserData*)Save::GetData())->m_max_time < ((UserData*)Save::GetData())->max_time)
 			((UserData*)Save::GetData())->m_max_time = ((UserData*)Save::GetData())->max_time;
-		swprintf_s(str, L"30.‹t‚ç‹›: %d•b", ((UserData*)Save::GetData())->m_max_time / 60);
-		Font::StrDraw(str, ACHIEVEMENT_POS_R, 520, ACHIEVEMENT_SIZE, b);
+		//‚È‚º‚©”Žš‚©‘‚¦‚éƒoƒOC³
+		if (((UserData*)Save::GetData())->m_max_time / 60 < 29)
+		{
+			swprintf_s(str, L"30.‹t‚ç‹› : %0.1f•b", (((UserData*)Save::GetData())->m_max_time / 60) );
+			Font::StrDraw(str, ACHIEVEMENT_POS_R, 520, ACHIEVEMENT_SIZE, b);
+		}
+		else
+		{
+			swprintf_s(str, L"30.‹t‚ç‹› : %0.1f•b", ((UserData*)Save::GetData())->m_max_time / 60);
+			Font::StrDraw(str, ACHIEVEMENT_POS_R, 520, ACHIEVEMENT_SIZE, b);
+		}
+		
 	}
 	else
 	{

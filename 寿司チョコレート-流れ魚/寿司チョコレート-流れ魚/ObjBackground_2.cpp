@@ -39,7 +39,11 @@ void CObjBackground_2::Action()
 	//Background2‚ÌŒ»Ý’n‚ð”»’è‚µA‰º‚És‚Á‚½‚©‚Ç‚¤‚©‚ð‘ŠŽè(Background)‚É“n‚·
 	if (End_P == false)
 	{
-		if (n>=10&& m_y1 >= 13.0f && m_y1 <= 27.0f)
+		if (n >= 15 && m_y1 >= 20.0f && m_y1 <= 40.0f)
+		{
+			End_P = true;
+		}
+		else if (n>=10&& m_y1 >= 13.0f && m_y1 <= 27.0f)
 		{
 			End_P = true;
 		}
@@ -124,15 +128,15 @@ void CObjBackground_2::Draw()
 	src.m_bottom = 512.0f;
 
 	//1”Ô–Ú‚É“o˜^‚µ‚½ƒOƒ‰ƒtƒBƒbƒN‚ðsrcEdstEc‚Ìî•ñ‚ð‚à‚Æ‚É•`‰æ
-	if (count == 1)
+    if (count == 1)
 	{
 		//”wŒi‡@‚ÌˆÊ’uÝ’è‚µ•`‰æ
 		dst.m_top = 0.0f - m_y1;
-		dst.m_left = 250.0f;
-		dst.m_right = 820.0f;
-		dst.m_bottom = 605.0f  - m_y1;
+		dst.m_left = LEFT;
+		dst.m_right = RIGHT;
+		dst.m_bottom = UNDER - m_y1;
 		if (n >= 10)
-			dst.m_bottom = 610.0f - m_y1;
+			dst.m_bottom = UNDER + n - m_y1;
 
 		Draw::Draw(0, &src, &dst, c, 0.0f);
 	}
@@ -140,11 +144,11 @@ void CObjBackground_2::Draw()
 	{
 		//”wŒi‡@‚ÌˆÊ’uÝ’è‚µ•`‰æ
 		dst.m_top = 0.0f - m_y1;
-		dst.m_left = 238.0f;
-		dst.m_right = 808.0f;
-		dst.m_bottom = 605.0f - m_y1;
+		dst.m_left = LEFT - 12.0f;
+		dst.m_right = RIGHT - 12.0f;
+		dst.m_bottom = UNDER - m_y1;
 		if (n >= 10)
-			dst.m_bottom = 610.0f - m_y1;
+			dst.m_bottom = UNDER + n - m_y1;
 
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
@@ -152,11 +156,11 @@ void CObjBackground_2::Draw()
 	{
 		//”wŒi‡@‚ÌˆÊ’uÝ’è‚µ•`‰æ
 		dst.m_top = 0.0f - m_y1;
-		dst.m_left = 233.2f;
-		dst.m_right = 803.2f;
-		dst.m_bottom = 605.0f  - m_y1;
+		dst.m_left = LEFT - 16.8f;
+		dst.m_right = RIGHT - 16.8f;
+		dst.m_bottom = UNDER - m_y1;
 		if (n >= 10)
-			dst.m_bottom = 610.0f - m_y1;
+			dst.m_bottom = UNDER + n - m_y1;
 
 		Draw::Draw(5, &src, &dst, c, 0.0f);
 	}

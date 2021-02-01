@@ -1,6 +1,10 @@
 #pragma once
 //使用するヘッダー
 #include "GameL\SceneObjManager.h"
+
+#define UNDER 605.0f
+#define RIGHT 820.0f
+#define LEFT  250.0f
 //使用するネームスペース
 using namespace GameL;
 
