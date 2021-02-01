@@ -5,13 +5,18 @@
 //使用するネームスペース
 using namespace GameL;
 
-
+#define PLAY_INFO_SIZE 40
+#define PLAY_INFO_POS 20
+#define COMMENT_SIZE 30
+#define COM_POS_1 430
+#define COM_POS_2 470
+#define COM_POS_3 510
 
 //シーン：メイン
 class CObjMain :public CObj
 {
 public:
-	CObjMain() {};
+	CObjMain();
 	~CObjMain() {};
 	void Init();  //イニシャライズ
 	void Action();//アクション
@@ -29,9 +34,9 @@ private:
 	bool mirrior_flag;//コメント用反転終了基準フラグ
 	bool ren_flag;    //コメント用連打終了基準フラグ
 
-	int fps = 0;//操作反転の時使う
-	int i = 9;//操作反転の時使う
-	int second = 10;//操作反転の時使う
+	int fps;//操作反転の時使う
+	int i;//操作反転の時使う
+	int second;//操作反転の時使う
 
 	
 };

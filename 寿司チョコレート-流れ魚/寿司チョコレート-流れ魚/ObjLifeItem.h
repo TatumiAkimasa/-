@@ -15,9 +15,7 @@ public:
 	void Draw();		//ドロー
 	
 private:
-	float m_x;			//10円の位置
+	float m_x;			//ライフアイテムの位置
 	float m_y;
-	float m_vy;			//10円の落下
-	float s;
-	
+	float m_vy;			//ライフアイテムの落下	
 };

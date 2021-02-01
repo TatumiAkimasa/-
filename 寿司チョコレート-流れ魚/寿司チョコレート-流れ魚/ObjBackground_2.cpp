@@ -13,14 +13,20 @@ bool CObjBackground_2::End_point()
 	return End_P;
 }
 
-//イニシャライズ
-void CObjBackground_2::Init()
+//コンストラクタ
+CObjBackground_2::CObjBackground_2()
 {
 	m_y1 = 590.0f;
 	count = 2;
 	n = 0;
-	end_P=false;
+	end_P = false;
 	End_P = false;
+}
+
+//イニシャライズ
+void CObjBackground_2::Init()
+{
+
 }
 
 //アクション
@@ -55,7 +61,7 @@ void CObjBackground_2::Action()
 		{
 			End_P = true;
 		}
-		else if (n == 9 && m_y1 >= 9.0f && m_y1 <= 17.0f)
+		else if (n == 9 && m_y1 >= 5.0f && m_y1 <= 20.0f)
 		{
 			End_P = true;
 		}

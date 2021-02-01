@@ -9,13 +9,12 @@ using namespace GameL;
 class CObjTitle :public CObj
 {
 public:
-	CObjTitle() {};
+	CObjTitle();
 	~CObjTitle() {};
 	void Init();
 	void Action();
 	void Draw();
-	int key_num_T();
-	bool key_num2_T();
+
 private:
 	bool R_flag;//キーフラグ(右）
 	bool L_flag;//キーフラグ（左）

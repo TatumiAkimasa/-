@@ -29,7 +29,7 @@ void CSceneRanking::InitScene()
 	Draw::LoadImageW(L"tatami_ranking.png", 0, TEX_SIZE_512);
 
 	//音楽情報の読み込み
-	Audio::LoadAudio(0, L"ランキング.wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(0, L"ランキングBGM.wav", SOUND_TYPE::BACK_MUSIC);
 
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);

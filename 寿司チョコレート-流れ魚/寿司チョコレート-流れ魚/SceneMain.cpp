@@ -115,12 +115,14 @@ void CSceneMain::InitScene()
 	Draw::LoadImage(L"宇宙_ステータス背景.png", 26, TEX_SIZE_512);
 
 	//音楽情報の読み込み
-	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
+	//BGM
+	Audio::LoadAudio(0, L"シーンBGM.wav", SOUND_TYPE::BACK_MUSIC);
 
-	Audio::LoadAudio(1, L"シーンBGM2(仮)修正.wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(1, L"シーンBGM2.wav", SOUND_TYPE::BACK_MUSIC);
 
-	Audio::LoadAudio(2, L"シーンBGM第二段階.wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(2, L"シーンBGM3.wav", SOUND_TYPE::BACK_MUSIC);
 
+	//SE
 	Audio::LoadAudio(3, L"上昇.wav", SOUND_TYPE::EFFECT);
 
 	Audio::LoadAudio(4, L"ダメージ音テスト.wav", SOUND_TYPE::EFFECT);
@@ -150,6 +152,8 @@ void CSceneMain::InitScene()
 	Audio::LoadAudio(16, L"氷連打音.wav", SOUND_TYPE::EFFECT);
 
 	Audio::LoadAudio(17, L"氷破壊音.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(18, L"操作反転中SE.wav", SOUND_TYPE::BACK_MUSIC);
 
 	
 	//バックミュージックスタート
@@ -251,8 +255,8 @@ void CSceneMain::Scene()
 
 	if (m_t == 0)
 	{
-		CObjmirror* m = new CObjmirror(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-		Objs::InsertObj(m, OBJ_10ENN, FLOW_PICTURE_PRIORITY);
+		CObjmirror* t = new CObjmirror(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+		Objs::InsertObj(t, OBJ_MIRROR, 54);
 
 		m_t++;
 	}

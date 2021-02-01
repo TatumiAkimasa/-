@@ -16,23 +16,23 @@
 //使用するネームスペース
 using namespace GameL;
 
-//イニシャライズ
-void ObjDriftFish::Init()
-{
-    m_vx = 0.0f;     //移動ベクトル
-    m_vy = 0.0f;
-    m_spin = 0.0f;
-    srand(time(NULL));
-
-    //当たり判定用HitBoxを作成
-    Hits::SetHitBox(this, m_px + 22, m_py + 16, 0,0, NULL, NULL, 1);
-}
-
 //コンストラクタ
 ObjDriftFish::ObjDriftFish(float x, float y)
 {
     m_px = x;
     m_py = y;
+    m_vx = 0.0f;     //主人公のｘ方向移動ベクトル用変数
+    m_vy = 0.0f;
+    m_spin = 0.0f;	//回転処理用変数
+}
+
+//イニシャライズ
+void ObjDriftFish::Init()
+{
+    srand(time(NULL));
+
+    //当たり判定用HitBoxを作成
+    Hits::SetHitBox(this, m_px + 22, m_py + 16, 0,0, NULL, NULL, 1);
 }
 
 //アクション
@@ -40,7 +40,7 @@ void ObjDriftFish::Action()
 {  
     rand(); rand(); rand(); rand();
     int x = rand() % 21;
-    m_vy += 0.1;
+    m_vy += 0.1f;
     m_spin += 10.0f;
 
     //移動ベクトルを座標に加算する

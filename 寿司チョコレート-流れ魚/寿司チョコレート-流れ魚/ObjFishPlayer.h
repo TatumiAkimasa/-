@@ -10,7 +10,7 @@ using namespace GameL;
 class CObjFishPlayer :public CObj
 {
 public:
-	CObjFishPlayer() {};
+	CObjFishPlayer();
 	~CObjFishPlayer() {};
 	void Init();  //イニシャライズ
 	void Action();//アクション

@@ -12,26 +12,30 @@
 
 using namespace GameL;
 
-//イニシャライズ
-void CObjMain::Init()
+//コンストラクタ
+CObjMain::CObjMain()
 {
 	f = 0;//フレーム計算!
 	s_time = 0;
 	m_time = 0;
-
 	fps = 0;//操作反転時間の表示
 	i = 1;//操作反転時間の表示
 	second = 10;//操作反転時間の表示
-	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
-	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
-	((UserData*)Save::GetData())->life_point = 3;//セーブ用life_point初期化
 	random = 0;
 	life = 3;
 	come_flag = false;
 	life_flag = false;
 	heel_flag = false;
 	mirrior_flag = false;
-	ren_flag=false;
+	ren_flag = false;
+}
+
+//イニシャライズ
+void CObjMain::Init()
+{
+	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
+	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
+	((UserData*)Save::GetData())->life_point = 3;//セーブ用life_point初期化
 	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
 	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
 	((UserData*)Save::GetData())->life_point = 3;//セーブ用life_point初期化
@@ -195,9 +199,8 @@ void CObjMain::Action()
 		}
 	}
 
-	if (((UserData*)Save::GetData())->sp >= 5.0)
+	if (((UserData*)Save::GetData())->sp >= 20.0)
 	{
-		//int i = 0;
 		((UserData*)Save::GetData())->max_time++;
 		if (((UserData*)Save::GetData())->max_time >= 600)
 		{
@@ -220,15 +223,15 @@ void CObjMain::Draw()
 	//タイムの表示
 	wchar_t str[256];
 	swprintf_s(str, L"タイム　%02d:%02d", m_time, s_time);
-	Font::StrDraw(str, 20, 40, 40, c);
+	Font::StrDraw(str, PLAY_INFO_POS, 40, PLAY_INFO_SIZE, c);
 
 	//スコアの表示
 	swprintf_s(str, L"魚力　　%05d", ((UserData*)Save::GetData())->save_score);
-	Font::StrDraw(str, 20, 100, 40, c);
+	Font::StrDraw(str, PLAY_INFO_POS, 100, PLAY_INFO_SIZE, c);
 
 	//速度の表示
 	swprintf_s(str, L"速度  　%3.1f", ((UserData*)Save::GetData())->sp);
-	Font::StrDraw(str, 20, 160, 40, c);
+	Font::StrDraw(str, PLAY_INFO_POS, 160, PLAY_INFO_SIZE, c);
 
 	//反転時間の表示
 	if (((UserData*)Save::GetData())->key_flag_mirror == true)
@@ -244,7 +247,7 @@ void CObjMain::Draw()
 			}
 		}
 		swprintf_s(str, L"反転時間　%d.%d",second,i);
-		Font::StrDraw(str, 20, 220, 40, c);
+		Font::StrDraw(str, PLAY_INFO_POS, 220, PLAY_INFO_SIZE, c);
 	}
 	else
 	{
@@ -255,7 +258,7 @@ void CObjMain::Draw()
 
 	//スピードの表示
 	swprintf_s(str, L"速度　　%3.1f", ((UserData*)Save::GetData())->sp);
-	Font::StrDraw(str, 20, 160, 40, c);
+	Font::StrDraw(str, PLAY_INFO_POS, 160, PLAY_INFO_SIZE, c);
 
 	//コメントの表示
 	float k[4] = { 0.1f,0.1f,0.1f,1.0f };
@@ -271,168 +274,150 @@ void CObjMain::Draw()
 	else if (random == -8)
 	{
 		swprintf_s(str, L"そうめんにわざと");
-		Font::StrDraw(str, 50, 430, 30, k);
+		Font::StrDraw(str, 50, COM_POS_1, COMMENT_SIZE, k);
 		swprintf_s(str, L"当たって速度を");
-		Font::StrDraw(str, 50, 470, 30, k);
+		Font::StrDraw(str, 50, COM_POS_2, COMMENT_SIZE, k);
 		swprintf_s(str, L"調節してみよう!");
-		Font::StrDraw(str, 30, 510, 30, k);
+		Font::StrDraw(str, 30, COM_POS_3, COMMENT_SIZE, k);
 	}
 	else if (random == -7)
 	{
 		swprintf_s(str, L"操作反転中は点数");
-		Font::StrDraw(str, 45, 430, 30, k);
+		Font::StrDraw(str, 45, COM_POS_1, COMMENT_SIZE, k);
 		swprintf_s(str, L"が二倍増えるピンチ");
-		Font::StrDraw(str, 25, 470, 30, k);
+		Font::StrDraw(str, 25, COM_POS_2, COMMENT_SIZE, k);
 		swprintf_s(str, L"がチャンスへ！");
-		Font::StrDraw(str, 40, 510, 30, k);
+		Font::StrDraw(str, 40, COM_POS_3, COMMENT_SIZE, k);
 	}
 	else if (random == -6)
 	{
 		swprintf_s(str, L"長く生き残れば");
-		Font::StrDraw(str, 60, 430, 30, k);
+		Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
 		swprintf_s(str, L"獲得魚力がより");
-		Font::StrDraw(str, 60, 470, 30, k);
+		Font::StrDraw(str, 60, COM_POS_2, COMMENT_SIZE, k);
 		swprintf_s(str, L"多くもらえるよ！");
-		Font::StrDraw(str, 25, 510, 30, k);
+		Font::StrDraw(str, 25, COM_POS_3, COMMENT_SIZE, k);
 	}
 	else if (random == -5)
 	{
 	swprintf_s(str, L"世界最小の魚は");
-	Font::StrDraw(str, 60, 430, 30, k);
+	Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
 	swprintf_s(str, L"ドワーフフェアリー");
-	Font::StrDraw(str, 15, 470, 30, k);
+	Font::StrDraw(str, 15, COM_POS_2, COMMENT_SIZE, k);
 	swprintf_s(str, L"ミノーだよ");
-	Font::StrDraw(str, 70, 510, 30, k);
+	Font::StrDraw(str, 70, COM_POS_3, COMMENT_SIZE, k);
 	}
 	else if (random == -4)
 	{
 	swprintf_s(str, L"ハリセンボン");
-	Font::StrDraw(str, 60, 430, 30, k);
+	Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
 	swprintf_s(str, L"実は、針は");
-	Font::StrDraw(str, 50, 470, 30, k);
+	Font::StrDraw(str, 50, COM_POS_2, COMMENT_SIZE, k);
 	swprintf_s(str, L"400本くらい");
-	Font::StrDraw(str, 50, 510, 30, k);
+	Font::StrDraw(str, 50, COM_POS_3, COMMENT_SIZE, k);
 	}
 	else if (random == -3)
 	{
 	    swprintf_s(str, L"ドイツでは");
-	    Font::StrDraw(str, 60, 430, 30, k);
+	    Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
 	    swprintf_s(str, L"釣りに免許が");
-	    Font::StrDraw(str, 60, 470, 30, k);
+	    Font::StrDraw(str, 60, COM_POS_2, COMMENT_SIZE, k);
 		swprintf_s(str, L"いるらしいよ");
-		Font::StrDraw(str, 60, 510, 30, k);
+		Font::StrDraw(str, 60, COM_POS_3, COMMENT_SIZE, k);
 	}
 	else if (random == -2)
 	{
 		swprintf_s(str, L"サーモンは");
-		Font::StrDraw(str, 80, 430, 30, k);
+		Font::StrDraw(str, 80, COM_POS_1, COMMENT_SIZE, k);
 		swprintf_s(str, L"白身魚だよ");
-		Font::StrDraw(str, 80, 470, 30, k);
+		Font::StrDraw(str, 80, COM_POS_2, COMMENT_SIZE, k);
 	}
 	else if (random == -1)
 	{
 		swprintf_s(str, L"トビウオって最大");
-		Font::StrDraw(str, 33, 430, 30, k);
+		Font::StrDraw(str, 33, COM_POS_1, COMMENT_SIZE, k);
 		swprintf_s(str, L"400m飛ぶらしいよ！");
-		Font::StrDraw(str, 25, 470, 30, k);
+		Font::StrDraw(str, 25, COM_POS_2, COMMENT_SIZE, k);
 	}
 	else if (random == 0)
 	{
 		swprintf_s(str, L"さぁ、魚力を");
-		Font::StrDraw(str, 60, 430, 30, k);
+		Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
 		swprintf_s(str, L"上げよう！");
-		Font::StrDraw(str, 60, 470, 30, k);
+		Font::StrDraw(str, 60, COM_POS_2, COMMENT_SIZE, k);
 	}
 	else if (random == 1)
 	{
 		swprintf_s(str, L"知ってる？");
-		Font::StrDraw(str, 60, 430, 30, k);
+		Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
 		swprintf_s(str, L"僕って金魚なんだ！");
-		Font::StrDraw(str, 25, 470, 30, k);
+		Font::StrDraw(str, 25, COM_POS_2, COMMENT_SIZE, k);
 	}
 	else if (random == 2)
 	{
 		swprintf_s(str, L"因みに今泳いで");
-		Font::StrDraw(str, 60, 430, 30, k);
+		Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
 		swprintf_s(str, L"いるところは流し");
-		Font::StrDraw(str, 30, 470, 30, k);
+		Font::StrDraw(str, 30, COM_POS_2, COMMENT_SIZE, k);
 		swprintf_s(str, L"そうめん台だよ");
-		Font::StrDraw(str, 30, 510, 30, k);
+		Font::StrDraw(str, 30, 510, COMMENT_SIZE, k);
 	}
 	else if (random == 3)
 	{
 		swprintf_s(str, L"これが僕の");
-		Font::StrDraw(str, 60, 430, 30, k);
+		Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
 		swprintf_s(str, L"全力のスピードだ!");
-		Font::StrDraw(str, 25, 470, 30, k);
+		Font::StrDraw(str, 25, COM_POS_2, COMMENT_SIZE, k);
 	}
 	else if (random == 4)
 	{
 		swprintf_s(str, L"肩慣らしは完了!");
-		Font::StrDraw(str, 55, 430, 30, k);
+		Font::StrDraw(str, 55, COM_POS_1, COMMENT_SIZE, k);
 		swprintf_s(str, L"どんどん行こう!");
-		Font::StrDraw(str, 55, 470, 30, k);
+		Font::StrDraw(str, 55, COM_POS_2, COMMENT_SIZE, k);
 	}
 	else if (random == 5)
 	{
 		swprintf_s(str, L"僕の魚力が");
-		Font::StrDraw(str, 60, 430, 30, k);
+		Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
 		swprintf_s(str, L"みなぎってる！");
-		Font::StrDraw(str, 60, 470, 30, k);
+		Font::StrDraw(str, 60, COM_POS_2, COMMENT_SIZE, k);
 		swprintf_s(str, L"どんどん行こう！");
-		Font::StrDraw(str, 25, 510, 30, k);
+		Font::StrDraw(str, 25, COM_POS_3, COMMENT_SIZE, k);
 	}
 	else if (random == 6)
 	{
 		swprintf_s(str, L"あぁ、癒される");
-		Font::StrDraw(str, 60, 430, 30, k);
+		Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
 		swprintf_s(str, L"ありがとう！");
-		Font::StrDraw(str, 60, 470, 30, k);
+		Font::StrDraw(str, 60, COM_POS_2, COMMENT_SIZE, k);
 		swprintf_s(str, L"この調子！");
-		Font::StrDraw(str, 60, 510, 30, k);
+		Font::StrDraw(str, 60, COM_POS_3, COMMENT_SIZE, k);
 	}
 	else if (random == 7)
 	{
-		swprintf_s(str, L"");
-		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"まだまだ！");
-		Font::StrDraw(str, 85, 470, 30, k);
-		swprintf_s(str, L"");
-		Font::StrDraw(str, 25, 510, 30, k);
+		Font::StrDraw(str, 85, COM_POS_2, COMMENT_SIZE, k);
 	}
 	else if (random == 8)
 	{
-		swprintf_s(str, L"");
-		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"死にそう...！");
-		Font::StrDraw(str, 65, 470, 30, k);
-		swprintf_s(str, L"");
-		Font::StrDraw(str, 25, 510, 30, k);
+		Font::StrDraw(str, 65, COM_POS_2, COMMENT_SIZE, k);
 	}
 	else if (random == 10)
 	{
 		float k[4] = { 0.9f,0.1f,0.1f,1.0f };
-		swprintf_s(str, L"");
-		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"操作反転中！");
-		Font::StrDraw(str, 70, 470, 30, k);
-		swprintf_s(str, L"");
-		Font::StrDraw(str, 25, 510, 30, k);
+		Font::StrDraw(str, 70, COM_POS_2, COMMENT_SIZE, k);
 	}
 	else if (random == 11)
 	{
-		swprintf_s(str, L"");
-		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"前が見えない！？");
-		Font::StrDraw(str, 40, 470, 30, k);
-		swprintf_s(str, L"");
-		Font::StrDraw(str, 25, 510, 30, k);
+		Font::StrDraw(str, 40, COM_POS_2, COMMENT_SIZE, k);
 	}
 	else if (random == 12)
 	{
 		float k[4] = { 0.1f,0.9f,0.1f,1.0f };
-		swprintf_s(str, L"");
-		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"操作反転終了！");
 		Font::StrDraw(str, 55, 470, 30, k);
 		swprintf_s(str, L"");
@@ -470,19 +455,17 @@ void CObjMain::Draw()
 	else if (random == 99)
 	{
 		float k[4] = { 0.9f,0.1f,0.1f,1.0f };
-		swprintf_s(str, L"");
-		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"次こそは！");
-		Font::StrDraw(str, 85, 460, 30, k);
+		Font::StrDraw(str, 85, COM_POS_2, COMMENT_SIZE, k);
 		swprintf_s(str, L"必ず強くなる！");
-		Font::StrDraw(str, 50, 490, 30, k);
+		Font::StrDraw(str, 50, 490, COMMENT_SIZE, k);
 	}
 	
 
 	//ライフの表示
 	float d[4] = { 1.0f,1.0f,1.0f,1.0f };
 	swprintf_s(str, L"ライフ");
-	Font::StrDraw(str, 20, 280, 40, c);
+	Font::StrDraw(str, PLAY_INFO_POS, 280, PLAY_INFO_SIZE, c);
 
 	RECT_F src;
 	RECT_F dst;

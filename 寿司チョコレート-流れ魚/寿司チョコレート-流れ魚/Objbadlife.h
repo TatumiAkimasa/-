@@ -4,7 +4,7 @@
 //使用するネームスペース
 using namespace GameL;
 
-//オブジェクト：10円
+//オブジェクト：badlife
 class CObjbadlife : public CObj
 {
 public:
@@ -14,9 +14,7 @@ public:
 	void Action();		//アクション
 	void Draw();		//ドロー
 private:
-	float m_x;			//10円の位置
+	float m_x;			//badlifeの位置
 	float m_y;
-	float m_vy;			//10円の落下です
-	float s;            //スピード用変数
-	
+	float m_vy;			//badlifeの落下です	
 };

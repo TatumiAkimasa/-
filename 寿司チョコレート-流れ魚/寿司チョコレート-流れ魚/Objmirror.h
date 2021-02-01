@@ -17,5 +17,4 @@ private:
 	float m_x;			//操作反転アイテムの位置
 	float m_y;
 	float m_vy;			//操作反転アイテムの落下です
-	float s;
 };

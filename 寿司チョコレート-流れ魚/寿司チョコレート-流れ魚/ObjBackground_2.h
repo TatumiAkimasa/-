@@ -12,7 +12,7 @@ using namespace GameL;
 class CObjBackground_2 : public CObj
 {
 public:
-	CObjBackground_2() {};
+	CObjBackground_2();
 	~CObjBackground_2() {};
 	void Init();//イニシャライズ
 	void Action();//アクション

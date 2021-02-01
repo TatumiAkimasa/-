@@ -19,8 +19,8 @@ bool CObjFishPlayer::heel_flag()
     return come_heel_flag;
 }
 
-//イニシャライズ
-void CObjFishPlayer::Init()
+//コンストラクタ
+CObjFishPlayer::CObjFishPlayer()
 {
     m_vx = 0.0f;     //移動ベクトル
     m_vy = 0.0f;
@@ -30,7 +30,7 @@ void CObjFishPlayer::Init()
     m_ani_time = 0;
     m_ani_frame = 0;
     m_ice_ani_frame = 0;
-    m_time = 0; 
+    m_time = 0;
     m_inv_time = 0;//無敵時間用タイム変数
     m_stop_time = 0;
     m_right_move = false;
@@ -45,8 +45,13 @@ void CObjFishPlayer::Init()
     slow_left_move = false;
     slow_count = 0;
 
-    
+
     m_i = 0;
+}
+
+//イニシャライズ
+void CObjFishPlayer::Init()
+{
     srand(rand());
 
     //当たり判定用HitBoxを作成
@@ -150,7 +155,7 @@ void CObjFishPlayer::Action()
                         {
                             if (m_f == true)
                             {
-                                //主人公のの左右移動鈍足化
+                                //主人公の左右移動鈍足化
                                 if (((UserData*)Save::GetData())->key_flag_slow == true)
                                 {
                                     slow_left_move = true;
@@ -163,7 +168,7 @@ void CObjFishPlayer::Action()
                         }
                         else
                         {
-                            //主人公のの左右移動鈍足化
+                            //主人公の左右移動鈍足化
                             if (((UserData*)Save::GetData())->key_flag_slow == true)
                             {
                                 slow_right_move = true;
@@ -185,7 +190,7 @@ void CObjFishPlayer::Action()
                         {
                             if (m_f == true)
                             {
-                                //主人公のの左右移動鈍足化
+                                //主人公の左右移動鈍足化
                                 if (((UserData*)Save::GetData())->key_flag_slow == true)
                                 {
                                     slow_right_move = true;
@@ -198,7 +203,7 @@ void CObjFishPlayer::Action()
                         }
                         else
                         {
-                            //主人公のの左右移動鈍足化
+                            //主人公の左右移動鈍足化
                             if (((UserData*)Save::GetData())->key_flag_slow == true)
                             {
                                 slow_left_move = true;
@@ -225,7 +230,7 @@ void CObjFishPlayer::Action()
                             
                             if (m_f == true)
                             {
-                                //主人公のの左右移動鈍足化
+                                //主人公の左右移動鈍足化
                                 if (((UserData*)Save::GetData())->key_flag_slow == true)
                                 {
                                     slow_right_move = true;
@@ -238,7 +243,7 @@ void CObjFishPlayer::Action()
                         }
                         else
                         {
-                            //主人公のの左右移動鈍足化
+                            //主人公の左右移動鈍足化
                             if (((UserData*)Save::GetData())->key_flag_slow == true)
                             {
                                 slow_left_move = true;
@@ -262,7 +267,7 @@ void CObjFishPlayer::Action()
                             
                             if (m_f == true)
                             {
-                                //主人公のの左右移動鈍足化
+                                //主人公の左右移動鈍足化
                                 if (((UserData*)Save::GetData())->key_flag_slow == true)
                                 {
                                     slow_left_move = true;
@@ -275,7 +280,7 @@ void CObjFishPlayer::Action()
                         }
                         else
                         {
-                            //主人公のの左右移動鈍足化
+                            //主人公の左右移動鈍足化
                             if (((UserData*)Save::GetData())->key_flag_slow == true)
                             {
                                 slow_right_move = true;
@@ -424,7 +429,7 @@ void CObjFishPlayer::Action()
 
         m_spin += 15.0f;
         //m_px += 1 * m_vx;
-        m_vy += 0.01;
+        m_vy += 0.01f;
         m_py += 1 * m_vy;
     }
 
@@ -436,9 +441,10 @@ void CObjFishPlayer::Action()
     if (((UserData*)Save::GetData())->key_flag_mirror == true)
     {
         m_key_time++;
-
+    
         if (m_key_time == 540)
         {
+            Audio::Stop(18);
             ((UserData*)Save::GetData())->key_flag_mirror = false;
             m_key_time = 0;
         }

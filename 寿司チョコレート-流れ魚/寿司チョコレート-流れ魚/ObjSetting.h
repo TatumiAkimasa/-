@@ -5,11 +5,13 @@
 //使用するネームスペース
 using namespace GameL;
 
+#define SET_INFO_SIZE 50
+
 //オブジェクト：タイトル
 class CObjSetting :public CObj
 {
 public:
-	CObjSetting() {};
+	CObjSetting();
 	~CObjSetting() {};
 	void Init();
 	void Action();
