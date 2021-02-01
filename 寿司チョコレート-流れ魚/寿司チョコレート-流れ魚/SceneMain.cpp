@@ -253,14 +253,6 @@ void CSceneMain::Scene()
 		}
 	}
 
-	if (m_t == 0)
-	{
-		CObjmirror* t = new CObjmirror(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-		Objs::InsertObj(t, OBJ_MIRROR, 54);
-
-		m_t++;
-	}
-
 	if (((UserData*)Save::GetData())->life_point > 0)
 	{
 		//フレーム数の計算！
