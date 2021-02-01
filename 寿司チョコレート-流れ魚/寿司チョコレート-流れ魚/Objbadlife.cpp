@@ -36,7 +36,7 @@ void CObjbadlife::Action()
 
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);	//作成したHitBox更新用の入り口を取り出す
-	hit->SetPos(m_x + 8, m_y + 8);					//入り口から新しい位置(主人公機の位置)情報に置き換える
+	hit->SetPos(m_x + 8, m_y + 8);					//入り口から新しい位置(主人公の位置)情報に置き換える
 
 	//画面外に出たらHitBoxを削除
 	if (m_y > 600.0f)
@@ -52,7 +52,7 @@ void CObjbadlife::Action()
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
 		this->SetStatus(false);		//自身に削除命令を出す。
-		Hits::DeleteHitBox(this);	//10円が所有するHitBoxを削除する
+		Hits::DeleteHitBox(this);	//badlifeが所有するHitBoxを削除する
 	}
 }
 

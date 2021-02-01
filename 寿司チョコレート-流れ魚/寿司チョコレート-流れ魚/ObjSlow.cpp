@@ -35,7 +35,7 @@ void CObjSlow::Action()
 
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);	//作成したHitBox更新用の入り口を取り出す
-	hit->SetPos(m_x + 16, m_y + 16);					//入り口から新しい位置(主人公機の位置)情報に置き換える
+	hit->SetPos(m_x + 16, m_y + 16);					//入り口から新しい位置(主人公の位置)情報に置き換える
 
 	//画面外に出たらHitBoxを削除
 	if (m_y > 600.0f)
@@ -44,13 +44,13 @@ void CObjSlow::Action()
 		Hits::DeleteHitBox(this);
 	}
 
-	//主人公オブジェクトと接触したら10円を削除
+	//主人公オブジェクトと接触したら鈍足アイテムを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
 		Audio::Start(14);
 
 		this->SetStatus(false);		//自身に削除命令を出す。
-		Hits::DeleteHitBox(this);	//10円が所有するHitBoxを削除する
+		Hits::DeleteHitBox(this);	//鈍足アイテムが所有するHitBoxを削除する
 
 		((UserData*)Save::GetData())->key_flag_slow = true;
 	}

@@ -14,7 +14,7 @@ public:
 	void Action();		//アクション
 	void Draw();		//ドロー
 private:
-	float m_x;			//100円の位置
+	float m_x;			//鈍足アイテムの位置
 	float m_y;
-	float m_vy;			//100円の落下です
+	float m_vy;			//鈍足アイテムの落下です
 };

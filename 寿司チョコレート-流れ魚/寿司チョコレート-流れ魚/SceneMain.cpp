@@ -99,14 +99,14 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み21番に登録(Ren)
 	Draw::LoadImage(L"ani氷.png", 21, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み20番に登録(鈍足)
+	//外部グラフィックファイルを読み込み22番に登録(鈍足)
 	Draw::LoadImage(L"鈍足.png", 22, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み20番に登録(Armor（オーラ）)
+	//外部グラフィックファイルを読み込み23番に登録(Armor（オーラ）)
 	Draw::LoadImage(L"金魚装甲可視化.png", 23, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み23番に登録(ぴよこ)
-	Draw::LoadImage(L"ピヨコ_正面.png", 24, TEX_SIZE_512);
+	//外部グラフィックファイルを読み込み24番に登録(ぴよこ)
+	Draw::LoadImage(L"aniぴよこ.png", 24, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み25番に登録(主人公ver.宇宙)アニメーション
 	Draw::LoadImage(L"ani金魚_宇宙.png", 25, TEX_SIZE_512);
@@ -115,12 +115,14 @@ void CSceneMain::InitScene()
 	Draw::LoadImage(L"宇宙_ステータス背景.png", 26, TEX_SIZE_512);
 
 	//音楽情報の読み込み
-	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
+	//BGM
+	Audio::LoadAudio(0, L"シーンBGM.wav", SOUND_TYPE::BACK_MUSIC);
 
-	Audio::LoadAudio(1, L"シーンBGM2(仮)修正.wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(1, L"シーンBGM2.wav", SOUND_TYPE::BACK_MUSIC);
 
-	Audio::LoadAudio(2, L"シーンBGM第二段階.wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(2, L"シーンBGM3.wav", SOUND_TYPE::BACK_MUSIC);
 
+	//SE
 	Audio::LoadAudio(3, L"上昇.wav", SOUND_TYPE::EFFECT);
 
 	Audio::LoadAudio(4, L"ダメージ音テスト.wav", SOUND_TYPE::EFFECT);
@@ -150,6 +152,9 @@ void CSceneMain::InitScene()
 	Audio::LoadAudio(16, L"氷連打音.wav", SOUND_TYPE::EFFECT);
 
 	Audio::LoadAudio(17, L"氷破壊音.wav", SOUND_TYPE::EFFECT);
+
+	Audio::LoadAudio(18, L"操作反転中SE.wav", SOUND_TYPE::BACK_MUSIC);
+
 	
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
@@ -246,14 +251,6 @@ void CSceneMain::Scene()
 		{
 			((UserData*)Save::GetData())->sp = 5.0f;
 		}
-	}
-
-	if (m_t == 0)
-	{
-		CObjRen* t = new CObjRen(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-		Objs::InsertObj(t, OBJ_REN, 51);
-
-		m_t++;
 	}
 
 	if (((UserData*)Save::GetData())->life_point > 0)
