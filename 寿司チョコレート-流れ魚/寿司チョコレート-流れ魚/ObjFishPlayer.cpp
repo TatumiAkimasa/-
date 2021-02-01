@@ -446,7 +446,7 @@ void CObjFishPlayer::Action()
         }*/
         m_spin += 15.0f;
         //m_px += 1 * m_vx;
-        m_vy += 0.01;
+        m_vy += 0.01f;
         m_py += 1 * m_vy;
     }
 

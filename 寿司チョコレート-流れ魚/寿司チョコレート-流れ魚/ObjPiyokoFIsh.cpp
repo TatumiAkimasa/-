@@ -57,8 +57,8 @@ void CObjPiyokoFish::Action()
 	}
 	else
 	{
-		m_vx = 1.0 / r * m_vx;
-		m_vy = 1.0 / r * m_vy;
+		m_vx = 1.0f / r * m_vx;
+		m_vy = 1.0f / r * m_vy;
 	}
 
 	m_vx *= 1.5f;

@@ -40,7 +40,7 @@ void ObjDriftFish::Action()
 {  
     rand(); rand(); rand(); rand();
     int x = rand() % 21;
-    m_vy += 0.1;
+    m_vy += 0.1f;
     m_spin += 10.0f;
 
     //移動ベクトルを座標に加算する
