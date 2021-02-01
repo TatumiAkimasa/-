@@ -274,152 +274,152 @@ void CObjMain::Draw()
 	else if (random == -8)
 	{
 		swprintf_s(str, L"そうめんにわざと");
-		Font::StrDraw(str, 50, COM_POS_1, COMMENT_SIZE, k);
+		Font::StrDraw(str, 50, COM_POS_1, COM_SIZE, k);
 		swprintf_s(str, L"当たって速度を");
-		Font::StrDraw(str, 50, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 50, COM_POS_2, COM_SIZE, k);
 		swprintf_s(str, L"調節してみよう!");
-		Font::StrDraw(str, 30, COM_POS_3, COMMENT_SIZE, k);
+		Font::StrDraw(str, 30, COM_POS_3, COM_SIZE, k);
 	}
 	else if (random == -7)
 	{
 		swprintf_s(str, L"操作反転中は点数");
-		Font::StrDraw(str, 45, COM_POS_1, COMMENT_SIZE, k);
+		Font::StrDraw(str, 45, COM_POS_1, COM_SIZE, k);
 		swprintf_s(str, L"が二倍増えるピンチ");
-		Font::StrDraw(str, 25, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 25, COM_POS_2, COM_SIZE, k);
 		swprintf_s(str, L"がチャンスへ！");
-		Font::StrDraw(str, 40, COM_POS_3, COMMENT_SIZE, k);
+		Font::StrDraw(str, 40, COM_POS_3, COM_SIZE, k);
 	}
 	else if (random == -6)
 	{
 		swprintf_s(str, L"長く生き残れば");
-		Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
+		Font::StrDraw(str, 60, COM_POS_1, COM_SIZE, k);
 		swprintf_s(str, L"獲得魚力がより");
-		Font::StrDraw(str, 60, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 60, COM_POS_2, COM_SIZE, k);
 		swprintf_s(str, L"多くもらえるよ！");
-		Font::StrDraw(str, 25, COM_POS_3, COMMENT_SIZE, k);
+		Font::StrDraw(str, 25, COM_POS_3, COM_SIZE, k);
 	}
 	else if (random == -5)
 	{
 	swprintf_s(str, L"世界最小の魚は");
-	Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
+	Font::StrDraw(str, 60, COM_POS_1, COM_SIZE, k);
 	swprintf_s(str, L"ドワーフフェアリー");
-	Font::StrDraw(str, 15, COM_POS_2, COMMENT_SIZE, k);
+	Font::StrDraw(str, 15, COM_POS_2, COM_SIZE, k);
 	swprintf_s(str, L"ミノーだよ");
-	Font::StrDraw(str, 70, COM_POS_3, COMMENT_SIZE, k);
+	Font::StrDraw(str, 70, COM_POS_3, COM_SIZE, k);
 	}
 	else if (random == -4)
 	{
 	swprintf_s(str, L"ハリセンボン");
-	Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
+	Font::StrDraw(str, 60, COM_POS_1, COM_SIZE, k);
 	swprintf_s(str, L"実は、針は");
-	Font::StrDraw(str, 50, COM_POS_2, COMMENT_SIZE, k);
+	Font::StrDraw(str, 50, COM_POS_2, COM_SIZE, k);
 	swprintf_s(str, L"400本くらい");
-	Font::StrDraw(str, 50, COM_POS_3, COMMENT_SIZE, k);
+	Font::StrDraw(str, 50, COM_POS_3, COM_SIZE, k);
 	}
 	else if (random == -3)
 	{
 	    swprintf_s(str, L"ドイツでは");
-	    Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
+	    Font::StrDraw(str, 60, COM_POS_1, COM_SIZE, k);
 	    swprintf_s(str, L"釣りに免許が");
-	    Font::StrDraw(str, 60, COM_POS_2, COMMENT_SIZE, k);
+	    Font::StrDraw(str, 60, COM_POS_2, COM_SIZE, k);
 		swprintf_s(str, L"いるらしいよ");
-		Font::StrDraw(str, 60, COM_POS_3, COMMENT_SIZE, k);
+		Font::StrDraw(str, 60, COM_POS_3, COM_SIZE, k);
 	}
 	else if (random == -2)
 	{
 		swprintf_s(str, L"サーモンは");
-		Font::StrDraw(str, 80, COM_POS_1, COMMENT_SIZE, k);
+		Font::StrDraw(str, 80, COM_POS_1, COM_SIZE, k);
 		swprintf_s(str, L"白身魚だよ");
-		Font::StrDraw(str, 80, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 80, COM_POS_2, COM_SIZE, k);
 	}
 	else if (random == -1)
 	{
 		swprintf_s(str, L"トビウオって最大");
-		Font::StrDraw(str, 33, COM_POS_1, COMMENT_SIZE, k);
+		Font::StrDraw(str, 33, COM_POS_1, COM_SIZE, k);
 		swprintf_s(str, L"400m飛ぶらしいよ！");
-		Font::StrDraw(str, 25, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 25, COM_POS_2, COM_SIZE, k);
 	}
 	else if (random == 0)
 	{
 		swprintf_s(str, L"さぁ、魚力を");
-		Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
+		Font::StrDraw(str, 60, COM_POS_1, COM_SIZE, k);
 		swprintf_s(str, L"上げよう！");
-		Font::StrDraw(str, 60, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 60, COM_POS_2, COM_SIZE, k);
 	}
 	else if (random == 1)
 	{
 		swprintf_s(str, L"知ってる？");
-		Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
+		Font::StrDraw(str, 60, COM_POS_1, COM_SIZE, k);
 		swprintf_s(str, L"僕って金魚なんだ！");
-		Font::StrDraw(str, 25, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 25, COM_POS_2, COM_SIZE, k);
 	}
 	else if (random == 2)
 	{
 		swprintf_s(str, L"因みに今泳いで");
-		Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
+		Font::StrDraw(str, 60, COM_POS_1, COM_SIZE, k);
 		swprintf_s(str, L"いるところは流し");
-		Font::StrDraw(str, 30, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 30, COM_POS_2, COM_SIZE, k);
 		swprintf_s(str, L"そうめん台だよ");
-		Font::StrDraw(str, 30, 510, COMMENT_SIZE, k);
+		Font::StrDraw(str, 30, 510, COM_SIZE, k);
 	}
 	else if (random == 3)
 	{
 		swprintf_s(str, L"これが僕の");
-		Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
+		Font::StrDraw(str, 60, COM_POS_1, COM_SIZE, k);
 		swprintf_s(str, L"全力のスピードだ!");
-		Font::StrDraw(str, 25, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 25, COM_POS_2, COM_SIZE, k);
 	}
 	else if (random == 4)
 	{
 		swprintf_s(str, L"肩慣らしは完了!");
-		Font::StrDraw(str, 55, COM_POS_1, COMMENT_SIZE, k);
+		Font::StrDraw(str, 55, COM_POS_1, COM_SIZE, k);
 		swprintf_s(str, L"どんどん行こう!");
-		Font::StrDraw(str, 55, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 55, COM_POS_2, COM_SIZE, k);
 	}
 	else if (random == 5)
 	{
 		swprintf_s(str, L"僕の魚力が");
-		Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
+		Font::StrDraw(str, 60, COM_POS_1, COM_SIZE, k);
 		swprintf_s(str, L"みなぎってる！");
-		Font::StrDraw(str, 60, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 60, COM_POS_2, COM_SIZE, k);
 		swprintf_s(str, L"どんどん行こう！");
-		Font::StrDraw(str, 25, COM_POS_3, COMMENT_SIZE, k);
+		Font::StrDraw(str, 25, COM_POS_3, COM_SIZE, k);
 	}
 	else if (random == 6)
 	{
 		swprintf_s(str, L"あぁ、癒される");
-		Font::StrDraw(str, 60, COM_POS_1, COMMENT_SIZE, k);
+		Font::StrDraw(str, 60, COM_POS_1, COM_SIZE, k);
 		swprintf_s(str, L"ありがとう！");
-		Font::StrDraw(str, 60, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 60, COM_POS_2, COM_SIZE, k);
 		swprintf_s(str, L"この調子！");
-		Font::StrDraw(str, 60, COM_POS_3, COMMENT_SIZE, k);
+		Font::StrDraw(str, 60, COM_POS_3, COM_SIZE, k);
 	}
 	else if (random == 7)
 	{
 		swprintf_s(str, L"まだまだ！");
-		Font::StrDraw(str, 85, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 85, COM_POS_2, COM_SIZE, k);
 	}
 	else if (random == 8)
 	{
 		swprintf_s(str, L"死にそう...！");
-		Font::StrDraw(str, 65, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 65, COM_POS_2, COM_SIZE, k);
 	}
 	else if (random == 10)
 	{
 		float k[4] = { 0.9f,0.1f,0.1f,1.0f };
 		swprintf_s(str, L"操作反転中！");
-		Font::StrDraw(str, 70, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 70, COM_POS_2, COM_SIZE, k);
 	}
 	else if (random == 11)
 	{
 		swprintf_s(str, L"前が見えない！？");
-		Font::StrDraw(str, 40, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 40, COM_POS_2, COM_SIZE, k);
 	}
 	else if (random == 12)
 	{
 		float k[4] = { 0.1f,0.9f,0.1f,1.0f };
 		swprintf_s(str, L"操作反転終了！");
-		Font::StrDraw(str, 55, 470, 30, k);
+		Font::StrDraw(str, 55, 470, COM_SIZE, k);
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 25, 510, 30, k);
 	}
@@ -427,9 +427,9 @@ void CObjMain::Draw()
 	{
 	float k[4] = { 0.1f,0.1f,0.9f,1.0f };
 	swprintf_s(str, L"体が動かない!?");
-	Font::StrDraw(str, 55, 450, 30, k);
+	Font::StrDraw(str, 55, 450, COM_SIZE, k);
 	swprintf_s(str, L"あと%d回連打だ!", ((UserData*)Save::GetData())->ren);
-	Font::StrDraw(str, 55, 490, 30, k);
+	Font::StrDraw(str, 55, 490, COM_SIZE, k);
 	swprintf_s(str, L"");
 	Font::StrDraw(str, 25, 510, 30, k);
     }
@@ -439,7 +439,7 @@ void CObjMain::Draw()
 	swprintf_s(str, L"");
 	Font::StrDraw(str, 60, 430, 30, k);
 	swprintf_s(str, L"脱出だ！");
-	Font::StrDraw(str, 65, 460, 50, k);
+	Font::StrDraw(str, 65, 460, COM_SIZE, k);
 	swprintf_s(str, L"");
 	Font::StrDraw(str, 25, 510, 30, k);
     }
@@ -448,7 +448,7 @@ void CObjMain::Draw()
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 50, 430, 30, k);
 		swprintf_s(str, L" 体が...重い!?");
-		Font::StrDraw(str, 50, 470, 30, k);
+		Font::StrDraw(str, 50, 470, COM_SIZE, k);
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 30, 510, 30, k);
 	}
@@ -456,9 +456,9 @@ void CObjMain::Draw()
 	{
 		float k[4] = { 0.9f,0.1f,0.1f,1.0f };
 		swprintf_s(str, L"次こそは！");
-		Font::StrDraw(str, 85, COM_POS_2, COMMENT_SIZE, k);
+		Font::StrDraw(str, 85, 450, COM_SIZE, k);
 		swprintf_s(str, L"必ず強くなる！");
-		Font::StrDraw(str, 50, 490, COMMENT_SIZE, k);
+		Font::StrDraw(str, 50, 490, COM_SIZE, k);
 	}
 	
 
