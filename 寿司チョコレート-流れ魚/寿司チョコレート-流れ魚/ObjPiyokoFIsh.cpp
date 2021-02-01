@@ -44,8 +44,8 @@ void CObjPiyokoFish::Action()
 		m_r = 0;
 	}
 
-	m_vx = cos(3.14 / 180 * m_r);
-	m_vy = sin(3.14 / 180 * m_r);
+	m_vx = cos(3.14f / 180.0f * m_r);
+	m_vy = sin(3.14f / 180.0f * m_r);
 
 	float r = 0.0f;
 	r = m_vx * m_vx + m_vy * m_vy;
