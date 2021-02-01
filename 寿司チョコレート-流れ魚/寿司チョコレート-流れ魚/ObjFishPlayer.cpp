@@ -158,7 +158,7 @@ void CObjFishPlayer::Action()
                         {
                             if (m_f == true)
                             {
-                                //主人公のの左右移動鈍足化
+                                //主人公の左右移動鈍足化
                                 if (((UserData*)Save::GetData())->key_flag_slow == true)
                                 {
                                     slow_left_move = true;
@@ -171,7 +171,7 @@ void CObjFishPlayer::Action()
                         }
                         else
                         {
-                            //主人公のの左右移動鈍足化
+                            //主人公の左右移動鈍足化
                             if (((UserData*)Save::GetData())->key_flag_slow == true)
                             {
                                 slow_right_move = true;
@@ -193,7 +193,7 @@ void CObjFishPlayer::Action()
                         {
                             if (m_f == true)
                             {
-                                //主人公のの左右移動鈍足化
+                                //主人公の左右移動鈍足化
                                 if (((UserData*)Save::GetData())->key_flag_slow == true)
                                 {
                                     slow_right_move = true;
@@ -206,7 +206,7 @@ void CObjFishPlayer::Action()
                         }
                         else
                         {
-                            //主人公のの左右移動鈍足化
+                            //主人公の左右移動鈍足化
                             if (((UserData*)Save::GetData())->key_flag_slow == true)
                             {
                                 slow_left_move = true;
@@ -233,7 +233,7 @@ void CObjFishPlayer::Action()
                             
                             if (m_f == true)
                             {
-                                //主人公のの左右移動鈍足化
+                                //主人公の左右移動鈍足化
                                 if (((UserData*)Save::GetData())->key_flag_slow == true)
                                 {
                                     slow_right_move = true;
@@ -246,7 +246,7 @@ void CObjFishPlayer::Action()
                         }
                         else
                         {
-                            //主人公のの左右移動鈍足化
+                            //主人公の左右移動鈍足化
                             if (((UserData*)Save::GetData())->key_flag_slow == true)
                             {
                                 slow_left_move = true;
@@ -270,7 +270,7 @@ void CObjFishPlayer::Action()
                             
                             if (m_f == true)
                             {
-                                //主人公のの左右移動鈍足化
+                                //主人公の左右移動鈍足化
                                 if (((UserData*)Save::GetData())->key_flag_slow == true)
                                 {
                                     slow_left_move = true;
@@ -283,7 +283,7 @@ void CObjFishPlayer::Action()
                         }
                         else
                         {
-                            //主人公のの左右移動鈍足化
+                            //主人公の左右移動鈍足化
                             if (((UserData*)Save::GetData())->key_flag_slow == true)
                             {
                                 slow_right_move = true;
