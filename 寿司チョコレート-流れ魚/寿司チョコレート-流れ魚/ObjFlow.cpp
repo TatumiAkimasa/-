@@ -96,11 +96,11 @@ void CObjFlow::Action()
 		}
 	}
 
-	//主人公オブジェクトと接触したら10円を削除
+	//主人公オブジェクトと接触したらそうめんを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
 		this->SetStatus(false);		//自身に削除命令を出す。
-		Hits::DeleteHitBox(this);	//10円が所有するHitBoxを削除する
+		Hits::DeleteHitBox(this);	//そうめんが所有するHitBoxを削除する
 	}
 }
 

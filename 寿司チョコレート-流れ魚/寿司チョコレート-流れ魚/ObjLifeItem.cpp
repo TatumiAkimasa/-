@@ -36,7 +36,7 @@ void CObjLifeItem::Action()
 
 	//HitBoxの内容を更新
 	CHitBox* hit = Hits::GetHitBox(this);	//作成したHitBox更新用の入り口を取り出す
-	hit->SetPos(m_x + 16, m_y + 16);					//入り口から新しい位置(主人公機の位置)情報に置き換える
+	hit->SetPos(m_x + 16, m_y + 16);					//入り口から新しい位置(主人公の位置)情報に置き換える
 
 	//画面外に出たらHitBoxを削除
 	if (m_y > 600.0f)
