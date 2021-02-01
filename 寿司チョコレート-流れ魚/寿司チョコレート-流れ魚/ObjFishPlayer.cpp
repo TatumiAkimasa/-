@@ -458,9 +458,10 @@ void CObjFishPlayer::Action()
     if (((UserData*)Save::GetData())->key_flag_mirror == true)
     {
         m_key_time++;
-
+    
         if (m_key_time == 540)
         {
+            Audio::Stop(18);
             ((UserData*)Save::GetData())->key_flag_mirror = false;
             m_key_time = 0;
         }

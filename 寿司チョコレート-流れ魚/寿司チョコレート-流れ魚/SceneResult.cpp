@@ -19,7 +19,7 @@ using namespace GameL;
 void CSceneResult::InitScene()
 {
 	//音楽情報の読み込み
-	Audio::LoadAudio(0, L"リザルトBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(0, L"リザルトBGM.wav", SOUND_TYPE::BACK_MUSIC);
 
 	//バックミュージックスタート
 	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
