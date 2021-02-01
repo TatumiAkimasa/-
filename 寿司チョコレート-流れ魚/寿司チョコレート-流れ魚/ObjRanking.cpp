@@ -12,14 +12,18 @@
 //使用するネームスペース
 using namespace GameL;
 
+//コンストラクタ
+CObjRanking::CObjRanking()
+{
+	D_flag = false;
+	U_flag = false;
+}
 
 //イニシャライズ
 void CObjRanking::Init()
 {
 	//点数を0にする
 	((UserData*)Save::GetData())->save_score = 0;
-	D_flag = false;
-	U_flag = false;
 }
 //アクション
 void CObjRanking::Action()

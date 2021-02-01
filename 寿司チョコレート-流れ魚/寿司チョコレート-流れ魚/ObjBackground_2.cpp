@@ -13,14 +13,20 @@ bool CObjBackground_2::End_point()
 	return End_P;
 }
 
-//イニシャライズ
-void CObjBackground_2::Init()
+//コンストラクタ
+CObjBackground_2::CObjBackground_2()
 {
 	m_y1 = 590.0f;
 	count = 2;
 	n = 0;
-	end_P=false;
+	end_P = false;
 	End_P = false;
+}
+
+//イニシャライズ
+void CObjBackground_2::Init()
+{
+
 }
 
 //アクション

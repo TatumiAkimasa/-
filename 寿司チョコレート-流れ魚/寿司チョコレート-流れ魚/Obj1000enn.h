@@ -17,5 +17,4 @@ private:
 	float m_x;			//100‰~‚ÌˆÊ’u
 	float m_y;
 	float m_vy;			//100‰~‚Ì—Ž‰º‚Å‚·
-	float s;
 };

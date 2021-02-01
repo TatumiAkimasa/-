@@ -1,4 +1,4 @@
-#pragma once 
+#pragma once
 //使用するヘッダー
 #include "GameL\SceneObjManager.h"
 //使用するネームスペース
@@ -17,5 +17,4 @@ class CObjsp_up : public CObj
 		float m_x;			//sp_upの位置
 		float m_y;
 		float m_vy;			//sp_upの落下
-		float s;
 };

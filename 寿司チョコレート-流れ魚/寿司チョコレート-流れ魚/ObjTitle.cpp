@@ -1,4 +1,4 @@
-//使用するヘッダーファイル/
+//使用するヘッダーファイル
 #include "GameL\WinInputs.h"
 #include "GameL\SceneManager.h"
 #include "GameL/DrawFont.h"
@@ -15,6 +15,15 @@
 //使用するネームスペース
 using namespace GameL;
 
+//コンストラクタ
+CObjTitle::CObjTitle()
+{
+	R_flag = false;
+	L_flag = false;
+	D_flag = false;
+	num = 0;//描画優先度
+}
+
 int CObjTitle::key_num_T()
 {
 	return num;
@@ -27,10 +36,6 @@ bool CObjTitle::key_num2_T()
 //イニシャライズ
 void CObjTitle::Init()
 {
-	R_flag = false;
-	L_flag = false;
-	D_flag = false;
-	num = 0;//描画優先度
 	//((UserData*)Save::GetData())->sp_lv = 0;//スピードレベル初期化
 
 	static bool init_point = false;

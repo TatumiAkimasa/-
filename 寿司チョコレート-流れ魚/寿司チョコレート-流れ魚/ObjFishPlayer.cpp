@@ -19,8 +19,8 @@ bool CObjFishPlayer::heel_flag()
     return come_heel_flag;
 }
 
-//イニシャライズ
-void CObjFishPlayer::Init()
+//コンストラクタ
+CObjFishPlayer::CObjFishPlayer()
 {
     m_vx = 0.0f;     //移動ベクトル
     m_vy = 0.0f;
@@ -30,7 +30,7 @@ void CObjFishPlayer::Init()
     m_ani_time = 0;
     m_ani_frame = 0;
     m_ice_ani_frame = 0;
-    m_time = 0; 
+    m_time = 0;
     m_inv_time = 0;//無敵時間用タイム変数
     m_stop_time = 0;
     m_right_move = false;
@@ -45,8 +45,13 @@ void CObjFishPlayer::Init()
     slow_left_move = false;
     slow_count = 0;
 
-    
+
     m_i = 0;
+}
+
+//イニシャライズ
+void CObjFishPlayer::Init()
+{
     srand(rand());
 
     //当たり判定用HitBoxを作成
