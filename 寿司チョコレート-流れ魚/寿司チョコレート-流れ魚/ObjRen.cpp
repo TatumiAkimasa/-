@@ -73,20 +73,6 @@ void CObjRen::Action()
 			((UserData*)Save::GetData())->ren = 4;
 		}
 	}
-	
-
-	/*switch (((UserData*)Save::GetData())->ren)
-	{
-	case 1:
-		m_ani_flame++;
-	case 2:
-		m_ani_flame++;
-	case 3:
-		m_ani_flame++;
-	case 4:
-		m_ani_flame++;
-	}*/
-
 }
 
 //ƒhƒ[
