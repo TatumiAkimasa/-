@@ -99,14 +99,20 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み21番に登録(Ren)
 	Draw::LoadImage(L"ani氷.png", 21, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み20番に登録(Armor)
+	//外部グラフィックファイルを読み込み20番に登録(鈍足)
 	Draw::LoadImage(L"鈍足.png", 22, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み20番に登録(Armor)
+	//外部グラフィックファイルを読み込み20番に登録(Armor（オーラ）)
 	Draw::LoadImage(L"金魚装甲可視化.png", 23, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み23番に登録(ぴよこ)
 	Draw::LoadImage(L"ピヨコ_正面.png", 24, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み25番に登録(主人公ver.宇宙)アニメーション
+	Draw::LoadImage(L"ani金魚_宇宙.png", 25, TEX_SIZE_512);
+
+	//外部グラフィックファイルを読み込み26番に登録(ステータス宇宙)
+	Draw::LoadImage(L"宇宙_ステータス背景.png", 26, TEX_SIZE_512);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -243,11 +249,19 @@ void CSceneMain::Scene()
 		}
 	}
 
+	if (m_t == 0)
+	{
+		CObjRen* t = new CObjRen(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+		Objs::InsertObj(t, OBJ_REN, 51);
+
+		m_t++;
+	}
+
 	if (((UserData*)Save::GetData())->life_point > 0)
 	{
 		//フレーム数の計算！
 		m_time++;
-		//水の流れの処理
+		//水の流れの処理/
 		if (m_time%29 == 0)
 		{
 			CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
@@ -259,6 +273,11 @@ void CSceneMain::Scene()
 			Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
 		}
 		else if (m_time % 127 == 0)
+		{
+			CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
+			Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);
+		}
+		else if (((UserData*)Save::GetData())->space_flag == true && m_time % 9 == 0)
 		{
 			CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
 			Objs::InsertObj(flow, OBJ_WATER_FLOW, 2);

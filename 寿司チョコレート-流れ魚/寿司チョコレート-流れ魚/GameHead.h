@@ -84,10 +84,11 @@ struct UserData
 	int Ranking[11];        //ランキングの表示用変数
 	bool Achievement_flag[30];//実績が解放されているかのフラグ
 	int max_time;           //速度が20の時カウントが始まる
-	int m_max_time = 0;      //max_timeの記憶用変数
-	float start_sp;         //初期速度を変更できるようにする変数
-	bool start_control_mirror;//操作反転の切り替えができる
+	float m_max_time = 0;      //max_timeの記憶用変数
+	float start_sp = 5.0f;         //初期速度を変更できるようにする変数
+	bool start_control_mirror = true;//操作反転の切り替えができる
 	bool key_flag_slow;     //主人公の左右の移動速度低下用フラグ
+	bool space_flag;  //金魚のスキン用フラグ
 };
 //------------------------------------------------
 

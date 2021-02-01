@@ -27,6 +27,7 @@ private:
 	bool heel_flag;//コメント用回復フラグ
 
 	bool mirrior_flag;//コメント用反転終了基準フラグ
+	bool ren_flag;    //コメント用連打終了基準フラグ
 
 	int fps = 0;//操作反転の時使う
 	int i = 9;//操作反転の時使う

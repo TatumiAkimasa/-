@@ -46,7 +46,24 @@ void CObjBackground_stats::Draw()
 	dst.m_right = 490.0f;
 	dst.m_bottom = 600.0f ;
 
-	Draw::Draw(6, &src, &dst, c, 0.0f);
+	if (((UserData*)Save::GetData())->space_flag == true)
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 300.0f;
+		src.m_bottom = 500.0f;
+
+		//6番目に登録したグラフィックをsrc・dst・cの情報をもとに描画
+		dst.m_top = 0.0f;
+		dst.m_left = 0.0f;
+		dst.m_right = 300.0f;
+		dst.m_bottom = 600.0f;
+
+		Draw::Draw(26, &src, &dst, c, 0.0f);
+	}
+	else
+	    Draw::Draw(6, &src, &dst, c, 0.0f);
 	
 
 }

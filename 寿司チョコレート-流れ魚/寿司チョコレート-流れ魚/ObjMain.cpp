@@ -31,6 +31,7 @@ void CObjMain::Init()
 	life_flag = false;
 	heel_flag = false;
 	mirrior_flag = false;
+	ren_flag=false;
 	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
 	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
 	((UserData*)Save::GetData())->life_point = 3;//セーブ用life_point初期化
@@ -58,22 +59,29 @@ void CObjMain::Action()
 		life_flag = false;
 
 	//コメントを瞬時に一度だけ切り替え
-	if (((UserData*)Save::GetData())->key_flag_mirror == true)
+	if (((UserData*)Save::GetData())->Ren_flag == true)
 	{
-		//反転（最優先）
+		//連打（最優先）
+		random = 13;
+		come_flag = false;
+		ren_flag = true;
+	}
+	else if (((UserData*)Save::GetData())->key_flag_mirror == true)
+	{
+		//反転（2番目）
 		random = 10;
 		come_flag = false;
 		mirrior_flag = true;
 	}
 	else if (((UserData*)Save::GetData())->Tree_flag == true)
 	{
-		//目隠し（2番目）
+		//目隠し（3番目）
 		random = 11;
 		come_flag = false;
 	}
 	else if (((UserData*)Save::GetData())->life_point == life - 1 && life_flag == true)
 	{
-		//全て三番目優先
+		//全て4番目優先
 		//ライフが1なら
 		if (((UserData*)Save::GetData())->life_point == 1)
 			//死にかけ
@@ -91,37 +99,43 @@ void CObjMain::Action()
 	//回復フラグで判断
 	else if (heel_flag == true)
 	{
-		//回復コメント（優先四番目）
+		//回復コメント（優先5番目）
 		random = 6;
 		life = ((UserData*)Save::GetData())->life_point;
 		come_flag = false;
 	}
 	else if (((UserData*)Save::GetData())->key_flag_slow==true)
 	{
-		//鈍足（優先五番目）
-		random = -9;
+		//鈍足（優先6番目）
+		random = 15;
 		come_flag = false;
 	}
 	//2000点を通過したら
 	else if (((UserData*)Save::GetData())->save_score == 2000)
 	{
-		//なんかほざく（優先六番目）
+		//なんかほざく（優先7番目）
 		random = 5;
 		come_flag = false;
 	}
 	//spが10～11の時
-	else if (((UserData*)Save::GetData())->sp > 10 && ((UserData*)Save::GetData())->sp < 11)
+	else if (((UserData*)Save::GetData())->sp > 10 && ((UserData*)Save::GetData())->sp < 10.5)
 	{
-		//なんか言う（優先七番目）
+		//なんか言う（優先8番目）
 		random = 4;
 		come_flag = false;
 	}
 	//spが20の時
 	else if (((UserData*)Save::GetData())->sp >= 20)
 	{
-		//限界みたいです（優先八番目）
+		//限界みたいです（優先9番目）
 		random = 3;
 		come_flag = false;
+	}
+	//連打し終えたとき
+	else if (ren_flag == true && come_flag == false&&((UserData*)Save::GetData())->ren == 0)
+	{
+		random = 14;
+		ren_flag = false;
 	}
 	//反転終了宣言
 	else if (mirrior_flag == true && come_flag == false)
@@ -136,7 +150,7 @@ void CObjMain::Action()
 		if (come_flag == true)
 		{
 			//３パターン
-			random = (rand() % 3) - 8;
+			random = (rand() % 4) - 9;
 			//random = -6~-8;
 			come_flag = false;
 		}
@@ -181,7 +195,7 @@ void CObjMain::Action()
 		}
 	}
 
-	if (((UserData*)Save::GetData())->sp >= 19.0)
+	if (((UserData*)Save::GetData())->sp >= 5.0)
 	{
 		//int i = 0;
 		((UserData*)Save::GetData())->max_time++;
@@ -193,7 +207,7 @@ void CObjMain::Action()
 
 	if (((UserData*)Save::GetData())->life_point == 0)
 	{
-		//反転（最優先）
+		//死亡（最優先）
 		random = 99;
 	}
 }
@@ -247,12 +261,12 @@ void CObjMain::Draw()
 	float k[4] = { 0.1f,0.1f,0.1f,1.0f };
 	if (random == -9)
 	{
-		swprintf_s(str, L"");
+		swprintf_s(str, L"僕の速度が20の時");
 		Font::StrDraw(str, 50, 430, 30, k);
-		swprintf_s(str, L" 体が...重い!?");
+		swprintf_s(str, L"10秒耐えると30が");
 		Font::StrDraw(str, 50, 470, 30, k);
-		swprintf_s(str, L"");
-		Font::StrDraw(str, 30, 510, 30, k);
+		swprintf_s(str, L"開くんだって！");
+		Font::StrDraw(str, 50, 510, 30, k);
 	}
 	else if (random == -8)
 	{
@@ -290,7 +304,7 @@ void CObjMain::Draw()
 	swprintf_s(str, L"ミノーだよ");
 	Font::StrDraw(str, 70, 510, 30, k);
 	}
-	if (random == -4)
+	else if (random == -4)
 	{
 	swprintf_s(str, L"ハリセンボン");
 	Font::StrDraw(str, 60, 430, 30, k);
@@ -299,7 +313,7 @@ void CObjMain::Draw()
 	swprintf_s(str, L"400本くらい");
 	Font::StrDraw(str, 50, 510, 30, k);
 	}
-	if (random == -3)
+	else if (random == -3)
 	{
 	    swprintf_s(str, L"ドイツでは");
 	    Font::StrDraw(str, 60, 430, 30, k);
@@ -308,35 +322,35 @@ void CObjMain::Draw()
 		swprintf_s(str, L"いるらしいよ");
 		Font::StrDraw(str, 60, 510, 30, k);
 	}
-	if (random == -2)
+	else if (random == -2)
 	{
 		swprintf_s(str, L"サーモンは");
 		Font::StrDraw(str, 80, 430, 30, k);
 		swprintf_s(str, L"白身魚だよ");
 		Font::StrDraw(str, 80, 470, 30, k);
 	}
-	if (random == -1)
+	else if (random == -1)
 	{
 		swprintf_s(str, L"トビウオって最大");
 		Font::StrDraw(str, 33, 430, 30, k);
 		swprintf_s(str, L"400m飛ぶらしいよ！");
 		Font::StrDraw(str, 25, 470, 30, k);
 	}
-	if (random == 0)
+	else if (random == 0)
 	{
 		swprintf_s(str, L"さぁ、魚力を");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"上げよう！");
 		Font::StrDraw(str, 60, 470, 30, k);
 	}
-	if (random == 1)
+	else if (random == 1)
 	{
 		swprintf_s(str, L"知ってる？");
 		Font::StrDraw(str, 60, 430, 30, k);
 		swprintf_s(str, L"僕って金魚なんだ！");
 		Font::StrDraw(str, 25, 470, 30, k);
 	}
-	if (random == 2)
+	else if (random == 2)
 	{
 		swprintf_s(str, L"因みに今泳いで");
 		Font::StrDraw(str, 60, 430, 30, k);
@@ -423,6 +437,35 @@ void CObjMain::Draw()
 		Font::StrDraw(str, 55, 470, 30, k);
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 25, 510, 30, k);
+	}
+	else if (random == 13)
+	{
+	float k[4] = { 0.1f,0.1f,0.9f,1.0f };
+	swprintf_s(str, L"体が動かない!?");
+	Font::StrDraw(str, 55, 450, 30, k);
+	swprintf_s(str, L"あと%d回連打だ!", ((UserData*)Save::GetData())->ren);
+	Font::StrDraw(str, 55, 490, 30, k);
+	swprintf_s(str, L"");
+	Font::StrDraw(str, 25, 510, 30, k);
+    }
+	else if (random == 14)
+	{
+	float k[4] = { 0.1f,0.9f,0.1f,1.0f };
+	swprintf_s(str, L"");
+	Font::StrDraw(str, 60, 430, 30, k);
+	swprintf_s(str, L"脱出だ！");
+	Font::StrDraw(str, 65, 460, 50, k);
+	swprintf_s(str, L"");
+	Font::StrDraw(str, 25, 510, 30, k);
+    }
+	else if (random == 15)
+	{
+		swprintf_s(str, L"");
+		Font::StrDraw(str, 50, 430, 30, k);
+		swprintf_s(str, L" 体が...重い!?");
+		Font::StrDraw(str, 50, 470, 30, k);
+		swprintf_s(str, L"");
+		Font::StrDraw(str, 30, 510, 30, k);
 	}
 	else if (random == 99)
 	{
