@@ -190,6 +190,12 @@ void CObjMain::Action()
 			((UserData*)Save::GetData())->Achievement_flag[29] = true;
 		}
 	}
+
+	if (((UserData*)Save::GetData())->life_point == 0)
+	{
+		//反転（最優先）
+		random = 99;
+	}
 }
 
 //ドロー
@@ -417,6 +423,16 @@ void CObjMain::Draw()
 		Font::StrDraw(str, 55, 470, 30, k);
 		swprintf_s(str, L"");
 		Font::StrDraw(str, 25, 510, 30, k);
+	}
+	else if (random == 99)
+	{
+		float k[4] = { 0.9f,0.1f,0.1f,1.0f };
+		swprintf_s(str, L"");
+		Font::StrDraw(str, 60, 430, 30, k);
+		swprintf_s(str, L"次こそは！");
+		Font::StrDraw(str, 85, 460, 30, k);
+		swprintf_s(str, L"必ず強くなる！");
+		Font::StrDraw(str, 50, 490, 30, k);
 	}
 	
 

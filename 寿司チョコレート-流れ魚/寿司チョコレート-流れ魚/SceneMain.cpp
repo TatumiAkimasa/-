@@ -97,7 +97,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImage(L"Armor.png", 20, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み21番に登録(Ren)
-	Draw::LoadImage(L"氷.png", 21, TEX_SIZE_512);
+	Draw::LoadImage(L"ani氷.png", 21, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み20番に登録(Armor)
 	Draw::LoadImage(L"鈍足.png", 22, TEX_SIZE_512);
@@ -105,13 +105,18 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み20番に登録(Armor)
 	Draw::LoadImage(L"金魚装甲可視化.png", 23, TEX_SIZE_512);
 
+	//外部グラフィックファイルを読み込み23番に登録(ぴよこ)
+	Draw::LoadImage(L"ピヨコ_正面.png", 24, TEX_SIZE_512);
+
 	//音楽情報の読み込み
+	//BGM
 	Audio::LoadAudio(0, L"シーンBGM(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
 	Audio::LoadAudio(1, L"シーンBGM2(仮)修正.wav", SOUND_TYPE::BACK_MUSIC);
 
 	Audio::LoadAudio(2, L"シーンBGM第二段階.wav", SOUND_TYPE::BACK_MUSIC);
 
+	//SE
 	Audio::LoadAudio(3, L"上昇.wav", SOUND_TYPE::EFFECT);
 
 	Audio::LoadAudio(4, L"ダメージ音テスト.wav", SOUND_TYPE::EFFECT);
@@ -173,7 +178,7 @@ void CSceneMain::InitScene()
 
 	((UserData*)Save::GetData())->save_score = 0;
 
-	t = 0;
+	m_t = 0;
 
 	bgm_flag = false;
 	bgm_flag2 = false;
@@ -225,7 +230,7 @@ void CSceneMain::Scene()
 		Audio::Start(1);
 		bgm_flag2 = false;
 	}
-
+	
 	//障害物に当たった時、スピードが初期に戻る処理
 	if (((UserData*)Save::GetData())->sp_lv == 0)
 	{
@@ -244,7 +249,7 @@ void CSceneMain::Scene()
 	{
 		//フレーム数の計算！
 		m_time++;
-		//水の流れの処理
+		//水の流れの処理/
 		if (m_time%29 == 0)
 		{
 			CObjwater_flow* flow = new CObjwater_flow(((UserData*)Save::GetData())->sp);
