@@ -9,7 +9,7 @@ using namespace GameL;
 class CObjSetting :public CObj
 {
 public:
-	CObjSetting() {};
+	CObjSetting();
 	~CObjSetting() {};
 	void Init();
 	void Action();

@@ -12,26 +12,30 @@
 
 using namespace GameL;
 
-//イニシャライズ
-void CObjMain::Init()
+//コンストラクタ
+CObjMain::CObjMain()
 {
 	f = 0;//フレーム計算!
 	s_time = 0;
 	m_time = 0;
-
 	fps = 0;//操作反転時間の表示
 	i = 1;//操作反転時間の表示
 	second = 10;//操作反転時間の表示
-	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
-	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
-	((UserData*)Save::GetData())->life_point = 3;//セーブ用life_point初期化
 	random = 0;
 	life = 3;
 	come_flag = false;
 	life_flag = false;
 	heel_flag = false;
 	mirrior_flag = false;
-	ren_flag=false;
+	ren_flag = false;
+}
+
+//イニシャライズ
+void CObjMain::Init()
+{
+	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
+	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
+	((UserData*)Save::GetData())->life_point = 3;//セーブ用life_point初期化
 	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
 	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
 	((UserData*)Save::GetData())->life_point = 3;//セーブ用life_point初期化

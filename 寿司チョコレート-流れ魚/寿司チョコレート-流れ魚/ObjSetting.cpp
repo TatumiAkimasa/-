@@ -12,9 +12,8 @@
 //使用するネームスペース
 using namespace GameL;
 
-
-//イニシャライズ
-void CObjSetting::Init()
+//コンストラクタ
+CObjSetting::CObjSetting()
 {
 	R_flag = true;
 	L_flag = true;
@@ -22,6 +21,11 @@ void CObjSetting::Init()
 	D_flag = true;
 	setting_pos = 0;
 	Hidden_flag = false;
+}
+
+//イニシャライズ
+void CObjSetting::Init()
+{
 	//((UserData*)Save::GetData())->start_sp = 5.0f;
 	//((UserData*)Save::GetData())->start_control_mirror = true;
 }

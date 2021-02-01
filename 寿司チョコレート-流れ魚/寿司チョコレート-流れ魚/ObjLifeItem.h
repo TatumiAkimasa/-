@@ -17,7 +17,5 @@ public:
 private:
 	float m_x;			//10‰~‚ÌˆÊ’u
 	float m_y;
-	float m_vy;			//10‰~‚Ì—Ž‰º
-	float s;
-	
+	float m_vy;			//10‰~‚Ì—Ž‰º	
 };

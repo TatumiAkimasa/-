@@ -9,7 +9,7 @@ using namespace GameL;
 class CObjRanking :public CObj
 {
 public:
-	CObjRanking() {};
+	CObjRanking();
 	~CObjRanking() {};
 	void Init();
 	void Action();
