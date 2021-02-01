@@ -53,7 +53,7 @@ void CObjmirror::Action()
 
 		//主人公オブジェクトと接触したらtrueにする
 		((UserData*)Save::GetData())->key_flag_mirror = true;
-		Audio::Start(18);
+		Audio::Start(18);//操作反転中の効果音
 		
 		//スコアの加算
 		((UserData*)Save::GetData())->save_score += 1000;
