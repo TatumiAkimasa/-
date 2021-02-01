@@ -99,14 +99,14 @@ void CSceneMain::InitScene()
 	//外部グラフィックファイルを読み込み21番に登録(Ren)
 	Draw::LoadImage(L"ani氷.png", 21, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み20番に登録(鈍足)
+	//外部グラフィックファイルを読み込み22番に登録(鈍足)
 	Draw::LoadImage(L"鈍足.png", 22, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み20番に登録(Armor（オーラ）)
+	//外部グラフィックファイルを読み込み23番に登録(Armor（オーラ）)
 	Draw::LoadImage(L"金魚装甲可視化.png", 23, TEX_SIZE_512);
 
-	//外部グラフィックファイルを読み込み23番に登録(ぴよこ)
-	Draw::LoadImage(L"ピヨコ_正面.png", 24, TEX_SIZE_512);
+	//外部グラフィックファイルを読み込み24番に登録(ぴよこ)
+	Draw::LoadImage(L"aniぴよこ.png", 24, TEX_SIZE_512);
 
 	//外部グラフィックファイルを読み込み25番に登録(主人公ver.宇宙)アニメーション
 	Draw::LoadImage(L"ani金魚_宇宙.png", 25, TEX_SIZE_512);
@@ -251,8 +251,8 @@ void CSceneMain::Scene()
 
 	if (m_t == 0)
 	{
-		CObjRen* t = new CObjRen(FLOW_SPACE_RIGHT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
-		Objs::InsertObj(t, OBJ_REN, 51);
+		CObjmirror* m = new CObjmirror(FLOW_SPACE_LEFT, FLOW_HIGHT, ((UserData*)Save::GetData())->sp);
+		Objs::InsertObj(m, OBJ_10ENN, FLOW_PICTURE_PRIORITY);
 
 		m_t++;
 	}

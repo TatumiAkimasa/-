@@ -17,6 +17,7 @@ CObjPiyokoFish::CObjPiyokoFish(float x, float y, float r)
 	m_r = r;
 	m_px = x;
 	m_py = y;
+	m_obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
 }
 
 //イニシャライズ
@@ -26,7 +27,8 @@ void CObjPiyokoFish::Init()
 	m_vy = 0.0f;
 	m_obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
 	m_fp_x = m_obj->GetX();
-	
+	m_ani_frame = 0;
+	m_ani_time = 0;
 	//当たり判定用ヒットボックスを作成
 	Hits::SetHitBox(this, m_px, m_py, 0, 0, NULL, NULL, 1);
 }
@@ -37,36 +39,56 @@ void CObjPiyokoFish::Action()
 	m_obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
 	m_fp_x = m_obj->GetX();
 
-	m_r += 2.0f;
-
-	if (m_r > 360)
+	if (((UserData*)Save::GetData())->life_point > 0)
 	{
-		m_r = 0;
-	}
+		m_ani_time++;
+		if (m_ani_time == 30)
+		{
+			m_ani_frame++;
+			m_ani_time = 0;
+			if (m_ani_frame >= 2)
+			{
+				m_ani_frame = 0;
+			}
+		}
+		m_r += 2.0f;
 
-	m_vx = cos(3.14 / 180 * m_r);
-	m_vy = sin(3.14 / 180 * m_r);
+		if (m_r > 360)
+		{
+			m_r = 0;
+		}
 
-	float r = 0.0f;
-	r = m_vx * m_vx + m_vy * m_vy;
-	r = sqrt(r);
+		m_vx = cos(3.14 / 180 * m_r);
+		m_vy = sin(3.14 / 180 * m_r);
 
-	if (r == 0.0f)
-	{
-		;
+		float r = 0.0f;
+		r = m_vx * m_vx + m_vy * m_vy;
+		r = sqrt(r);
+
+		if (r == 0.0f)
+		{
+			;
+		}
+		else
+		{
+			m_vx = 1.0 / r * m_vx;
+			m_vy = 1.0 / r * m_vy;
+		}
+
+		m_vx *= 1.5f;
+		m_vy *= 1.5f;
+
+		m_px += m_vx;
+		m_py += m_vy;
 	}
 	else
 	{
-		m_vx = 1.0 / r * m_vx;
-		m_vy = 1.0 / r * m_vy;
+		m_vx = 0.0f;
+		m_vy = 0.0f;
+
+		m_px += m_vx;
+		m_py += m_vy;
 	}
-
-	m_vx *= 1.5f;
-	m_vy *= 1.5f;
-
-	m_px += m_vx;
-	m_py += m_vy;
-	
 	//piyokoのHitBox用ポインターを取得
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_px, m_py);
@@ -95,10 +117,10 @@ void CObjPiyokoFish::Draw()
 
 
 	//切り取り位置の設定
-	src.m_top = 0.0f;
+	src.m_top = 250.0f * m_ani_frame;
 	src.m_left = 0.0f;
-	src.m_right = 254.0f;
-	src.m_bottom = 254.0f;
+	src.m_right = 250.0f;
+	src.m_bottom = 250.0f * (m_ani_frame + 1);
 	//0番目に登録したグラフィックをsrc・dst・cの情報を元に描画
 	Draw::Draw(24, &src, &dst, c, 180.0f);
 }

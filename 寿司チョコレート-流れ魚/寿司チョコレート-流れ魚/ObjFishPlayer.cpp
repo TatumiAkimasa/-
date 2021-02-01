@@ -71,9 +71,6 @@ void CObjFishPlayer::Action()
         if (((UserData*)Save::GetData())->Ren_flag == true)
         {
             m_ice_ani_frame = 4 - ((UserData*)Save::GetData())->ren;
-           /* CObjRen* ice;
-            ice = new CObjRen(m_px, m_py, 0.0f);
-            Objs::InsertObj(ice, NULL, 100);*/
 
             //âE
             if (Input::GetVKey(VK_RIGHT) == true)
@@ -424,26 +421,7 @@ void CObjFishPlayer::Action()
         Audio::Stop(4);
         Audio::Start(5);//Ç‚ÇÁÇÍéûSE
         m_time++;
-       /*ãõÇ”ÇÈÇÌÇπÇƒgameoverÇ≥ÇπÇÈópÇÃèàóù 
-       if (m_time % 4 == 0)
-        {
-            if (cont == 0)
-            {
-                m_vx += 5;
-                cont++;
-            }
-            else if (cont == 1)
-            {
-                m_vx -= 15;
-                cont = -1;
-            }
-            else if (cont == -1)
-            {
-                m_vx += 15;
-                cont = 1;
-            }
-            m_time = 0;
-        }*/
+
         m_spin += 15.0f;
         //m_px += 1 * m_vx;
         m_vy += 0.01;
