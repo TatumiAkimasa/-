@@ -21,6 +21,8 @@ CObjPiyokoFish::CObjPiyokoFish(float x, float y, float r)
 	m_px = x;
 	m_py = y;
 	m_obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
+	m_ani_frame = 0;
+	m_ani_time = 0;
 }
 
 //イニシャライズ
@@ -28,8 +30,6 @@ void CObjPiyokoFish::Init()
 {
 	m_obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
 	m_fp_x = m_obj->GetX();
-	m_ani_frame = 0;
-	m_ani_time = 0;
 	//当たり判定用ヒットボックスを作成
 	Hits::SetHitBox(this, m_px, m_py, 0, 0, NULL, NULL, 1);
 }
