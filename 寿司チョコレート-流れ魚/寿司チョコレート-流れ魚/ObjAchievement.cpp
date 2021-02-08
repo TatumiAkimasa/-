@@ -68,7 +68,7 @@ void CObjAchievement::Draw()
 	{
 		Font::StrDraw(L"1.0‹›—Í", ACHIEVEMENT_POS_L, 100, ACHIEVEMENT_SIZE, c);
 	}
-	//0`500
+	//0`500ƒhƒDƒG[ƒX
 	if (((UserData*)Save::GetData())->Achievement_flag[1] == true)
 	{
 		Font::StrDraw(L"2.’t‹›", ACHIEVEMENT_POS_L, 130, ACHIEVEMENT_SIZE, b);
