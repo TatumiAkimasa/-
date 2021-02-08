@@ -10,7 +10,7 @@ using namespace GameL;
 
 float CObjBackground::speed_back()
 {
-	return n;
+	return (float)n;
 }
 
 bool CObjBackground::end_point()

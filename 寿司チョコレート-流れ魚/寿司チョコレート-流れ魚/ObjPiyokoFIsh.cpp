@@ -37,7 +37,6 @@ void CObjPiyokoFish::Init()
 //アクション
 void CObjPiyokoFish::Action()
 {
-	m_obj = (CObjFishPlayer*)Objs::GetObj(OBJ_FISH_PLAYER);
 	m_fp_x = m_obj->GetX();
 
 	if (((UserData*)Save::GetData())->life_point > 0)
@@ -59,37 +58,44 @@ void CObjPiyokoFish::Action()
 			m_r = 0;
 		}
 
-	m_vx = cos(3.14f / 180.0f * m_r);
-	m_vy = sin(3.14f / 180.0f * m_r);
+		//角度をとる
+		m_vx = cos((double)3.14f / 180.0f * m_r);
+		m_vy = sin((double)3.14f / 180.0f * m_r);
 
+		//正規化
 		float r = 0.0f;
 		r = m_vx * m_vx + m_vy * m_vy;
-		r = sqrt(r);
+		r = (float)sqrt(r);
 
-	if (r == 0.0f)
-	{
-		;
-	}
-	else
-	{
-		m_vx = 1.0f / r * m_vx;
-		m_vy = 1.0f / r * m_vy;
-	}
+		//0°以外の角度をベクトルに代入
+		if (r == 0.0f)
+		{
+			;
+		}
+		else
+		{
+			m_vx = 1.0f / r * m_vx;
+			m_vy = 1.0f / r * m_vy;
+		}
 
+		//回る速度
 		m_vx *= 1.5f;
 		m_vy *= 1.5f;
 
+		//ベクトルを座標に代入
 		m_px += m_vx;
 		m_py += m_vy;
 	}
 	else
 	{
+		//ライフ0で回転停止
 		m_vx = 0.0f;
 		m_vy = 0.0f;
 
 		m_px += m_vx;
 		m_py += m_vy;
 	}
+
 	//piyokoのHitBox用ポインターを取得
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_px, m_py);

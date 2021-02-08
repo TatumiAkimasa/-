@@ -40,7 +40,10 @@ void ObjDriftFish::Action()
 {  
     rand(); rand(); rand(); rand();
     int x = rand() % 21;
+    //落ちる速度をだんだん速く
     m_vy += 0.1f;
+
+    //回転処理
     m_spin += 10.0f;
 
     //移動ベクトルを座標に加算する
