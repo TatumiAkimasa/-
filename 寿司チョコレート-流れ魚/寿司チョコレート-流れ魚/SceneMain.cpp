@@ -21,6 +21,12 @@ using namespace GameL;
 //コンストラクタ
 CSceneMain::CSceneMain()
 {
+	//落下速度の初期化
+	if (t == 0)
+	{
+		((UserData*)Save::GetData())->sp = ((UserData*)Save::GetData())->start_sp;
+		t++;
+	}
 
 }
 
@@ -157,7 +163,7 @@ void CSceneMain::InitScene()
 
 	
 	//バックミュージックスタート
-	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.8下げる
+	float volume = Audio::VolumeMaster(0.0f);//マスターボリュームを0.0下げる
 	Audio::Start(0);//音楽スタート
 
 	//背景オブジェクト作成
@@ -202,14 +208,9 @@ void CSceneMain::Scene()
 	//通常障害物 50/全体　ギミック 1/全体
 	int x = rand() % 63;
 	
-	//落下の初期化
-	if (t == 0)
-	{
-		((UserData*)Save::GetData())->sp = ((UserData*)Save::GetData())->start_sp;
-		t++;
-	}
-
+	
 	//BGM変更
+	//速度が10を超えたときBGM変更
 	if (((UserData*)Save::GetData())->sp >= 10.0f && bgm_flag == false)
 	{
 		Audio::Start(3);
@@ -217,6 +218,7 @@ void CSceneMain::Scene()
 		Audio::Start(1);
 		bgm_flag = true;
 	}
+	//速度が10を下回ったときBGMを変更
 	if (((UserData*)Save::GetData())->sp < 10.0f && bgm_flag == true)
 	{
 		Audio::Stop(1);
@@ -225,6 +227,7 @@ void CSceneMain::Scene()
 
 	}
 	//BGM変更（第二段階）
+	//速度が15を超えたときBGM変更
 	if (((UserData*)Save::GetData())->sp >= 15.0f && bgm_flag2 == false)
 	{
 		Audio::Start(3);
@@ -232,6 +235,7 @@ void CSceneMain::Scene()
 		Audio::Start(2);
 		bgm_flag2 = true;
 	}
+	//速度が15を下回ったときBGMを変更
 	if (((UserData*)Save::GetData())->sp < 15.0f && bgm_flag2 == true)
 	{
 		Audio::Stop(2);

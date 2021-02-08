@@ -29,13 +29,13 @@ public:
 	void Scene();//ゲームメインの実行中メソッド
 private:
 	int m_time;
-	int x;
-	int t = 0;
+	int x;//障害物の降る確率設定用変数
+	int t = 0;//落下速度の初期化用変数
 	bool bgm_flag;//BGM切り替えフラグ
 	bool bgm_flag2;//BGM切り替えフラグ2段階目
 	int m_ani_time; //主人公アニメーションタイム用変数
 	int m_ani_frame; //主人公アニメーションフレーム用変数
-	int m_t;
+	int m_t;//水流を降らす変数
 };
 
 

@@ -9,8 +9,7 @@
 #include "GameHead.h"
 #include "ObjFishPlayer.h"
 #include "GameL\Audio.h"
-#include <thread>
-#include <chrono>
+
 //使用するネームスペース
 using namespace GameL;
 
@@ -457,6 +456,7 @@ void CObjFishPlayer::Action()
 
         
         come_heel_flag = true;
+        //ライフが3以下のとき回復
         if (((UserData*)Save::GetData())->life_point < 3)
         {
             ((UserData*)Save::GetData())->life_point++;
