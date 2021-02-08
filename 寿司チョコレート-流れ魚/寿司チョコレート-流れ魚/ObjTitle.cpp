@@ -28,8 +28,7 @@ CObjTitle::CObjTitle()
 //イニシャライズ
 void CObjTitle::Init()
 {
-	//((UserData*)Save::GetData())->sp_lv = 0;//スピードレベル初期化
-
+	
 	static bool init_point = false;
 	if (init_point == false)
 	{
@@ -62,10 +61,10 @@ void CObjTitle::Init()
 //アクション
 void CObjTitle::Action()
 {
-	//→キーを押してシーン：ゲーム説明に移行する。/
+	//→キーを押して説明を表示
 	if (Input::GetVKey(VK_RIGHT) == true)
 	{
-
+		//→キーで次のページへ
 		if (R_flag == true)
 		{
 
@@ -80,10 +79,10 @@ void CObjTitle::Action()
 		R_flag = true;
 	}
 
-	//スペースキーを押してシーン：ゲーム説明に移行する。/
+	//←キーを押して説明を表示
 	if (Input::GetVKey(VK_LEFT) == true)
 	{
-
+		//←キーで前のページへ
 		if (L_flag == true)
 		{
 
