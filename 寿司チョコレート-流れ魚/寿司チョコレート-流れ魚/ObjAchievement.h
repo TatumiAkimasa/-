@@ -9,6 +9,12 @@ using namespace GameL;
 #define ACHIEVEMENT_POS_R 450
 #define ACHIEVEMENT_SIZE 20
 
+typedef struct STRUCT_ACHIEVEMENT
+{
+	char coment[40];
+	int hight;
+}achi;
+
 //オブジェクト：タイトル
 class CObjAchievement :public CObj
 {
